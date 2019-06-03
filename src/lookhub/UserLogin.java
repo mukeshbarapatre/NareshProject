@@ -188,7 +188,7 @@ public class UserLogin extends javax.swing.JFrame {
           }
           else
           {
-              //JFrame.showMessageDialog(this,"enter username and password");
+              //showMessageDialog(this,"enter username and password");
           }
     }//GEN-LAST:event_BLoginMouseClicked
     catch(Exception e)
