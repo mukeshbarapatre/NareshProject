@@ -84,6 +84,7 @@ public class AdminLogin extends javax.swing.JFrame {
         pass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         pass.setText("Password  ");
 
+        username.setBackground(new java.awt.Color(153, 153, 153));
         username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         username.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -94,6 +95,7 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
+        password.setBackground(new java.awt.Color(153, 153, 153));
         password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -106,6 +108,11 @@ public class AdminLogin extends javax.swing.JFrame {
 
         login.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         login.setText("Login");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         exit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         exit.setText("Exit");
@@ -257,25 +264,25 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
         // TODO add your handling code here:
-        username.setBackground(Color.BLACK);
-        username.setForeground(Color.WHITE);
+        username.setBackground(Color.WHITE);
+        username.setForeground(Color.BLACK);
     }//GEN-LAST:event_usernameFocusGained
 
     private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
         // TODO add your handling code here:
-        username.setBackground(new Color(255,255,255));
+        username.setBackground(new Color(153,153,153));
         username.setForeground(Color.BLACK);
     }//GEN-LAST:event_usernameFocusLost
 
     private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
         // TODO add your handling code here:
-        password.setBackground(Color.BLACK);
-        password.setForeground(Color.WHITE);
+        password.setBackground(Color.WHITE);
+        password.setForeground(Color.BLACK);
     }//GEN-LAST:event_passwordFocusGained
 
     private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
         // TODO add your handling code here:
-        password.setBackground(new Color(255,255,255));
+        password.setBackground(new Color(153,153,153));
         password.setForeground(Color.BLACK);
     }//GEN-LAST:event_passwordFocusLost
 
@@ -287,6 +294,13 @@ public class AdminLogin extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_exitActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        String pswd = "vaibhav";
+        String usrn = "vaibhav";
+        if()
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
