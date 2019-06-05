@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package lookhub;
-
 /**
  *
  * @author proper
@@ -16,6 +15,8 @@ public class LookHub {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       AdminLogin ad= new AdminLogin();
+       ad.setVisible(true);
     }
     
 }
