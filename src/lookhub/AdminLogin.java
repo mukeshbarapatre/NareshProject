@@ -5,6 +5,9 @@
  */
 package lookhub;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vip
@@ -81,13 +84,36 @@ public class AdminLogin extends javax.swing.JFrame {
         pass.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         pass.setText("Password  ");
 
-        password.setText("jPasswordField1");
+        username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameFocusLost(evt);
+            }
+        });
+
+        password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordFocusLost(evt);
+            }
+        });
 
         login.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         login.setText("Login");
 
         exit.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         exit.setText("Exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
 
         forgetP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         forgetP.setForeground(new java.awt.Color(0, 0, 204));
@@ -228,6 +254,39 @@ public class AdminLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        // TODO add your handling code here:
+        username.setBackground(Color.BLACK);
+        username.setForeground(Color.WHITE);
+    }//GEN-LAST:event_usernameFocusGained
+
+    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+        // TODO add your handling code here:
+        username.setBackground(new Color(255,255,255));
+        username.setForeground(Color.BLACK);
+    }//GEN-LAST:event_usernameFocusLost
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        // TODO add your handling code here:
+        password.setBackground(Color.BLACK);
+        password.setForeground(Color.WHITE);
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+        // TODO add your handling code here:
+        password.setBackground(new Color(255,255,255));
+        password.setForeground(Color.BLACK);
+    }//GEN-LAST:event_passwordFocusLost
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        int exitopt = JOptionPane.showConfirmDialog(this, "Do you really want to exit ?","EXIT",JOptionPane.YES_NO_OPTION);
+        
+        if(exitopt==JOptionPane.YES_OPTION){
+            dispose();
+        }
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
