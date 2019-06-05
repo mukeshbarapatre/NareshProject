@@ -127,13 +127,28 @@ public class AdminLogin extends javax.swing.JFrame {
         forgetP.setForeground(new java.awt.Color(0, 0, 204));
         forgetP.setText("forget password ?");
         forgetP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forgetP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgetPMouseClicked(evt);
+            }
+        });
 
         forgetU.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         forgetU.setForeground(new java.awt.Color(0, 0, 204));
         forgetU.setText("forget username ?");
         forgetU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        forgetU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgetUMouseClicked(evt);
+            }
+        });
 
         registration.setText("REGISTRATION");
+        registration.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -305,11 +320,33 @@ public class AdminLogin extends javax.swing.JFrame {
         }else{
         if(password.getText().equals(pswd) && username.getText().equals(usrn)){
             System.out.println("Match");
+            
+            //code for login to main page
+            
         }else{
                     JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
         }
         }
     }//GEN-LAST:event_loginActionPerformed
+
+    private void registrationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationActionPerformed
+        // TODO add your handling code here:
+        RegistrationForm rj = new RegistrationForm();
+       dispose();
+        rj.setVisible(true);
+    }//GEN-LAST:event_registrationActionPerformed
+
+    private void forgetPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetPMouseClicked
+        // TODO add your handling code here:
+        ForgetPassWord fp = new ForgetPassWord();
+        fp.setVisible(true);
+    }//GEN-LAST:event_forgetPMouseClicked
+
+    private void forgetUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetUMouseClicked
+        // TODO add your handling code here:
+        ForgetUserName fu = new ForgetUserName();
+        fu.setVisible(true);
+    }//GEN-LAST:event_forgetUMouseClicked
 
     /**
      * @param args the command line arguments
