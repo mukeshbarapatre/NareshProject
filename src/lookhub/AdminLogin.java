@@ -52,6 +52,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
         AdminPannel.setBackground(new java.awt.Color(38, 3, 3));
 
@@ -297,9 +298,17 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
+        String usrn = "vip";
         String pswd = "vaibhav";
-        String usrn = "vaibhav";
-        if()
+        if (password.getText().equals("") || username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
+        }else{
+        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
+            System.out.println("Match");
+        }else{
+                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+        }
+        }
     }//GEN-LAST:event_loginActionPerformed
 
     /**
