@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class AdminLogin extends javax.swing.JFrame {
 
+    String LoginChosser = "ADMIN";
     /**
      * Creates new form AdminLogin
      */
@@ -166,6 +167,11 @@ public class AdminLogin extends javax.swing.JFrame {
         });
 
         nextADMIN.setText("ADMIN");
+        nextADMIN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextADMINActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -205,7 +211,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     .addGroup(LoginLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(LoginLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(forgetP)
@@ -264,11 +270,11 @@ public class AdminLogin extends javax.swing.JFrame {
             .addGroup(AdminPannelLayout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addGroup(AdminPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSeparator1)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
                     .addGroup(AdminPannelLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         AdminPannelLayout.setVerticalGroup(
@@ -339,8 +345,9 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        String usrn = "vip";
-        String pswd = "vaibhav";
+        if(LoginChosser.equals("USER")){
+            String usrn = "username";
+            String pswd = "vaibhav";
         if (password.getText().equals("") || username.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
         }else{
@@ -348,9 +355,31 @@ public class AdminLogin extends javax.swing.JFrame {
             System.out.println("Match");
             
             //code for login to main page
+            HomePage hp = new HomePage();
+            hp.setVisible(true);
             
         }else{
                     JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+        }
+        }
+        }
+        if(LoginChosser.equals("ADMIN")){
+            String usrn = "vip";
+            String pswd = "vaibhav";
+        if (password.getText().equals("") || username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
+        }else{
+        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
+            System.out.println("Match");
+            
+            HomePage hp = new HomePage();
+            hp.setVisible(true);
+            
+            //code for login to main page
+            
+        }else{
+                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+        }
         }
         }
     }//GEN-LAST:event_loginActionPerformed
@@ -376,9 +405,23 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void nextUSERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextUSERActionPerformed
         // TODO add your handling code here:
+        LoginChosser = "USER";
+        password.setText("");
+        username.setText("");
+        ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
+        adminpic.setIcon(iconimg);
         
         
     }//GEN-LAST:event_nextUSERActionPerformed
+
+    private void nextADMINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextADMINActionPerformed
+        // TODO add your handling code here:
+        LoginChosser = "ADMIN";
+        password.setText("");
+        username.setText("");
+        ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
+        adminpic.setIcon(iconimg);
+    }//GEN-LAST:event_nextADMINActionPerformed
 
     /**
      * @param args the command line arguments

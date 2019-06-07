@@ -1,3 +1,5 @@
+package lookhub;
+
 
 import java.awt.Toolkit;
 
