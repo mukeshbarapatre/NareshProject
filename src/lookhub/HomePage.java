@@ -1,3 +1,6 @@
+
+import java.awt.Toolkit;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,9 +16,13 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-    ImageIcon imageicon;
+
     public HomePage() {
         initComponents();
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        int xsize = (int)tk.getScreenSize().getWidth();
+        int ysize = (int)tk.getScreenSize().getHeight();
+        this.setSize(xsize,ysize);
     }
 
     /**
@@ -176,9 +183,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_deltail_btActionPerformed
 
     private void deltail_btMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deltail_btMouseEntered
-                   byte[] image=getByte("D://image");
-                   imageicon =new ImageIcon(image);
-                   jLable1.setIcon(imageicon);
+                   
     }//GEN-LAST:event_deltail_btMouseEntered
 
     /**
