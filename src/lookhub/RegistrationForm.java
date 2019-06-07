@@ -8,6 +8,8 @@ package lookhub;
 
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -22,6 +24,9 @@ Checkbox c1 = new Checkbox("famele", che, false);
      */
     public RegistrationForm() {
         initComponents();
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension size = tk.getScreenSize();
+        this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
     }
 
     /**
@@ -36,26 +41,31 @@ Checkbox c1 = new Checkbox("famele", che, false);
         jMenuItem1 = new javax.swing.JMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
         Panel = new javax.swing.JPanel();
-        Registration = new javax.swing.JLabel();
-        ConfirmPassword = new javax.swing.JLabel();
-        Email = new javax.swing.JLabel();
-        MailTextfield = new javax.swing.JTextField();
-        UserId = new javax.swing.JLabel();
-        Password = new javax.swing.JLabel();
-        PasswordTextfield = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
         Name = new javax.swing.JLabel();
-        NameTextfield = new javax.swing.JTextField();
         Surname = new javax.swing.JLabel();
-        SurnameTextfield = new javax.swing.JTextField();
-        UserIdTextfield = new javax.swing.JTextField();
-        ConfirmPasswordTextfield = new javax.swing.JPasswordField();
         ContactNumebe = new javax.swing.JLabel();
-        ContactTextfield = new javax.swing.JTextField();
-        Submit = new javax.swing.JButton();
-        Cancle = new javax.swing.JButton();
         Gender = new javax.swing.JLabel();
+        UserId = new javax.swing.JLabel();
+        NameTextfield = new javax.swing.JTextField();
+        SurnameTextfield = new javax.swing.JTextField();
+        ContactTextfield = new javax.swing.JTextField();
         Male = new javax.swing.JCheckBox();
         Female = new javax.swing.JCheckBox();
+        UserIdTextfield = new javax.swing.JTextField();
+        ConfirmPassword = new javax.swing.JLabel();
+        Password = new javax.swing.JLabel();
+        Email = new javax.swing.JLabel();
+        PasswordTextfield = new javax.swing.JPasswordField();
+        ConfirmPasswordTextfield = new javax.swing.JPasswordField();
+        MailTextfield = new javax.swing.JTextField();
+        Submit = new javax.swing.JButton();
+        Cancle = new javax.swing.JButton();
+        Look = new javax.swing.JLabel();
+        Hub = new javax.swing.JLabel();
+        modelicon = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        Registration = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -78,42 +88,23 @@ Checkbox c1 = new Checkbox("famele", che, false);
             }
         });
 
-        Registration.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        Registration.setForeground(java.awt.Color.white);
-        Registration.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Registration.setText("Registration Form");
-        Registration.setName(""); // NOI18N
-
-        ConfirmPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ConfirmPassword.setForeground(java.awt.Color.white);
-        ConfirmPassword.setText("Confirm Password");
-
-        Email.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Email.setForeground(java.awt.Color.white);
-        Email.setText("Email Address");
-
-        MailTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        MailTextfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MailTextfieldActionPerformed(evt);
-            }
-        });
-
-        UserId.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        UserId.setForeground(java.awt.Color.white);
-        UserId.setText("User ID");
-
-        Password.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Password.setForeground(java.awt.Color.white);
-        Password.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Password.setText("Password");
-
-        PasswordTextfield.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        PasswordTextfield.setText("jPasswordField2");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         Name.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Name.setForeground(java.awt.Color.white);
         Name.setText("Name");
+
+        Surname.setBackground(new java.awt.Color(255, 255, 255));
+        Surname.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Surname.setText("Surname");
+
+        ContactNumebe.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ContactNumebe.setText("Contact Number");
+
+        Gender.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Gender.setText("Gender");
+
+        UserId.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        UserId.setText("User ID");
 
         NameTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         NameTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -123,16 +114,32 @@ Checkbox c1 = new Checkbox("famele", che, false);
             }
         });
 
-        Surname.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Surname.setForeground(java.awt.Color.white);
-        Surname.setText("Surname");
-
         SurnameTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         SurnameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SurnameTextfieldActionPerformed(evt);
             }
         });
+
+        ContactTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactTextfieldActionPerformed(evt);
+            }
+        });
+
+        Male.setBackground(new java.awt.Color(204, 204, 204));
+        Male.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        Male.setText("Male");
+        Male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MaleActionPerformed(evt);
+            }
+        });
+
+        Female.setBackground(new java.awt.Color(204, 204, 204));
+        Female.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        Female.setText("Female");
 
         UserIdTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         UserIdTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -141,17 +148,24 @@ Checkbox c1 = new Checkbox("famele", che, false);
             }
         });
 
+        ConfirmPassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ConfirmPassword.setText("Confirm Password");
+
+        Password.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Password.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Password.setText("Password");
+
+        Email.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        Email.setText("Email Address");
+
+        PasswordTextfield.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+
         ConfirmPasswordTextfield.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ConfirmPasswordTextfield.setText("jPasswordField1");
 
-        ContactNumebe.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ContactNumebe.setForeground(java.awt.Color.white);
-        ContactNumebe.setText("Contact Number");
-
-        ContactTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
-        ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
+        MailTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        MailTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContactTextfieldActionPerformed(evt);
+                MailTextfieldActionPerformed(evt);
             }
         });
 
@@ -171,124 +185,166 @@ Checkbox c1 = new Checkbox("famele", che, false);
             }
         });
 
-        Gender.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Gender.setForeground(java.awt.Color.white);
-        Gender.setText("Gender");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ContactNumebe, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(Surname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(UserId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(Male, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(Female))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(SurnameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                .addComponent(ContactTextfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(UserIdTextfield))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ConfirmPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConfirmPasswordTextfield)
+                            .addComponent(PasswordTextfield)
+                            .addComponent(MailTextfield))))
+                .addGap(38, 38, 38))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
+                .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Surname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ContactNumebe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ContactTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Male)
+                    .addComponent(Female, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PasswordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConfirmPasswordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
-        Male.setBackground(java.awt.Color.darkGray);
-        Male.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        Male.setForeground(java.awt.Color.white);
-        Male.setText("Male");
-        Male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaleActionPerformed(evt);
-            }
-        });
+        Look.setFont(new java.awt.Font("Narkisim", 1, 36)); // NOI18N
+        Look.setForeground(new java.awt.Color(255, 24, 204));
+        Look.setText("LOOK");
 
-        Female.setBackground(java.awt.Color.darkGray);
-        Female.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        Female.setForeground(java.awt.Color.white);
-        Female.setText("Female");
+        Hub.setFont(new java.awt.Font("Narkisim", 1, 36)); // NOI18N
+        Hub.setForeground(new java.awt.Color(255, 24, 204));
+        Hub.setText("HUB");
+
+        modelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Unisex.png"))); // NOI18N
+        modelicon.setText("jLabel1");
+
+        Registration.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        Registration.setForeground(java.awt.Color.white);
+        Registration.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Registration.setText("Registration Form");
+        Registration.setName(""); // NOI18N
 
         javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
         Panel.setLayout(PanelLayout);
         PanelLayout.setHorizontalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Surname, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ContactNumebe, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(Male, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Female)
-                        .addGap(67, 67, 67))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(MailTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                            .addComponent(ConfirmPasswordTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
-                            .addComponent(PasswordTextfield, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UserIdTextfield)
-                            .addComponent(ContactTextfield)
-                            .addComponent(SurnameTextfield)
-                            .addComponent(NameTextfield))
-                        .addGap(21, 21, 21))))
+                        .addGap(222, 222, 222)
+                        .addComponent(modelicon, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Look)
+                            .addComponent(Hub)))
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator1))))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(Registration, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109)
-                        .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addGap(200, 200, 200)
+                .addComponent(Registration, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
+                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelLayout.createSequentialGroup()
+                        .addComponent(Look)
+                        .addGap(0, 0, 0)
+                        .addComponent(Hub))
+                    .addComponent(modelicon))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(Registration, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SurnameTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Surname, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ContactTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ContactNumebe, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Male)
-                    .addComponent(Female, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserIdTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UserId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PasswordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmPasswordTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MailTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -395,6 +451,8 @@ if(evt.getSource()==Submit){
     private javax.swing.JLabel Email;
     private javax.swing.JCheckBox Female;
     private javax.swing.JLabel Gender;
+    private javax.swing.JLabel Hub;
+    private javax.swing.JLabel Look;
     private javax.swing.JTextField MailTextfield;
     private javax.swing.JCheckBox Male;
     private javax.swing.JLabel Name;
@@ -410,5 +468,8 @@ if(evt.getSource()==Submit){
     private javax.swing.JTextField UserIdTextfield;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel modelicon;
     // End of variables declaration//GEN-END:variables
 }
