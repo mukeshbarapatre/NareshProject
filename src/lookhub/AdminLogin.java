@@ -8,6 +8,7 @@ package lookhub;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -26,6 +27,7 @@ public class AdminLogin extends javax.swing.JFrame {
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension size = tk.getScreenSize();
         this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
+        this.username.requestFocus();
     }
 
     /**
@@ -104,6 +106,11 @@ public class AdminLogin extends javax.swing.JFrame {
                 usernameFocusLost(evt);
             }
         });
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
+            }
+        });
 
         password.setBackground(new java.awt.Color(153, 153, 153));
         password.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -115,12 +122,22 @@ public class AdminLogin extends javax.swing.JFrame {
                 passwordFocusLost(evt);
             }
         });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
+            }
+        });
 
         login.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
+            }
+        });
+        login.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                loginKeyPressed(evt);
             }
         });
 
@@ -154,6 +171,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         ADMINLOGIN.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(ADMINLOGIN);
+        ADMINLOGIN.setSelected(true);
         ADMINLOGIN.setText("Admin Login");
         ADMINLOGIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,6 +363,7 @@ public class AdminLogin extends javax.swing.JFrame {
             //code for login to main page
             HomePage hp = new HomePage();
             hp.setVisible(true);
+            this.dispose();
             
         }else{
                     JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
@@ -362,6 +381,7 @@ public class AdminLogin extends javax.swing.JFrame {
             
             HomePage hp = new HomePage();
             hp.setVisible(true);
+            this.dispose();
             
             //code for login to main page
             
@@ -390,6 +410,7 @@ public class AdminLogin extends javax.swing.JFrame {
         username.setText("");
         ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
         adminpic.setIcon(iconimg);
+        username.requestFocus();
     }//GEN-LAST:event_ADMINLOGINActionPerformed
 
     private void USERLOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USERLOGINActionPerformed
@@ -399,7 +420,75 @@ public class AdminLogin extends javax.swing.JFrame {
         username.setText("");
         ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
         adminpic.setIcon(iconimg);
+        username.requestFocus();
     }//GEN-LAST:event_USERLOGINActionPerformed
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(username.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Username","Username",JOptionPane.OK_OPTION);
+            }else{
+                password.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_usernameKeyPressed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(password.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Password","Password",JOptionPane.OK_OPTION);
+            }else{
+                login.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_passwordKeyPressed
+
+    private void loginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(LoginChosser.equals("USER")){
+            String usrn = "username";
+            String pswd = "vaibhav";
+        if (password.getText().equals("") || username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
+        }else{
+        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
+            System.out.println("Match");
+            
+            //code for login to main page
+            HomePage hp = new HomePage();
+            hp.setVisible(true);
+            this.dispose();
+            
+        }else{
+                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+        }
+        }
+        }
+        if(LoginChosser.equals("ADMIN")){
+            String usrn = "vip";
+            String pswd = "vaibhav";
+        if (password.getText().equals("") || username.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
+        }else{
+        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
+            System.out.println("Match");
+            
+            HomePage hp = new HomePage();
+            hp.setVisible(true);
+            this.dispose();
+            
+            //code for login to main page
+            
+        }else{
+                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+        }
+        }
+        }
+        }
+    }//GEN-LAST:event_loginKeyPressed
 
     /**
      * @param args the command line arguments
