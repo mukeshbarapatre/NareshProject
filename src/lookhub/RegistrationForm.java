@@ -184,9 +184,11 @@ Checkbox Female = new Checkbox("Famele", che, false);
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Address");
 
+        jRadioButton1.setBackground(new java.awt.Color(204, 204, 204));
         buttongroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
 
+        jRadioButton2.setBackground(new java.awt.Color(204, 204, 204));
         buttongroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
 

@@ -71,15 +71,13 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="other_bt" max="32767" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="deltail_bt" pref="204" max="32767" attributes="0"/>
-                          <Component id="emp_bt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="client_bt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="product_bt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="service_bt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="supplier_bt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="report_bt" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="deltail_bt" alignment="0" pref="204" max="32767" attributes="0"/>
+                      <Component id="emp_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="client_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="product_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="service_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="supplier_bt" alignment="0" max="32767" attributes="0"/>
+                      <Component id="report_bt" alignment="0" max="32767" attributes="0"/>
                       <Component id="offer_bt" alignment="1" pref="204" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="32" max="32767" attributes="0"/>
@@ -235,7 +233,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="442" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="457" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="Hub" min="-2" max="-2" attributes="0"/>
@@ -243,9 +241,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="Look" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="117" max="32767" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="221" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace min="47" pref="370" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -255,11 +251,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Look" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="46" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <Component id="Look" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="207" max="32767" attributes="0"/>
                   <Component id="Hub" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -287,14 +280,6 @@
               <Color blue="cc" green="18" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="HUB"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor" postCode="Image img = icon.getImage() ;  &#xa;   Image newimg = img.getScaledInstance( NEW_WIDTH, NEW_HEIGHT,  java.awt.Image.SCALE_SMOOTH ) ;  &#xa;   icon = new ImageIcon( newimg );">
-              <Image iconType="2" name="D:\logout_bt.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
         </Component>
       </SubComponents>
