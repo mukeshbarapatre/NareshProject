@@ -5,7 +5,8 @@
  */
 
 package lookhub;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Dimension;
@@ -171,6 +172,11 @@ Checkbox Female = new Checkbox("Famele", che, false);
         Email.setText("Email Address");
 
         PasswordTextfield.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        PasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordTextfieldActionPerformed(evt);
+            }
+        });
 
         ConfirmPasswordTextfield.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ConfirmPasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -441,7 +447,21 @@ if(evt.getSource()==Submit){
     }//GEN-LAST:event_NameTextfieldActionPerformed
 
     private void MailTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MailTextfieldActionPerformed
-        // TODO add your handling code here:
+       
+      String email = MailTextfield.getText();
+      String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+
+      Pattern p = Pattern.compile(emailRegex);
+      Matcher m = p.matcher(email);
+      boolean matchFound = m.matches();
+      if (matchFound)
+        System.out.println("Valid Email Id.");
+      else
+        System.out.println("Invalid Email Id.");
+ 
     }//GEN-LAST:event_MailTextfieldActionPerformed
 
     private void PanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelMouseClicked
@@ -500,6 +520,10 @@ if(evt.getSource()==Submit){
             }
         }
     }//GEN-LAST:event_jTextArea1KeyPressed
+
+    private void PasswordTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordTextfieldActionPerformed
  private void Gender(java.awt.event.ActionEvent evt) {                        
 
     }                       
