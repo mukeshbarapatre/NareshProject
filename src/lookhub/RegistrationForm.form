@@ -150,9 +150,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="Submit" min="-2" pref="116" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                       <Component id="Cancle" min="-2" pref="116" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -163,19 +163,6 @@
                               <Component id="Name" min="-2" pref="147" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="NameTextfield" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="Email" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="ConfirmPassword" alignment="0" pref="147" max="32767" attributes="0"/>
-                                  <Component id="Password" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ConfirmPasswordTextfield" max="32767" attributes="0"/>
-                                  <Component id="MailTextfield" max="32767" attributes="0"/>
-                                  <Component id="PasswordTextfield" alignment="0" max="32767" attributes="0"/>
-                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -198,12 +185,26 @@
                                       <Component id="jScrollPane1" pref="300" max="32767" attributes="0"/>
                                       <Component id="ContactTextfield" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="SurnameTextfield" pref="300" max="32767" attributes="0"/>
+                                  <Component id="SurnameTextfield" pref="302" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                               <Component id="confirm_pswd" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="Email" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ConfirmPassword" alignment="0" pref="147" max="32767" attributes="0"/>
+                                  <Component id="Password" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ConfirmPasswordTextfield" max="32767" attributes="0"/>
+                                  <Component id="MailTextfield" max="32767" attributes="0"/>
+                                  <Component id="PasswordTextfield" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="emaillabel" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -268,12 +269,14 @@
                           <Component id="MailTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Email" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="emaillabel" min="-2" pref="13" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="Submit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="Cancle" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -497,6 +500,11 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JLabel" name="confirm_pswd">
+            </Component>
+            <Component class="javax.swing.JLabel" name="emaillabel">
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emaillabelFocusGained"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
