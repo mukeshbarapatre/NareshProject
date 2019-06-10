@@ -511,12 +511,17 @@ if(evt.getSource()==Submit){
 
     private void ContactTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContactTextfieldKeyPressed
         // TODO add your handling code here:
+        String regex ="[0-9]";
+        String data;
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(ContactTextfield.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter Contact","Contact",JOptionPane.OK_OPTION);
             }else{
                 jTextArea1.requestFocus();
             }
+            if(ContactTextField.getText().matches(regex))
+            {
+               jTextArea1.requestFocus();            }
         }
     }//GEN-LAST:event_ContactTextfieldKeyPressed
 
