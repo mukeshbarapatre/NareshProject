@@ -10,6 +10,7 @@ import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -122,6 +123,11 @@ Checkbox Female = new Checkbox("Famele", che, false);
                 Vishal(evt);
             }
         });
+        NameTextfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NameTextfieldKeyPressed(evt);
+            }
+        });
 
         SurnameTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         SurnameTextfield.addActionListener(new java.awt.event.ActionListener() {
@@ -129,11 +135,21 @@ Checkbox Female = new Checkbox("Famele", che, false);
                 SurnameTextfieldActionPerformed(evt);
             }
         });
+        SurnameTextfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                SurnameTextfieldKeyPressed(evt);
+            }
+        });
 
         ContactTextfield.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactTextfieldActionPerformed(evt);
+            }
+        });
+        ContactTextfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ContactTextfieldKeyPressed(evt);
             }
         });
 
@@ -201,6 +217,11 @@ Checkbox Female = new Checkbox("Famele", che, false);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -434,6 +455,51 @@ if(evt.getSource()==Submit){
     private void ConfirmPasswordTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmPasswordTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConfirmPasswordTextfieldActionPerformed
+
+    private void NameTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameTextfieldKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(NameTextfield.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                SurnameTextfield.requestFocus();
+            }
+        }
+        
+    }//GEN-LAST:event_NameTextfieldKeyPressed
+
+    private void SurnameTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SurnameTextfieldKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(SurnameTextfield.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Last Name","LastName",JOptionPane.OK_OPTION);
+            }else{
+                ContactTextfield.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_SurnameTextfieldKeyPressed
+
+    private void ContactTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContactTextfieldKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(ContactTextfield.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Contact","Contact",JOptionPane.OK_OPTION);
+            }else{
+                jTextArea1.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_ContactTextfieldKeyPressed
+
+    private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(jTextArea1.getText().equals(null)){
+                JOptionPane.showMessageDialog(this, "Enter Address","Address",JOptionPane.OK_OPTION);
+            }else{
+                male.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_jTextArea1KeyPressed
  private void Gender(java.awt.event.ActionEvent evt) {                        
 
     }                       
