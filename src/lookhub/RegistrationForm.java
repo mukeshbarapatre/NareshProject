@@ -276,6 +276,11 @@ public class RegistrationForm extends javax.swing.JFrame {
                 MailTextfieldActionPerformed(evt);
             }
         });
+        MailTextfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MailTextfieldKeyPressed(evt);
+            }
+        });
 
         Submit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         Submit.setText("Submit");
@@ -533,13 +538,7 @@ public class RegistrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_CancleActionPerformed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-if(evt.getSource()==Submit){
-    NameTextfield.getAction();
-    
-    {
         
-    }
-}
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void ContactTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactTextfieldActionPerformed
@@ -704,6 +703,19 @@ if(evt.getSource()==Submit){
             }
         }
     }//GEN-LAST:event_ConfirmPasswordTextfieldKeyPressed
+
+    private void MailTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MailTextfieldKeyPressed
+        // TODO add your handling code here:
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(MailTextfield.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Password not Confirmed","Confirm Password",JOptionPane.OK_OPTION);
+            }else{
+                
+                    Submit.requestFocus();
+                
+            }
+        }
+    }//GEN-LAST:event_MailTextfieldKeyPressed
 
     /**
      * @param args the command line arguments
