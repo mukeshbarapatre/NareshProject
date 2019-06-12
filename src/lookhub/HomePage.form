@@ -1,6 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JPanel" name="SalonDTab">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[944, 586]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="402" max="32767" attributes="0"/>
+                  <Component id="jLabel3" min="-2" pref="180" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="252" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" pref="54" max="-2" attributes="0"/>
+                  <EmptySpace pref="280" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Salon Details"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="EmployeeDTab">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[944, 586]"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="447" max="32767" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="123" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="374" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace pref="279" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="24" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Employee"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -35,38 +128,23 @@
                   <Group type="102" attributes="0">
                       <Component id="buttonpanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ParentPanel" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane1" max="32767" attributes="0"/>
                   </Group>
                   <Component id="homepanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="458" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="459" max="32767" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="homepanel" min="-2" pref="142" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="buttonpanel" max="32767" attributes="0"/>
-                  <Component id="ParentPanel" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="376" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="377" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -91,7 +169,7 @@
                       <Component id="Look1" min="-2" pref="266" max="-2" attributes="0"/>
                       <Component id="Look" min="-2" pref="385" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -233,72 +311,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Look HUb Family Salon"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JPanel" name="ParentPanel">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ParentPanel1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ParentPanel1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JPanel" name="ParentPanel1">
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="366" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="282" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Look HUb Family Salon"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
-    </Container>
     <Container class="javax.swing.JPanel" name="buttonpanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -339,11 +351,11 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="104" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="deltail_bt" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="emp_bt" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="client_bt" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="product_bt" min="-2" pref="40" max="-2" attributes="0"/>
@@ -357,6 +369,7 @@
                   <Component id="offer_bt" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="other_bt" min="-2" pref="40" max="-2" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -387,6 +400,9 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emp_btActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="client_bt">
           <Properties>
@@ -471,6 +487,72 @@
             </Property>
           </Properties>
         </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder roundedCorners="true" thickness="5">
+              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="HomeTab">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="tab1">
+                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="426" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="283" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="24" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="33" red="33" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="WELCOME TO LOOKHUB"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

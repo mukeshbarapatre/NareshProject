@@ -1,10 +1,17 @@
 package lookhub;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,8 +37,32 @@ public class HomePage extends javax.swing.JFrame {
         int xsize = (int)tk.getScreenSize().getWidth();
         int ysize = (int)tk.getScreenSize().getHeight();
         this.setSize(xsize,ysize);
+        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(HomeTab), getTitlePanel(jTabbedPane1, HomeTab, "HOME  "));
+        
     }
+    private static JPanel getTitlePanel(final JTabbedPane tabbedPane, final JPanel panel, String title)
+ {
+  JPanel titlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+  titlePanel.setOpaque(false);
+  JLabel titleLbl = new JLabel(title);
+  //titleLbl.setBorder(BorderLayout.createEmptyBorder(0, 0, 0, 5));
+  titlePanel.add(titleLbl);
+  JLabel closeButton = new JLabel("x");
 
+  closeButton.addMouseListener(new MouseAdapter()
+  {
+   @Override
+   public void mouseClicked(MouseEvent e)
+   {
+    tabbedPane.remove(panel);
+   }
+  });
+
+
+  titlePanel.add(closeButton);
+
+  return titlePanel;
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,6 +72,10 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        SalonDTab = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        EmployeeDTab = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         Look1 = new javax.swing.JLabel();
@@ -49,10 +84,6 @@ public class HomePage extends javax.swing.JFrame {
         logout = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         modelicon = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        ParentPanel = new javax.swing.JPanel();
-        ParentPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         buttonpanel = new javax.swing.JPanel();
         deltail_bt = new javax.swing.JButton();
         emp_bt = new javax.swing.JButton();
@@ -63,6 +94,58 @@ public class HomePage extends javax.swing.JFrame {
         report_bt = new javax.swing.JButton();
         offer_bt = new javax.swing.JButton();
         other_bt = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        HomeTab = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+
+        SalonDTab.setBackground(new java.awt.Color(204, 204, 204));
+        SalonDTab.setPreferredSize(new java.awt.Dimension(944, 586));
+
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel3.setText("Salon Details");
+
+        javax.swing.GroupLayout SalonDTabLayout = new javax.swing.GroupLayout(SalonDTab);
+        SalonDTab.setLayout(SalonDTabLayout);
+        SalonDTabLayout.setHorizontalGroup(
+            SalonDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SalonDTabLayout.createSequentialGroup()
+                .addContainerGap(402, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(362, 362, 362))
+        );
+        SalonDTabLayout.setVerticalGroup(
+            SalonDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SalonDTabLayout.createSequentialGroup()
+                .addGap(252, 252, 252)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(280, Short.MAX_VALUE))
+        );
+
+        EmployeeDTab.setBackground(new java.awt.Color(204, 204, 204));
+        EmployeeDTab.setPreferredSize(new java.awt.Dimension(944, 586));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel4.setText("Employee");
+
+        javax.swing.GroupLayout EmployeeDTabLayout = new javax.swing.GroupLayout(EmployeeDTab);
+        EmployeeDTab.setLayout(EmployeeDTabLayout);
+        EmployeeDTabLayout.setHorizontalGroup(
+            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeDTabLayout.createSequentialGroup()
+                .addContainerGap(447, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(374, 374, 374))
+        );
+        EmployeeDTabLayout.setVerticalGroup(
+            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EmployeeDTabLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(279, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 3, 3));
@@ -129,7 +212,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Look1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -154,46 +237,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(1063, 1063, 1063))
         );
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Look HUb Family Salon");
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Look HUb Family Salon");
-
-        javax.swing.GroupLayout ParentPanel1Layout = new javax.swing.GroupLayout(ParentPanel1);
-        ParentPanel1.setLayout(ParentPanel1Layout);
-        ParentPanel1Layout.setHorizontalGroup(
-            ParentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ParentPanel1Layout.createSequentialGroup()
-                .addGap(366, 366, 366)
-                .addComponent(jLabel3)
-                .addContainerGap(282, Short.MAX_VALUE))
-        );
-        ParentPanel1Layout.setVerticalGroup(
-            ParentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ParentPanel1Layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout ParentPanelLayout = new javax.swing.GroupLayout(ParentPanel);
-        ParentPanel.setLayout(ParentPanelLayout);
-        ParentPanelLayout.setHorizontalGroup(
-            ParentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ParentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ParentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        ParentPanelLayout.setVerticalGroup(
-            ParentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ParentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ParentPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         buttonpanel.setBackground(new java.awt.Color(204, 204, 204));
         buttonpanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
         buttonpanel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -215,6 +258,11 @@ public class HomePage extends javax.swing.JFrame {
         emp_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         emp_bt.setText("Employees");
         emp_bt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        emp_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emp_btActionPerformed(evt);
+            }
+        });
 
         client_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         client_bt.setText("Clients");
@@ -275,11 +323,11 @@ public class HomePage extends javax.swing.JFrame {
         buttonpanelLayout.setVerticalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(deltail_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(emp_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(client_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(product_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,8 +340,37 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(offer_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(other_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(other_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
+        jTabbedPane1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+
+        HomeTab.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("WELCOME TO LOOKHUB");
+
+        javax.swing.GroupLayout HomeTabLayout = new javax.swing.GroupLayout(HomeTab);
+        HomeTab.setLayout(HomeTabLayout);
+        HomeTabLayout.setHorizontalGroup(
+            HomeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
+                .addGap(426, 426, 426)
+                .addComponent(jLabel2)
+                .addGap(255, 255, 255))
+        );
+        HomeTabLayout.setVerticalGroup(
+            HomeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomeTabLayout.createSequentialGroup()
+                .addGap(248, 248, 248)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(283, 283, 283))
+        );
+
+        jTabbedPane1.addTab("tab1", HomeTab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,46 +382,27 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ParentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTabbedPane1))
                     .addComponent(homepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(458, 458, 458)
-                    .addComponent(jLabel2)
-                    .addContainerGap(459, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ParentPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(376, 376, 376)
-                    .addComponent(jLabel2)
-                    .addContainerGap(377, Short.MAX_VALUE)))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void deltail_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deltail_btActionPerformed
-      //heading_panel.remove(ParentPanel);
-      //heading_panel.add(EP);
-     // heading_panel.revalidate();
-      
-      ParentPanel.remove(ParentPanel1);
-       ParentPanel.add(EP);
-       ParentPanel.revalidate();
-       ParentPanel.validate();
-       ParentPanel.repaint();
-      pack();
+      jTabbedPane1.add(SalonDTab);
+      jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(SalonDTab), getTitlePanel(jTabbedPane1, SalonDTab, "Salon Details    "));
     }//GEN-LAST:event_deltail_btActionPerformed
 
     private void deltail_btMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deltail_btMouseEntered
@@ -359,16 +417,23 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_report_btActionPerformed
 
+    private void emp_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_btActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.add(EmployeeDTab);
+        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
+    }//GEN-LAST:event_emp_btActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel EmployeeDTab;
+    private javax.swing.JPanel HomeTab;
     private javax.swing.JLabel Look;
     private javax.swing.JLabel Look1;
-    private javax.swing.JPanel ParentPanel;
-    private javax.swing.JPanel ParentPanel1;
+    private javax.swing.JPanel SalonDTab;
     private javax.swing.JLabel adminpic;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JButton client_bt;
@@ -378,7 +443,9 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton logout;
     private javax.swing.JLabel modelicon;
     private javax.swing.JButton offer_bt;
