@@ -167,7 +167,7 @@ public class Services_panel extends javax.swing.JPanel {
     }//GEN-LAST:event_edit_btActionPerformed
 
     private void add_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btActionPerformed
-        ProductForm pf=new ProductForm();
+        addService pf=new addService();
         pf.setVisible(true);
     }//GEN-LAST:event_add_btActionPerformed
 
