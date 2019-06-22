@@ -186,6 +186,29 @@ public class HomePage extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         Registration = new javax.swing.JLabel();
         modelicon1 = new javax.swing.JLabel();
+        ProductDtab = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        add_bt = new javax.swing.JButton();
+        edit_bt = new javax.swing.JButton();
+        delete_bt = new javax.swing.JButton();
+        search_bt = new javax.swing.JButton();
+        close_bt = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        ReportDTab = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        dateChooserCombo1 = new datechooser.beans.DateChooserCombo();
+        dateChooserCombo2 = new datechooser.beans.DateChooserCombo();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         Look1 = new javax.swing.JLabel();
@@ -608,6 +631,228 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        ProductDtab.setBackground(new java.awt.Color(38, 3, 3));
+
+        add_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        add_bt.setText("Add Product");
+        add_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_btActionPerformed(evt);
+            }
+        });
+
+        edit_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        edit_bt.setText("Edit Product");
+        edit_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edit_btActionPerformed(evt);
+            }
+        });
+
+        delete_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        delete_bt.setText("Delete Product");
+        delete_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_btActionPerformed(evt);
+            }
+        });
+
+        search_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        search_bt.setText("Search Product");
+        search_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_btActionPerformed(evt);
+            }
+        });
+
+        close_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        close_bt.setText("Close");
+        close_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                close_btActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel5.setText("**Pick the inventory of Products **");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        javax.swing.GroupLayout ProductDtabLayout = new javax.swing.GroupLayout(ProductDtab);
+        ProductDtab.setLayout(ProductDtabLayout);
+        ProductDtabLayout.setHorizontalGroup(
+            ProductDtabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(ProductDtabLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(add_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(edit_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(delete_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(search_bt)
+                .addGap(60, 60, 60)
+                .addComponent(close_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductDtabLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(ProductDtabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
+        );
+        ProductDtabLayout.setVerticalGroup(
+            ProductDtabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductDtabLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(ProductDtabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edit_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delete_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(close_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+        );
+
+        ReportDTab.setBackground(new java.awt.Color(38, 3, 3));
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+
+        jRadioButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jRadioButton1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jRadioButton1.setText("Daily");
+
+        jRadioButton2.setBackground(new java.awt.Color(204, 204, 204));
+        jRadioButton2.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jRadioButton2.setText("Weekly");
+
+        jRadioButton3.setBackground(new java.awt.Color(204, 204, 204));
+        jRadioButton3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jRadioButton3.setText("Monthly");
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel6.setText("Select");
+
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel7.setText("Or");
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel8.setText("From :");
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel9.setText("To :");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRadioButton2)
+                        .addGap(121, 121, 121)
+                        .addComponent(jRadioButton3)
+                        .addGap(9, 9, 9)))
+                .addGap(42, 42, 42))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateChooserCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateChooserCombo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8))
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+
+        jTable2.setBackground(new java.awt.Color(204, 204, 204));
+        jTable2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        jTable2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTable2.setForeground(new java.awt.Color(204, 204, 204));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        javax.swing.GroupLayout ReportDTabLayout = new javax.swing.GroupLayout(ReportDTab);
+        ReportDTab.setLayout(ReportDTabLayout);
+        ReportDTabLayout.setHorizontalGroup(
+            ReportDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReportDTabLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(ReportDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        ReportDTabLayout.setVerticalGroup(
+            ReportDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ReportDTabLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 3, 3));
         setForeground(new java.awt.Color(30, 3, 3));
@@ -738,6 +983,11 @@ public class HomePage extends javax.swing.JFrame {
         product_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         product_bt.setText("Products");
         product_bt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        product_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                product_btActionPerformed(evt);
+            }
+        });
 
         service_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         service_bt.setText("Services");
@@ -883,6 +1133,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void report_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_report_btActionPerformed
         // TODO add your handling code here:
+        jTabbedPane1.add(ReportDTab);
+        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(ReportDTab), getTitlePanel(jTabbedPane1, ReportDTab, "Report    "));
+        jTabbedPane1.setSelectedComponent(ReportDTab);
     }//GEN-LAST:event_report_btActionPerformed
 
     private void emp_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_btActionPerformed
@@ -1102,6 +1355,34 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RegistrationDTabMouseClicked
 
+    private void add_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btActionPerformed
+        ProductForm pf=new ProductForm();
+        pf.setVisible(true);
+    }//GEN-LAST:event_add_btActionPerformed
+
+    private void edit_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edit_btActionPerformed
+
+    private void delete_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_delete_btActionPerformed
+
+    private void search_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_btActionPerformed
+
+    private void close_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_btActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_close_btActionPerformed
+
+    private void product_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_btActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.add(ProductDtab);
+        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(ProductDtab), getTitlePanel(jTabbedPane1, ProductDtab, "Product    "));
+        jTabbedPane1.setSelectedComponent(ProductDtab);
+    }//GEN-LAST:event_product_btActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1126,20 +1407,28 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField NameTextfield;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordTextfield;
+    private javax.swing.JPanel ProductDtab;
     private javax.swing.JLabel Registration;
     private javax.swing.JPanel RegistrationDTab;
+    private javax.swing.JPanel ReportDTab;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Submit;
     private javax.swing.JLabel Surname;
     private javax.swing.JTextField SurnameTextfield;
     private javax.swing.JLabel UserId;
     private javax.swing.JTextField UserIdTextfield;
+    private javax.swing.JButton add_bt;
     private javax.swing.JLabel addrees;
     private javax.swing.JLabel adminpic;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JButton client_bt;
+    private javax.swing.JButton close_bt;
     private javax.swing.JLabel confirm_pswd;
+    private datechooser.beans.DateChooserCombo dateChooserCombo1;
+    private datechooser.beans.DateChooserCombo dateChooserCombo2;
+    private javax.swing.JButton delete_bt;
     private javax.swing.JButton deltail_bt;
+    private javax.swing.JButton edit_bt;
     private javax.swing.JLabel emaillabel;
     private javax.swing.JButton emp_bt;
     private javax.swing.JRadioButton female;
@@ -1148,11 +1437,25 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logout;
     private javax.swing.JRadioButton male;
@@ -1163,6 +1466,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel passLabel;
     private javax.swing.JButton product_bt;
     private javax.swing.JButton report_bt;
+    private javax.swing.JButton search_bt;
     private javax.swing.JButton service_bt;
     private javax.swing.JButton supplier_bt;
     // End of variables declaration//GEN-END:variables
