@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -125,7 +126,8 @@ public class HomePage extends javax.swing.JFrame {
   //titleLbl.setBorder(BorderLayout.createEmptyBorder(0, 0, 0, 5));
   titlePanel.add(titleLbl);
   JLabel closeButton = new JLabel("x");
-
+  closeButton.setForeground(Color.red);
+  closeButton.setCursor(Cursor.getPredefinedCursor(HAND_CURSOR));
   closeButton.addMouseListener(new MouseAdapter()
   {
    @Override
@@ -137,7 +139,6 @@ public class HomePage extends javax.swing.JFrame {
 
 
   titlePanel.add(closeButton);
-
   return titlePanel;
  }
     /**
@@ -452,29 +453,6 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NameTextfield))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(addrees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(Gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ContactNumebe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                                    .addComponent(Surname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(UserId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(UserIdTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(male)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(female)
-                                        .addGap(149, 149, 149))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                                    .addComponent(SurnameTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-                                    .addComponent(ContactTextfield)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ConfirmPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
@@ -486,9 +464,30 @@ public class HomePage extends javax.swing.JFrame {
                                         .addGap(4, 4, 4)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(MailTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(confirm_pswd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(ConfirmPasswordTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(PasswordTextfield)
-                                            .addComponent(confirm_pswd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                                            .addComponent(PasswordTextfield, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(addrees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(Gender, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ContactNumebe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                                        .addComponent(Surname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(UserId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NameTextfield)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addComponent(male)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(female)
+                                        .addGap(149, 149, 149))
+                                    .addComponent(ContactTextfield)
+                                    .addComponent(UserIdTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SurnameTextfield, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addGap(35, 35, 35))
         );
         jPanel2Layout.setVerticalGroup(
@@ -583,7 +582,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(RegistrationDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jSeparator1))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(RegistrationDTabLayout.createSequentialGroup()
                 .addGap(200, 200, 200)
                 .addComponent(Registration, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -631,6 +630,7 @@ public class HomePage extends javax.swing.JFrame {
         adminpic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         logout.setText("Log Out");
+        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("usernane");
@@ -870,6 +870,7 @@ public class HomePage extends javax.swing.JFrame {
     private void deltail_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deltail_btActionPerformed
       jTabbedPane1.add(SalonDTab);
       jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(SalonDTab), getTitlePanel(jTabbedPane1, SalonDTab, "Salon Details    "));
+      jTabbedPane1.setSelectedComponent(SalonDTab);
     }//GEN-LAST:event_deltail_btActionPerformed
 
     private void deltail_btMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deltail_btMouseEntered
@@ -888,12 +889,16 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTabbedPane1.add(EmployeeDTab);
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
+        jTabbedPane1.setSelectedComponent(EmployeeDTab);
     }//GEN-LAST:event_emp_btActionPerformed
 
     private void client_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_btActionPerformed
         // TODO add your handling code here:
         jTabbedPane1.add(RegistrationDTab);
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(RegistrationDTab), getTitlePanel(jTabbedPane1, RegistrationDTab, "Registration    "));
+        jTabbedPane1.setSelectedComponent(RegistrationDTab);
+        
+        
     }//GEN-LAST:event_client_btActionPerformed
 
     private void NameTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextfieldActionPerformed
@@ -1104,84 +1109,40 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancle;
-    private javax.swing.JButton Cancle1;
-    private javax.swing.JButton Cancle2;
     private javax.swing.JLabel ConfirmPassword;
-    private javax.swing.JLabel ConfirmPassword1;
-    private javax.swing.JLabel ConfirmPassword2;
     private javax.swing.JPasswordField ConfirmPasswordTextfield;
-    private javax.swing.JPasswordField ConfirmPasswordTextfield1;
-    private javax.swing.JPasswordField ConfirmPasswordTextfield2;
     private javax.swing.JLabel ContactNumebe;
-    private javax.swing.JLabel ContactNumebe1;
-    private javax.swing.JLabel ContactNumebe2;
     private javax.swing.JTextField ContactTextfield;
-    private javax.swing.JTextField ContactTextfield1;
-    private javax.swing.JTextField ContactTextfield2;
     private javax.swing.JLabel Email;
-    private javax.swing.JLabel Email1;
-    private javax.swing.JLabel Email2;
     private javax.swing.JPanel EmployeeDTab;
     private javax.swing.JLabel Gender;
-    private javax.swing.JLabel Gender1;
-    private javax.swing.JLabel Gender2;
     private javax.swing.JPanel HomeTab;
     private javax.swing.JLabel Hub;
     private javax.swing.JLabel Look;
     private javax.swing.JLabel Look1;
     private javax.swing.JLabel Look2;
     private javax.swing.JTextField MailTextfield;
-    private javax.swing.JTextField MailTextfield1;
-    private javax.swing.JTextField MailTextfield2;
     private javax.swing.JLabel Name;
-    private javax.swing.JLabel Name1;
-    private javax.swing.JLabel Name2;
     private javax.swing.JTextField NameTextfield;
-    private javax.swing.JTextField NameTextfield1;
-    private javax.swing.JTextField NameTextfield2;
-    private javax.swing.JPanel Panel;
-    private javax.swing.JPanel Panel1;
     private javax.swing.JLabel Password;
-    private javax.swing.JLabel Password1;
-    private javax.swing.JLabel Password2;
     private javax.swing.JPasswordField PasswordTextfield;
-    private javax.swing.JPasswordField PasswordTextfield1;
-    private javax.swing.JPasswordField PasswordTextfield2;
     private javax.swing.JLabel Registration;
     private javax.swing.JPanel RegistrationDTab;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Submit;
-    private javax.swing.JButton Submit1;
-    private javax.swing.JButton Submit2;
     private javax.swing.JLabel Surname;
-    private javax.swing.JLabel Surname1;
-    private javax.swing.JLabel Surname2;
     private javax.swing.JTextField SurnameTextfield;
-    private javax.swing.JTextField SurnameTextfield1;
-    private javax.swing.JTextField SurnameTextfield2;
     private javax.swing.JLabel UserId;
-    private javax.swing.JLabel UserId1;
-    private javax.swing.JLabel UserId2;
     private javax.swing.JTextField UserIdTextfield;
-    private javax.swing.JTextField UserIdTextfield1;
-    private javax.swing.JTextField UserIdTextfield2;
     private javax.swing.JLabel addrees;
-    private javax.swing.JLabel addrees1;
-    private javax.swing.JLabel addrees2;
     private javax.swing.JLabel adminpic;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JButton client_bt;
     private javax.swing.JLabel confirm_pswd;
-    private javax.swing.JLabel confirm_pswd1;
-    private javax.swing.JLabel confirm_pswd2;
     private javax.swing.JButton deltail_bt;
     private javax.swing.JLabel emaillabel;
-    private javax.swing.JLabel emaillabel1;
-    private javax.swing.JLabel emaillabel2;
     private javax.swing.JButton emp_bt;
     private javax.swing.JRadioButton female;
-    private javax.swing.JRadioButton female1;
-    private javax.swing.JRadioButton female2;
     private javax.swing.JPanel homepanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1189,27 +1150,17 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JButton logout;
     private javax.swing.JRadioButton male;
-    private javax.swing.JRadioButton male1;
-    private javax.swing.JRadioButton male2;
     private javax.swing.JLabel modelicon;
     private javax.swing.JLabel modelicon1;
     private javax.swing.JButton offer_bt;
     private javax.swing.JButton other_bt;
     private javax.swing.JLabel passLabel;
-    private javax.swing.JLabel passLabel1;
-    private javax.swing.JLabel passLabel2;
     private javax.swing.JButton product_bt;
     private javax.swing.JButton report_bt;
     private javax.swing.JButton service_bt;

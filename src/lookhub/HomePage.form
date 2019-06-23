@@ -135,7 +135,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace pref="67" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
@@ -203,35 +203,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="Name" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="NameTextfield" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="addrees" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="Gender" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ContactNumebe" alignment="1" pref="147" max="32767" attributes="0"/>
-                                          <Component id="Surname" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="UserId" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="UserIdTextfield" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="male" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="female" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="jScrollPane1" alignment="1" pref="302" max="32767" attributes="0"/>
-                                          <Component id="SurnameTextfield" alignment="0" pref="302" max="32767" attributes="0"/>
-                                          <Component id="ContactTextfield" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="Email" alignment="0" max="32767" attributes="0"/>
                                           <Component id="ConfirmPassword" alignment="0" pref="147" max="32767" attributes="0"/>
@@ -244,11 +216,37 @@
                                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="MailTextfield" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="PasswordTextfield" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="confirm_pswd" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="PasswordTextfield" alignment="1" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="addrees" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="Gender" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="ContactNumebe" alignment="1" pref="147" max="32767" attributes="0"/>
+                                              <Component id="Surname" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="UserId" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="Name" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="NameTextfield" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="male" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="female" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="ContactTextfield" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="UserIdTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="SurnameTextfield" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -806,6 +804,9 @@
             <Component class="javax.swing.JButton" name="logout">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Log Out"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
