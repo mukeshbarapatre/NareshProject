@@ -1792,7 +1792,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_billing_btActionPerformed
 
     private void add_bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bt2ActionPerformed
-        //new AddService().setVisible(true);
+        //new AddService().setVisible(true);//hello its done;
     }//GEN-LAST:event_add_bt2ActionPerformed
 
     private void edit_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_bt1ActionPerformed
