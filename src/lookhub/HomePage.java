@@ -1786,17 +1786,18 @@ public class HomePage extends javax.swing.JFrame {
 
     private void billing_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billing_btActionPerformed
         // TODO add your handling code here:
-         jTabbedPane1.add(BillingPanel);
+        jTabbedPane1.add(BillingPanel);
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(BillingPanel), getTitlePanel(jTabbedPane1, BillingPanel, "Billing    "));
         jTabbedPane1.setSelectedComponent(BillingPanel);
     }//GEN-LAST:event_billing_btActionPerformed
 
     private void add_bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bt2ActionPerformed
-        //new AddService().setVisible(true);//hello its done;
+       new AddService().setVisible(true);
+        
     }//GEN-LAST:event_add_bt2ActionPerformed
 
     private void edit_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_bt1ActionPerformed
-        // TODO add your handling code here:
+       //new EditService().setVisible(true);
     }//GEN-LAST:event_edit_bt1ActionPerformed
 
     private void delete_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_bt1ActionPerformed
@@ -1850,11 +1851,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel ReportDTab;
     private javax.swing.JButton Reset;
     private javax.swing.JPanel SalonDTab;
-    private javax.swing.JPanel ServiceDTab;
-    private javax.swing.JPanel ServiceDTab1;
     private javax.swing.JPanel ServiceDTab2;
     private javax.swing.JPanel ServicePanel;
-    private javax.swing.JScrollPane ServiceScroll;
     private javax.swing.JScrollPane ServiceScroll1;
     private javax.swing.JButton Submit;
     private javax.swing.JLabel Surname;
@@ -1862,7 +1860,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel UserId;
     private javax.swing.JTextField UserIdTextfield;
     private javax.swing.JButton add_bt;
-    private javax.swing.JButton add_bt1;
     private javax.swing.JButton add_bt2;
     private javax.swing.JLabel addrees;
     private javax.swing.JLabel adminpic;
@@ -1900,7 +1897,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -1913,7 +1909,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
