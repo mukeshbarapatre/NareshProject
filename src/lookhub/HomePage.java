@@ -24,6 +24,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.sql.*;
 
 
 /*
@@ -44,7 +45,10 @@ public class HomePage extends javax.swing.JFrame {
     EmployeePanel EP=new EmployeePanel();
 
 
-    public HomePage() {
+    public HomePage()  {
+       
+        
+        
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize = (int)tk.getScreenSize().getWidth();
@@ -253,7 +257,7 @@ public class HomePage extends javax.swing.JFrame {
         ServicePanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
-        add_bt2 = new javax.swing.JButton();
+        addservice = new javax.swing.JButton();
         edit_bt1 = new javax.swing.JButton();
         delete_bt1 = new javax.swing.JButton();
         close_bt1 = new javax.swing.JButton();
@@ -1273,11 +1277,11 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(38, 3, 3));
 
-        add_bt2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        add_bt2.setText("Add Service");
-        add_bt2.addActionListener(new java.awt.event.ActionListener() {
+        addservice.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addservice.setText("Add Service");
+        addservice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_bt2ActionPerformed(evt);
+                addserviceActionPerformed(evt);
             }
         });
 
@@ -1336,7 +1340,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(add_bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addservice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
                         .addComponent(edit_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
@@ -1357,7 +1361,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add_bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addservice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edit_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(delete_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(close_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2110,13 +2114,14 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1.setSelectedComponent(BillingPanel);
     }//GEN-LAST:event_billing_btActionPerformed
 
-    private void add_bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_bt2ActionPerformed
+    private void addserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addserviceActionPerformed
       new AddService().setVisible(true);
         
-    }//GEN-LAST:event_add_bt2ActionPerformed
+    }//GEN-LAST:event_addserviceActionPerformed
 
     private void edit_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_bt1ActionPerformed
-       //new EditService().setVisible(true);
+      new EditService().setVisible(true);
+       
     }//GEN-LAST:event_edit_bt1ActionPerformed
 
     private void delete_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_bt1ActionPerformed
@@ -2272,8 +2277,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel UserId;
     private javax.swing.JTextField UserIdTextfield;
     private javax.swing.JButton add_bt;
-    private javax.swing.JButton add_bt2;
     private javax.swing.JLabel addrees;
+    private javax.swing.JButton addservice;
     private javax.swing.JLabel adminpic;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;

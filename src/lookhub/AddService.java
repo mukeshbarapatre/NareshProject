@@ -5,6 +5,10 @@
  */
 package lookhub;
 
+import java.sql.Connection;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -14,6 +18,9 @@ public class AddService extends javax.swing.JFrame {
     /**
      * Creates new form AddService
      */
+    Connection con;
+    Statement stmt;
+    ResultSet rs;
     public AddService() {
         initComponents();
     }
@@ -172,7 +179,17 @@ public class AddService extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //adding service in database
+        
+        
+        try {
+            con=DbUtil.loadDriver();
+            DbUtil.runQuery("insert into services values('"+jTextField1.getText()+"','"+jTextField2.getText()+"');");
+            JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.OK_OPTION);
+            this.dispose();
+        } catch (Exception e) {
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

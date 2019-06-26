@@ -1619,7 +1619,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="add_bt2" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="addservice" min="-2" pref="120" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                       <Component id="edit_bt1" min="-2" pref="120" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
@@ -1644,7 +1644,7 @@
                               <Component id="jSeparator4" min="-2" pref="2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="add_bt2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="addservice" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="edit_bt1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="delete_bt1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="close_bt1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -1657,7 +1657,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JSeparator" name="jSeparator4">
                     </Component>
-                    <Component class="javax.swing.JButton" name="add_bt2">
+                    <Component class="javax.swing.JButton" name="addservice">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Times New Roman" size="14" style="1"/>
@@ -1665,7 +1665,7 @@
                         <Property name="text" type="java.lang.String" value="Add Service"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_bt2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addserviceActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="edit_bt1">
