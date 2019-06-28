@@ -256,14 +256,42 @@ public class HomePage extends javax.swing.JFrame {
         ServiceScroll1 = new javax.swing.JScrollPane();
         ServicePanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
-        jSeparator4 = new javax.swing.JSeparator();
-        addservice = new javax.swing.JButton();
-        edit_bt1 = new javax.swing.JButton();
-        delete_bt1 = new javax.swing.JButton();
-        close_bt1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        mainservicepan = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        ServiceTabPan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        AddSpan = new javax.swing.JPanel();
+        ServicT = new javax.swing.JLabel();
+        S_Pricce = new javax.swing.JLabel();
+        addservice_btn = new javax.swing.JButton();
+        AddService = new javax.swing.JTextField();
+        AddPrice = new javax.swing.JTextField();
+        DeleteSpan = new javax.swing.JPanel();
+        ServiceT2 = new javax.swing.JLabel();
+        Deleteservice_btn = new javax.swing.JButton();
+        DeleteService = new javax.swing.JTextField();
+        EditSpan = new javax.swing.JPanel();
+        ServicT1 = new javax.swing.JLabel();
+        editservice_btn = new javax.swing.JButton();
+        EditService = new javax.swing.JTextField();
+        EditPan = new javax.swing.JPanel();
+        EditLab = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        ChangeName = new javax.swing.JLabel();
+        AddService1 = new javax.swing.JTextField();
+        ChangePrice = new javax.swing.JLabel();
+        AddPrice1 = new javax.swing.JTextField();
+        ResetEdit = new javax.swing.JButton();
+        EditSer = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        MessageL = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Message = new javax.swing.JTextPane();
+        OkButton = new javax.swing.JButton();
+        ServiceOperation = new javax.swing.JLabel();
+        ServiceTableLAble = new javax.swing.JLabel();
         buttonGroupMaleFemale = new javax.swing.ButtonGroup();
         jPanel5 = new javax.swing.JPanel();
         ReportScroll = new javax.swing.JScrollPane();
@@ -1277,42 +1305,14 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(38, 3, 3));
 
-        addservice.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addservice.setText("Add Service");
-        addservice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addserviceActionPerformed(evt);
-            }
-        });
-
-        edit_bt1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        edit_bt1.setText("Edit Service");
-        edit_bt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edit_bt1ActionPerformed(evt);
-            }
-        });
-
-        delete_bt1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        delete_bt1.setText("Delete Service");
-        delete_bt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delete_bt1ActionPerformed(evt);
-            }
-        });
-
-        close_bt1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        close_bt1.setText("Close");
-        close_bt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                close_bt1ActionPerformed(evt);
-            }
-        });
-
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel10.setText("**Pick the Services **");
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Service Panel");
+
+        mainservicepan.setBackground(new java.awt.Color(204, 204, 204));
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1327,62 +1327,353 @@ public class HomePage extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable3);
 
+        javax.swing.GroupLayout ServiceTabPanLayout = new javax.swing.GroupLayout(ServiceTabPan);
+        ServiceTabPan.setLayout(ServiceTabPanLayout);
+        ServiceTabPanLayout.setHorizontalGroup(
+            ServiceTabPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        ServiceTabPanLayout.setVerticalGroup(
+            ServiceTabPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ServiceTabPanLayout.createSequentialGroup()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        ServicT.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ServicT.setText("Service Name");
+
+        S_Pricce.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        S_Pricce.setText("Price");
+
+        addservice_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        addservice_btn.setText("Add ");
+        addservice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addservice_btnActionPerformed(evt);
+            }
+        });
+
+        AddService.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        AddPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout AddSpanLayout = new javax.swing.GroupLayout(AddSpan);
+        AddSpan.setLayout(AddSpanLayout);
+        AddSpanLayout.setHorizontalGroup(
+            AddSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(ServicT, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddService, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
+                .addComponent(S_Pricce, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(addservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+        );
+        AddSpanLayout.setVerticalGroup(
+            AddSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddSpanLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(AddSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ServicT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(S_Pricce, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        ServiceT2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ServiceT2.setText("Service Name");
+
+        Deleteservice_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Deleteservice_btn.setText("Delete ");
+        Deleteservice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Deleteservice_btnActionPerformed(evt);
+            }
+        });
+
+        DeleteService.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout DeleteSpanLayout = new javax.swing.GroupLayout(DeleteSpan);
+        DeleteSpan.setLayout(DeleteSpanLayout);
+        DeleteSpanLayout.setHorizontalGroup(
+            DeleteSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteSpanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(ServiceT2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DeleteService)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Deleteservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+        );
+        DeleteSpanLayout.setVerticalGroup(
+            DeleteSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteSpanLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(DeleteSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ServiceT2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Deleteservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        ServicT1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ServicT1.setText("Service Name");
+
+        editservice_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        editservice_btn.setText("Edit");
+        editservice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editservice_btnActionPerformed(evt);
+            }
+        });
+
+        EditService.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        javax.swing.GroupLayout EditSpanLayout = new javax.swing.GroupLayout(EditSpan);
+        EditSpan.setLayout(EditSpanLayout);
+        EditSpanLayout.setHorizontalGroup(
+            EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EditSpanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(ServicT1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EditService, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+        );
+        EditSpanLayout.setVerticalGroup(
+            EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditSpanLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ServicT1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        EditLab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditLab.setText("Edit Service");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("Example = hair cut");
+
+        ChangeName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ChangeName.setText("Edit Name");
+
+        AddService1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        ChangePrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ChangePrice.setText("Edit Price");
+
+        AddPrice1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        ResetEdit.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        ResetEdit.setText("Reset");
+
+        EditSer.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
+        EditSer.setText("Edit");
+
+        javax.swing.GroupLayout EditPanLayout = new javax.swing.GroupLayout(EditPan);
+        EditPan.setLayout(EditPanLayout);
+        EditPanLayout.setHorizontalGroup(
+            EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EditPanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(EditLab)
+                .addGap(173, 173, 173))
+            .addGroup(EditPanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(EditPanLayout.createSequentialGroup()
+                        .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ChangeName, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                            .addComponent(ChangePrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddService1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(15, Short.MAX_VALUE))))
+            .addGroup(EditPanLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(EditSer, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(ResetEdit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        EditPanLayout.setVerticalGroup(
+            EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditPanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(EditLab, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChangeName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddService1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChangePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(EditPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EditSer, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(ResetEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5))
+        );
+
+        MessageL.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MessageL.setText("Message");
+
+        Message.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jScrollPane5.setViewportView(Message);
+
+        OkButton.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        OkButton.setText("OK");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(MessageL))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(OkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MessageL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(OkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        ServiceOperation.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ServiceOperation.setText("Service Operation");
+
+        ServiceTableLAble.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ServiceTableLAble.setText("Service Tabel");
+
+        javax.swing.GroupLayout mainservicepanLayout = new javax.swing.GroupLayout(mainservicepan);
+        mainservicepan.setLayout(mainservicepanLayout);
+        mainservicepanLayout.setHorizontalGroup(
+            mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainservicepanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainservicepanLayout.createSequentialGroup()
+                        .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(AddSpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DeleteSpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(EditSpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(mainservicepanLayout.createSequentialGroup()
+                                .addComponent(EditPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainservicepanLayout.createSequentialGroup()
+                        .addComponent(ServiceOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(217, 217, 217)))
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainservicepanLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(ServiceTabPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainservicepanLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(ServiceTableLAble, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72))))
+        );
+        mainservicepanLayout.setVerticalGroup(
+            mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainservicepanLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(ServiceTableLAble, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ServiceTabPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
+            .addGroup(mainservicepanLayout.createSequentialGroup()
+                .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(mainservicepanLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainservicepanLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(ServiceOperation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AddSpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(EditSpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DeleteSpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainservicepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(EditPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addContainerGap(744, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(addservice, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(edit_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(delete_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57)
-                        .addComponent(close_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(525, 525, 525)
+                .addComponent(jLabel10)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainservicepan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addGap(5, 5, 5)
                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addservice, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(edit_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(delete_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(close_bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(mainservicepan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout ServicePanelLayout = new javax.swing.GroupLayout(ServicePanel);
         ServicePanel.setLayout(ServicePanelLayout);
         ServicePanelLayout.setHorizontalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 944, Short.MAX_VALUE)
-            .addGroup(ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ServicePanelLayout.setVerticalGroup(
             ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 586, Short.MAX_VALUE)
-            .addGroup(ServicePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ServicePanelLayout.createSequentialGroup()
-                    .addGap(0, 0, 0)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         ServiceScroll1.setViewportView(ServicePanel);
@@ -2114,23 +2405,10 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1.setSelectedComponent(BillingPanel);
     }//GEN-LAST:event_billing_btActionPerformed
 
-    private void addserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addserviceActionPerformed
+    private void addservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addservice_btnActionPerformed
       new AddService().setVisible(true);
         
-    }//GEN-LAST:event_addserviceActionPerformed
-
-    private void edit_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edit_bt1ActionPerformed
-      new EditService().setVisible(true);
-       
-    }//GEN-LAST:event_edit_bt1ActionPerformed
-
-    private void delete_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_bt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_delete_bt1ActionPerformed
-
-    private void close_bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_close_bt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_close_bt1ActionPerformed
+    }//GEN-LAST:event_addservice_btnActionPerformed
 
     private void ServiceDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServiceDiscountActionPerformed
         // TODO add your handling code here:
@@ -2199,12 +2477,25 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EmailCustjTextField1KeyPressed
 
+    private void Deleteservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Deleteservice_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Deleteservice_btnActionPerformed
+
+    private void editservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editservice_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddPrice;
+    private javax.swing.JTextField AddPrice1;
+    private javax.swing.JTextField AddService;
+    private javax.swing.JTextField AddService1;
+    private javax.swing.JPanel AddSpan;
     private javax.swing.JTextField AllTotal;
     private javax.swing.JButton BServiceAdd;
     private javax.swing.JButton BServiceDel;
@@ -2217,15 +2508,25 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel BillingPanel;
     private javax.swing.JTable BillingTable;
     private javax.swing.JButton Cancel;
+    private javax.swing.JLabel ChangeName;
+    private javax.swing.JLabel ChangePrice;
     private javax.swing.JLabel ConfirmPassword;
     private javax.swing.JPasswordField ConfirmPasswordTextfield;
     private javax.swing.JLabel ContactNumebe;
     private javax.swing.JTextField ContactTextfield;
     private javax.swing.JLabel CustumerN;
     private javax.swing.JTextField CustumerjTextField;
+    private javax.swing.JTextField DeleteService;
+    private javax.swing.JPanel DeleteSpan;
+    private javax.swing.JButton Deleteservice_btn;
     private javax.swing.JPanel DetailPanel;
     private javax.swing.JLabel Discount;
     private javax.swing.JLabel Discount1;
+    private javax.swing.JLabel EditLab;
+    private javax.swing.JPanel EditPan;
+    private javax.swing.JButton EditSer;
+    private javax.swing.JTextField EditService;
+    private javax.swing.JPanel EditSpan;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailCust;
     private javax.swing.JTextField EmailCustjTextField1;
@@ -2238,10 +2539,13 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Look1;
     private javax.swing.JLabel Look4;
     private javax.swing.JTextField MailTextfield;
+    private javax.swing.JTextPane Message;
+    private javax.swing.JLabel MessageL;
     private javax.swing.JLabel Mobile;
     private javax.swing.JTextField MobilejTextField;
     private javax.swing.JLabel Name;
     private javax.swing.JTextField NameTextfield;
+    private javax.swing.JButton OkButton;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordTextfield;
     private javax.swing.JButton Print;
@@ -2256,16 +2560,24 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane ReportScroll;
     private javax.swing.JButton Reset;
     private javax.swing.JButton ResetBill;
+    private javax.swing.JButton ResetEdit;
+    private javax.swing.JLabel S_Pricce;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
+    private javax.swing.JLabel ServicT;
+    private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel Service;
     private javax.swing.JPanel ServiceCPanel;
     private javax.swing.JPanel ServiceDTab2;
     private javax.swing.JTextField ServiceDiscount;
+    private javax.swing.JLabel ServiceOperation;
     private javax.swing.JPanel ServicePanel;
     private javax.swing.JScrollPane ServiceScroll1;
     private javax.swing.JTextField ServiceSearch;
+    private javax.swing.JLabel ServiceT2;
+    private javax.swing.JPanel ServiceTabPan;
+    private javax.swing.JLabel ServiceTableLAble;
     private javax.swing.JTextField ServiceTotal;
     private javax.swing.JButton Submit;
     private javax.swing.JLabel Surname;
@@ -2278,7 +2590,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField UserIdTextfield;
     private javax.swing.JButton add_bt;
     private javax.swing.JLabel addrees;
-    private javax.swing.JButton addservice;
+    private javax.swing.JButton addservice_btn;
     private javax.swing.JLabel adminpic;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
@@ -2286,16 +2598,14 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JButton client_bt;
     private javax.swing.JButton close_bt;
-    private javax.swing.JButton close_bt1;
     private javax.swing.JLabel confirm_pswd;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JButton delete_bt;
-    private javax.swing.JButton delete_bt1;
     private javax.swing.JButton deltail_bt;
     private javax.swing.JButton edit_bt;
-    private javax.swing.JButton edit_bt1;
+    private javax.swing.JButton editservice_btn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emaillabel;
     private javax.swing.JButton emp_bt;
@@ -2306,6 +2616,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2321,6 +2632,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -2328,10 +2640,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
@@ -2339,6 +2652,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JButton logout;
+    private javax.swing.JPanel mainservicepan;
     private javax.swing.JRadioButton male;
     private javax.swing.JLabel modelicon;
     private javax.swing.JLabel modelicon3;
