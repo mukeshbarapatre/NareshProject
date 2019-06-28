@@ -25,7 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.sql.*;
-
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -43,7 +43,9 @@ public class HomePage extends javax.swing.JFrame {
      * Creates new form HomePage
      */
     EmployeePanel EP=new EmployeePanel();
-
+    Connection con;
+    Statement stmt;
+    ResultSet rs;
 
     public HomePage()  {
        
@@ -59,6 +61,13 @@ public class HomePage extends javax.swing.JFrame {
         RegistryScrool.getVerticalScrollBar().setUnitIncrement(20);
         ReportScroll.getVerticalScrollBar().setUnitIncrement(20);
         ServiceScroll1.getVerticalScrollBar().setUnitIncrement(20);
+        
+        //here is method to fetch data
+        
+        getServiceTabelData();
+        
+        
+        
         
         //here is code for passLength
         
@@ -123,6 +132,25 @@ public class HomePage extends javax.swing.JFrame {
                 }
             }
         });
+        EditService.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { 
+                search();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                search();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                search();
+            }
+            public void search(){
+                
+            }
+        });
         
     }
     private static JPanel getTitlePanel(final JTabbedPane tabbedPane, final JPanel panel, String title)
@@ -148,6 +176,18 @@ public class HomePage extends javax.swing.JFrame {
   titlePanel.add(closeButton);
   return titlePanel;
  }
+    
+    
+    
+    /*here is code for fetchting Service Data into Service Table*/
+    public void getServiceTabelData(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select * from services");
+            ServiceTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -261,13 +301,13 @@ public class HomePage extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         ServiceTabPan = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        ServiceTable = new javax.swing.JTable();
         AddSpan = new javax.swing.JPanel();
         ServicT = new javax.swing.JLabel();
         S_Pricce = new javax.swing.JLabel();
         addservice_btn = new javax.swing.JButton();
-        AddService = new javax.swing.JTextField();
-        AddPrice = new javax.swing.JTextField();
+        AddServiceField = new javax.swing.JTextField();
+        AddPriceField = new javax.swing.JTextField();
         DeleteSpan = new javax.swing.JPanel();
         ServiceT2 = new javax.swing.JLabel();
         Deleteservice_btn = new javax.swing.JButton();
@@ -1314,7 +1354,8 @@ public class HomePage extends javax.swing.JFrame {
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        ServiceTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ServiceTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1325,7 +1366,13 @@ public class HomePage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(ServiceTable);
+        if (ServiceTable.getColumnModel().getColumnCount() > 0) {
+            ServiceTable.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            ServiceTable.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            ServiceTable.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            ServiceTable.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
 
         javax.swing.GroupLayout ServiceTabPanLayout = new javax.swing.GroupLayout(ServiceTabPan);
         ServiceTabPan.setLayout(ServiceTabPanLayout);
@@ -1354,9 +1401,9 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        AddService.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AddServiceField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        AddPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        AddPriceField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout AddSpanLayout = new javax.swing.GroupLayout(AddSpan);
         AddSpan.setLayout(AddSpanLayout);
@@ -1366,11 +1413,11 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(ServicT, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddService, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(AddServiceField, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                 .addGap(5, 5, 5)
                 .addComponent(S_Pricce, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AddPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(addservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
@@ -1382,9 +1429,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(AddSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServicT, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AddServiceField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(S_Pricce, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AddPriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
 
@@ -2406,7 +2453,14 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_billing_btActionPerformed
 
     private void addservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addservice_btnActionPerformed
-      new AddService().setVisible(true);
+      try {
+            con=DbUtil.loadDriver();
+            DbUtil.runQuery("insert into services values('"+AddServiceField.getText()+"','"+AddPriceField.getText()+"');");
+            JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.OK_OPTION);
+            getServiceTabelData();
+            
+        } catch (Exception e) {
+        }
         
     }//GEN-LAST:event_addservice_btnActionPerformed
 
@@ -2491,10 +2545,10 @@ public class HomePage extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AddPrice;
     private javax.swing.JTextField AddPrice1;
-    private javax.swing.JTextField AddService;
+    private javax.swing.JTextField AddPriceField;
     private javax.swing.JTextField AddService1;
+    private javax.swing.JTextField AddServiceField;
     private javax.swing.JPanel AddSpan;
     private javax.swing.JTextField AllTotal;
     private javax.swing.JButton BServiceAdd;
@@ -2577,6 +2631,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField ServiceSearch;
     private javax.swing.JLabel ServiceT2;
     private javax.swing.JPanel ServiceTabPan;
+    private javax.swing.JTable ServiceTable;
     private javax.swing.JLabel ServiceTableLAble;
     private javax.swing.JTextField ServiceTotal;
     private javax.swing.JButton Submit;
@@ -2649,7 +2704,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JButton logout;
     private javax.swing.JPanel mainservicepan;

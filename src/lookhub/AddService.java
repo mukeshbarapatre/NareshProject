@@ -186,8 +186,9 @@ public class AddService extends javax.swing.JFrame {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into services values('"+jTextField1.getText()+"','"+jTextField2.getText()+"');");
             JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.OK_OPTION);
-            this.dispose();
+            
         } catch (Exception e) {
+            System.out.println("not processing");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
