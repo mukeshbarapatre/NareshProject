@@ -85,4 +85,11 @@ public class DbUtil {
         st.setString(3, textField2.getText());
         st.executeUpdate();
     }
+    public static void runQueryforDelete(String query,JTextField textField) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.executeUpdate();
+    }
 }
