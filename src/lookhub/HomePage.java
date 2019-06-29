@@ -2958,7 +2958,14 @@ public class HomePage extends javax.swing.JFrame {
         if(EditPriceF.getText().equals("")||EditService.getText().equals("")||EditServiceNF.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Enter Service Details","Details",JOptionPane.OK_OPTION);
         }else{
-         popUPservice.setText("hello");
+         try {
+            con=DbUtil.loadDriver();
+            DbUtil.runQueryforEdit("update services set ServiceName = ?,Price = ? where ServiceName = ?", EditServiceNF, EditPriceF,popUPservice);
+            JOptionPane.showMessageDialog(this, "Service Edited Succesfully","information",JOptionPane.OK_OPTION);
+            getServiceTabelData();
+            con.close();
+        } catch (Exception e) {
+        }
         }
     }//GEN-LAST:event_EditSerActionPerformed
 

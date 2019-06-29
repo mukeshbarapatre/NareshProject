@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -74,5 +75,14 @@ public class DbUtil {
         rs = st.executeQuery();
 
         return rs;
+    }
+    public static void runQueryforEdit(String query,JTextField textField,JTextField textField1,JLabel textField2) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setInt(2, Integer.parseInt(textField1.getText()));
+        st.setString(3, textField2.getText());
+        st.executeUpdate();
     }
 }
