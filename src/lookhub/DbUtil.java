@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTextField;
 
 /**
  * Database object to load drivers and perform queries
@@ -64,5 +65,14 @@ public class DbUtil {
         ResultSet rs;
         PreparedStatement st = con.prepareStatement(query);
         st.executeUpdate();
+    }
+    public static ResultSet getResultSetForSearch(String query,JTextField textField) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        rs = st.executeQuery();
+
+        return rs;
     }
 }

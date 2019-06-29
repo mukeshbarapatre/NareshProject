@@ -26,6 +26,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.sql.*;
 import net.proteanit.sql.DbUtils;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -67,7 +68,33 @@ public class HomePage extends javax.swing.JFrame {
         getServiceTabelData();
         getProductTabelData();
         
+        //here is a code for Autosuggetion
         
+        
+         AutoSuggestor autoSuggestor = new AutoSuggestor(EditService, this, null, Color.WHITE, Color.BLUE, Color.RED, 1f) {
+            @Override
+            boolean wordTyped(String typedWord) {
+
+                //create list for dictionary this in your case might be done via calling a method which queries db and returns results as arraylist
+                ArrayList<String> words = new ArrayList<>();
+                try {
+                con = DbUtil.loadDriver();
+                rs = DbUtil.getResultSet("select * from services");
+                while (rs.next()) {                    
+                    words.add(rs.getString(1));
+                }
+                con.close();
+            } catch (Exception e) {
+                System.out.println("not done error =  "+e);
+            }
+                
+
+                setDictionary(words);
+                //addToDictionary("bye");//adds a single word
+
+                return super.wordTyped(typedWord);//now call super to check for any matches against newest dictionary
+            }
+        };
         
         
         //here is code for passLength
@@ -186,6 +213,7 @@ public class HomePage extends javax.swing.JFrame {
             con = DbUtil.loadDriver();
             rs = DbUtil.getResultSet("select * from services");
             ServiceTable.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
         } catch (Exception e) {
         }
     }
@@ -195,6 +223,7 @@ public class HomePage extends javax.swing.JFrame {
             con = DbUtil.loadDriver();
             rs = DbUtil.getResultSet("select * from product");
             ProductTable.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
         } catch (Exception e) {
         }
     }
@@ -361,13 +390,13 @@ public class HomePage extends javax.swing.JFrame {
         DeleteService = new javax.swing.JTextField();
         EditSpan = new javax.swing.JPanel();
         ServicT1 = new javax.swing.JLabel();
-        editservice_btn = new javax.swing.JButton();
+        editservice_srh_btn = new javax.swing.JButton();
         EditService = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        popUPservice = new javax.swing.JLabel();
         ChangeName = new javax.swing.JLabel();
-        AddService1 = new javax.swing.JTextField();
+        EditServiceNF = new javax.swing.JTextField();
         ChangePrice = new javax.swing.JLabel();
-        AddPrice1 = new javax.swing.JTextField();
+        EditPriceF = new javax.swing.JTextField();
         EditSer = new javax.swing.JButton();
         ResetEdit = new javax.swing.JButton();
         ServiceOperation = new javax.swing.JLabel();
@@ -842,7 +871,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(mainservicepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(EditSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AddSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AddSpan2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                            .addComponent(AddSpan2, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1838,35 +1867,50 @@ public class HomePage extends javax.swing.JFrame {
         ServicT1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ServicT1.setText("Service Name");
 
-        editservice_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        editservice_btn.setText("Search");
-        editservice_btn.addActionListener(new java.awt.event.ActionListener() {
+        editservice_srh_btn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        editservice_srh_btn.setText("Search");
+        editservice_srh_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editservice_btnActionPerformed(evt);
+                editservice_srh_btnActionPerformed(evt);
             }
         });
 
         EditService.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditService.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                EditServiceKeyPressed(evt);
+            }
+        });
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel13.setText("Example = hair cut");
+        popUPservice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        popUPservice.setForeground(new java.awt.Color(0, 102, 0));
+        popUPservice.setText("Example = hair cut");
 
         ChangeName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChangeName.setText("Edit Name");
 
-        AddService1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditServiceNF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         ChangePrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ChangePrice.setText("Edit Price");
 
-        AddPrice1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditPriceF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         EditSer.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         EditSer.setText("Edit");
+        EditSer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditSerActionPerformed(evt);
+            }
+        });
 
         ResetEdit.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         ResetEdit.setText("Reset");
+        ResetEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetEditActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EditSpanLayout = new javax.swing.GroupLayout(EditSpan);
         EditSpan.setLayout(EditSpanLayout);
@@ -1888,20 +1932,19 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(EditSpanLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AddPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AddService1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())
+                                    .addComponent(EditPriceF, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EditServiceNF, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(EditSpanLayout.createSequentialGroup()
                         .addComponent(ServicT1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(EditSpanLayout.createSequentialGroup()
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(popUPservice, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(33, Short.MAX_VALUE))
                             .addGroup(EditSpanLayout.createSequentialGroup()
                                 .addComponent(EditService)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(editservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(editservice_srh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5))))))
         );
         EditSpanLayout.setVerticalGroup(
@@ -1910,18 +1953,18 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServicT1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editservice_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editservice_srh_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EditService, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(popUPservice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChangeName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddService1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EditServiceNF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChangePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EditPriceF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(EditSpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ResetEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2739,14 +2782,18 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_billing_btActionPerformed
 
     private void addservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addservice_btnActionPerformed
+      if(AddPriceField.getText().equals("")||AddServiceField.getText().equals("")){
+      JOptionPane.showMessageDialog(this, "Enter ServiceName And Price","Details",JOptionPane.OK_OPTION);
+      }else{
       try {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into services values('"+AddServiceField.getText()+"','"+AddPriceField.getText()+"');");
             JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.OK_OPTION);
             getServiceTabelData();
-            
+            con.close();
         } catch (Exception e) {
         }
+      }
         
     }//GEN-LAST:event_addservice_btnActionPerformed
 
@@ -2821,9 +2868,25 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Deleteservice_btnActionPerformed
 
-    private void editservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_btnActionPerformed
+    private void editservice_srh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_srh_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editservice_btnActionPerformed
+        if(EditService.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter ServiceName","Details",JOptionPane.OK_OPTION);
+        }else{
+        try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from services where Servicename = ?", EditService);
+            if(rs.next()){
+                popUPservice.setText(rs.getString(1));
+                EditServiceNF.setText(rs.getString(1));
+                EditPriceF.setText(rs.getString(2));
+            }
+            con.close();
+        } catch (Exception e) {
+            
+                    }
+        } 
+    }//GEN-LAST:event_editservice_srh_btnActionPerformed
 
     private void ProductAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductAddActionPerformed
         try {
@@ -2831,7 +2894,7 @@ public class HomePage extends javax.swing.JFrame {
             DbUtil.runQuery("insert into product values('"+NameTF.getText()+"','"+PriceTF.getText()+"','"+codeTF.getText()+"','"+QuantityTF.getText()+"','"+SupplierTF.getText()+"','"+CostTf.getText()+"');");
             JOptionPane.showMessageDialog(this, "Product added Succesfully","information",JOptionPane.OK_OPTION);
             getProductTabelData();
-            
+            con.close();
         } catch (Exception e) {
         } 
     }//GEN-LAST:event_ProductAddActionPerformed
@@ -2860,19 +2923,56 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SupplierTFActionPerformed
 
+    private void EditServiceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditServiceKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(EditService.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Service Name","ServiceName",JOptionPane.OK_OPTION);
+            }else{
+                try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from services where Servicename = ?", EditService);
+            if(rs.next()){
+                popUPservice.setText(rs.getString(1));
+                EditServiceNF.setText(rs.getString(1));
+                EditPriceF.setText(rs.getString(2));
+            }
+            con.close();
+        } catch (Exception e) {
+            
+                    } 
+            }
+        }
+    }//GEN-LAST:event_EditServiceKeyPressed
+
+    private void ResetEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetEditActionPerformed
+        // TODO add your handling code here:
+        EditPriceF.setText("");
+        EditService.setText("");
+        EditServiceNF.setText("");
+        popUPservice.setText("Example = hair cut");
+    }//GEN-LAST:event_ResetEditActionPerformed
+
+    private void EditSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSerActionPerformed
+        // TODO add your handling code here:
+        if(EditPriceF.getText().equals("")||EditService.getText().equals("")||EditServiceNF.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter Service Details","Details",JOptionPane.OK_OPTION);
+        }else{
+         popUPservice.setText("hello");
+        }
+    }//GEN-LAST:event_EditSerActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField AddPrice1;
     private javax.swing.JTextField AddPriceField;
     private javax.swing.JTextField AddPriceField4;
     private javax.swing.JTextField AddPriceField5;
     private javax.swing.JTextField AddPriceField6;
     private javax.swing.JTextField AddPriceField9;
-    private javax.swing.JTextField AddService1;
     private javax.swing.JTextField AddServiceField;
     private javax.swing.JTextField AddServiceField10;
     private javax.swing.JTextField AddServiceField4;
@@ -2911,9 +3011,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel DetailPanel;
     private javax.swing.JLabel Discount;
     private javax.swing.JLabel Discount1;
+    private javax.swing.JTextField EditPriceF;
     private javax.swing.JButton EditSer;
     private javax.swing.JButton EditSer1;
     private javax.swing.JTextField EditService;
+    private javax.swing.JTextField EditServiceNF;
     private javax.swing.JPanel EditSpan;
     private javax.swing.JPanel EditSpan1;
     private javax.swing.JLabel Email;
@@ -3015,9 +3117,9 @@ public class HomePage extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JButton deltail_bt;
-    private javax.swing.JButton editservice_btn;
     private javax.swing.JButton editservice_btn1;
     private javax.swing.JButton editservice_btn2;
+    private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emaillabel;
     private javax.swing.JButton emp_bt;
@@ -3027,7 +3129,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -3066,6 +3167,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel modelicon3;
     private javax.swing.JButton other_bt;
     private javax.swing.JLabel passLabel;
+    private javax.swing.JLabel popUPservice;
     private javax.swing.JButton product_bt;
     private javax.swing.JButton report_bt;
     private javax.swing.JLabel reportlabel;

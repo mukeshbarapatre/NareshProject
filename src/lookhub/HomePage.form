@@ -2512,25 +2512,24 @@
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="AddPrice1" min="-2" pref="115" max="-2" attributes="0"/>
-                                                          <Component id="AddService1" min="-2" pref="401" max="-2" attributes="0"/>
+                                                          <Component id="EditPriceF" min="-2" pref="115" max="-2" attributes="0"/>
+                                                          <Component id="EditServiceNF" min="-2" pref="400" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="ServicT1" min="-2" pref="89" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
-                                                      <Component id="jLabel13" min="-2" pref="504" max="-2" attributes="0"/>
+                                                      <Component id="popUPservice" min="-2" pref="504" max="-2" attributes="0"/>
                                                       <EmptySpace pref="33" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="EditService" max="32767" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="editservice_btn" min="-2" pref="120" max="-2" attributes="0"/>
+                                                      <Component id="editservice_srh_btn" min="-2" pref="120" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
@@ -2545,20 +2544,20 @@
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="ServicT1" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="editservice_btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="editservice_srh_btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                           <Component id="EditService" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabel13" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="popUPservice" min="-2" pref="27" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="ChangeName" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddService1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EditServiceNF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="ChangePrice" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddPrice1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EditPriceF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -2579,7 +2578,7 @@
                                 <Property name="text" type="java.lang.String" value="Service Name"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JButton" name="editservice_btn">
+                            <Component class="javax.swing.JButton" name="editservice_srh_btn">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Times New Roman" size="14" style="1"/>
@@ -2587,7 +2586,7 @@
                                 <Property name="text" type="java.lang.String" value="Search"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editservice_btnActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editservice_srh_btnActionPerformed"/>
                               </Events>
                             </Component>
                             <Component class="javax.swing.JTextField" name="EditService">
@@ -2596,8 +2595,11 @@
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EditServiceKeyPressed"/>
+                              </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="jLabel13">
+                            <Component class="javax.swing.JLabel" name="popUPservice">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="1"/>
@@ -2616,7 +2618,7 @@
                                 <Property name="text" type="java.lang.String" value="Edit Name"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddService1">
+                            <Component class="javax.swing.JTextField" name="EditServiceNF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -2631,7 +2633,7 @@
                                 <Property name="text" type="java.lang.String" value="Edit Price"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddPrice1">
+                            <Component class="javax.swing.JTextField" name="EditPriceF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -2645,6 +2647,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Edit"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditSerActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JButton" name="ResetEdit">
                               <Properties>
@@ -2653,6 +2658,9 @@
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetEditActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
