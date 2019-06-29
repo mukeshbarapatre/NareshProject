@@ -27,6 +27,7 @@ import javax.swing.event.DocumentListener;
 import java.sql.*;
 import net.proteanit.sql.DbUtils;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -68,33 +69,11 @@ public class HomePage extends javax.swing.JFrame {
         getServiceTabelData();
         getProductTabelData();
         
-        //here is a code for Autosuggetion
+        //here is a Method for Autosuggetion
+        getSuggestionPane(EditService);
+        getSuggestionPane(DeleteService);
         
-        
-         AutoSuggestor autoSuggestor = new AutoSuggestor(EditService, this, null, Color.WHITE, Color.BLUE, Color.RED, 1f) {
-            @Override
-            boolean wordTyped(String typedWord) {
-
-                //create list for dictionary this in your case might be done via calling a method which queries db and returns results as arraylist
-                ArrayList<String> words = new ArrayList<>();
-                try {
-                con = DbUtil.loadDriver();
-                rs = DbUtil.getResultSet("select * from services");
-                while (rs.next()) {                    
-                    words.add(rs.getString(1));
-                }
-                con.close();
-            } catch (Exception e) {
-                System.out.println("not done error =  "+e);
-            }
-                
-
-                setDictionary(words);
-                //addToDictionary("bye");//adds a single word
-
-                return super.wordTyped(typedWord);//now call super to check for any matches against newest dictionary
-            }
-        };
+         
         
         
         //here is code for passLength
@@ -226,6 +205,32 @@ public class HomePage extends javax.swing.JFrame {
             con.close();
         } catch (Exception e) {
         }
+    }
+    public void getSuggestionPane(JTextField textField){
+    AutoSuggestor autoSuggestor = new AutoSuggestor(textField, this, null, Color.WHITE, Color.BLUE, Color.RED, 1f) {
+            @Override
+            boolean wordTyped(String typedWord) {
+
+                //create list for dictionary this in your case might be done via calling a method which queries db and returns results as arraylist
+                ArrayList<String> words = new ArrayList<>();
+                try {
+                con = DbUtil.loadDriver();
+                rs = DbUtil.getResultSet("select * from services");
+                while (rs.next()) {                    
+                    words.add(rs.getString(1));
+                }
+                con.close();
+            } catch (Exception e) {
+                System.out.println("not done error =  "+e);
+            }
+                
+
+                setDictionary(words);
+                //addToDictionary("bye");//adds a single word
+
+                return super.wordTyped(typedWord);//now call super to check for any matches against newest dictionary
+            }
+        };
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -2866,6 +2871,21 @@ public class HomePage extends javax.swing.JFrame {
 
     private void Deleteservice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Deleteservice_btnActionPerformed
         // TODO add your handling code here:
+        
+        if(DeleteService.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter ServiceName ","Details",JOptionPane.OK_OPTION);
+        }else{
+         try {
+            con=DbUtil.loadDriver();
+            DbUtil.runQueryforDelete("delete 'services' where ServiceName = ?", DeleteService);
+            JOptionPane.showMessageDialog(this, "Service Deleted Succesfully","information",JOptionPane.OK_OPTION);
+            getServiceTabelData();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        
     }//GEN-LAST:event_Deleteservice_btnActionPerformed
 
     private void editservice_srh_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_srh_btnActionPerformed
