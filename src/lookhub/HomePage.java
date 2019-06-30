@@ -69,9 +69,10 @@ public class HomePage extends javax.swing.JFrame {
         getServiceTabelData();
         getProductTabelData();
         
-        //here is a Method for Autosuggetion
-        getSuggestionPane(EditService);
-        getSuggestionPane(DeleteService);
+        //here is a Method for Autosuggetion panel
+        getSuggestionPane(EditService,"services");
+        getSuggestionPane(DeleteService,"services");
+        getSuggestionPane(ServiceSearch, "services");
         
          
         
@@ -206,7 +207,7 @@ public class HomePage extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
-    public void getSuggestionPane(JTextField textField){
+    public void getSuggestionPane(JTextField textField,String tabelName){
     AutoSuggestor autoSuggestor = new AutoSuggestor(textField, this, null, Color.WHITE, Color.BLUE, Color.RED, 1f) {
             @Override
             boolean wordTyped(String typedWord) {
@@ -215,7 +216,7 @@ public class HomePage extends javax.swing.JFrame {
                 ArrayList<String> words = new ArrayList<>();
                 try {
                 con = DbUtil.loadDriver();
-                rs = DbUtil.getResultSet("select * from services");
+                rs = DbUtil.getResultSet("select * from "+tabelName);
                 while (rs.next()) {                    
                     words.add(rs.getString(1));
                 }
@@ -347,6 +348,7 @@ public class HomePage extends javax.swing.JFrame {
         EmailCust = new javax.swing.JLabel();
         EmailCustjTextField1 = new javax.swing.JTextField();
         emailLabel = new javax.swing.JLabel();
+        SearchCust = new javax.swing.JButton();
         ServiceCPanel = new javax.swing.JPanel();
         Service = new javax.swing.JLabel();
         Discount = new javax.swing.JLabel();
@@ -1404,6 +1406,8 @@ public class HomePage extends javax.swing.JFrame {
 
         emailLabel.setForeground(new java.awt.Color(204, 0, 0));
 
+        SearchCust.setIcon(new javax.swing.ImageIcon("D:\\Users\\vip\\Desktop\\GUI\\LookHub\\NareshProject\\src\\lookhub\\Images\\search2.jpg")); // NOI18N
+
         javax.swing.GroupLayout DetailPanelLayout = new javax.swing.GroupLayout(DetailPanel);
         DetailPanel.setLayout(DetailPanelLayout);
         DetailPanelLayout.setHorizontalGroup(
@@ -1417,23 +1421,30 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DetailPanelLayout.createSequentialGroup()
-                        .addComponent(CustumerjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailPanelLayout.createSequentialGroup()
                         .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(EmailCustjTextField1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DetailPanelLayout.createSequentialGroup()
                                 .addComponent(MobilejTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BillNo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(billNOjTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                            .addComponent(emailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(28, 28, 28))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DetailPanelLayout.createSequentialGroup()
+                                .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(101, 101, 101))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DetailPanelLayout.createSequentialGroup()
+                                .addComponent(BillNo, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(billNOjTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
+                    .addGroup(DetailPanelLayout.createSequentialGroup()
+                        .addComponent(CustumerjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(BillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         DetailPanelLayout.setVerticalGroup(
             DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1443,7 +1454,8 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CustumerN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CustumerjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(SearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1479,8 +1491,18 @@ public class HomePage extends javax.swing.JFrame {
         unit.setText("Unit Price");
 
         ServiceSearch.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ServiceSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ServiceSearchKeyPressed(evt);
+            }
+        });
 
         Quantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Quantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                QuantityKeyPressed(evt);
+            }
+        });
 
         UnitPrice.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -1490,6 +1512,11 @@ public class HomePage extends javax.swing.JFrame {
         ServiceDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ServiceDiscountActionPerformed(evt);
+            }
+        });
+        ServiceDiscount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ServiceDiscountKeyPressed(evt);
             }
         });
 
@@ -2989,6 +3016,61 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_EditSerActionPerformed
 
+    private void ServiceSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ServiceSearchKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(ServiceSearch.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Service Name","ServiceName",JOptionPane.OK_OPTION);
+            }else{
+                try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from services where Servicename = ?", ServiceSearch);
+            if(rs.next()){
+                UnitPrice.setText(rs.getString(2));
+                Quantity.setText("1");
+                ServiceDiscount.setText("0");
+                ServiceTotal.setText(rs.getString(2));
+            }
+            con.close();
+        } catch (Exception e) {
+            
+                    }
+                }
+        }
+    }//GEN-LAST:event_ServiceSearchKeyPressed
+
+    private void QuantityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_QuantityKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(Quantity.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Quantity","Information",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    double totals = Integer.parseInt(Quantity.getText())*Double.parseDouble(UnitPrice.getText())-Double.parseDouble(ServiceDiscount.getText());
+                    ServiceTotal.setText(Double.toString(totals));
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Enter Valid Number Ex = 1,2,3,etc","Information",JOptionPane.OK_OPTION);
+                }
+            }
+        }
+    }//GEN-LAST:event_QuantityKeyPressed
+
+    private void ServiceDiscountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ServiceDiscountKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(ServiceDiscount.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Discount","Information",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    double totals = Integer.parseInt(Quantity.getText())*Double.parseDouble(UnitPrice.getText())-Double.parseDouble(ServiceDiscount.getText());
+                    ServiceTotal.setText(Double.toString(totals));
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Enter Valid Number Ex = 1,2,3,etc","Information",JOptionPane.OK_OPTION);
+                }
+            }
+        }
+    }//GEN-LAST:event_ServiceDiscountKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -3094,6 +3176,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
+    private javax.swing.JButton SearchCust;
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel ServicT10;
