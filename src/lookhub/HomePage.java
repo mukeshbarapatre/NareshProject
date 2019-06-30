@@ -2877,7 +2877,7 @@ public class HomePage extends javax.swing.JFrame {
         }else{
          try {
             con=DbUtil.loadDriver();
-            DbUtil.runQueryforDelete("delete 'services' where ServiceName = ?", DeleteService);
+            DbUtil.runQueryforDelete("delete from services where ServiceName = ?", DeleteService);
             JOptionPane.showMessageDialog(this, "Service Deleted Succesfully","information",JOptionPane.OK_OPTION);
             getServiceTabelData();
             con.close();
