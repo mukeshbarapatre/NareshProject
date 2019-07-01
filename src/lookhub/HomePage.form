@@ -1828,6 +1828,11 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JButton" name="SearchCust">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/lookhub/Images/search2.jpg"/>
+                            </Property>
+                          </Properties>
                         </Component>
                       </SubComponents>
                     </Container>
