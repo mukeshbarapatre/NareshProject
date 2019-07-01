@@ -453,16 +453,16 @@
                                                       <Component id="ResetEdit1" min="-2" pref="86" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="ServicT6" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      <Component id="pname" min="-2" pref="103" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="AddServiceField4" min="-2" pref="238" max="-2" attributes="0"/>
+                                                      <Component id="productnameTF" min="-2" pref="238" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                                                       <Component id="editservice_btn1" min="-2" pref="120" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" attributes="0">
-                                                      <Component id="ServicT9" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="SnameL" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="AddServiceField7" min="-2" pref="223" max="-2" attributes="0"/>
+                                                      <Component id="SnameTF" min="-2" pref="223" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -470,27 +470,27 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="ServicT8" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="EditcodeL" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="AddServiceField6" min="-2" pref="110" max="-2" attributes="0"/>
+                                                      <Component id="EditcodeTF" min="-2" pref="110" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="ServicT7" min="-2" pref="96" max="-2" attributes="0"/>
+                                                      <Component id="EditnameL" min="-2" pref="96" max="-2" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="AddServiceField5" min="-2" pref="238" max="-2" attributes="0"/>
+                                                      <Component id="EditnameTF" min="-2" pref="238" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="S_Pricce5" min="-2" pref="70" max="-2" attributes="0"/>
-                                                          <Component id="S_Pricce4" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="EQuantity" min="-2" pref="70" max="-2" attributes="0"/>
+                                                          <Component id="EpriceL" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="AddPriceField4" min="-2" pref="110" max="-2" attributes="0"/>
-                                                          <Component id="AddPriceField5" min="-2" pref="110" max="-2" attributes="0"/>
+                                                          <Component id="EpriceTF" min="-2" pref="110" max="-2" attributes="0"/>
+                                                          <Component id="EquantityTF" min="-2" pref="110" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
@@ -511,27 +511,27 @@
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="editservice_btn1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Component id="ServicT6" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddServiceField4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="pname" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="productnameTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ServicT7" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddServiceField5" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="S_Pricce4" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddPriceField4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EditnameL" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="EditnameTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EpriceL" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="EpriceTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ServicT8" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddServiceField6" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="S_Pricce5" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddPriceField5" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EditcodeL" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="EditcodeTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="EQuantity" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="EquantityTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="ServicT9" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
-                                          <Component id="AddServiceField7" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="SnameL" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="SnameTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                           <Component id="S_Pricce6" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                           <Component id="AddPriceField6" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       </Group>
@@ -573,7 +573,7 @@
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="ServicT6">
+                            <Component class="javax.swing.JLabel" name="pname">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -581,14 +581,14 @@
                                 <Property name="text" type="java.lang.String" value="Product Name :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddServiceField4">
+                            <Component class="javax.swing.JTextField" name="productnameTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="ServicT7">
+                            <Component class="javax.swing.JLabel" name="EditnameL">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -596,14 +596,14 @@
                                 <Property name="text" type="java.lang.String" value="Edit Name       :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddServiceField5">
+                            <Component class="javax.swing.JTextField" name="EditnameTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="S_Pricce4">
+                            <Component class="javax.swing.JLabel" name="EpriceL">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -611,17 +611,17 @@
                                 <Property name="text" type="java.lang.String" value="Edit Price :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddPriceField4">
+                            <Component class="javax.swing.JTextField" name="EpriceTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddPriceField4ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EpriceTFActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="ServicT8">
+                            <Component class="javax.swing.JLabel" name="EditcodeL">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -629,14 +629,14 @@
                                 <Property name="text" type="java.lang.String" value="Edit Code        :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddServiceField6">
+                            <Component class="javax.swing.JTextField" name="EditcodeTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="S_Pricce5">
+                            <Component class="javax.swing.JLabel" name="EQuantity">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -644,14 +644,14 @@
                                 <Property name="text" type="java.lang.String" value="Quantity :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddPriceField5">
+                            <Component class="javax.swing.JTextField" name="EquantityTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JLabel" name="ServicT9">
+                            <Component class="javax.swing.JLabel" name="SnameL">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
@@ -659,12 +659,15 @@
                                 <Property name="text" type="java.lang.String" value="Supplier Name :"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JTextField" name="AddServiceField7">
+                            <Component class="javax.swing.JTextField" name="SnameTF">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Tahoma" size="14" style="0"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SnameTFActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="S_Pricce6">
                               <Properties>
@@ -2612,6 +2615,7 @@
                                 </Property>
                               </Properties>
                               <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EditServiceActionPerformed"/>
                                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="EditServiceKeyPressed"/>
                               </Events>
                             </Component>
