@@ -28,6 +28,7 @@ import java.sql.*;
 import net.proteanit.sql.DbUtils;
 import java.util.ArrayList;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -48,7 +49,8 @@ public class HomePage extends javax.swing.JFrame {
     Connection con;
     Statement stmt;
     ResultSet rs;
-
+    Double totalprice=0d;
+    Double totaldiscout=0d;
     public HomePage()  {
        
         
@@ -140,24 +142,97 @@ public class HomePage extends javax.swing.JFrame {
                 }
             }
         });
-        EditService.getDocument().addDocumentListener(new DocumentListener() {
+        ServiceDiscount.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) { 
-                search();
+                totalp();
             }
 
             @Override
             public void removeUpdate(DocumentEvent e) {
-                search();
+                totalp();
             }
 
             @Override
             public void changedUpdate(DocumentEvent e) {
-                search();
+                totalp();
             }
-            public void search(){
+            public void totalp(){
                 
+                try {
+                    double totals = Integer.parseInt(Quantity.getText())*Double.parseDouble(UnitPrice.getText())-Double.parseDouble(ServiceDiscount.getText());
+                    ServiceTotal.setText(Double.toString(totals));
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, "Enter a Valid Number Ex=1,2,3,etc","Invalid",JOptionPane.OK_OPTION);
+                }
+            
             }
+        });
+        Quantity.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { 
+                totald();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                totald();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                totald();
+            }
+            public void totald(){
+                
+                try {
+                    double totals = Integer.parseInt(Quantity.getText())*Double.parseDouble(UnitPrice.getText())-Double.parseDouble(ServiceDiscount.getText());
+                    ServiceTotal.setText(Double.toString(totals));
+                } catch (Exception e) {
+                    //JOptionPane.showMessageDialog(null, "Enter a Valid Number Ex=1,2,3,etc","Invalid",JOptionPane.OK_OPTION);
+                }
+            }
+            
+        });
+        ServiceSearch.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) { 
+                fillTextField();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                fillTextField();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                fillTextField();
+            }
+            public void fillTextField(){
+                
+            if(ServiceSearch.getText().equals("")){
+                UnitPrice.setText("");
+                Quantity.setText("");
+                ServiceDiscount.setText("");
+                ServiceTotal.setText("");
+            }else{
+                try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from services where Servicename = ?", ServiceSearch);
+            if(rs.next()){
+                UnitPrice.setText(rs.getString(2));
+                Quantity.setText("1");
+                ServiceDiscount.setText("0");
+                ServiceTotal.setText(rs.getString(2));
+            }
+            con.close();
+        } catch (Exception e) {
+            
+                    }
+                }
+            }
+            
         });
         
     }
@@ -1450,13 +1525,13 @@ public class HomePage extends javax.swing.JFrame {
             DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DetailPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CustumerN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CustumerjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BillDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(SearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dateChooserCombo3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchCust, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DetailPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DetailPanelLayout.createSequentialGroup()
@@ -1522,23 +1597,35 @@ public class HomePage extends javax.swing.JFrame {
 
         BServiceAdd.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BServiceAdd.setText("Add");
+        BServiceAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BServiceAddActionPerformed(evt);
+            }
+        });
 
         BillingTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BillingTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Services", "Qty", "Unit Price", "Discount", "Total Price"
             }
         ));
+        BillingTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BillingTableMouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(BillingTable);
 
         BServiceDel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         BServiceDel.setText("Del");
+        BServiceDel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BServiceDelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ServiceCPanelLayout = new javax.swing.GroupLayout(ServiceCPanel);
         ServiceCPanel.setLayout(ServiceCPanelLayout);
@@ -2022,6 +2109,11 @@ public class HomePage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        ServiceTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ServiceTableMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(ServiceTable);
         if (ServiceTable.getColumnModel().getColumnCount() > 0) {
             ServiceTable.getColumnModel().getColumn(0).setHeaderValue("Title 1");
@@ -3070,6 +3162,62 @@ public class HomePage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_ServiceDiscountKeyPressed
+
+    private void BServiceAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BServiceAddActionPerformed
+        // TODO add your handling code here:
+        if(ServiceSearch.getText().equals("")||Quantity.getText().equals("")||UnitPrice.getText().equals("")||ServiceTotal.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter Service Details","Details",JOptionPane.OK_OPTION);
+        }else{
+            DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+            model.addRow(new Object[]{ServiceSearch.getText(),Quantity.getText(),UnitPrice.getText(),ServiceDiscount.getText(),ServiceTotal.getText()});
+            totalprice = Double.parseDouble(ServiceTotal.getText())+totalprice;
+            AllTotal.setText(Double.toString(totalprice));
+            totaldiscout = Double.parseDouble(ServiceDiscount.getText())+totaldiscout;
+            TotalDiscount2.setText(Double.toString(totaldiscout));
+        } 
+    }//GEN-LAST:event_BServiceAddActionPerformed
+
+    private void BServiceDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BServiceDelActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+        try {
+            int selectRow = BillingTable.getSelectedRow();
+            model.removeRow(selectRow);
+            totalprice = totalprice-Double.parseDouble(ServiceTotal.getText());
+            AllTotal.setText(Double.toString(totalprice));
+            totaldiscout = totaldiscout-Double.parseDouble(ServiceDiscount.getText());
+            TotalDiscount2.setText(Double.toString(totaldiscout));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_BServiceDelActionPerformed
+
+    private void ServiceTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ServiceTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)ServiceTable.getModel();
+        try {
+            int selectRow = ServiceTable.getSelectedRow();
+            EditService.setText(model.getValueAt(selectRow, 0).toString());
+            DeleteService.setText(model.getValueAt(selectRow, 0).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_ServiceTableMouseClicked
+
+    private void BillingTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BillingTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+        try {
+            int selectRow = BillingTable.getSelectedRow();
+            ServiceSearch.setText(model.getValueAt(selectRow, 0).toString());
+            Quantity.setText(model.getValueAt(selectRow, 1).toString());
+            UnitPrice.setText(model.getValueAt(selectRow, 2).toString());
+            ServiceDiscount.setText(model.getValueAt(selectRow, 3).toString());
+            ServiceTotal.setText(model.getValueAt(selectRow, 4).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_BillingTableMouseClicked
 
     /**
      * @param args the command line arguments
