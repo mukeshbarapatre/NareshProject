@@ -20,6 +20,10 @@ public class DbUtil {
     private static final String user = "root";
     private static final String pwd = "";
 
+    static void runQueryforEdit(String update_product_set_ProductName__price__Pr, JTextField EditnameTF, JTextField EpriceTF, JTextField EditcodeTF, JTextField EquantityTF, JTextField SnameTF, JTextField EditCost) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * create Database object
      */
