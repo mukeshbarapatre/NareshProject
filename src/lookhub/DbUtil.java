@@ -89,6 +89,21 @@ public class DbUtil {
         st.setString(3, textField2.getText());
         st.executeUpdate();
     }
+     public static void runQueryforEditProduct(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,JTextField textField4,JTextField textField5,JTextField textField6) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setInt(2, Integer.parseInt(textField1.getText()));
+        st.setInt(3, Integer.parseInt(textField2.getText()));
+        st.setInt(4, Integer.parseInt(textField3.getText()));
+        st.setString(5, textField4.getText());
+        st.setInt(6, Integer.parseInt(textField5.getText()));
+        st.setString(7, textField6.getText());
+        
+        
+        st.executeUpdate();
+    }
     public static void runQueryforDelete(String query,JTextField textField) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
