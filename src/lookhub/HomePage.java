@@ -59,15 +59,15 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize = (int)tk.getScreenSize().getWidth();
-        int ysize = (int)tk.getScreenSize().getHeight();
+        int ysize = (int)tk.getScreenSize().getHeight()-40;
         this.setSize(xsize,ysize);
         
       
        if(ysize>768||xsize>1366){
        int x = (int)buttonpanel.getSize().getWidth();
-       int y = (int)buttonpanel.getSize().getHeight()+132;
+       int y = (int)buttonpanel.getSize().getHeight()+132-40;
        int xz = (int)jTabbedPane1.getSize().getWidth();
-       int yz = (int)jTabbedPane1.getSize().getHeight()+132;
+       int yz = (int)jTabbedPane1.getSize().getHeight()+132-40;
         
         buttonpanel.setPreferredSize(new Dimension(x,y));
         jTabbedPane1.setPreferredSize(new Dimension(xz,yz));
