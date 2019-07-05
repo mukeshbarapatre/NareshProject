@@ -59,15 +59,16 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize = (int)tk.getScreenSize().getWidth();
-        int ysize = (int)tk.getScreenSize().getHeight()-40;
-        this.setSize(xsize,ysize);
+        int ysize = (int)tk.getScreenSize().getHeight();
+        
+        this.setExtendedState(MAXIMIZED_BOTH);
         
       
        if(ysize>768||xsize>1366){
        int x = (int)buttonpanel.getSize().getWidth();
-       int y = (int)buttonpanel.getSize().getHeight()+132-40;
+       int y = (int)buttonpanel.getSize().getHeight()+132;
        int xz = (int)jTabbedPane1.getSize().getWidth();
-       int yz = (int)jTabbedPane1.getSize().getHeight()+132-40;
+       int yz = (int)jTabbedPane1.getSize().getHeight()+132;
         
         buttonpanel.setPreferredSize(new Dimension(x,y));
         jTabbedPane1.setPreferredSize(new Dimension(xz,yz));
@@ -2705,7 +2706,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
