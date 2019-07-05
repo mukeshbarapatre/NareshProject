@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
-
+import java.io.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -311,6 +311,9 @@ public class HomePage extends javax.swing.JFrame {
             rs = DbUtil.getResultSet("select * from billing ORDER BY 'Bill No' DESC LIMIT 1;");
             if(rs.next()){
             billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
+            }
+            else{
+            billNOjTextField1.setText("1");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -2732,7 +2735,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -3383,6 +3386,7 @@ public class HomePage extends javax.swing.JFrame {
             DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
+            createNewPdf(CustumerjTextField.getText());
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
@@ -3404,7 +3408,20 @@ public class HomePage extends javax.swing.JFrame {
         TotalDiscount2.setText("");
         BarberNameField.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
-   
+   //here is code for generate pdf
+    public void createNewPdf(String name){
+        File file = new File("C:\\Users\\Administrator\\Documents\\NetBeansProjects\\pdfcreater\\"+name+".pdf");
+        try{
+            if (file.createNewFile())
+        {
+            System.out.println("File is created!");
+        } else {
+            System.out.println("File already exists.");
+        }
+        }catch(Exception e){
+        
+        }
+    }
 
     /**
      * @param args the command line arguments
