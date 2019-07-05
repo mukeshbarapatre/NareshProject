@@ -309,7 +309,6 @@ public class HomePage extends javax.swing.JFrame {
         try {
             con = DbUtil.loadDriver();
             rs = DbUtil.getResultSet("select * from billing ORDER BY 'Bill No' DESC LIMIT 1;");
-            System.out.println("hello hi");
             if(rs.next()){
             billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
             }
@@ -1831,6 +1830,11 @@ public class HomePage extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("New");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         ResetBill.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetBill.setText("Reset");
@@ -3379,13 +3383,27 @@ public class HomePage extends javax.swing.JFrame {
             DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
-            getServiceTabelData();
             con.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
         }
       }
     }//GEN-LAST:event_SaveActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        getBillNo();
+        CustumerjTextField.setText("");
+        MobilejTextField.setText("");
+        EmailCustjTextField1.setText("");
+        ServiceSearch.setText("");
+        UnitPrice.setText("");
+        ServiceDiscount.setText("");
+        Quantity.setText("");
+        AllTotal.setText("");
+        TotalDiscount2.setText("");
+        BarberNameField.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
    
 
     /**
