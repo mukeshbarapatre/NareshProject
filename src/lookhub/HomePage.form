@@ -2253,6 +2253,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Save"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaveActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="Cancel">
                       <Properties>
@@ -3205,8 +3208,8 @@
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="homepanel" min="-2" pref="142" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jTabbedPane1" pref="563" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jTabbedPane1" min="-2" pref="563" max="-2" attributes="0"/>
                   <Component id="buttonpanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>

@@ -30,6 +30,7 @@ import net.proteanit.sql.DbUtils;
 import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import java.util.Date;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -52,6 +53,7 @@ public class HomePage extends javax.swing.JFrame {
     ResultSet rs;
     Double totalprice=0d;
     Double totaldiscout=0d;
+    java.sql.Date sqlDate;
     public HomePage()  {
        
         
@@ -84,6 +86,7 @@ public class HomePage extends javax.swing.JFrame {
         
         getServiceTabelData();
         getProductTabelData();
+        getBillNo();
         
         //here is a Method for Autosuggetion panel
         getSuggestionPane(EditService,"services");
@@ -298,6 +301,20 @@ public class HomePage extends javax.swing.JFrame {
             ProductTable.setModel(DbUtils.resultSetToTableModel(rs));
             con.close();
         } catch (Exception e) {
+        }
+    }
+    
+    //here is gode for getBillNo
+    public void getBillNo(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select * from billing ORDER BY 'Bill No' DESC LIMIT 1;");
+            System.out.println("hello hi");
+            if(rs.next()){
+            billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
         }
     }
     public void getSuggestionPane(JTextField textField,String tabelName){
@@ -1820,6 +1837,11 @@ public class HomePage extends javax.swing.JFrame {
 
         Save.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Save.setText("Save");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
 
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancel");
@@ -2705,8 +2727,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -3344,6 +3366,26 @@ public class HomePage extends javax.swing.JFrame {
         SupplierTF.setText("");
         CostTf.setText("");
     }//GEN-LAST:event_AddResetActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+        // TODO add your handling code here:
+        if(CustumerjTextField.getText().equals("")||MobilejTextField.getText().equals("")||MobilejTextField.getText().equals("")||AllTotal.getText().equals("")){
+      JOptionPane.showMessageDialog(this, "Please Enter Billing Details","Details",JOptionPane.OK_OPTION);
+      }else{
+      try { 
+            Date date= new Date(dateChooserCombo3.getText());
+            sqlDate = new java.sql.Date(date.getTime());
+            con=DbUtil.loadDriver();
+            DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
+            DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
+            JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
+            getServiceTabelData();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+      }
+    }//GEN-LAST:event_SaveActionPerformed
    
 
     /**
