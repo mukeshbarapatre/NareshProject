@@ -32,6 +32,9 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.io.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.net.URL;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -1843,6 +1846,11 @@ public class HomePage extends javax.swing.JFrame {
 
         ResetBill.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetBill.setText("Reset");
+        ResetBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetBillActionPerformed(evt);
+            }
+        });
 
         Save.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Save.setText("Save");
@@ -1854,6 +1862,11 @@ public class HomePage extends javax.swing.JFrame {
 
         Cancel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Cancel.setText("Cancel");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
 
         Print.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Print.setText("Print");
@@ -2737,7 +2750,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -3419,9 +3432,37 @@ public class HomePage extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void ResetBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBillActionPerformed
+        // TODO add your handling code here:
+        getBillNo();
+        CustumerjTextField.setText("");
+        MobilejTextField.setText("");
+        EmailCustjTextField1.setText("");
+        ServiceSearch.setText("");
+        UnitPrice.setText("");
+        ServiceDiscount.setText("");
+        Quantity.setText("");
+        AllTotal.setText("");
+        TotalDiscount2.setText("");
+        BarberNameField.setText("");
+        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+        try {
+            int row = model.getRowCount();
+            for(int i=row-1;i>=0;i--){
+            model.removeRow(i);
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_ResetBillActionPerformed
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        // TODO add your handling code here:
+        createNewPdf("hello");
+    }//GEN-LAST:event_CancelActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name){
-        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+".pdf");
+        File file = new File("C:\\Users\\Administrator\\Documents\\pdfcreater\\vishal hedau.pdf");
         try{
             if (file.createNewFile())
         {
@@ -3430,8 +3471,26 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("File already exists.");
         }
         }catch(Exception e){
-        
+            JOptionPane.showMessageDialog(this, "folder not found");
         }
+        Document doc = new Document();
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(file));
+            doc.open();
+            Paragraph para = new Paragraph();
+            //Image image = Image.getInstance(new URL("src\\lookhub\\Images\\Unisex.png"));
+            para.add("hello ");
+            doc.add(para);
+            //doc.add(image);
+            doc.close();
+            JOptionPane.showMessageDialog(this, "pdf created and saved");
+            
+        } catch (Exception e) {
+        }
+        
+        
+        
+        
     }
 
     /**
