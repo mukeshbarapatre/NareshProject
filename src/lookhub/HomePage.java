@@ -3484,6 +3484,8 @@ public class HomePage extends javax.swing.JFrame {
             //doc.add(image);
             doc.close();
             JOptionPane.showMessageDialog(this, "pdf created and saved");
+            //here is code
+            System.out.println("hello");
             
         } catch (Exception e) {
         }
