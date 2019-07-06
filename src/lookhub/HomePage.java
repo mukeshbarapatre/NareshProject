@@ -361,8 +361,6 @@ public class HomePage extends javax.swing.JFrame {
 
         SalonDTab = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        EmployeeDTab = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         ProductDtab = new javax.swing.JPanel();
         ProductScroll = new javax.swing.JScrollPane();
         ProductPanel = new javax.swing.JPanel();
@@ -592,30 +590,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(252, 252, 252)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(280, Short.MAX_VALUE))
-        );
-
-        EmployeeDTab.setBackground(new java.awt.Color(204, 204, 204));
-        EmployeeDTab.setPreferredSize(new java.awt.Dimension(944, 586));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel4.setText("Employee");
-
-        javax.swing.GroupLayout EmployeeDTabLayout = new javax.swing.GroupLayout(EmployeeDTab);
-        EmployeeDTab.setLayout(EmployeeDTabLayout);
-        EmployeeDTabLayout.setHorizontalGroup(
-            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeDTabLayout.createSequentialGroup()
-                .addContainerGap(447, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(374, 374, 374))
-        );
-        EmployeeDTabLayout.setVerticalGroup(
-            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeDTabLayout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(279, Short.MAX_VALUE))
         );
 
         ProductDtab.setBackground(new java.awt.Color(38, 3, 3));
@@ -2750,7 +2724,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -2784,9 +2758,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void emp_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_btActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.add(EmployeeDTab);
-        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
-        jTabbedPane1.setSelectedComponent(EmployeeDTab);
+//        jTabbedPane1.add(EmployeeDTab);
+       // jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
+       // jTabbedPane1.setSelectedComponent(EmployeeDTab);
     }//GEN-LAST:event_emp_btActionPerformed
 
     private void client_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_btActionPerformed
@@ -3555,7 +3529,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailCust;
     private javax.swing.JTextField EmailCustjTextField1;
-    private javax.swing.JPanel EmployeeDTab;
     private javax.swing.JLabel EpriceL;
     private javax.swing.JTextField EpriceTF;
     private javax.swing.JTextField EquantityTF;
@@ -3665,7 +3638,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
