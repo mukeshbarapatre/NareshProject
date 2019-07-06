@@ -308,12 +308,14 @@ public class HomePage extends javax.swing.JFrame {
     public void getBillNo(){
         try {
             con = DbUtil.loadDriver();
-            rs = DbUtil.getResultSet("select * from billing ORDER BY 'Bill No' DESC LIMIT 1;");
-            if(rs.next()){
-            billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
-            }
-            else{
-            billNOjTextField1.setText("1");
+            rs = DbUtil.getResultSet("select * from billing ");
+            while (rs.next()) {                
+                if(rs.last()){
+                    billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
+                }
+                    else{
+                        billNOjTextField1.setText("1");
+                    }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -3376,7 +3378,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
-        if(CustumerjTextField.getText().equals("")||MobilejTextField.getText().equals("")||MobilejTextField.getText().equals("")||AllTotal.getText().equals("")){
+        if(CustumerjTextField.getText().equals("")||MobilejTextField.getText().equals("")||MobilejTextField.getText().equals("")||AllTotal.getText().equals("")||billNOjTextField1.getText().equals("")){
       JOptionPane.showMessageDialog(this, "Please Enter Billing Details","Details",JOptionPane.OK_OPTION);
       }else{
       try { 
@@ -3407,10 +3409,19 @@ public class HomePage extends javax.swing.JFrame {
         AllTotal.setText("");
         TotalDiscount2.setText("");
         BarberNameField.setText("");
+        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+        try {
+            int row = model.getRowCount();
+            for(int i=row-1;i>=0;i--){
+            model.removeRow(i);
+            }
+        } catch (Exception e) {
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name){
-        File file = new File("C:\\Users\\Administrator\\Documents\\NetBeansProjects\\pdfcreater\\"+name+".pdf");
+        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+".pdf");
         try{
             if (file.createNewFile())
         {
