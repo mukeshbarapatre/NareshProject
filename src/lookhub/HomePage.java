@@ -1,12 +1,7 @@
 package lookhub;
 
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -14,12 +9,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.awt.Checkbox;
-import java.awt.CheckboxGroup;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -33,8 +25,15 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.io.*;
 import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPHeaderCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.net.URL;
+import com.itextpdf.text.pdf.draw.LineSeparator;
+import javax.swing.border.Border;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -3436,7 +3435,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name){
-        File file = new File("C:\\Users\\Administrator\\Documents\\pdfcreater\\vishal hedau.pdf");
+        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\vishal hedau.pdf");
         try{
             if (file.createNewFile())
         {
@@ -3449,19 +3448,159 @@ public class HomePage extends javax.swing.JFrame {
         }
         Document doc = new Document();
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream(file));
+            PdfWriter p = PdfWriter.getInstance(doc, new FileOutputStream(file));
             doc.open();
-            Paragraph para = new Paragraph();
-            //Image image = Image.getInstance(new URL("src\\lookhub\\Images\\Unisex.png"));
-            para.add("hello ");
-            doc.add(para);
-            //doc.add(image);
+            Paragraph title = new Paragraph();
+            Paragraph discription = new Paragraph();
+            
+            //for image 
+            Image img = Image.getInstance("src\\lookhub\\Images\\Unisex.png");
+            img.setAbsolutePosition(150f, 725f);// image position
+            img.scaleAbsolute(75f, 75f);
+            
+            
+            //for title
+            Font fnt = new Font(Font.FontFamily.TIMES_ROMAN, 50, WIDTH, BaseColor.PINK);
+            title.setFont(fnt);
+            title.setIndentationLeft(190); // title left side space
+            title.setLeading(50);// title top side space
+            title.add("Look Hub");
+            
+            //for discription
+            Font fnt1 = new Font(Font.FontFamily.TIMES_ROMAN, 20, WIDTH, BaseColor.RED);
+            discription.setFont(fnt1);
+            discription.setIndentationLeft(195); // di.. title left side space
+            discription.setLeading(25);// discr... top side space
+            discription.add("the family salon");
+            
+            //for line
+            LineSeparator line = new LineSeparator();
+            PdfContentByte pd = new PdfContentByte(p);
+            line.drawLine(pd, LEFT_ALIGNMENT, RIGHT_ALIGNMENT, TOP_ALIGNMENT);
+            line.setOffset(-10);
+            line.setPercentage(70);
+            line.setAlignment(-50);
+            
+            //for contact and address
+            Paragraph voidp = new Paragraph();
+            voidp.setIndentationLeft(100); // title left side space
+            voidp.setLeading(5);
+            voidp.add("  ");
+            Paragraph contactdetails = new Paragraph();
+            contactdetails.setIndentationLeft(85); // title left side space
+            contactdetails.setIndentationRight(80);
+            String address = "Akruti Apartment, Vaishali Nagar Cement Road, Nagpur - 440017, Near Indian Oil Petrol Pump";
+            contactdetails.add(address);
+            Paragraph phoneEmail = new Paragraph();
+            phoneEmail.setIndentationLeft(85); // title left side space
+            phoneEmail.setIndentationRight(80);
+            String contact = "+91 9152423149";
+            String mail = "lookhub@gmail.com";
+            phoneEmail.add("Phone  "+contact+"   E-mail  "+mail);
+            
+            //for line
+            LineSeparator line1 = new LineSeparator();
+            line1.drawLine(pd, LEFT_ALIGNMENT, RIGHT_ALIGNMENT, TOP_ALIGNMENT);
+            line1.setOffset(-5);
+            line1.setPercentage(70);
+            line1.setAlignment(-50);
+            
+            //Tabel for bill
+            PdfPTable BillTable = new PdfPTable(5);
+            BillTable.setWidthPercentage(70);
+            BillTable.setSpacingBefore(2f);
+            BillTable.setSpacingAfter(2f);
+            //for column
+            float[] columnwidth = {1f,2.5f,1f,1f,1f};
+            BillTable.setWidths(columnwidth);
+            
+            PdfPCell srno = new PdfPCell(new Paragraph("Sr No"));
+            srno.setBackgroundColor(BaseColor.ORANGE);
+            srno.setBorderColor(BaseColor.BLACK);
+            srno.setPaddingTop(5);
+            srno.setPaddingBottom(5);
+            srno.setHorizontalAlignment(Element.ALIGN_CENTER);
+            srno.setVerticalAlignment(Element.ALIGN_CENTER);
+            
+            PdfPCell services = new PdfPCell(new Paragraph("Services"));
+            services.setBackgroundColor(BaseColor.ORANGE);
+            services.setBorderColor(BaseColor.BLACK);
+            services.setPaddingTop(5);
+            services.setPaddingBottom(5);
+            services.setHorizontalAlignment(Element.ALIGN_CENTER);
+            services.setVerticalAlignment(Element.ALIGN_CENTER);
+            
+            PdfPCell qty = new PdfPCell(new Paragraph("Qty"));
+            qty.setBackgroundColor(BaseColor.ORANGE);
+            qty.setBorderColor(BaseColor.BLACK);
+            qty.setPaddingTop(5);
+            qty.setPaddingBottom(5);
+            qty.setHorizontalAlignment(Element.ALIGN_CENTER);
+            qty.setVerticalAlignment(Element.ALIGN_CENTER);
+            
+            PdfPCell unit = new PdfPCell(new Paragraph("Unit Amt."));
+            unit.setBackgroundColor(BaseColor.ORANGE);
+            unit.setBorderColor(BaseColor.BLACK);
+            unit.setPaddingTop(5);
+            unit.setPaddingBottom(5);
+            unit.setHorizontalAlignment(Element.ALIGN_CENTER);
+            unit.setVerticalAlignment(Element.ALIGN_CENTER);
+            
+            PdfPCell amount = new PdfPCell(new Paragraph("Amount"));
+            amount.setBackgroundColor(BaseColor.ORANGE);
+            amount.setBorderColor(BaseColor.BLACK);
+            amount.setPaddingTop(5);
+            amount.setPaddingBottom(5);
+            amount.setHorizontalAlignment(Element.ALIGN_CENTER);
+            amount.setVerticalAlignment(Element.ALIGN_CENTER);
+            
+            BillTable.addCell(srno);
+            BillTable.addCell(services);
+            BillTable.addCell(qty);
+            BillTable.addCell(unit);
+            BillTable.addCell(amount);
+            
+            Paragraph custmer = new Paragraph();
+            Font fnt2 = new Font(Font.FontFamily.TIMES_ROMAN, 14, WIDTH, BaseColor.BLACK);
+            custmer.setFont(fnt2);
+            custmer.setIndentationLeft(85); // title left side space
+            custmer.setIndentationRight(300);
+            custmer.add("Customer Name ");
+            
+            Paragraph billdate = new Paragraph();
+            billdate.setFont(fnt2);
+            billdate.setIndentationLeft(300); // title left side space
+            billdate.setIndentationRight(80);
+            billdate.setLeading(0);
+            billdate.add("Bill Date ");
+            
+            Paragraph billno = new Paragraph();
+            billno.setFont(fnt2);
+            billno.setIndentationLeft(300); // title left side space
+            billno.setIndentationRight(80);
+            //billno.setLeading(0);
+            billno.add("Bill No ");
+            
+            doc.add(img);
+            doc.add(title);
+            doc.add(discription);
+            doc.add(line);
+            doc.add(voidp);
+            doc.add(contactdetails);
+            doc.add(phoneEmail);
+            doc.add(line1);
+            doc.add(voidp);
+            doc.add(custmer);
+            doc.add(billdate);
+            doc.add(billno);
+            doc.add(voidp);
+            doc.add(BillTable);
             doc.close();
             JOptionPane.showMessageDialog(this, "pdf created and saved");
-            //here is code
-            System.out.println("hello");
+           
             
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
         }
         
         
