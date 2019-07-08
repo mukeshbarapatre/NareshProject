@@ -284,7 +284,17 @@ public class HomePage extends javax.swing.JFrame {
  }
     
     
-    
+    //here is code for get employe data from tab
+    public void getEmployeeData(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select * from userdetail");
+            Emp_table.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /*here is code for fetchting Service Data into Service Table*/
     public void getServiceTabelData(){
         try {
@@ -382,7 +392,7 @@ public class HomePage extends javax.swing.JFrame {
         ProductAdd = new javax.swing.JButton();
         AddReset = new javax.swing.JButton();
         EditSpan1 = new javax.swing.JPanel();
-        editservice_btn1 = new javax.swing.JButton();
+        Searchbtn = new javax.swing.JButton();
         EditProduct = new javax.swing.JButton();
         ResetProduct = new javax.swing.JButton();
         pname = new javax.swing.JLabel();
@@ -544,6 +554,45 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         reportlabel = new javax.swing.JLabel();
+        EmployeeDTab = new javax.swing.JPanel();
+        EmployeeDTab3 = new javax.swing.JPanel();
+        EmpolyeeScroll = new javax.swing.JScrollPane();
+        EmployeePanel1 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        mainEmployeepan1 = new javax.swing.JPanel();
+        jSeparator6 = new javax.swing.JSeparator();
+        AddSpan3 = new javax.swing.JPanel();
+        emp_conctact = new javax.swing.JLabel();
+        emp_first = new javax.swing.JLabel();
+        editEmployee_btn1 = new javax.swing.JButton();
+        emp_textF1 = new javax.swing.JTextField();
+        emp_textF2 = new javax.swing.JTextField();
+        emp_last = new javax.swing.JLabel();
+        emp_textF3 = new javax.swing.JTextField();
+        emp_Address = new javax.swing.JLabel();
+        emp_gender = new javax.swing.JLabel();
+        emp_pass = new javax.swing.JLabel();
+        emp_email = new javax.swing.JLabel();
+        emp_textF4 = new javax.swing.JTextField();
+        Pass_Tf = new javax.swing.JTextField();
+        email_Tf = new javax.swing.JTextField();
+        female_rbt = new javax.swing.JRadioButton();
+        male_rbt = new javax.swing.JRadioButton();
+        reset_bt = new javax.swing.JButton();
+        user = new javax.swing.JLabel();
+        combo_Tf = new javax.swing.JComboBox<>();
+        DeleteSpan1 = new javax.swing.JPanel();
+        emp_dellebal = new javax.swing.JLabel();
+        DeleteEmployee_btn1 = new javax.swing.JButton();
+        DeleteEmployee1 = new javax.swing.JTextField();
+        Employee_l1 = new javax.swing.JLabel();
+        Emp_Tablel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        Emp_searchlable = new javax.swing.JLabel();
+        search_Tf = new javax.swing.JTextField();
+        Emp_searchbt = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Emp_table = new javax.swing.JTable();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         Look1 = new javax.swing.JLabel();
@@ -725,11 +774,11 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        editservice_btn1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        editservice_btn1.setText("Search");
-        editservice_btn1.addActionListener(new java.awt.event.ActionListener() {
+        Searchbtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Searchbtn.setText("Search");
+        Searchbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editservice_btn1ActionPerformed(evt);
+                SearchbtnActionPerformed(evt);
             }
         });
 
@@ -813,7 +862,7 @@ public class HomePage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(productnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82)
-                                .addComponent(editservice_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(EditSpan1Layout.createSequentialGroup()
                                 .addComponent(SnameL)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -850,7 +899,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(EditSpan1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(EditSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editservice_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Searchbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pname, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(productnameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
@@ -896,6 +945,11 @@ public class HomePage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        ProductTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProductTableMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(ProductTable);
         if (ProductTable.getColumnModel().getColumnCount() > 0) {
             ProductTable.getColumnModel().getColumn(0).setHeaderValue("Title 1");
@@ -2458,7 +2512,418 @@ public class HomePage extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ReportScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+            .addComponent(ReportScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        EmployeeDTab.setBackground(new java.awt.Color(204, 204, 204));
+        EmployeeDTab.setPreferredSize(new java.awt.Dimension(944, 586));
+
+        EmployeeDTab3.setPreferredSize(new java.awt.Dimension(944, 586));
+
+        EmployeePanel1.setPreferredSize(new java.awt.Dimension(944, 586));
+
+        jPanel10.setBackground(new java.awt.Color(38, 3, 3));
+
+        mainEmployeepan1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        emp_conctact.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_conctact.setText("Contact Number");
+
+        emp_first.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_first.setText("First Name");
+
+        editEmployee_btn1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        editEmployee_btn1.setText("Edit");
+        editEmployee_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEmployee_btn1ActionPerformed(evt);
+            }
+        });
+
+        emp_textF1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        emp_textF2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_textF2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emp_textF2ActionPerformed(evt);
+            }
+        });
+
+        emp_last.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_last.setText("Last Name");
+
+        emp_textF3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_textF3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emp_textF3ActionPerformed(evt);
+            }
+        });
+
+        emp_Address.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_Address.setText("Address");
+
+        emp_gender.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_gender.setText("Gender");
+
+        emp_pass.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_pass.setText("Password");
+
+        emp_email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_email.setText("Email Address");
+
+        emp_textF4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_textF4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emp_textF4ActionPerformed(evt);
+            }
+        });
+
+        Pass_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Pass_Tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pass_TfActionPerformed(evt);
+            }
+        });
+
+        female_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        female_rbt.setText("Female");
+
+        male_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        male_rbt.setText("Male");
+        male_rbt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                male_rbtActionPerformed(evt);
+            }
+        });
+
+        reset_bt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        reset_bt.setText("Reset");
+        reset_bt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reset_btActionPerformed(evt);
+            }
+        });
+
+        user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        user.setText("User Type");
+
+        combo_Tf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_Tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_TfActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AddSpan3Layout = new javax.swing.GroupLayout(AddSpan3);
+        AddSpan3.setLayout(AddSpan3Layout);
+        AddSpan3Layout.setHorizontalGroup(
+            AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddSpan3Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(emp_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(emp_Address, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(emp_textF3)
+                        .addComponent(emp_textF2)
+                        .addComponent(emp_textF1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                        .addGroup(AddSpan3Layout.createSequentialGroup()
+                            .addComponent(female_rbt)
+                            .addGap(44, 44, 44)
+                            .addComponent(male_rbt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(AddSpan3Layout.createSequentialGroup()
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(AddSpan3Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emp_first, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emp_last, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emp_conctact))
+                        .addGap(46, 46, 46))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpan3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(emp_email)
+                            .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)))
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSpan3Layout.createSequentialGroup()
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AddSpan3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(148, 148, 148))
+                    .addGroup(AddSpan3Layout.createSequentialGroup()
+                        .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpan3Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(editEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(reset_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86))
+        );
+        AddSpan3Layout.setVerticalGroup(
+            AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AddSpan3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(emp_textF1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emp_first, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emp_textF2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emp_last, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emp_conctact, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emp_textF3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emp_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emp_gender, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(female_rbt))
+                    .addComponent(male_rbt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emp_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reset_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        emp_dellebal.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_dellebal.setText("Employee Name");
+
+        DeleteEmployee_btn1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        DeleteEmployee_btn1.setText("Delete ");
+        DeleteEmployee_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteEmployee_btn1ActionPerformed(evt);
+            }
+        });
+
+        DeleteEmployee1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DeleteEmployee1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteEmployee1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DeleteSpan1Layout = new javax.swing.GroupLayout(DeleteSpan1);
+        DeleteSpan1.setLayout(DeleteSpan1Layout);
+        DeleteSpan1Layout.setHorizontalGroup(
+            DeleteSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteSpan1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(emp_dellebal)
+                .addGap(30, 30, 30)
+                .addComponent(DeleteEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(DeleteEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+        DeleteSpan1Layout.setVerticalGroup(
+            DeleteSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteSpan1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(DeleteSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emp_dellebal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DeleteEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
+        Employee_l1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Employee_l1.setText("Employee");
+
+        Emp_Tablel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Emp_Tablel2.setText("Employee Details");
+
+        Emp_searchlable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Emp_searchlable.setText("Employee Name");
+
+        search_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        Emp_searchbt.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        Emp_searchbt.setText("Search");
+        Emp_searchbt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Emp_searchbtActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Emp_searchlable)
+                .addGap(32, 32, 32)
+                .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(Emp_searchbt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Emp_searchlable, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Emp_searchbt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
+        Emp_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Emp_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(Emp_table);
+
+        javax.swing.GroupLayout mainEmployeepan1Layout = new javax.swing.GroupLayout(mainEmployeepan1);
+        mainEmployeepan1.setLayout(mainEmployeepan1Layout);
+        mainEmployeepan1Layout.setHorizontalGroup(
+            mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DeleteSpan1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(Employee_l1)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        mainEmployeepan1Layout.setVerticalGroup(
+            mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainEmployeepan1Layout.createSequentialGroup()
+                        .addGap(0, 20, Short.MAX_VALUE)
+                        .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainEmployeepan1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane7)))
+                .addContainerGap())
+            .addComponent(jSeparator6)
+        );
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout EmployeePanel1Layout = new javax.swing.GroupLayout(EmployeePanel1);
+        EmployeePanel1.setLayout(EmployeePanel1Layout);
+        EmployeePanel1Layout.setHorizontalGroup(
+            EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        EmployeePanel1Layout.setVerticalGroup(
+            EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeePanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        EmpolyeeScroll.setViewportView(EmployeePanel1);
+
+        javax.swing.GroupLayout EmployeeDTab3Layout = new javax.swing.GroupLayout(EmployeeDTab3);
+        EmployeeDTab3.setLayout(EmployeeDTab3Layout);
+        EmployeeDTab3Layout.setHorizontalGroup(
+            EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EmployeeDTab3Layout.createSequentialGroup()
+                .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+        EmployeeDTab3Layout.setVerticalGroup(
+            EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EmployeeDTab3Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout EmployeeDTabLayout = new javax.swing.GroupLayout(EmployeeDTab);
+        EmployeeDTab.setLayout(EmployeeDTabLayout);
+        EmployeeDTabLayout.setHorizontalGroup(
+            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EmployeeDTabLayout.createSequentialGroup()
+                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        EmployeeDTabLayout.setVerticalGroup(
+            EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeDTabLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2757,9 +3222,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private void emp_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_btActionPerformed
         // TODO add your handling code here:
-//        jTabbedPane1.add(EmployeeDTab);
-       // jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
-       // jTabbedPane1.setSelectedComponent(EmployeeDTab);
+        jTabbedPane1.add(EmployeeDTab);
+       jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(EmployeeDTab), getTitlePanel(jTabbedPane1, EmployeeDTab, "Employee    "));
+        jTabbedPane1.setSelectedComponent(EmployeeDTab);
     }//GEN-LAST:event_emp_btActionPerformed
 
     private void client_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_btActionPerformed
@@ -3117,9 +3582,29 @@ public class HomePage extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_ProductAddActionPerformed
 
-    private void editservice_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_btn1ActionPerformed
+    private void SearchbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editservice_btn1ActionPerformed
+        if(productnameTF.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter ProductName","Details",JOptionPane.OK_OPTION);
+        }else{
+        try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from product where ProductName = ?", productnameTF);
+            if(rs.next()){
+                EditnameTF.setText(rs.getString(1));
+                EpriceTF.setText(rs.getString(2));
+                EditcodeTF.setText(rs.getString(3));
+                EquantityTF.setText(rs.getString(4));
+                SnameTF.setText(rs.getString(5));
+                EditCost.setText(rs.getString(6));
+            }
+            con.close();
+        } catch (Exception e) {
+            
+                    }
+    }                                         
+        
+    }//GEN-LAST:event_SearchbtnActionPerformed
 
     private void addservice_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addservice_btn2ActionPerformed
         // TODO add your handling code here:
@@ -3433,6 +3918,127 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_CancelActionPerformed
+
+    private void ProductTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProductTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)ProductTable.getModel();
+        try {
+            int selectRow = ProductTable.getSelectedRow();
+            EditnameTF.setText(model.getValueAt(selectRow, 0).toString());
+            EpriceTF.setText(model.getValueAt(selectRow, 0).toString());
+            EditcodeTF.setText(model.getValueAt(selectRow, 0).toString());
+            EquantityTF.setText(model.getValueAt(selectRow, 0).toString());
+            SnameTF.setText(model.getValueAt(selectRow, 0).toString());
+            EditCost.setText(model.getValueAt(selectRow, 0).toString());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_ProductTableMouseClicked
+
+    private void editEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployee_btn1ActionPerformed
+        // TODO add your handling code here:
+        String gender=null;
+        if(female_rbt.isSelected())
+        {
+            gender="female";
+        }
+
+        if(male_rbt.isSelected())
+        {
+            gender="male";
+        }
+
+        if(emp_textF1.getText().equals("")||emp_textF2.getText().equals("")||emp_textF3.getText().equals("")||emp_textF4.getText().equals("")||Pass_Tf.getText().equals("")||email_Tf.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter employee Details","Details",JOptionPane.OK_OPTION);
+        }else{
+            try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQueryforEdit("update userdetail set First name=? ,Last name=? ,contact no=?,Address=?,Gender=?,UserId=?,password=?,Email=?, where First name = ?", emp_textF1, emp_textF2,emp_textF3,emp_textF4,Pass_Tf,email_Tf);
+                JOptionPane.showMessageDialog(this, "Details Edited Succesfully","information",JOptionPane.OK_OPTION);
+                getEmployeeData();
+                con.close();
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+    }//GEN-LAST:event_editEmployee_btn1ActionPerformed
+
+    private void emp_textF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emp_textF2ActionPerformed
+
+    private void emp_textF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF3ActionPerformed
+        String contact =ContactTextfield.getText();
+        String contactRegex = "^[789][0-9]{9}$";
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        {
+            jTextArea.requestFocus();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
+            ContactTextfield.requestFocus();
+            ContactTextfield.setText("");
+        }
+    }//GEN-LAST:event_emp_textF3ActionPerformed
+
+    private void emp_textF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emp_textF4ActionPerformed
+
+    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Pass_TfActionPerformed
+
+    private void male_rbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male_rbtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_male_rbtActionPerformed
+
+    private void reset_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btActionPerformed
+        // TODO add your handling code here:
+        emp_textF1.setText("");
+        emp_textF2.setText("");
+        emp_textF3.setText("");
+        emp_textF4.setText("");
+        male_rbt.setSelected(false);
+        female_rbt.setSelected(false);
+        Pass_Tf.setText("");
+        email_Tf.setText("");
+    }//GEN-LAST:event_reset_btActionPerformed
+
+    private void combo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_TfActionPerformed
+
+    private void DeleteEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee_btn1ActionPerformed
+        // TODO add your handling code here:
+        if(DeleteEmployee1.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter User Id ","Details",JOptionPane.OK_OPTION);
+        }else{
+            try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQueryforDelete("delete from userdetail where  UserId = ?", DeleteEmployee1);
+                JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
+                getProductTabelData();
+                con.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_DeleteEmployee_btn1ActionPerformed
+
+    private void DeleteEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteEmployee1ActionPerformed
+
+    private void Emp_searchbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_searchbtActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Emp_searchbtActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name,String billnos){
         File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
@@ -3703,6 +4309,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel AddSpan;
     private javax.swing.JPanel AddSpan1;
     private javax.swing.JPanel AddSpan2;
+    private javax.swing.JPanel AddSpan3;
     private javax.swing.JTextField AllTotal;
     private javax.swing.JButton BServiceAdd;
     private javax.swing.JButton BServiceDel;
@@ -3725,10 +4332,13 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField CostTf;
     private javax.swing.JLabel CustumerN;
     private javax.swing.JTextField CustumerjTextField;
+    private javax.swing.JTextField DeleteEmployee1;
+    private javax.swing.JButton DeleteEmployee_btn1;
     private javax.swing.JButton DeleteProduct;
     private javax.swing.JTextField DeleteProductTF;
     private javax.swing.JTextField DeleteService;
     private javax.swing.JPanel DeleteSpan;
+    private javax.swing.JPanel DeleteSpan1;
     private javax.swing.JButton Deleteservice_btn;
     private javax.swing.JPanel DetailPanel;
     private javax.swing.JLabel Discount;
@@ -3749,6 +4359,15 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailCust;
     private javax.swing.JTextField EmailCustjTextField1;
+    private javax.swing.JLabel Emp_Tablel2;
+    private javax.swing.JButton Emp_searchbt;
+    private javax.swing.JLabel Emp_searchlable;
+    private javax.swing.JTable Emp_table;
+    private javax.swing.JPanel EmployeeDTab;
+    private javax.swing.JPanel EmployeeDTab3;
+    private javax.swing.JPanel EmployeePanel1;
+    private javax.swing.JLabel Employee_l1;
+    private javax.swing.JScrollPane EmpolyeeScroll;
     private javax.swing.JLabel EpriceL;
     private javax.swing.JTextField EpriceTF;
     private javax.swing.JTextField EquantityTF;
@@ -3766,6 +4385,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel NameL;
     private javax.swing.JTextField NameTF;
     private javax.swing.JTextField NameTextfield;
+    private javax.swing.JTextField Pass_Tf;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordTextfield;
     private javax.swing.JLabel PricceL;
@@ -3797,6 +4417,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
     private javax.swing.JButton SearchCust;
+    private javax.swing.JButton Searchbtn;
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel ServicT10;
@@ -3839,18 +4460,33 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton client_bt;
     private javax.swing.JLabel codeL;
     private javax.swing.JTextField codeTF;
+    private javax.swing.JComboBox<String> combo_Tf;
     private javax.swing.JLabel confirm_pswd;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JButton deltail_bt;
-    private javax.swing.JButton editservice_btn1;
+    private javax.swing.JButton editEmployee_btn1;
     private javax.swing.JButton editservice_btn2;
     private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JTextField email_Tf;
     private javax.swing.JLabel emaillabel;
+    private javax.swing.JLabel emp_Address;
     private javax.swing.JButton emp_bt;
+    private javax.swing.JLabel emp_conctact;
+    private javax.swing.JLabel emp_dellebal;
+    private javax.swing.JLabel emp_email;
+    private javax.swing.JLabel emp_first;
+    private javax.swing.JLabel emp_gender;
+    private javax.swing.JLabel emp_last;
+    private javax.swing.JLabel emp_pass;
+    private javax.swing.JTextField emp_textF1;
+    private javax.swing.JTextField emp_textF2;
+    private javax.swing.JTextField emp_textF3;
+    private javax.swing.JTextField emp_textF4;
     private javax.swing.JRadioButton female;
+    private javax.swing.JRadioButton female_rbt;
     private javax.swing.JPanel homepanel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -3863,7 +4499,9 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -3878,17 +4516,21 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JButton logout;
+    private javax.swing.JPanel mainEmployeepan1;
     private javax.swing.JPanel mainproductpan;
     private javax.swing.JPanel mainservicepan;
     private javax.swing.JRadioButton male;
+    private javax.swing.JRadioButton male_rbt;
     private javax.swing.JLabel modelicon;
     private javax.swing.JLabel modelicon3;
     private javax.swing.JButton other_bt;
@@ -3899,8 +4541,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField productnameTF;
     private javax.swing.JButton report_bt;
     private javax.swing.JLabel reportlabel;
+    private javax.swing.JButton reset_bt;
+    private javax.swing.JTextField search_Tf;
     private javax.swing.JButton service_bt;
     private javax.swing.JButton supplier_bt;
     private javax.swing.JLabel unit;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 }
