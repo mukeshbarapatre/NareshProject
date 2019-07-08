@@ -3374,7 +3374,7 @@ public class HomePage extends javax.swing.JFrame {
             DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
-            createNewPdf(CustumerjTextField.getText());
+            createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
@@ -3431,11 +3431,11 @@ public class HomePage extends javax.swing.JFrame {
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
         // TODO add your handling code here:
-        createNewPdf("hello");
+        
     }//GEN-LAST:event_CancelActionPerformed
    //here is code for generate pdf
-    public void createNewPdf(String name){
-        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\vishal hedau.pdf");
+    public void createNewPdf(String name,String billnos){
+        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
         try{
             if (file.createNewFile())
         {
@@ -3559,27 +3559,103 @@ public class HomePage extends javax.swing.JFrame {
             BillTable.addCell(qty);
             BillTable.addCell(unit);
             BillTable.addCell(amount);
+        
+            for (int i = 0; i < BillingTable.getRowCount(); i++) {
+                String srn = Integer.toString(i+1);
+                String SERVICE = BillingTable.getValueAt(i, 0).toString();
+                String QTY = BillingTable.getValueAt(i, 1).toString();
+                String UNIT = BillingTable.getValueAt(i, 2).toString();
+                String Amt = BillingTable.getValueAt(i, 4).toString();
+                BillTable.addCell(srn);
+                BillTable.addCell(SERVICE);
+                BillTable.addCell(QTY);
+                BillTable.addCell(UNIT);
+                BillTable.addCell(Amt);
+            }
+            
+            /*PdfPCell discount = new PdfPCell(new Paragraph("Discount"));
+           // discount.setBackgroundColor(BaseColor.GRAY);
+            discount.setBorderColor(BaseColor.BLACK);
+            discount.setPaddingTop(5);
+            discount.setPaddingBottom(5);
+            discount.setHorizontalAlignment(Element.ALIGN_CENTER);
+            discount.setVerticalAlignment(Element.ALIGN_CENTER);
+            discount.setColspan(4);*/
+            
+           // PdfPCell discountAmt = new PdfPCell(new Paragraph(TotalDiscount2.getText()));
+           /* discountAmt.setBackgroundColor(BaseColor.GREEN);
+            discountAmt.setBorderColor(BaseColor.BLACK);
+            discountAmt.setPaddingTop(5);
+            discountAmt.setPaddingBottom(5);
+            discountAmt.setHorizontalAlignment(Element.ALIGN_CENTER);
+            discountAmt.setVerticalAlignment(Element.ALIGN_CENTER);*/
+            
+            PdfPCell total = new PdfPCell(new Paragraph("Total"));
+           // total.setBackgroundColor(BaseColor.GRAY);
+            total.setBorderColor(BaseColor.BLACK);
+            total.setPaddingTop(5);
+            total.setPaddingBottom(5);
+            total.setHorizontalAlignment(Element.ALIGN_CENTER);
+            total.setVerticalAlignment(Element.ALIGN_CENTER);
+            total.setColspan(4);
+            
+            PdfPCell totalAmt = new PdfPCell(new Paragraph(AllTotal.getText()));
+           /* totalAmt.setBackgroundColor(BaseColor.GREEN);
+            totalAmt.setBorderColor(BaseColor.BLACK);
+            totalAmt.setPaddingTop(5);
+            totalAmt.setPaddingBottom(5);
+            totalAmt.setHorizontalAlignment(Element.ALIGN_CENTER);
+            totalAmt.setVerticalAlignment(Element.ALIGN_CENTER);*/
+            
+            BillTable.addCell(total);
+            BillTable.addCell(totalAmt);
+           // BillTable.addCell(discount);
+           // BillTable.addCell(discountAmt);
+            
+            
+            
+            
             
             Paragraph custmer = new Paragraph();
             Font fnt2 = new Font(Font.FontFamily.TIMES_ROMAN, 14, WIDTH, BaseColor.BLACK);
             custmer.setFont(fnt2);
             custmer.setIndentationLeft(85); // title left side space
             custmer.setIndentationRight(300);
-            custmer.add("Customer Name ");
+            custmer.add("Customer Name :-");
+            
+            Paragraph custmername = new Paragraph();
+            custmername.setFont(fnt2);
+            custmername.setIndentationLeft(85); // title left side space
+            custmername.setIndentationRight(100);
+            custmername.setLeading(15);
+            custmername.add(name);
             
             Paragraph billdate = new Paragraph();
             billdate.setFont(fnt2);
             billdate.setIndentationLeft(300); // title left side space
             billdate.setIndentationRight(80);
-            billdate.setLeading(0);
-            billdate.add("Bill Date ");
+            billdate.setLeading(-15);
+            billdate.add("Bill Date :- "+dateChooserCombo3.getText());
             
             Paragraph billno = new Paragraph();
             billno.setFont(fnt2);
             billno.setIndentationLeft(300); // title left side space
             billno.setIndentationRight(80);
-            //billno.setLeading(0);
-            billno.add("Bill No ");
+            billno.add("Bill No :- "+billNOjTextField1.getText());
+            
+            Paragraph disctAt = new Paragraph();
+            disctAt.setFont(fnt2);
+            disctAt.setIndentationLeft(85); // title left side space
+            disctAt.setIndentationRight(80);
+            //disct.setLeading(0);
+            disctAt.add("Total Discount = "+TotalDiscount2.getText()+"                     Grand Total = "+AllTotal.getText());
+            
+            Paragraph Signature = new Paragraph();
+            Signature.setFont(fnt2);
+            Signature.setIndentationLeft(85); // title left side space
+            Signature.setIndentationRight(100);
+            //disct.setLeading(0);
+            Signature.add("Sign or Stamp =  _________________________________");
             
             doc.add(img);
             doc.add(title);
@@ -3591,12 +3667,17 @@ public class HomePage extends javax.swing.JFrame {
             doc.add(line1);
             doc.add(voidp);
             doc.add(custmer);
+            doc.add(custmername);
             doc.add(billdate);
             doc.add(billno);
             doc.add(voidp);
             doc.add(BillTable);
+            doc.add(voidp);
+            doc.add(disctAt);
+            doc.add(Signature);
+            
             doc.close();
-            JOptionPane.showMessageDialog(this, "pdf created and saved");
+            //JOptionPane.showMessageDialog(this, "pdf created and saved");
            
             
         } catch (Exception e) {
