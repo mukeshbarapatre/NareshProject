@@ -56,6 +56,7 @@ public class HomePage extends javax.swing.JFrame {
     Double totalprice=0d;
     Double totaldiscout=0d;
     java.sql.Date sqlDate;
+    
     public HomePage()  {
        
         
@@ -85,7 +86,7 @@ public class HomePage extends javax.swing.JFrame {
         ServiceScroll1.getVerticalScrollBar().setUnitIncrement(20);
         ProductScroll.getVerticalScrollBar().setUnitIncrement(20);
         //here is method to fetch data
-        
+        getEmployeeData();
         getServiceTabelData();
         getProductTabelData();
         getBillNo();
@@ -99,7 +100,12 @@ public class HomePage extends javax.swing.JFrame {
       //  getSuggestionPane(productnameTF,"product");
       //  getSuggestionPane(productnameTF,"services");
         
-         
+         //here is code for combobox
+           final String item1="User Type";
+         final String item2="Admin Type";
+       combo_Tf.addItem(item1);
+       combo_Tf.addItem(item2); 
+       combo_Tf.setSelectedItem(null);
         
         
         //here is code for passLength
@@ -574,13 +580,15 @@ public class HomePage extends javax.swing.JFrame {
         emp_pass = new javax.swing.JLabel();
         emp_email = new javax.swing.JLabel();
         emp_textF4 = new javax.swing.JTextField();
+        user_Tf = new javax.swing.JTextField();
         Pass_Tf = new javax.swing.JTextField();
-        email_Tf = new javax.swing.JTextField();
         female_rbt = new javax.swing.JRadioButton();
         male_rbt = new javax.swing.JRadioButton();
         reset_bt = new javax.swing.JButton();
         user = new javax.swing.JLabel();
         combo_Tf = new javax.swing.JComboBox<>();
+        Edit_User = new javax.swing.JLabel();
+        email_Tf = new javax.swing.JTextField();
         DeleteSpan1 = new javax.swing.JPanel();
         emp_dellebal = new javax.swing.JLabel();
         DeleteEmployee_btn1 = new javax.swing.JButton();
@@ -2541,13 +2549,28 @@ public class HomePage extends javax.swing.JFrame {
                 editEmployee_btn1ActionPerformed(evt);
             }
         });
+        editEmployee_btn1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                editEmployee_btn1KeyPressed(evt);
+            }
+        });
 
         emp_textF1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emp_textF1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emp_textF1KeyPressed(evt);
+            }
+        });
 
         emp_textF2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emp_textF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emp_textF2ActionPerformed(evt);
+            }
+        });
+        emp_textF2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emp_textF2KeyPressed(evt);
             }
         });
 
@@ -2558,6 +2581,11 @@ public class HomePage extends javax.swing.JFrame {
         emp_textF3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emp_textF3ActionPerformed(evt);
+            }
+        });
+        emp_textF3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emp_textF3KeyPressed(evt);
             }
         });
 
@@ -2579,16 +2607,42 @@ public class HomePage extends javax.swing.JFrame {
                 emp_textF4ActionPerformed(evt);
             }
         });
+        emp_textF4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                emp_textF4KeyPressed(evt);
+            }
+        });
 
-        Pass_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        user_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        user_Tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_TfActionPerformed(evt);
+            }
+        });
+        user_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                user_TfKeyPressed(evt);
+            }
+        });
+
         Pass_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pass_TfActionPerformed(evt);
             }
         });
+        Pass_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Pass_TfKeyPressed(evt);
+            }
+        });
 
         female_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         female_rbt.setText("Female");
+        female_rbt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                female_rbtKeyPressed(evt);
+            }
+        });
 
         male_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         male_rbt.setText("Male");
@@ -2616,60 +2670,71 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        Edit_User.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Edit_User.setText("User ID");
+
+        email_Tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                email_TfActionPerformed(evt);
+            }
+        });
+        email_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                email_TfKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AddSpan3Layout = new javax.swing.GroupLayout(AddSpan3);
         AddSpan3.setLayout(AddSpan3Layout);
         AddSpan3Layout.setHorizontalGroup(
             AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AddSpan3Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(emp_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(emp_Address, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
-                .addGap(64, 64, 64)
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(emp_textF3)
-                        .addComponent(emp_textF2)
-                        .addComponent(emp_textF1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                        .addGroup(AddSpan3Layout.createSequentialGroup()
-                            .addComponent(female_rbt)
-                            .addGap(44, 44, 44)
-                            .addComponent(male_rbt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(AddSpan3Layout.createSequentialGroup()
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(AddSpan3Layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(emp_first, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emp_last, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emp_conctact))
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpan3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(emp_email)
-                            .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(64, 64, 64)))
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan3Layout.createSequentialGroup()
-                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AddSpan3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(148, 148, 148))
-                    .addGroup(AddSpan3Layout.createSequentialGroup()
-                        .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpan3Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(editEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(reset_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addGap(87, 87, 87))
+            .addGroup(AddSpan3Layout.createSequentialGroup()
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSpan3Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(emp_gender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(emp_Address, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                        .addGap(64, 64, 64)
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(emp_textF3)
+                                .addComponent(emp_textF2)
+                                .addComponent(emp_textF1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addGroup(AddSpan3Layout.createSequentialGroup()
+                                    .addComponent(female_rbt)
+                                    .addGap(44, 44, 44)
+                                    .addComponent(male_rbt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AddSpan3Layout.createSequentialGroup()
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(AddSpan3Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(emp_first, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emp_last, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emp_conctact))
+                                .addGap(46, 46, 46))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSpan3Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(emp_email)
+                                    .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Edit_User, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(64, 64, 64)))
+                        .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Pass_Tf, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(combo_Tf, 0, 250, Short.MAX_VALUE)
+                            .addComponent(user_Tf)
+                            .addComponent(email_Tf))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AddSpan3Layout.setVerticalGroup(
             AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2697,17 +2762,21 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(female_rbt))
                     .addComponent(male_rbt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_Tf, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(Edit_User, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emp_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2783,21 +2852,21 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Emp_searchlable)
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(Emp_searchbt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Emp_searchlable, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Emp_searchlable, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Emp_searchbt, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Emp_table.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -2819,77 +2888,78 @@ public class HomePage extends javax.swing.JFrame {
         mainEmployeepan1Layout.setHorizontalGroup(
             mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DeleteSpan1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)))
-                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(Employee_l1)))
+                    .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(Employee_l1))
                 .addGap(18, 18, 18)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainEmployeepan1Layout.setVerticalGroup(
             mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainEmployeepan1Layout.createSequentialGroup()
-                        .addGap(0, 20, Short.MAX_VALUE)
-                        .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainEmployeepan1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane7)))
-                .addContainerGap())
-            .addComponent(jSeparator6)
+                .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator6)
+                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                                .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(mainEmployeepan1Layout.createSequentialGroup()
+                                .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout EmployeePanel1Layout = new javax.swing.GroupLayout(EmployeePanel1);
         EmployeePanel1.setLayout(EmployeePanel1Layout);
         EmployeePanel1Layout.setHorizontalGroup(
             EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(EmployeePanel1Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         EmployeePanel1Layout.setVerticalGroup(
             EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeePanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(EmployeePanel1Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         EmpolyeeScroll.setViewportView(EmployeePanel1);
@@ -2898,9 +2968,7 @@ public class HomePage extends javax.swing.JFrame {
         EmployeeDTab3.setLayout(EmployeeDTab3Layout);
         EmployeeDTab3Layout.setHorizontalGroup(
             EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeDTab3Layout.createSequentialGroup()
-                .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
         );
         EmployeeDTab3Layout.setVerticalGroup(
             EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2914,15 +2982,13 @@ public class HomePage extends javax.swing.JFrame {
         EmployeeDTab.setLayout(EmployeeDTabLayout);
         EmployeeDTabLayout.setHorizontalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeDTabLayout.createSequentialGroup()
-                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(EmployeeDTab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         EmployeeDTabLayout.setVerticalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeDTabLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -3188,7 +3254,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -3279,7 +3345,21 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_SurnameTextfieldKeyPressed
 
     private void ContactTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactTextfieldActionPerformed
-
+      String contact =ContactTextfield.getText();
+        String contactRegex = "^[789][0-9]{9}$";
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        {
+            jTextArea.requestFocus();
+        }
+        else
+        {
+        JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
+         ContactTextfield.requestFocus();
+          ContactTextfield.setText("");
+        }
     }//GEN-LAST:event_ContactTextfieldActionPerformed
 
     private void ContactTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContactTextfieldKeyPressed
@@ -3379,7 +3459,25 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_MailTextfieldKeyPressed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-
+         String gender=null;
+        if(female.isSelected())
+        {
+            gender="female";
+        } 
+        
+        if(male.isSelected())
+        {
+            gender="male";
+        }
+        try {
+            con=DbUtil.loadDriver();
+            DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"');");
+            JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
+           getEmployeeData();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        } 
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
@@ -3948,12 +4046,13 @@ public class HomePage extends javax.swing.JFrame {
             gender="male";
         }
 
-        if(emp_textF1.getText().equals("")||emp_textF2.getText().equals("")||emp_textF3.getText().equals("")||emp_textF4.getText().equals("")||Pass_Tf.getText().equals("")||email_Tf.getText().equals("")){
+        if(emp_textF1.getText().equals("")||emp_textF2.getText().equals("")||emp_textF3.getText().equals("")||emp_textF4.getText().equals("")||user_Tf.getText().equals("")||Pass_Tf.getText().equals(""))
+        {
             JOptionPane.showMessageDialog(this, "Enter employee Details","Details",JOptionPane.OK_OPTION);
         }else{
             try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQueryforEdit("update userdetail set First name=? ,Last name=? ,contact no=?,Address=?,Gender=?,UserId=?,password=?,Email=?, where First name = ?", emp_textF1, emp_textF2,emp_textF3,emp_textF4,Pass_Tf,email_Tf);
+                DbUtil.runQueryforEdit("update userdetail set Firstname='"+emp_textF1.getText()+"' ,Lastname='"+emp_textF2.getText()+"' ,contactnumber='"+emp_textF3.getText()+"', Address='"+emp_textF4.getText()+"', Gender='"+gender+"',UserId='"+user_Tf.getText()+"',password='"+Pass_Tf.getText()+"', Email='"+email_Tf.getText()+"', where Firstname = '"+ emp_textF1.getText()+"' );");
                 JOptionPane.showMessageDialog(this, "Details Edited Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
@@ -3962,6 +4061,7 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         }
+        
     }//GEN-LAST:event_editEmployee_btn1ActionPerformed
 
     private void emp_textF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF2ActionPerformed
@@ -3990,9 +4090,9 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emp_textF4ActionPerformed
 
-    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
+    private void user_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_TfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Pass_TfActionPerformed
+    }//GEN-LAST:event_user_TfActionPerformed
 
     private void male_rbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male_rbtActionPerformed
         // TODO add your handling code here:
@@ -4006,12 +4106,17 @@ public class HomePage extends javax.swing.JFrame {
         emp_textF4.setText("");
         male_rbt.setSelected(false);
         female_rbt.setSelected(false);
+        user_Tf.setText("");
         Pass_Tf.setText("");
-        email_Tf.setText("");
     }//GEN-LAST:event_reset_btActionPerformed
 
     private void combo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TfActionPerformed
         // TODO add your handling code here:
+      String item1="User Type";
+      String item2="Admin Type";
+       combo_Tf.addItem(item1);
+       combo_Tf.addItem(item2); 
+       combo_Tf.setSelectedItem(null);
     }//GEN-LAST:event_combo_TfActionPerformed
 
     private void DeleteEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee_btn1ActionPerformed
@@ -4021,7 +4126,7 @@ public class HomePage extends javax.swing.JFrame {
         }else{
             try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQueryforDelete("delete from userdetail where  UserId = ?", DeleteEmployee1);
+                DbUtil.runQueryforDelete("delete from userdetail where  UserId= ?", DeleteEmployee1);
                 JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
                 getProductTabelData();
                 con.close();
@@ -4036,9 +4141,144 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteEmployee1ActionPerformed
 
     private void Emp_searchbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_searchbtActionPerformed
-        // TODO add your handling code here:
-        
+       if(search_Tf.getText().equals(""))
+       {
+        JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
+        }
+       else{
+        try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
+            if(rs.next())
+            {
+                emp_textF1.setText(rs.getString(1));
+                emp_textF2.setText(rs.getString(2));
+                emp_textF3.setText(rs.getString(3));
+                 emp_textF4.setText(rs.getString(4));
+                  user_Tf.setText(rs.getString(5));
+                  Pass_Tf.setText(rs.getString(6));
+                 con.close();
+            }
+        }
+        catch (Exception e)
+        {
+        JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
+        }
+       } 
     }//GEN-LAST:event_Emp_searchbtActionPerformed
+
+    private void emp_textF1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF1.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF2.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF1KeyPressed
+
+    private void emp_textF2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF2KeyPressed
+        // TODO add your handling code here:
+       if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF2.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter last Name","LastName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF3.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF2KeyPressed
+
+    private void emp_textF3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF3KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF3.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF4.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF3KeyPressed
+
+    private void emp_textF4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF4KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF4.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                female_rbt.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF4KeyPressed
+
+    private void female_rbtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_female_rbtKeyPressed
+        // TODO add your handling code here:
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(female_rbt.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+               user_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_female_rbtKeyPressed
+
+    private void Pass_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Pass_TfKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(Pass_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+               email_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_Pass_TfKeyPressed
+
+    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Pass_TfActionPerformed
+
+    private void user_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_TfKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(user_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+               Pass_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_user_TfKeyPressed
+
+    private void email_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_email_TfKeyPressed
+        // TODO add your handling code here:
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(email_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+               combo_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_email_TfKeyPressed
+
+    private void editEmployee_btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editEmployee_btn1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editEmployee_btn1KeyPressed
+
+    private void email_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_TfActionPerformed
+        // TODO add your handling code here:
+        String email = email_Tf.getText();
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+        "[a-zA-Z0-9_+&*-]+)*@" +
+        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+        "A-Z]{2,7}$";
+
+        Pattern p = Pattern.compile(emailRegex);
+        Matcher m = p.matcher(email);
+        boolean matchFound = m.matches();
+        if (matchFound)
+      combo_Tf.requestFocus();
+        else
+       JOptionPane.showMessageDialog(this, "invalid email");
+    }//GEN-LAST:event_email_TfActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name,String billnos){
         File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
@@ -4352,6 +4592,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField EditServiceNF;
     private javax.swing.JPanel EditSpan;
     private javax.swing.JPanel EditSpan1;
+    private javax.swing.JLabel Edit_User;
     private javax.swing.JLabel EditcodeL;
     private javax.swing.JTextField EditcodeTF;
     private javax.swing.JLabel EditnameL;
@@ -4547,5 +4788,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton supplier_bt;
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
+    private javax.swing.JTextField user_Tf;
     // End of variables declaration//GEN-END:variables
 }
