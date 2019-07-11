@@ -378,7 +378,6 @@ public class HomePage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ProductDtab = new javax.swing.JPanel();
         ProductScroll = new javax.swing.JScrollPane();
-        ProductPanel = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         mainproductpan = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -650,8 +649,6 @@ public class HomePage extends javax.swing.JFrame {
 
         ProductScroll.setPreferredSize(new java.awt.Dimension(946, 515));
 
-        ProductPanel.setPreferredSize(new java.awt.Dimension(944, 515));
-
         jPanel9.setBackground(new java.awt.Color(38, 3, 3));
 
         mainproductpan.setBackground(new java.awt.Color(204, 204, 204));
@@ -740,7 +737,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(AddSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AddSpan1Layout.createSequentialGroup()
                                 .addGroup(AddSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(QuantityL, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                                    .addComponent(QuantityL, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                                     .addComponent(CostL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(AddSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,9 +745,9 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(CostTf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(AddSpan1Layout.createSequentialGroup()
                                 .addComponent(PricceL)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(PriceTF, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AddSpan1Layout.setVerticalGroup(
             AddSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1066,7 +1063,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(mainproductpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(EditSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AddSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddSpan2, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE))
+                        .addComponent(AddSpan2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE))
                     .addComponent(ServiceOperation1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1106,31 +1103,20 @@ public class HomePage extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(mainproductpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(44, 44, 44)
                 .addComponent(mainproductpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout ProductPanelLayout = new javax.swing.GroupLayout(ProductPanel);
-        ProductPanel.setLayout(ProductPanelLayout);
-        ProductPanelLayout.setHorizontalGroup(
-            ProductPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        ProductPanelLayout.setVerticalGroup(
-            ProductPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        ProductScroll.setViewportView(ProductPanel);
+        ProductScroll.setViewportView(jPanel9);
 
         javax.swing.GroupLayout ProductDtabLayout = new javax.swing.GroupLayout(ProductDtab);
         ProductDtab.setLayout(ProductDtabLayout);
@@ -1143,8 +1129,8 @@ public class HomePage extends javax.swing.JFrame {
         ProductDtabLayout.setVerticalGroup(
             ProductDtabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProductDtabLayout.createSequentialGroup()
-                .addComponent(ProductScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(ProductScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         RegistrationDTab.setPreferredSize(new java.awt.Dimension(944, 586));
@@ -4002,11 +3988,11 @@ public class HomePage extends javax.swing.JFrame {
         try {
             int selectRow = ProductTable.getSelectedRow();
             EditnameTF.setText(model.getValueAt(selectRow, 0).toString());
-            EpriceTF.setText(model.getValueAt(selectRow, 0).toString());
-            EditcodeTF.setText(model.getValueAt(selectRow, 0).toString());
-            EquantityTF.setText(model.getValueAt(selectRow, 0).toString());
-            SnameTF.setText(model.getValueAt(selectRow, 0).toString());
-            EditCost.setText(model.getValueAt(selectRow, 0).toString());
+            EpriceTF.setText(model.getValueAt(selectRow, 1).toString());
+            EditcodeTF.setText(model.getValueAt(selectRow, 2).toString());
+            EquantityTF.setText(model.getValueAt(selectRow, 3).toString());
+            SnameTF.setText(model.getValueAt(selectRow, 4).toString());
+            EditCost.setText(model.getValueAt(selectRow, 5).toString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
         }
@@ -4630,7 +4616,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton Print;
     private javax.swing.JButton ProductAdd;
     private javax.swing.JPanel ProductDtab;
-    private javax.swing.JPanel ProductPanel;
     private javax.swing.JScrollPane ProductScroll;
     private javax.swing.JTable ProductTable;
     private javax.swing.JLabel Qty1;
