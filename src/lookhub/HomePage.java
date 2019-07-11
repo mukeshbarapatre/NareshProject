@@ -33,6 +33,7 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import javax.swing.border.Border;
+import com.gnostice.pdfone.PdfViewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -4265,7 +4266,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_MobilejTextFieldActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name,String billnos){
-        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
+        File file = new File("C:\\Users\\Administrator\\Documents\\pdfcreater\\"+name+billnos+".pdf");
         try{
             if (file.createNewFile())
         {
