@@ -68,13 +68,13 @@ public class HomePage extends javax.swing.JFrame {
         
         this.setExtendedState(MAXIMIZED_BOTH);
         
-      
-       if(ysize>768||xsize>1366){
+        
+       if(ysize>769||xsize>1367){
        int x = (int)buttonpanel.getSize().getWidth();
        int y = (int)buttonpanel.getSize().getHeight()+132;
        int xz = (int)jTabbedPane1.getSize().getWidth();
        int yz = (int)jTabbedPane1.getSize().getHeight()+132;
-        
+           
         buttonpanel.setPreferredSize(new Dimension(x,y));
         jTabbedPane1.setPreferredSize(new Dimension(xz,yz));
         
@@ -561,10 +561,8 @@ public class HomePage extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         reportlabel = new javax.swing.JLabel();
         EmployeeDTab = new javax.swing.JPanel();
-        EmployeeDTab3 = new javax.swing.JPanel();
         EmpolyeeScroll = new javax.swing.JScrollPane();
-        EmployeePanel1 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        employepan = new javax.swing.JPanel();
         mainEmployeepan1 = new javax.swing.JPanel();
         jSeparator6 = new javax.swing.JSeparator();
         AddSpan3 = new javax.swing.JPanel();
@@ -2524,13 +2522,8 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         EmployeeDTab.setBackground(new java.awt.Color(204, 204, 204));
-        EmployeeDTab.setPreferredSize(new java.awt.Dimension(944, 586));
 
-        EmployeeDTab3.setPreferredSize(new java.awt.Dimension(944, 586));
-
-        EmployeePanel1.setPreferredSize(new java.awt.Dimension(944, 586));
-
-        jPanel10.setBackground(new java.awt.Color(38, 3, 3));
+        employepan.setBackground(new java.awt.Color(38, 3, 3));
 
         mainEmployeepan1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -2730,7 +2723,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(Edit_User, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(64, 64, 64)))
                         .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Pass_Tf, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(Pass_Tf)
                             .addComponent(combo_Tf, 0, 250, Short.MAX_VALUE)
                             .addComponent(user_Tf)
                             .addComponent(email_Tf))))
@@ -2769,7 +2762,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emp_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2810,10 +2803,10 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(emp_dellebal)
                 .addGap(30, 30, 30)
-                .addComponent(DeleteEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addComponent(DeleteEmployee1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(DeleteEmployee_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addGap(39, 39, 39))
         );
         DeleteSpan1Layout.setVerticalGroup(
             DeleteSpan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2853,10 +2846,10 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Emp_searchlable)
                 .addGap(31, 31, 31)
-                .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(search_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Emp_searchbt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2891,20 +2884,19 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Employee_l1))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainEmployeepan1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 398, Short.MAX_VALUE))
+                .addContainerGap())
         );
         mainEmployeepan1Layout.setVerticalGroup(
             mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2917,79 +2909,47 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AddSpan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 7, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout employepanLayout = new javax.swing.GroupLayout(employepan);
+        employepan.setLayout(employepanLayout);
+        employepanLayout.setHorizontalGroup(
+            employepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employepanLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addComponent(mainEmployeepan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+        employepanLayout.setVerticalGroup(
+            employepanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(employepanLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(mainEmployeepan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
 
-        javax.swing.GroupLayout EmployeePanel1Layout = new javax.swing.GroupLayout(EmployeePanel1);
-        EmployeePanel1.setLayout(EmployeePanel1Layout);
-        EmployeePanel1Layout.setHorizontalGroup(
-            EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeePanel1Layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        EmployeePanel1Layout.setVerticalGroup(
-            EmployeePanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeePanel1Layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        EmpolyeeScroll.setViewportView(EmployeePanel1);
-
-        javax.swing.GroupLayout EmployeeDTab3Layout = new javax.swing.GroupLayout(EmployeeDTab3);
-        EmployeeDTab3.setLayout(EmployeeDTab3Layout);
-        EmployeeDTab3Layout.setHorizontalGroup(
-            EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
-        );
-        EmployeeDTab3Layout.setVerticalGroup(
-            EmployeeDTab3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EmployeeDTab3Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        EmpolyeeScroll.setViewportView(employepan);
 
         javax.swing.GroupLayout EmployeeDTabLayout = new javax.swing.GroupLayout(EmployeeDTab);
         EmployeeDTab.setLayout(EmployeeDTabLayout);
         EmployeeDTabLayout.setHorizontalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmployeeDTab3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
         );
         EmployeeDTabLayout.setVerticalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EmployeeDTabLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EmployeeDTab3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -3254,7 +3214,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
@@ -3459,25 +3419,39 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_MailTextfieldKeyPressed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-         String gender=null;
-        if(female.isSelected())
-        {
-            gender="female";
-        } 
-        
-        if(male.isSelected())
-        {
-            gender="male";
+         if (NameTextfield.equals("")||SurnameTextfield.equals("")||ContactNumebe.equals("")||jTextArea.equals("")||UserIdTextfield.equals("")||PasswordTextfield.equals("")||MailTextfield.equals("")) {
+            JOptionPane.showMessageDialog(this, "Please fill the above details","Details",JOptionPane.OK_OPTION);
+         }else{
+             String gender=null;
+            if(female.isSelected())
+            {
+                gender="female";
+                try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"');");
+                JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
+                getEmployeeData();
+                con.close();
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+            if(male.isSelected())
+            {
+                gender="male";
+                try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"');");
+                JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
+                getEmployeeData();
+                con.close();
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+             
         }
-        try {
-            con=DbUtil.loadDriver();
-            DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"');");
-            JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
-           getEmployeeData();
-            con.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } 
+ 
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
@@ -4033,6 +4007,222 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ProductTableMouseClicked
 
+    private void Emp_searchbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_searchbtActionPerformed
+        if(search_Tf.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
+        }
+        else{
+            try {
+                con=DbUtil.loadDriver();
+                rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
+                if(rs.next())
+                {
+                    emp_textF1.setText(rs.getString(1));
+                    emp_textF2.setText(rs.getString(2));
+                    emp_textF3.setText(rs.getString(3));
+                    emp_textF4.setText(rs.getString(4));
+                    user_Tf.setText(rs.getString(5));
+                    Pass_Tf.setText(rs.getString(6));
+                    con.close();
+                }
+            }
+            catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
+            }
+        }
+    }//GEN-LAST:event_Emp_searchbtActionPerformed
+
+    private void DeleteEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteEmployee1ActionPerformed
+
+    private void DeleteEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee_btn1ActionPerformed
+        // TODO add your handling code here:
+        if(DeleteEmployee1.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Enter User Id ","Details",JOptionPane.OK_OPTION);
+        }else{
+            try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQueryforDelete("delete from userdetail where  UserId= ?", DeleteEmployee1);
+                JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
+                getProductTabelData();
+                con.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_DeleteEmployee_btn1ActionPerformed
+
+    private void email_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_email_TfKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(email_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                combo_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_email_TfKeyPressed
+
+    private void email_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_TfActionPerformed
+        // TODO add your handling code here:
+        String email = email_Tf.getText();
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+        "[a-zA-Z0-9_+&*-]+)*@" +
+        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+        "A-Z]{2,7}$";
+
+        Pattern p = Pattern.compile(emailRegex);
+        Matcher m = p.matcher(email);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        combo_Tf.requestFocus();
+        else
+        JOptionPane.showMessageDialog(this, "invalid email");
+    }//GEN-LAST:event_email_TfActionPerformed
+
+    private void combo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TfActionPerformed
+        // TODO add your handling code here:
+        String item1="User Type";
+        String item2="Admin Type";
+        combo_Tf.addItem(item1);
+        combo_Tf.addItem(item2);
+        combo_Tf.setSelectedItem(null);
+    }//GEN-LAST:event_combo_TfActionPerformed
+
+    private void reset_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btActionPerformed
+        // TODO add your handling code here:
+        emp_textF1.setText("");
+        emp_textF2.setText("");
+        emp_textF3.setText("");
+        emp_textF4.setText("");
+        male_rbt.setSelected(false);
+        female_rbt.setSelected(false);
+        user_Tf.setText("");
+        Pass_Tf.setText("");
+    }//GEN-LAST:event_reset_btActionPerformed
+
+    private void male_rbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male_rbtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_male_rbtActionPerformed
+
+    private void female_rbtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_female_rbtKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(female_rbt.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                user_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_female_rbtKeyPressed
+
+    private void Pass_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Pass_TfKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(Pass_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                email_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_Pass_TfKeyPressed
+
+    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Pass_TfActionPerformed
+
+    private void user_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_TfKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(user_Tf.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                Pass_Tf.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_user_TfKeyPressed
+
+    private void user_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_TfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_TfActionPerformed
+
+    private void emp_textF4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF4KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF4.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                female_rbt.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF4KeyPressed
+
+    private void emp_textF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emp_textF4ActionPerformed
+
+    private void emp_textF3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF3KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF3.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF4.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF3KeyPressed
+
+    private void emp_textF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF3ActionPerformed
+        String contact =ContactTextfield.getText();
+        String contactRegex = "^[789][0-9]{9}$";
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        {
+            jTextArea.requestFocus();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
+            ContactTextfield.requestFocus();
+            ContactTextfield.setText("");
+        }
+    }//GEN-LAST:event_emp_textF3ActionPerformed
+
+    private void emp_textF2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF2KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF2.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter last Name","LastName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF3.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF2KeyPressed
+
+    private void emp_textF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emp_textF2ActionPerformed
+
+    private void emp_textF1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF1KeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            if(emp_textF1.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
+            }else{
+                emp_textF2.requestFocus();
+            }
+        }
+    }//GEN-LAST:event_emp_textF1KeyPressed
+
+    private void editEmployee_btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editEmployee_btn1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editEmployee_btn1KeyPressed
+
     private void editEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployee_btn1ActionPerformed
         // TODO add your handling code here:
         String gender=null;
@@ -4061,224 +4251,8 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         }
-        
+
     }//GEN-LAST:event_editEmployee_btn1ActionPerformed
-
-    private void emp_textF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emp_textF2ActionPerformed
-
-    private void emp_textF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF3ActionPerformed
-        String contact =ContactTextfield.getText();
-        String contactRegex = "^[789][0-9]{9}$";
-        Pattern p = Pattern.compile(contactRegex);
-        Matcher m = p.matcher(contact);
-        boolean matchFound = m.matches();
-        if (matchFound)
-        {
-            jTextArea.requestFocus();
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
-            ContactTextfield.requestFocus();
-            ContactTextfield.setText("");
-        }
-    }//GEN-LAST:event_emp_textF3ActionPerformed
-
-    private void emp_textF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emp_textF4ActionPerformed
-
-    private void user_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_TfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_user_TfActionPerformed
-
-    private void male_rbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male_rbtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_male_rbtActionPerformed
-
-    private void reset_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btActionPerformed
-        // TODO add your handling code here:
-        emp_textF1.setText("");
-        emp_textF2.setText("");
-        emp_textF3.setText("");
-        emp_textF4.setText("");
-        male_rbt.setSelected(false);
-        female_rbt.setSelected(false);
-        user_Tf.setText("");
-        Pass_Tf.setText("");
-    }//GEN-LAST:event_reset_btActionPerformed
-
-    private void combo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TfActionPerformed
-        // TODO add your handling code here:
-      String item1="User Type";
-      String item2="Admin Type";
-       combo_Tf.addItem(item1);
-       combo_Tf.addItem(item2); 
-       combo_Tf.setSelectedItem(null);
-    }//GEN-LAST:event_combo_TfActionPerformed
-
-    private void DeleteEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee_btn1ActionPerformed
-        // TODO add your handling code here:
-        if(DeleteEmployee1.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Enter User Id ","Details",JOptionPane.OK_OPTION);
-        }else{
-            try {
-                con=DbUtil.loadDriver();
-                DbUtil.runQueryforDelete("delete from userdetail where  UserId= ?", DeleteEmployee1);
-                JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
-                getProductTabelData();
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-    }//GEN-LAST:event_DeleteEmployee_btn1ActionPerformed
-
-    private void DeleteEmployee1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteEmployee1ActionPerformed
-
-    private void Emp_searchbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Emp_searchbtActionPerformed
-       if(search_Tf.getText().equals(""))
-       {
-        JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
-        }
-       else{
-        try {
-            con=DbUtil.loadDriver();
-            rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
-            if(rs.next())
-            {
-                emp_textF1.setText(rs.getString(1));
-                emp_textF2.setText(rs.getString(2));
-                emp_textF3.setText(rs.getString(3));
-                 emp_textF4.setText(rs.getString(4));
-                  user_Tf.setText(rs.getString(5));
-                  Pass_Tf.setText(rs.getString(6));
-                 con.close();
-            }
-        }
-        catch (Exception e)
-        {
-        JOptionPane.showMessageDialog(this, "Enter  Employee Name","Details",JOptionPane.OK_OPTION);
-        }
-       } 
-    }//GEN-LAST:event_Emp_searchbtActionPerformed
-
-    private void emp_textF1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF1KeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF1.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-                emp_textF2.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_emp_textF1KeyPressed
-
-    private void emp_textF2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF2KeyPressed
-        // TODO add your handling code here:
-       if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF2.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter last Name","LastName",JOptionPane.OK_OPTION);
-            }else{
-                emp_textF3.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_emp_textF2KeyPressed
-
-    private void emp_textF3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF3KeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF3.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-                emp_textF4.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_emp_textF3KeyPressed
-
-    private void emp_textF4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF4KeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF4.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-                female_rbt.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_emp_textF4KeyPressed
-
-    private void female_rbtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_female_rbtKeyPressed
-        // TODO add your handling code here:
-         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(female_rbt.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-               user_Tf.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_female_rbtKeyPressed
-
-    private void Pass_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Pass_TfKeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(Pass_Tf.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-               email_Tf.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_Pass_TfKeyPressed
-
-    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Pass_TfActionPerformed
-
-    private void user_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_TfKeyPressed
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(user_Tf.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-               Pass_Tf.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_user_TfKeyPressed
-
-    private void email_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_email_TfKeyPressed
-        // TODO add your handling code here:
-         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(email_Tf.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
-            }else{
-               combo_Tf.requestFocus();
-            }
-        }
-    }//GEN-LAST:event_email_TfKeyPressed
-
-    private void editEmployee_btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editEmployee_btn1KeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editEmployee_btn1KeyPressed
-
-    private void email_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_TfActionPerformed
-        // TODO add your handling code here:
-        String email = email_Tf.getText();
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-        "[a-zA-Z0-9_+&*-]+)*@" +
-        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-        "A-Z]{2,7}$";
-
-        Pattern p = Pattern.compile(emailRegex);
-        Matcher m = p.matcher(email);
-        boolean matchFound = m.matches();
-        if (matchFound)
-      combo_Tf.requestFocus();
-        else
-       JOptionPane.showMessageDialog(this, "invalid email");
-    }//GEN-LAST:event_email_TfActionPerformed
    //here is code for generate pdf
     public void createNewPdf(String name,String billnos){
         File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
@@ -4605,8 +4579,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Emp_searchlable;
     private javax.swing.JTable Emp_table;
     private javax.swing.JPanel EmployeeDTab;
-    private javax.swing.JPanel EmployeeDTab3;
-    private javax.swing.JPanel EmployeePanel1;
     private javax.swing.JLabel Employee_l1;
     private javax.swing.JScrollPane EmpolyeeScroll;
     private javax.swing.JLabel EpriceL;
@@ -4726,6 +4698,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField emp_textF2;
     private javax.swing.JTextField emp_textF3;
     private javax.swing.JTextField emp_textF4;
+    private javax.swing.JPanel employepan;
     private javax.swing.JRadioButton female;
     private javax.swing.JRadioButton female_rbt;
     private javax.swing.JPanel homepanel;
@@ -4740,7 +4713,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
