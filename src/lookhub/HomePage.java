@@ -432,14 +432,8 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         ProductTable = new javax.swing.JTable();
         AddSpan2 = new javax.swing.JPanel();
-        ServicT11 = new javax.swing.JLabel();
-        AddServiceField10 = new javax.swing.JTextField();
-        S_Pricce9 = new javax.swing.JLabel();
-        AddPriceField9 = new javax.swing.JTextField();
-        addservice_btn2 = new javax.swing.JButton();
         ServicT10 = new javax.swing.JLabel();
         DeleteProductTF = new javax.swing.JTextField();
-        editservice_btn2 = new javax.swing.JButton();
         DeleteProduct = new javax.swing.JButton();
         RegistrationDTab = new javax.swing.JPanel();
         RegistryScrool = new javax.swing.JScrollPane();
@@ -968,34 +962,13 @@ public class HomePage extends javax.swing.JFrame {
             ProductTable.getColumnModel().getColumn(3).setHeaderValue("Title 4");
         }
 
-        ServicT11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ServicT11.setText("Supplier Name :");
-
-        AddServiceField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        S_Pricce9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        S_Pricce9.setText("   Cost :");
-
-        AddPriceField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        addservice_btn2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addservice_btn2.setText("Add ");
-        addservice_btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addservice_btn2ActionPerformed(evt);
-            }
-        });
-
         ServicT10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ServicT10.setText("Product Name :");
 
         DeleteProductTF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        editservice_btn2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        editservice_btn2.setText("Delete");
-        editservice_btn2.addActionListener(new java.awt.event.ActionListener() {
+        DeleteProductTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editservice_btn2ActionPerformed(evt);
+                DeleteProductTFActionPerformed(evt);
             }
         });
 
@@ -1012,33 +985,13 @@ public class HomePage extends javax.swing.JFrame {
         AddSpan2Layout.setHorizontalGroup(
             AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddSpan2Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(addservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 21, Short.MAX_VALUE)
+                .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(AddSpan2Layout.createSequentialGroup()
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(ServicT11))
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addComponent(AddServiceField10, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(S_Pricce9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddPriceField9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         AddSpan2Layout.setVerticalGroup(
             AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1047,16 +1000,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ServicT11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddServiceField10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(S_Pricce9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddPriceField9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1070,7 +1014,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(mainproductpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(EditSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AddSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddSpan2, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE))
+                        .addComponent(AddSpan2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(ServiceOperation1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3890,14 +3834,6 @@ public class HomePage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SearchbtnActionPerformed
 
-    private void addservice_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addservice_btn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addservice_btn2ActionPerformed
-
-    private void editservice_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_btn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editservice_btn2ActionPerformed
-
     private void EpriceTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EpriceTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EpriceTFActionPerformed
@@ -4534,7 +4470,7 @@ public class HomePage extends javax.swing.JFrame {
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
         // TODO add your handling code here:
         try {
-            String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
+            String file = "C:\\Users\\Administrator\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
             org.icepdf.core.pobjects.Document doc = new org.icepdf.core.pobjects.Document();
             doc.setFile(file);
             SwingController sc = new SwingController();
@@ -4570,10 +4506,14 @@ public class HomePage extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_SearchCustActionPerformed
+
+    private void DeleteProductTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteProductTFActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
-        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
+        File file = new File("C:\\Users\\Administrator\\Documents\\pdfcreater\\"+name+billnos+".pdf");
         try{
             if (file.createNewFile())
         {
@@ -4829,7 +4769,7 @@ public class HomePage extends javax.swing.JFrame {
 //here is code for view pdf in panel
     public void openpdf(String name,String billnos){
     try {
-        String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf";
+        String file = "C:\\Users\\Administrator\\Documents\\pdfcreater\\"+name+billnos+".pdf";
            SwingController control=new SwingController();
             SwingViewBuilder factry=new SwingViewBuilder(control);
             BillSheet=factry.buildViewerPanel();
@@ -4849,10 +4789,8 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddPriceField;
-    private javax.swing.JTextField AddPriceField9;
     private javax.swing.JButton AddReset;
     private javax.swing.JTextField AddServiceField;
-    private javax.swing.JTextField AddServiceField10;
     private javax.swing.JPanel AddSpan;
     private javax.swing.JPanel AddSpan1;
     private javax.swing.JPanel AddSpan2;
@@ -4961,7 +4899,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton ResetProduct;
     private javax.swing.JLabel S_Pricce;
     private javax.swing.JLabel S_Pricce6;
-    private javax.swing.JLabel S_Pricce9;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
@@ -4970,7 +4907,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel ServicT10;
-    private javax.swing.JLabel ServicT11;
     private javax.swing.JLabel Service;
     private javax.swing.JPanel ServiceCPanel;
     private javax.swing.JPanel ServiceDTab2;
@@ -5000,7 +4936,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField UserIdTextfield;
     private javax.swing.JLabel addrees;
     private javax.swing.JButton addservice_btn;
-    private javax.swing.JButton addservice_btn2;
     private javax.swing.JLabel adminpic;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
@@ -5017,7 +4952,6 @@ public class HomePage extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JButton deltail_bt;
     private javax.swing.JButton editEmployee_btn1;
-    private javax.swing.JButton editservice_btn2;
     private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField email_Tf;
