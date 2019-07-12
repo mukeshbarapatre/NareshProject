@@ -81,7 +81,7 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="EditSpan1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="AddSpan1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="AddSpan2" max="32767" attributes="0"/>
+                                      <Component id="AddSpan2" pref="596" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="ServiceOperation1" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
                               </Group>
@@ -665,13 +665,40 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ServicT10" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" pref="21" max="32767" attributes="0"/>
-                                  <Component id="DeleteProductTF" min="-2" pref="284" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                  <Component id="DeleteProduct" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
+                                  <Component id="addservice_btn2" min="-2" pref="80" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="ServicT11" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="ServicT10" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="32767" attributes="0"/>
+                                          <Component id="DeleteProductTF" min="-2" pref="284" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="AddServiceField10" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="S_Pricce9" min="-2" pref="52" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="AddPriceField9" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Component id="DeleteProduct" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="editservice_btn2" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -682,14 +709,65 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="ServicT10" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       <Component id="DeleteProductTF" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="editservice_btn2" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                       <Component id="DeleteProduct" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ServicT11" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="AddServiceField10" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="S_Pricce9" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="AddPriceField9" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="addservice_btn2" min="-2" pref="34" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
+                        <Component class="javax.swing.JLabel" name="ServicT11">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Tahoma" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Supplier Name :"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="AddServiceField10">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Tahoma" size="14" style="0"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="S_Pricce9">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Tahoma" size="14" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="   Cost :"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="AddPriceField9">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Tahoma" size="14" style="0"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="addservice_btn2">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Times New Roman" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Add "/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addservice_btn2ActionPerformed"/>
+                          </Events>
+                        </Component>
                         <Component class="javax.swing.JLabel" name="ServicT10">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -704,8 +782,16 @@
                               <Font name="Tahoma" size="14" style="0"/>
                             </Property>
                           </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="editservice_btn2">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Times New Roman" size="14" style="1"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Delete"/>
+                          </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeleteProductTFActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editservice_btn2ActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="DeleteProduct">
@@ -859,65 +945,69 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="Name" max="32767" attributes="0"/>
+                                          <Component id="addrees" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Gender" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ContactNumebe" alignment="1" pref="147" max="32767" attributes="0"/>
+                                          <Component id="Surname" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="UserId" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="Name" max="32767" attributes="0"/>
-                                                  <Component id="addrees" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="Gender" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ContactNumebe" alignment="1" pref="147" max="32767" attributes="0"/>
-                                                  <Component id="Surname" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="UserId" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                                      <Component id="male" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                                      <Component id="female" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="SurnameTextfield" alignment="1" max="32767" attributes="0"/>
-                                                          <Component id="ContactTextfield" max="32767" attributes="0"/>
-                                                          <Component id="NameTextfield" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="jTextArea" alignment="1" min="-2" pref="314" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                      <Component id="UserIdTextfield" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="male" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                              <Component id="female" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="Email" max="32767" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="ConfirmPassword" pref="147" max="32767" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="Password" max="32767" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="emaillabel" alignment="0" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                                      <Component id="confirm_pswd" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="MailTextfield" max="32767" attributes="0"/>
-                                                  <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="PasswordTextfield" alignment="1" min="-2" pref="312" max="-2" attributes="0"/>
+                                                  <Component id="SurnameTextfield" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="ContactTextfield" max="32767" attributes="0"/>
+                                                  <Component id="NameTextfield" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jTextArea" alignment="1" min="-2" pref="314" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <Component id="UserIdTextfield" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="ConfirmPassword" pref="147" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="Email" max="32767" attributes="0"/>
+                                                  <Component id="UserType" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="Password" max="32767" attributes="0"/>
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="emaillabel" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                              <Component id="confirm_pswd" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="MailTextfield" max="32767" attributes="0"/>
+                                          <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="PasswordTextfield" min="-2" pref="312" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="UserTypeCom" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -993,7 +1083,12 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="emaillabel" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" pref="22" max="32767" attributes="0"/>
+                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="UserTypeCom" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="UserType" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Submit" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="Reset" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
@@ -1233,6 +1328,27 @@
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="passLabel">
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="UserTypeCom">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="2">
+                            <StringItem index="0" value="USER"/>
+                            <StringItem index="1" value="ADMIN"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="UserType">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Times New Roman" size="18" style="1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="User Type"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
