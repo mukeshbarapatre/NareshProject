@@ -37,10 +37,16 @@ import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
 import org.icepdf.ri.common.SwingViewBuilder;
 import javax.print.*;
+import javax.print.attribute.Attribute;
+import javax.print.attribute.AttributeSet;
+import javax.print.attribute.PrintServiceAttribute;
+import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.attribute.standard.MediaSizeName;
 import javax.print.attribute.standard.PrintQuality;
+import javax.print.event.PrintServiceAttributeListener;
 import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
+import org.icepdf.ri.common.PrintJobWatcher;
 import org.icepdf.ri.common.views.DocumentViewControllerImpl;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -105,6 +111,7 @@ public class HomePage extends javax.swing.JFrame {
         getSuggestionPane(ServiceSearch, "services");
         getSuggestionPane(productnameTF, "product");
         getSuggestionPane(DeleteProductTF,"product");
+        getSuggestionPane(CustumerjTextField,"custumerdetails");
       //  getSuggestionPane(productnameTF,"product");
       //  getSuggestionPane(productnameTF,"services");
         
@@ -1538,7 +1545,7 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         CustumerN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        CustumerN.setText("Custumer Name ");
+        CustumerN.setText("Customer Name ");
 
         CustumerjTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         CustumerjTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -1588,6 +1595,11 @@ public class HomePage extends javax.swing.JFrame {
         emailLabel.setForeground(new java.awt.Color(204, 0, 0));
 
         SearchCust.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/search2.jpg"))); // NOI18N
+        SearchCust.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchCustActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout DetailPanelLayout = new javax.swing.GroupLayout(DetailPanel);
         DetailPanel.setLayout(DetailPanelLayout);
@@ -4530,16 +4542,34 @@ public class HomePage extends javax.swing.JFrame {
             vc.setDocument(doc);
             PrintHelper printHelper = new PrintHelper(vc, doc.getPageTree(), 
             MediaSizeName.NA_LEGAL, PrintQuality.DRAFT); 
-            printHelper.setupPrintService( 0, 9, 1,false, true); 
+            printHelper.setupPrintService( 0, 9, 1,true, true);
             printHelper.print();
-            
-                    
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Unkown error occurs");
         }
         
         
     }//GEN-LAST:event_PrintActionPerformed
+
+    private void SearchCustActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCustActionPerformed
+        // TODO add your handling code here:
+        if(CustumerjTextField.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter Customer Namer","Details",JOptionPane.OK_OPTION);
+        }else{
+        try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select * from custumerdetails where CustumerName = ?", CustumerjTextField);
+            if(rs.next()){
+                MobilejTextField.setText(rs.getString(2));
+                EmailCustjTextField1.setText(rs.getString(3));
+            }
+            con.close();
+        } catch (Exception e) {
+                                JOptionPane.showMessageDialog(this, e);
+                    }
+        }
+        
+    }//GEN-LAST:event_SearchCustActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
