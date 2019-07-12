@@ -34,6 +34,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import javax.swing.border.Border;
 import com.gnostice.pdfone.PdfViewer;
+import org.icepdf.ri.common.ComponentKeyBinding;
+import org.icepdf.ri.common.SwingController;
+import org.icepdf.ri.common.SwingViewBuilder;
+import javax.print.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -466,6 +470,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         BillSheet = new javax.swing.JPanel();
+        billscroll = new javax.swing.JScrollPane();
         DetailPanel = new javax.swing.JPanel();
         CustumerN = new javax.swing.JLabel();
         CustumerjTextField = new javax.swing.JTextField();
@@ -1055,7 +1060,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(mainproductpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(EditSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(AddSpan1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddSpan2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, Short.MAX_VALUE))
+                        .addComponent(AddSpan2, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE))
                     .addComponent(ServiceOperation1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1520,11 +1525,13 @@ public class HomePage extends javax.swing.JFrame {
         BillSheet.setLayout(BillSheetLayout);
         BillSheetLayout.setHorizontalGroup(
             BillSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGroup(BillSheetLayout.createSequentialGroup()
+                .addComponent(billscroll, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         BillSheetLayout.setVerticalGroup(
             BillSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
+            .addComponent(billscroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
         );
 
         CustumerN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1886,6 +1893,11 @@ public class HomePage extends javax.swing.JFrame {
 
         Print.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Print.setText("Print");
+        Print.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrintActionPerformed(evt);
+            }
+        });
 
         SaveasPDF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SaveasPDF.setText("PDF");
@@ -4117,6 +4129,7 @@ public class HomePage extends javax.swing.JFrame {
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
             createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
+            openpdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
@@ -4502,9 +4515,21 @@ public class HomePage extends javax.swing.JFrame {
     private void PhoneTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PhoneTFKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_PhoneTFKeyPressed
+
+    private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
+        // TODO add your handling code here:
+        try {
+            File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf");
+            
+        } catch (Exception e) {
+        }
+        
+        
+    }//GEN-LAST:event_PrintActionPerformed
    //here is code for generate pdf
+    
     public void createNewPdf(String name,String billnos){
-        File file = new File("C:\\Users\\Administrator\\Documents\\pdfcreater\\"+name+billnos+".pdf");
+        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
         try{
             if (file.createNewFile())
         {
@@ -4757,7 +4782,22 @@ public class HomePage extends javax.swing.JFrame {
         
         
     }
-
+//here is code for view pdf in panel
+    public void openpdf(String name,String billnos){
+    try {
+        String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf";
+           SwingController control=new SwingController();
+            SwingViewBuilder factry=new SwingViewBuilder(control);
+            BillSheet=factry.buildViewerPanel();
+            ComponentKeyBinding.install(control, BillSheet);
+            control.getDocumentViewController().setAnnotationCallback(
+                    new org.icepdf.ri.common.MyAnnotationCallback(
+                    control.getDocumentViewController()));
+                   control.openDocument(file);
+        billscroll.setViewportView(BillSheet);  
+        } catch (Exception ex) {
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -4920,6 +4960,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel adminpic;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
+    private javax.swing.JScrollPane billscroll;
     private javax.swing.ButtonGroup buttonGroupMaleFemale;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JButton client_bt;
