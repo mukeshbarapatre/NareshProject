@@ -33,12 +33,15 @@ import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import javax.swing.border.Border;
-import com.gnostice.pdfone.PdfViewer;
 import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
 import org.icepdf.ri.common.SwingViewBuilder;
 import javax.print.*;
-
+import javax.print.attribute.standard.MediaSizeName;
+import javax.print.attribute.standard.PrintQuality;
+import org.icepdf.core.views.DocumentViewController;
+import org.icepdf.ri.common.PrintHelper;
+import org.icepdf.ri.common.views.DocumentViewControllerImpl;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -4519,9 +4522,20 @@ public class HomePage extends javax.swing.JFrame {
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
         // TODO add your handling code here:
         try {
-            File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf");
+            String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
+            org.icepdf.core.pobjects.Document doc = new org.icepdf.core.pobjects.Document();
+            doc.setFile(file);
+            SwingController sc = new SwingController();
+            DocumentViewController vc = new DocumentViewControllerImpl(sc); 
+            vc.setDocument(doc);
+            PrintHelper printHelper = new PrintHelper(vc, doc.getPageTree(), 
+            MediaSizeName.NA_LEGAL, PrintQuality.DRAFT); 
+            printHelper.setupPrintService( 0, 9, 1,false, true); 
+            printHelper.print();
             
+                    
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Unkown error occurs");
         }
         
         
