@@ -3646,35 +3646,43 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_MailTextfieldKeyPressed
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-         if (NameTextfield.equals("")||SurnameTextfield.equals("")||ContactNumebe.equals("")||jTextArea.equals("")||UserIdTextfield.equals("")||PasswordTextfield.equals("")||MailTextfield.equals("")) {
+         if (NameTextfield.getText().equals("")||SurnameTextfield.getText().equals("")||ContactNumebe.getText().equals("")||jTextArea.getText().equals("")||UserIdTextfield.getText().equals("")||PasswordTextfield.getText().equals("")||MailTextfield.getText().equals("")||ConfirmPasswordTextfield.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please fill the above details","Details",JOptionPane.OK_OPTION);
+            System.out.println("hell0");
          }else{
              String gender=null;
              String type=null;
+             
             if(female.isSelected())
             {
+                
                 gender="female";
                  type = UserTypeCom.getItemAt(UserTypeCom.getSelectedIndex());
+                 
                 try {
                 con=DbUtil.loadDriver();
                 DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
+                
             } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
             }
             if(male.isSelected())
             {
+                
                 gender="male";
                 type = UserTypeCom.getItemAt(UserTypeCom.getSelectedIndex());
+                
                 try {
                 con=DbUtil.loadDriver();
                 DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
+                    
             } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
@@ -4486,13 +4494,13 @@ public class HomePage extends javax.swing.JFrame {
         boolean matchFound = m.matches();
         if (matchFound)
         {
-            jTextArea.requestFocus();
+            EmailCustjTextField1.requestFocus();
         }
         else
         {
         JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
-         ContactTextfield.requestFocus();
-          ContactTextfield.setText("");
+         MobilejTextField.requestFocus();
+          MobilejTextField.setText("");
         }
     }//GEN-LAST:event_MobilejTextFieldActionPerformed
 
