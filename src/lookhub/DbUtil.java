@@ -115,4 +115,14 @@ public class DbUtil {
         st.setString(1, textField.getText());
         st.executeUpdate();
     }
+    public static ResultSet runQueryforLogin(String query,JTextField textField,JTextField textField1,String type) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setString(2, textField1.getText());
+        st.setString(3, type);
+        rs=st.executeQuery();
+        return rs;
+    }
 }

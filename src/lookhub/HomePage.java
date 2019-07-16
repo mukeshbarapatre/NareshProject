@@ -309,7 +309,7 @@ public class HomePage extends javax.swing.JFrame {
     public void getEmployeeData(){
         try {
             con = DbUtil.loadDriver();
-            rs = DbUtil.getResultSet("select * from userdetail");
+            rs = DbUtil.getResultSet("select * from userdetails");
             Emp_table.setModel(DbUtils.resultSetToTableModel(rs));
             con.close();
         } catch (Exception e) {
@@ -2934,7 +2934,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane7))
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2970,7 +2970,7 @@ public class HomePage extends javax.swing.JFrame {
         EmployeeDTab.setLayout(EmployeeDTabLayout);
         EmployeeDTabLayout.setHorizontalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
+            .addComponent(EmpolyeeScroll)
         );
         EmployeeDTabLayout.setVerticalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3371,25 +3371,25 @@ public class HomePage extends javax.swing.JFrame {
         buttonpanelLayout.setVerticalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(deltail_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(emp_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(client_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(product_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(service_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(supplier_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(report_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(billing_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(other_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
@@ -3441,9 +3441,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-                    .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                    .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -3661,7 +3661,7 @@ public class HomePage extends javax.swing.JFrame {
                  
                 try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
+                DbUtil.runQuery("insert into  userdetails values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
@@ -3678,7 +3678,7 @@ public class HomePage extends javax.swing.JFrame {
                 
                 try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
+                DbUtil.runQuery("insert into userdetails values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
@@ -4246,7 +4246,7 @@ public class HomePage extends javax.swing.JFrame {
         else{
             try {
                 con=DbUtil.loadDriver();
-                rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
+                rs=DbUtil.getResultSetForSearch("select * from userdetails where First name = ?", search_Tf);
                 if(rs.next())
                 {
                     emp_textF1.setText(rs.getString(1));
@@ -4276,8 +4276,8 @@ public class HomePage extends javax.swing.JFrame {
         }else{
             try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQueryforDelete("delete from userdetail where  UserId= ?", DeleteEmployee1);
-                JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
+                DbUtil.runQueryforDelete("delete from userdetails where  UserId= ?", DeleteEmployee1);
+                JOptionPane.showMessageDialog(this, "Userdetails Deleted Succesfully","information",JOptionPane.OK_OPTION);
                 getProductTabelData();
                 con.close();
             } catch (Exception e) {
@@ -4473,7 +4473,7 @@ public class HomePage extends javax.swing.JFrame {
         }else{
             try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQueryforEdit("update userdetail set Firstname='"+emp_textF1.getText()+"' ,Lastname='"+emp_textF2.getText()+"' ,contactnumber='"+emp_textF3.getText()+"', Address='"+emp_textF4.getText()+"', Gender='"+gender+"',UserId='"+user_Tf.getText()+"',password='"+Pass_Tf.getText()+"', Email='"+email_Tf.getText()+"', where Firstname = '"+ emp_textF1.getText()+"' );");
+                DbUtil.runQueryforEdit("update userdetails set Firstname='"+emp_textF1.getText()+"' ,Lastname='"+emp_textF2.getText()+"' ,contactnumber='"+emp_textF3.getText()+"', Address='"+emp_textF4.getText()+"', Gender='"+gender+"',UserId='"+user_Tf.getText()+"',password='"+Pass_Tf.getText()+"', Email='"+email_Tf.getText()+"', where Firstname = '"+ emp_textF1.getText()+"' );");
                 JOptionPane.showMessageDialog(this, "Details Edited Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
