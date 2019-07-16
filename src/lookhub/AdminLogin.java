@@ -363,7 +363,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
-                        HomePage hp = new HomePage();
+                        HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
                     } else {
@@ -383,7 +383,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"ADMIN");
                     if (rs.next()) {
-                        HomePage hp = new HomePage();
+                        HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
                     } else {
@@ -460,7 +460,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
-                        HomePage hp = new HomePage();
+                        HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
                     } else {
@@ -479,7 +479,8 @@ public class AdminLogin extends javax.swing.JFrame {
                 con=DbUtil.loadDriver();
                 rs=DbUtil.runQueryforLogin("select * from userdetails where FirstName = ? AND Password = ? AND Type = ? ", username,password,"ADMIN");
                 if (rs.next()) {
-                    HomePage hp = new HomePage();
+                    System.out.println(rs.getString(1)+" "+rs.getString(7)+" "+rs.getString(9));
+                    HomePage hp = new HomePage(rs);
                     hp.setVisible(true);
                     this.dispose();
                 } else {

@@ -44,6 +44,7 @@ import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.attribute.standard.MediaSizeName;
 import javax.print.attribute.standard.PrintQuality;
 import javax.print.event.PrintServiceAttributeListener;
+import javax.swing.ImageIcon;
 import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
 import org.icepdf.ri.common.PrintJobWatcher;
@@ -63,15 +64,15 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-    EmployeePanel EP=new EmployeePanel();
     Connection con;
     Statement stmt;
     ResultSet rs;
     Double totalprice=0d;
     Double totaldiscout=0d;
     java.sql.Date sqlDate;
+    String ADMINorUSER;
     
-    public HomePage()  {
+    public HomePage(ResultSet RS)  {
        
         
         
@@ -93,6 +94,19 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1.setPreferredSize(new Dimension(xz,yz));
         
        }
+        try {
+            usernameLabel.setText(RS.getString(1)+" "+RS.getString(2));
+            ADMINorUSER = RS.getString(9);
+            if (RS.getString(9).equals("ADMIN")) {
+                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
+                adminpic.setIcon(iconimg);
+            }
+            if (RS.getString(9).equals("USER")) {
+                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
+                adminpic.setIcon(iconimg);
+            } 
+        } catch (Exception e) {
+        }
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(HomeTab), getTitlePanel(jTabbedPane1, HomeTab, "HOME  "));
         
         RegistryScrool.getVerticalScrollBar().setUnitIncrement(20);
@@ -642,7 +656,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         adminpic = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
         modelicon = new javax.swing.JLabel();
         buttonpanel = new javax.swing.JPanel();
         deltail_bt = new javax.swing.JButton();
@@ -3203,8 +3217,8 @@ public class HomePage extends javax.swing.JFrame {
         logout.setText("Log Out");
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("usernane");
+        usernameLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        usernameLabel.setText("username");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -3213,10 +3227,14 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(adminpic, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -3226,7 +3244,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(adminpic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -3482,9 +3500,13 @@ public class HomePage extends javax.swing.JFrame {
 
     private void client_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_btActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.add(RegistrationDTab);
-        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(RegistrationDTab), getTitlePanel(jTabbedPane1, RegistrationDTab, "Registration    "));
-        jTabbedPane1.setSelectedComponent(RegistrationDTab);
+        if (ADMINorUSER.equals("ADMIN")) {
+            jTabbedPane1.add(RegistrationDTab);
+            jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(RegistrationDTab), getTitlePanel(jTabbedPane1, RegistrationDTab, "Registration    "));
+            jTabbedPane1.setSelectedComponent(RegistrationDTab);
+        } else {
+            JOptionPane.showMessageDialog(null, "Only Admin Can Access Registration");
+        }
         
         
     }//GEN-LAST:event_client_btActionPerformed
@@ -5072,7 +5094,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -5142,5 +5163,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
     private javax.swing.JTextField user_Tf;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }
