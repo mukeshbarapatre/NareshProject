@@ -115,4 +115,20 @@ public class DbUtil {
         st.setString(1, textField.getText());
         st.executeUpdate();
     }
+    public static void runQueryforEditEmp(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,String gender,JTextField textField5,JTextField textField6,JTextField textField7,String type,JTextField textField9) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setString(2, textField1.getText());
+        st.setString(3, textField2.getText());
+        st.setString(4, textField3.getText());
+        st.setString(5,gender);
+        st.setString(6,textField5.getText());
+        st.setString(7, textField6.getText());
+        st.setString(8, textField7.getText());
+        st.setString(9, type);
+       st.setString(10, textField9.getText());
+        st.executeUpdate();
+    }
 }

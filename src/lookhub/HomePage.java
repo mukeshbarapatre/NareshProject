@@ -118,9 +118,9 @@ public class HomePage extends javax.swing.JFrame {
          //here is code for combobox
            final String item1="User Type";
          final String item2="Admin Type";
-       combo_Tf.addItem(item1);
-       combo_Tf.addItem(item2); 
-       combo_Tf.setSelectedItem(null);
+       Editcombo_Tf.addItem(item1);
+       Editcombo_Tf.addItem(item2); 
+       Editcombo_Tf.setSelectedItem(null);
         
         
         //here is code for passLength
@@ -584,24 +584,24 @@ public class HomePage extends javax.swing.JFrame {
         emp_conctact = new javax.swing.JLabel();
         emp_first = new javax.swing.JLabel();
         editEmployee_btn1 = new javax.swing.JButton();
-        emp_textF1 = new javax.swing.JTextField();
-        emp_textF2 = new javax.swing.JTextField();
+        EditEmp_name = new javax.swing.JTextField();
+        EditEmp_lastname = new javax.swing.JTextField();
         emp_last = new javax.swing.JLabel();
-        emp_textF3 = new javax.swing.JTextField();
+        EditEmp_contactno = new javax.swing.JTextField();
         emp_Address = new javax.swing.JLabel();
         emp_gender = new javax.swing.JLabel();
         emp_pass = new javax.swing.JLabel();
         emp_email = new javax.swing.JLabel();
-        emp_textF4 = new javax.swing.JTextField();
-        user_Tf = new javax.swing.JTextField();
-        Pass_Tf = new javax.swing.JTextField();
+        EditEmp_Address = new javax.swing.JTextField();
+        Edituser_Tf = new javax.swing.JTextField();
+        EditPass_Tf = new javax.swing.JTextField();
         female_rbt = new javax.swing.JRadioButton();
         male_rbt = new javax.swing.JRadioButton();
         reset_bt = new javax.swing.JButton();
         user = new javax.swing.JLabel();
-        combo_Tf = new javax.swing.JComboBox<>();
+        Editcombo_Tf = new javax.swing.JComboBox<>();
         Edit_User = new javax.swing.JLabel();
-        email_Tf = new javax.swing.JTextField();
+        Editemail_Tf = new javax.swing.JTextField();
         DeleteSpan1 = new javax.swing.JPanel();
         emp_dellebal = new javax.swing.JLabel();
         DeleteEmployee_btn1 = new javax.swing.JButton();
@@ -2573,37 +2573,42 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        emp_textF1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emp_textF1.addKeyListener(new java.awt.event.KeyAdapter() {
+        EditEmp_name.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditEmp_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditEmp_nameActionPerformed(evt);
+            }
+        });
+        EditEmp_name.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                emp_textF1KeyPressed(evt);
+                EditEmp_nameKeyPressed(evt);
             }
         });
 
-        emp_textF2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emp_textF2.addActionListener(new java.awt.event.ActionListener() {
+        EditEmp_lastname.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditEmp_lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emp_textF2ActionPerformed(evt);
+                EditEmp_lastnameActionPerformed(evt);
             }
         });
-        emp_textF2.addKeyListener(new java.awt.event.KeyAdapter() {
+        EditEmp_lastname.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                emp_textF2KeyPressed(evt);
+                EditEmp_lastnameKeyPressed(evt);
             }
         });
 
         emp_last.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emp_last.setText("Last Name");
 
-        emp_textF3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emp_textF3.addActionListener(new java.awt.event.ActionListener() {
+        EditEmp_contactno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditEmp_contactno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emp_textF3ActionPerformed(evt);
+                EditEmp_contactnoActionPerformed(evt);
             }
         });
-        emp_textF3.addKeyListener(new java.awt.event.KeyAdapter() {
+        EditEmp_contactno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                emp_textF3KeyPressed(evt);
+                EditEmp_contactnoKeyPressed(evt);
             }
         });
 
@@ -2619,38 +2624,38 @@ public class HomePage extends javax.swing.JFrame {
         emp_email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         emp_email.setText("Email Address");
 
-        emp_textF4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        emp_textF4.addActionListener(new java.awt.event.ActionListener() {
+        EditEmp_Address.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditEmp_Address.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emp_textF4ActionPerformed(evt);
+                EditEmp_AddressActionPerformed(evt);
             }
         });
-        emp_textF4.addKeyListener(new java.awt.event.KeyAdapter() {
+        EditEmp_Address.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                emp_textF4KeyPressed(evt);
+                EditEmp_AddressKeyPressed(evt);
             }
         });
 
-        user_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        user_Tf.addActionListener(new java.awt.event.ActionListener() {
+        Edituser_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Edituser_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                user_TfActionPerformed(evt);
+                Edituser_TfActionPerformed(evt);
             }
         });
-        user_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+        Edituser_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                user_TfKeyPressed(evt);
+                Edituser_TfKeyPressed(evt);
             }
         });
 
-        Pass_Tf.addActionListener(new java.awt.event.ActionListener() {
+        EditPass_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Pass_TfActionPerformed(evt);
+                EditPass_TfActionPerformed(evt);
             }
         });
-        Pass_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+        EditPass_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Pass_TfKeyPressed(evt);
+                EditPass_TfKeyPressed(evt);
             }
         });
 
@@ -2681,24 +2686,24 @@ public class HomePage extends javax.swing.JFrame {
         user.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         user.setText("User Type");
 
-        combo_Tf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combo_Tf.addActionListener(new java.awt.event.ActionListener() {
+        Editcombo_Tf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Editcombo_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_TfActionPerformed(evt);
+                Editcombo_TfActionPerformed(evt);
             }
         });
 
         Edit_User.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Edit_User.setText("User ID");
 
-        email_Tf.addActionListener(new java.awt.event.ActionListener() {
+        Editemail_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email_TfActionPerformed(evt);
+                Editemail_TfActionPerformed(evt);
             }
         });
-        email_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
+        Editemail_Tf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                email_TfKeyPressed(evt);
+                Editemail_TfKeyPressed(evt);
             }
         });
 
@@ -2722,14 +2727,14 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(64, 64, 64)
                         .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emp_textF3)
-                                .addComponent(emp_textF2)
-                                .addComponent(emp_textF1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                .addComponent(EditEmp_contactno)
+                                .addComponent(EditEmp_lastname)
+                                .addComponent(EditEmp_name, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
                                 .addGroup(AddSpan3Layout.createSequentialGroup()
                                     .addComponent(female_rbt)
                                     .addGap(44, 44, 44)
                                     .addComponent(male_rbt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(EditEmp_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(AddSpan3Layout.createSequentialGroup()
                         .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(AddSpan3Layout.createSequentialGroup()
@@ -2748,10 +2753,10 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(Edit_User, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(64, 64, 64)))
                         .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Pass_Tf)
-                            .addComponent(combo_Tf, 0, 250, Short.MAX_VALUE)
-                            .addComponent(user_Tf)
-                            .addComponent(email_Tf))))
+                            .addComponent(EditPass_Tf)
+                            .addComponent(Editcombo_Tf, 0, 250, Short.MAX_VALUE)
+                            .addComponent(Edituser_Tf)
+                            .addComponent(Editemail_Tf))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AddSpan3Layout.setVerticalGroup(
@@ -2759,20 +2764,20 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(AddSpan3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(emp_textF1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditEmp_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emp_first, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(emp_textF2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditEmp_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emp_last, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emp_conctact, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emp_textF3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EditEmp_contactno, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emp_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emp_textF4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EditEmp_Address, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2781,19 +2786,19 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(male_rbt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(user_Tf, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(Edituser_Tf, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                     .addComponent(Edit_User, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Pass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditPass_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emp_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emp_email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(email_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Editemail_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(combo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Editcombo_Tf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSpan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2910,7 +2915,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Employee_l1))
                 .addGap(5, 5, 5)
@@ -2970,7 +2975,7 @@ public class HomePage extends javax.swing.JFrame {
         EmployeeDTab.setLayout(EmployeeDTabLayout);
         EmployeeDTabLayout.setHorizontalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 1088, Short.MAX_VALUE)
+            .addComponent(EmpolyeeScroll)
         );
         EmployeeDTabLayout.setVerticalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3648,7 +3653,7 @@ public class HomePage extends javax.swing.JFrame {
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
          if (NameTextfield.getText().equals("")||SurnameTextfield.getText().equals("")||ContactNumebe.getText().equals("")||jTextArea.getText().equals("")||UserIdTextfield.getText().equals("")||PasswordTextfield.getText().equals("")||MailTextfield.getText().equals("")||ConfirmPasswordTextfield.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Please fill the above details","Details",JOptionPane.OK_OPTION);
-            System.out.println("hell0");
+            
          }else{
              String gender=null;
              String type=null;
@@ -4249,12 +4254,13 @@ public class HomePage extends javax.swing.JFrame {
                 rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
                 if(rs.next())
                 {
-                    emp_textF1.setText(rs.getString(1));
-                    emp_textF2.setText(rs.getString(2));
-                    emp_textF3.setText(rs.getString(3));
-                    emp_textF4.setText(rs.getString(4));
-                    user_Tf.setText(rs.getString(5));
-                    Pass_Tf.setText(rs.getString(6));
+                    EditEmp_name.setText(rs.getString(1));
+                    EditEmp_lastname.setText(rs.getString(2));
+                    EditEmp_contactno.setText(rs.getString(3));
+                    EditEmp_Address.setText(rs.getString(4));
+                    Edituser_Tf.setText(rs.getString(5));
+                    EditPass_Tf.setText(rs.getString(6));
+                    Editemail_Tf.setText(rs.getString(6));
                     con.close();
                 }
             }
@@ -4272,13 +4278,13 @@ public class HomePage extends javax.swing.JFrame {
     private void DeleteEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteEmployee_btn1ActionPerformed
         // TODO add your handling code here:
         if(DeleteEmployee1.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Enter User Id ","Details",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Enter user Id ","Details",JOptionPane.OK_OPTION);
         }else{
             try {
                 con=DbUtil.loadDriver();
                 DbUtil.runQueryforDelete("delete from userdetail where  UserId= ?", DeleteEmployee1);
                 JOptionPane.showMessageDialog(this, "Userdetail Deleted Succesfully","information",JOptionPane.OK_OPTION);
-                getProductTabelData();
+                getEmployeeData();
                 con.close();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -4286,20 +4292,20 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_DeleteEmployee_btn1ActionPerformed
 
-    private void email_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_email_TfKeyPressed
+    private void Editemail_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Editemail_TfKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(email_Tf.getText().equals("")){
+            if(Editemail_Tf.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                combo_Tf.requestFocus();
+                Editcombo_Tf.requestFocus();
             }
         }
-    }//GEN-LAST:event_email_TfKeyPressed
+    }//GEN-LAST:event_Editemail_TfKeyPressed
 
-    private void email_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_TfActionPerformed
+    private void Editemail_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editemail_TfActionPerformed
         // TODO add your handling code here:
-        String email = email_Tf.getText();
+        String email = Editemail_Tf.getText();
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
         "[a-zA-Z0-9_+&*-]+)*@" +
         "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
@@ -4309,30 +4315,31 @@ public class HomePage extends javax.swing.JFrame {
         Matcher m = p.matcher(email);
         boolean matchFound = m.matches();
         if (matchFound)
-        combo_Tf.requestFocus();
+        Editcombo_Tf.requestFocus();
         else
         JOptionPane.showMessageDialog(this, "invalid email");
-    }//GEN-LAST:event_email_TfActionPerformed
+    }//GEN-LAST:event_Editemail_TfActionPerformed
 
-    private void combo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_TfActionPerformed
+    private void Editcombo_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editcombo_TfActionPerformed
         // TODO add your handling code here:
         String item1="User Type";
         String item2="Admin Type";
-        combo_Tf.addItem(item1);
-        combo_Tf.addItem(item2);
-        combo_Tf.setSelectedItem(null);
-    }//GEN-LAST:event_combo_TfActionPerformed
+        Editcombo_Tf.addItem(item1);
+        Editcombo_Tf.addItem(item2);
+        Editcombo_Tf.setSelectedItem(null);
+    }//GEN-LAST:event_Editcombo_TfActionPerformed
 
     private void reset_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btActionPerformed
         // TODO add your handling code here:
-        emp_textF1.setText("");
-        emp_textF2.setText("");
-        emp_textF3.setText("");
-        emp_textF4.setText("");
+        EditEmp_name.setText("");
+        EditEmp_lastname.setText("");
+        EditEmp_contactno.setText("");
+        EditEmp_Address.setText("");
         male_rbt.setSelected(false);
         female_rbt.setSelected(false);
-        user_Tf.setText("");
-        Pass_Tf.setText("");
+        Edituser_Tf.setText("");
+        EditPass_Tf.setText("");
+        Editemail_Tf.setText("");
     }//GEN-LAST:event_reset_btActionPerformed
 
     private void male_rbtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_male_rbtActionPerformed
@@ -4345,69 +4352,69 @@ public class HomePage extends javax.swing.JFrame {
             if(female_rbt.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                user_Tf.requestFocus();
+                Edituser_Tf.requestFocus();
             }
         }
     }//GEN-LAST:event_female_rbtKeyPressed
 
-    private void Pass_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Pass_TfKeyPressed
+    private void EditPass_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditPass_TfKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(Pass_Tf.getText().equals("")){
+            if(EditPass_Tf.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                email_Tf.requestFocus();
+                Editemail_Tf.requestFocus();
             }
         }
-    }//GEN-LAST:event_Pass_TfKeyPressed
+    }//GEN-LAST:event_EditPass_TfKeyPressed
 
-    private void Pass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pass_TfActionPerformed
+    private void EditPass_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditPass_TfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Pass_TfActionPerformed
+    }//GEN-LAST:event_EditPass_TfActionPerformed
 
-    private void user_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_user_TfKeyPressed
+    private void Edituser_TfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Edituser_TfKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(user_Tf.getText().equals("")){
+            if(Edituser_Tf.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                Pass_Tf.requestFocus();
+                EditPass_Tf.requestFocus();
             }
         }
-    }//GEN-LAST:event_user_TfKeyPressed
+    }//GEN-LAST:event_Edituser_TfKeyPressed
 
-    private void user_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_TfActionPerformed
+    private void Edituser_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edituser_TfActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_user_TfActionPerformed
+    }//GEN-LAST:event_Edituser_TfActionPerformed
 
-    private void emp_textF4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF4KeyPressed
+    private void EditEmp_AddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditEmp_AddressKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF4.getText().equals("")){
+            if(EditEmp_Address.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
                 female_rbt.requestFocus();
             }
         }
-    }//GEN-LAST:event_emp_textF4KeyPressed
+    }//GEN-LAST:event_EditEmp_AddressKeyPressed
 
-    private void emp_textF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF4ActionPerformed
+    private void EditEmp_AddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditEmp_AddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emp_textF4ActionPerformed
+    }//GEN-LAST:event_EditEmp_AddressActionPerformed
 
-    private void emp_textF3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF3KeyPressed
+    private void EditEmp_contactnoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditEmp_contactnoKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF3.getText().equals("")){
+            if(EditEmp_contactno.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                emp_textF4.requestFocus();
+                EditEmp_Address.requestFocus();
             }
         }
-    }//GEN-LAST:event_emp_textF3KeyPressed
+    }//GEN-LAST:event_EditEmp_contactnoKeyPressed
 
-    private void emp_textF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF3ActionPerformed
-        String contact =ContactTextfield.getText();
+    private void EditEmp_contactnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditEmp_contactnoActionPerformed
+        String contact =EditEmp_contactno.getText();
         String contactRegex = "^[789][0-9]{9}$";
         Pattern p = Pattern.compile(contactRegex);
         Matcher m = p.matcher(contact);
@@ -4419,36 +4426,36 @@ public class HomePage extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
-            ContactTextfield.requestFocus();
-            ContactTextfield.setText("");
+            EditEmp_contactno.requestFocus();
+            EditEmp_contactno.setText("");
         }
-    }//GEN-LAST:event_emp_textF3ActionPerformed
+    }//GEN-LAST:event_EditEmp_contactnoActionPerformed
 
-    private void emp_textF2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF2KeyPressed
+    private void EditEmp_lastnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditEmp_lastnameKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF2.getText().equals("")){
+            if(EditEmp_lastname.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter last Name","LastName",JOptionPane.OK_OPTION);
             }else{
-                emp_textF3.requestFocus();
+                EditEmp_contactno.requestFocus();
             }
         }
-    }//GEN-LAST:event_emp_textF2KeyPressed
+    }//GEN-LAST:event_EditEmp_lastnameKeyPressed
 
-    private void emp_textF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF2ActionPerformed
+    private void EditEmp_lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditEmp_lastnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emp_textF2ActionPerformed
+    }//GEN-LAST:event_EditEmp_lastnameActionPerformed
 
-    private void emp_textF1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emp_textF1KeyPressed
+    private void EditEmp_nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EditEmp_nameKeyPressed
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(emp_textF1.getText().equals("")){
+            if(EditEmp_name.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter First Name","FirstName",JOptionPane.OK_OPTION);
             }else{
-                emp_textF2.requestFocus();
+                EditEmp_lastname.requestFocus();
             }
         }
-    }//GEN-LAST:event_emp_textF1KeyPressed
+    }//GEN-LAST:event_EditEmp_nameKeyPressed
 
     private void editEmployee_btn1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editEmployee_btn1KeyPressed
         // TODO add your handling code here:
@@ -4457,32 +4464,48 @@ public class HomePage extends javax.swing.JFrame {
     private void editEmployee_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployee_btn1ActionPerformed
         // TODO add your handling code here:
         String gender=null;
-        if(female_rbt.isSelected())
-        {
-            gender="female";
-        }
-
-        if(male_rbt.isSelected())
-        {
-            gender="male";
-        }
-
-        if(emp_textF1.getText().equals("")||emp_textF2.getText().equals("")||emp_textF3.getText().equals("")||emp_textF4.getText().equals("")||user_Tf.getText().equals("")||Pass_Tf.getText().equals(""))
-        {
+        String type=null;
+        if(EditEmp_name.getText().equals("")||EditEmp_lastname.getText().equals("")||EditEmp_contactno.getText().equals("")||EditEmp_Address.getText().equals("")||Edituser_Tf.getText().equals("")||EditPass_Tf.getText().equals("")||Editemail_Tf.getText().equals(""))
+          {
             JOptionPane.showMessageDialog(this, "Enter employee Details","Details",JOptionPane.OK_OPTION);
-        }else{
-            try {
+          }
+          else
+          {
+            if(female_rbt.isSelected())
+            {
+             gender="female";
+             type=Editcombo_Tf.getItemAt(Editcombo_Tf.getSelectedIndex());
+          
+             try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQueryforEdit("update userdetail set Firstname='"+emp_textF1.getText()+"' ,Lastname='"+emp_textF2.getText()+"' ,contactnumber='"+emp_textF3.getText()+"', Address='"+emp_textF4.getText()+"', Gender='"+gender+"',UserId='"+user_Tf.getText()+"',password='"+Pass_Tf.getText()+"', Email='"+email_Tf.getText()+"', where Firstname = '"+ emp_textF1.getText()+"' );");
+                DbUtil.runQueryforEditEmp("update userdetail set Firstname=? ,Lastname=? ,Contactnumber=?, Address=?, Gender=?,UserId=?,password=?, Email=?,UserType=?, where Firstname = ?", EditEmp_name,EditEmp_lastname,EditEmp_contactno,EditEmp_Address,gender,Edituser_Tf,EditPass_Tf,Editemail_Tf,type ,search_Tf);
                 JOptionPane.showMessageDialog(this, "Details Edited Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
-            } catch (SQLException e) {
+             } 
+             catch (SQLException e) 
+             {
                 JOptionPane.showMessageDialog(null, e);
+             }
             }
-
+          if(male_rbt.isSelected())
+          {
+            gender="male";
+            type=Editcombo_Tf.getItemAt(Editcombo_Tf.getSelectedIndex());
+          
+             try {
+                con=DbUtil.loadDriver();
+                DbUtil.runQueryforEditEmp("update userdetail set Firstname=? ,Lastname=? ,Contactnumber=?, Address=?, Gender=?,UserId=?,password=?, Email=?,UserType=?, where Firstname = ?", EditEmp_name,EditEmp_lastname,EditEmp_contactno,EditEmp_Address,gender,Edituser_Tf,EditPass_Tf,Editemail_Tf,type,search_Tf);
+                JOptionPane.showMessageDialog(this, "Details Edited Succesfully","information",JOptionPane.OK_OPTION);
+                getEmployeeData();
+                con.close();
+               } 
+             catch (SQLException e) 
+             {
+                JOptionPane.showMessageDialog(null, e);
+             }
+             }
         }
-
     }//GEN-LAST:event_editEmployee_btn1ActionPerformed
 
     private void MobilejTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MobilejTextFieldActionPerformed
@@ -4596,6 +4619,10 @@ public class HomePage extends javax.swing.JFrame {
     private void editservice_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editservice_btn2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editservice_btn2ActionPerformed
+
+    private void EditEmp_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditEmp_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EditEmp_nameActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -4919,6 +4946,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Discount1;
     private javax.swing.JLabel EQuantity;
     private javax.swing.JTextField EditCost;
+    private javax.swing.JTextField EditEmp_Address;
+    private javax.swing.JTextField EditEmp_contactno;
+    private javax.swing.JTextField EditEmp_lastname;
+    private javax.swing.JTextField EditEmp_name;
+    private javax.swing.JTextField EditPass_Tf;
     private javax.swing.JTextField EditPriceF;
     private javax.swing.JButton EditProduct;
     private javax.swing.JButton EditSer;
@@ -4929,8 +4961,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel Edit_User;
     private javax.swing.JLabel EditcodeL;
     private javax.swing.JTextField EditcodeTF;
+    private javax.swing.JComboBox<String> Editcombo_Tf;
+    private javax.swing.JTextField Editemail_Tf;
     private javax.swing.JLabel EditnameL;
     private javax.swing.JTextField EditnameTF;
+    private javax.swing.JTextField Edituser_Tf;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailCust;
     private javax.swing.JTextField EmailCustjTextField1;
@@ -4959,7 +4994,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel NameL;
     private javax.swing.JTextField NameTF;
     private javax.swing.JTextField NameTextfield;
-    private javax.swing.JTextField Pass_Tf;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordTextfield;
     private javax.swing.JLabel PhoneL;
@@ -5038,7 +5072,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton client_bt;
     private javax.swing.JLabel codeL;
     private javax.swing.JTextField codeTF;
-    private javax.swing.JComboBox<String> combo_Tf;
     private javax.swing.JLabel confirm_pswd;
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
@@ -5048,7 +5081,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton editservice_btn2;
     private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField email_Tf;
     private javax.swing.JLabel emaillabel;
     private javax.swing.JLabel emp_Address;
     private javax.swing.JButton emp_bt;
@@ -5059,10 +5091,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel emp_gender;
     private javax.swing.JLabel emp_last;
     private javax.swing.JLabel emp_pass;
-    private javax.swing.JTextField emp_textF1;
-    private javax.swing.JTextField emp_textF2;
-    private javax.swing.JTextField emp_textF3;
-    private javax.swing.JTextField emp_textF4;
     private javax.swing.JPanel employepan;
     private javax.swing.JRadioButton female;
     private javax.swing.JRadioButton female_rbt;
@@ -5141,6 +5169,5 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton supplier_bt;
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
-    private javax.swing.JTextField user_Tf;
     // End of variables declaration//GEN-END:variables
 }
