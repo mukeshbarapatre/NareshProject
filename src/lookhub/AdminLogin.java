@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.sql.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,9 @@ import javax.swing.JOptionPane;
 public class AdminLogin extends javax.swing.JFrame {
 
     String LoginChosser = "ADMIN";
+    Connection con;
+    PreparedStatement pstmt;
+    ResultSet rs;
     /**
      * Creates new form AdminLogin
      */
@@ -352,42 +356,42 @@ public class AdminLogin extends javax.swing.JFrame {
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
         if(LoginChosser.equals("USER")){
-            String usrn = "username";
-            String pswd = "vaibhav";
         if (password.getText().equals("") || username.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
         }else{
-        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
-            System.out.println("Match");
-            
-            //code for login to main page
-            HomePage hp = new HomePage();
-            hp.setVisible(true);
-            this.dispose();
-            
-        }else{
-                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
-        }
+            try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
+                    if (rs.next()) {
+                        HomePage hp = new HomePage(rs);
+                        hp.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+                    }
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this,e);
+                }
         }
         }
         if(LoginChosser.equals("ADMIN")){
-            String usrn = "vip";
-            String pswd = "vaibhav";
+            
         if (password.getText().equals("") || username.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
         }else{
-        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
-            System.out.println("Match");
-            
-            HomePage hp = new HomePage();
-            hp.setVisible(true);
-            this.dispose();
-            
-            //code for login to main page
-            
-        }else{
-                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
-        }
+            try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"ADMIN");
+                    if (rs.next()) {
+                        HomePage hp = new HomePage(rs);
+                        hp.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+                    }
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this,e);
+                }
         }
         }
     }//GEN-LAST:event_loginActionPerformed
@@ -449,42 +453,42 @@ public class AdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(LoginChosser.equals("USER")){
-            String usrn = "username";
-            String pswd = "vaibhav";
         if (password.getText().equals("") || username.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
         }else{
-        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
-            System.out.println("Match");
-            
-            //code for login to main page
-            HomePage hp = new HomePage();
-            hp.setVisible(true);
-            this.dispose();
-            
-        }else{
-                    JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
-        }
+                    try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
+                    if (rs.next()) {
+                        HomePage hp = new HomePage(rs);
+                        hp.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
+                    }
+            } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this,e);
+                }
         }
         }
         if(LoginChosser.equals("ADMIN")){
-            String usrn = "vip";
-            String pswd = "vaibhav";
         if (password.getText().equals("") || username.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Enter  Password or Username","Password or Username",JOptionPane.OK_OPTION);
         }else{
-        if(password.getText().equals(pswd) && username.getText().equals(usrn)){
-            System.out.println("Match");
-            
-            HomePage hp = new HomePage();
-            hp.setVisible(true);
-            this.dispose();
-            
-            //code for login to main page
-            
-        }else{
+            try {
+                con=DbUtil.loadDriver();
+                rs=DbUtil.runQueryforLogin("select * from userdetails where FirstName = ? AND Password = ? AND Type = ? ", username,password,"ADMIN");
+                if (rs.next()) {
+                    System.out.println(rs.getString(1)+" "+rs.getString(7)+" "+rs.getString(9));
+                    HomePage hp = new HomePage(rs);
+                    hp.setVisible(true);
+                    this.dispose();
+                } else {
                     JOptionPane.showMessageDialog(this, "Enter a valid Password or Username","Invalid Password or Username",JOptionPane.OK_OPTION);
-        }
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this,e);
+            }
         }
         }
         }

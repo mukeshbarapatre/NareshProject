@@ -44,6 +44,7 @@ import javax.print.attribute.PrintServiceAttributeSet;
 import javax.print.attribute.standard.MediaSizeName;
 import javax.print.attribute.standard.PrintQuality;
 import javax.print.event.PrintServiceAttributeListener;
+import javax.swing.ImageIcon;
 import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
 import org.icepdf.ri.common.PrintJobWatcher;
@@ -63,15 +64,15 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
-    EmployeePanel EP=new EmployeePanel();
     Connection con;
     Statement stmt;
     ResultSet rs;
     Double totalprice=0d;
     Double totaldiscout=0d;
     java.sql.Date sqlDate;
+    String ADMINorUSER;
     
-    public HomePage()  {
+    public HomePage(ResultSet RS)  {
        
         
         
@@ -93,6 +94,19 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1.setPreferredSize(new Dimension(xz,yz));
         
        }
+        try {
+            usernameLabel.setText(RS.getString(1)+" "+RS.getString(2));
+            ADMINorUSER = RS.getString(9);
+            if (RS.getString(9).equals("ADMIN")) {
+                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
+                adminpic.setIcon(iconimg);
+            }
+            if (RS.getString(9).equals("USER")) {
+                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
+                adminpic.setIcon(iconimg);
+            } 
+        } catch (Exception e) {
+        }
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(HomeTab), getTitlePanel(jTabbedPane1, HomeTab, "HOME  "));
         
         RegistryScrool.getVerticalScrollBar().setUnitIncrement(20);
@@ -309,7 +323,7 @@ public class HomePage extends javax.swing.JFrame {
     public void getEmployeeData(){
         try {
             con = DbUtil.loadDriver();
-            rs = DbUtil.getResultSet("select * from userdetail");
+            rs = DbUtil.getResultSet("select * from userdetails");
             Emp_table.setModel(DbUtils.resultSetToTableModel(rs));
             con.close();
         } catch (Exception e) {
@@ -432,14 +446,8 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         ProductTable = new javax.swing.JTable();
         AddSpan2 = new javax.swing.JPanel();
-        ServicT11 = new javax.swing.JLabel();
-        AddServiceField10 = new javax.swing.JTextField();
-        S_Pricce9 = new javax.swing.JLabel();
-        AddPriceField9 = new javax.swing.JTextField();
-        addservice_btn2 = new javax.swing.JButton();
         ServicT10 = new javax.swing.JLabel();
         DeleteProductTF = new javax.swing.JTextField();
-        editservice_btn2 = new javax.swing.JButton();
         DeleteProduct = new javax.swing.JButton();
         RegistrationDTab = new javax.swing.JPanel();
         RegistryScrool = new javax.swing.JScrollPane();
@@ -642,7 +650,7 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         adminpic = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
         modelicon = new javax.swing.JLabel();
         buttonpanel = new javax.swing.JPanel();
         deltail_bt = new javax.swing.JButton();
@@ -970,36 +978,10 @@ public class HomePage extends javax.swing.JFrame {
             ProductTable.getColumnModel().getColumn(3).setHeaderValue("Title 4");
         }
 
-        ServicT11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ServicT11.setText("Supplier Name :");
-
-        AddServiceField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        S_Pricce9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        S_Pricce9.setText("   Cost :");
-
-        AddPriceField9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        addservice_btn2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        addservice_btn2.setText("Add ");
-        addservice_btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addservice_btn2ActionPerformed(evt);
-            }
-        });
-
         ServicT10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ServicT10.setText("Product Name :");
 
         DeleteProductTF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        editservice_btn2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        editservice_btn2.setText("Delete");
-        editservice_btn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editservice_btn2ActionPerformed(evt);
-            }
-        });
 
         DeleteProduct.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         DeleteProduct.setText("Delete");
@@ -1014,33 +996,13 @@ public class HomePage extends javax.swing.JFrame {
         AddSpan2Layout.setHorizontalGroup(
             AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddSpan2Layout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(addservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(AddSpan2Layout.createSequentialGroup()
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(ServicT11))
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addComponent(AddServiceField10, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(S_Pricce9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddPriceField9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
-                    .addGroup(AddSpan2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         AddSpan2Layout.setVerticalGroup(
             AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1049,17 +1011,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ServicT10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteProductTF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DeleteProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(AddSpan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ServicT11, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddServiceField10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(S_Pricce9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AddPriceField9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addservice_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainproductpanLayout = new javax.swing.GroupLayout(mainproductpan);
@@ -2939,7 +2892,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Emp_Tablel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane7))
                             .addGroup(mainEmployeepan1Layout.createSequentialGroup()
                                 .addComponent(Employee_l1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3208,8 +3161,8 @@ public class HomePage extends javax.swing.JFrame {
         logout.setText("Log Out");
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("usernane");
+        usernameLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        usernameLabel.setText("username");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -3218,10 +3171,14 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(adminpic, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -3231,7 +3188,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(adminpic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -3376,25 +3333,25 @@ public class HomePage extends javax.swing.JFrame {
         buttonpanelLayout.setVerticalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(deltail_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(emp_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(client_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(product_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(service_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(supplier_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(report_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(billing_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(other_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(204, 204, 204));
@@ -3446,9 +3403,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(homepanel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-                    .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                    .addComponent(buttonpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -3487,9 +3444,13 @@ public class HomePage extends javax.swing.JFrame {
 
     private void client_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_client_btActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.add(RegistrationDTab);
-        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(RegistrationDTab), getTitlePanel(jTabbedPane1, RegistrationDTab, "Registration    "));
-        jTabbedPane1.setSelectedComponent(RegistrationDTab);
+        if (ADMINorUSER.equals("ADMIN")) {
+            jTabbedPane1.add(RegistrationDTab);
+            jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(RegistrationDTab), getTitlePanel(jTabbedPane1, RegistrationDTab, "Registration    "));
+            jTabbedPane1.setSelectedComponent(RegistrationDTab);
+        } else {
+            JOptionPane.showMessageDialog(null, "Only Admin Can Access Registration");
+        }
         
         
     }//GEN-LAST:event_client_btActionPerformed
@@ -3666,7 +3627,7 @@ public class HomePage extends javax.swing.JFrame {
                  
                 try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
+                DbUtil.runQuery("insert into  userdetails values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
@@ -3683,7 +3644,7 @@ public class HomePage extends javax.swing.JFrame {
                 
                 try {
                 con=DbUtil.loadDriver();
-                DbUtil.runQuery("insert into userdetail values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
+                DbUtil.runQuery("insert into userdetails values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
                 JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
                 getEmployeeData();
                 con.close();
@@ -4251,7 +4212,7 @@ public class HomePage extends javax.swing.JFrame {
         else{
             try {
                 con=DbUtil.loadDriver();
-                rs=DbUtil.getResultSetForSearch("select * from userdetail where First name = ?", search_Tf);
+                rs=DbUtil.getResultSetForSearch("select * from userdetails where First name = ?", search_Tf);
                 if(rs.next())
                 {
                     EditEmp_name.setText(rs.getString(1));
@@ -4902,10 +4863,8 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddPriceField;
-    private javax.swing.JTextField AddPriceField9;
     private javax.swing.JButton AddReset;
     private javax.swing.JTextField AddServiceField;
-    private javax.swing.JTextField AddServiceField10;
     private javax.swing.JPanel AddSpan;
     private javax.swing.JPanel AddSpan1;
     private javax.swing.JPanel AddSpan2;
@@ -5021,7 +4980,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton ResetProduct;
     private javax.swing.JLabel S_Pricce;
     private javax.swing.JLabel S_Pricce6;
-    private javax.swing.JLabel S_Pricce9;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
@@ -5030,7 +4988,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel ServicT10;
-    private javax.swing.JLabel ServicT11;
     private javax.swing.JLabel Service;
     private javax.swing.JPanel ServiceCPanel;
     private javax.swing.JPanel ServiceDTab2;
@@ -5062,7 +5019,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> UserTypeCom;
     private javax.swing.JLabel addrees;
     private javax.swing.JButton addservice_btn;
-    private javax.swing.JButton addservice_btn2;
     private javax.swing.JLabel adminpic;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
@@ -5078,7 +5034,6 @@ public class HomePage extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private javax.swing.JButton deltail_bt;
     private javax.swing.JButton editEmployee_btn1;
-    private javax.swing.JButton editservice_btn2;
     private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emaillabel;
@@ -5100,7 +5055,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -5169,5 +5123,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton supplier_bt;
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
+    private javax.swing.JTextField user_Tf;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }
