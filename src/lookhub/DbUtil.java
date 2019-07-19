@@ -109,9 +109,9 @@ public class DbUtil {
         st.setLong(3,Long.parseLong(textField2.getText()));
         st.setString(4, textField3.getText());
         st.setString(5, string);
-        st.setString(6, textField5.getText());
-        st.setString(7, textField6.getText());
-        st.setString(8, textField7.getText());
+        st.setString(6, textField4.getText());
+        st.setString(7, textField5.getText());
+        st.setString(8, textField6.getText());
         st.setString(9, string1);
         st.setString(10, textField7.getText());
         

@@ -2598,6 +2598,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        Pass_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Pass_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Pass_TfActionPerformed(evt);
@@ -2641,6 +2642,7 @@ public class HomePage extends javax.swing.JFrame {
         Edit_User.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Edit_User.setText("User ID");
 
+        email_Tf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         email_Tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 email_TfActionPerformed(evt);
@@ -2849,6 +2851,11 @@ public class HomePage extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Emp_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Emp_tableMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(Emp_table);
 
         javax.swing.GroupLayout mainEmployeepan1Layout = new javax.swing.GroupLayout(mainEmployeepan1);
@@ -2860,7 +2867,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainEmployeepan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(DeleteSpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(AddSpan3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Employee_l1))
                 .addGap(5, 5, 5)
@@ -4233,7 +4240,12 @@ public class HomePage extends javax.swing.JFrame {
                     emp_textF2.setText(rs.getString(2));
                     emp_textF3.setText(rs.getString(3));
                     emp_textF4.setText(rs.getString(4));
-                    
+                    if (rs.getString(5).equals("male")) {
+                        male_rbt.setSelected(true);
+                    }
+                    if (rs.getString(5).equals("female")) {
+                        female_rbt.setSelected(true);
+                    }
                     user_Tf.setText(rs.getString(6));
                     Pass_Tf.setText(rs.getString(7));
                     email_Tf.setText(rs.getString(8));
