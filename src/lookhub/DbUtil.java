@@ -85,11 +85,54 @@ public class DbUtil {
         st.setString(3, textField2.getText());
         st.executeUpdate();
     }
+    public static void runQueryforEditProduct(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,JTextField textField4,JTextField textField5,JTextField textField6) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setInt(2, Integer.parseInt(textField1.getText()));
+        st.setInt(3, Integer.parseInt(textField2.getText()));
+        st.setInt(4, Integer.parseInt(textField3.getText()));
+        st.setString(5, textField4.getText());
+        st.setInt(6, Integer.parseInt(textField5.getText()));
+        st.setString(7, textField6.getText());
+        
+        
+        st.executeUpdate();
+    }
+    public static void runQueryforEditEmployee(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,String string,JTextField textField4,JTextField textField5,JTextField textField6,String string1,JTextField textField7) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setString(2, textField1.getText());
+        st.setLong(3,Long.parseLong(textField2.getText()));
+        st.setString(4, textField3.getText());
+        st.setString(5, string);
+        st.setString(6, textField5.getText());
+        st.setString(7, textField6.getText());
+        st.setString(8, textField7.getText());
+        st.setString(9, string1);
+        st.setString(10, textField7.getText());
+        
+        
+        st.executeUpdate();
+    }
     public static void runQueryforDelete(String query,JTextField textField) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
         PreparedStatement st = con.prepareStatement(query);
         st.setString(1, textField.getText());
         st.executeUpdate();
+    }
+    public static ResultSet runQueryforLogin(String query,JTextField textField,JTextField textField1,String type) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setString(2, textField1.getText());
+        st.setString(3, type);
+        rs=st.executeQuery();
+        return rs;
     }
 }
