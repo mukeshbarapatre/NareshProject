@@ -20,14 +20,6 @@ public class DbUtil {
     private static final String user = "root";
     private static final String pwd = "";
 
-    static void runQueryforEdit(String update_product_set_ProductName__price__Pr, JTextField EditnameTF, JTextField EpriceTF, JTextField EditcodeTF, JTextField EquantityTF, JTextField SnameTF, JTextField EditCost) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    static void runQueryforEdit(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     /**
      * create Database object
      */
@@ -93,54 +85,11 @@ public class DbUtil {
         st.setString(3, textField2.getText());
         st.executeUpdate();
     }
-     public static void runQueryforEditProduct(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,JTextField textField4,JTextField textField5,JTextField textField6) throws SQLException {
-        Connection con = loadDriver();
-        ResultSet rs;
-        PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, textField.getText());
-        st.setInt(2, Integer.parseInt(textField1.getText()));
-        st.setInt(3, Integer.parseInt(textField2.getText()));
-        st.setInt(4, Integer.parseInt(textField3.getText()));
-        st.setString(5, textField4.getText());
-        st.setInt(6, Integer.parseInt(textField5.getText()));
-        st.setString(7, textField6.getText());
-        
-        
-        st.executeUpdate();
-    }
     public static void runQueryforDelete(String query,JTextField textField) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
         PreparedStatement st = con.prepareStatement(query);
         st.setString(1, textField.getText());
         st.executeUpdate();
-    }
-    public static void runQueryforEditEmp(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,String gender,JTextField textField5,JTextField textField6,JTextField textField7,String type,JTextField textField9) throws SQLException {
-       /* Connection con = loadDriver();
-        ResultSet rs;
-        PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, textField.getText());
-        st.setString(2, textField1.getText());
-        st.setString(3, textField2.getText());
-        st.setString(4, textField3.getText());
-        st.setString(5,gender);
-        st.setString(6,textField5.getText());
-        st.setString(7, textField6.getText());
-        st.setString(8, textField7.getText());
-        st.setString(9, type);
-       st.setString(10, textField9.getText());
-        st.executeUpdate();*/
-    }
-    public static ResultSet runQueryforLogin(String query,JTextField textField,JTextField textField1,String type) throws SQLException 
-    {
-        Connection con = loadDriver();
-        ResultSet rs;
-        PreparedStatement st = con.prepareStatement(query);
-        st.setString(1, textField.getText());
-        st.setString(2, textField1.getText());
-        st.setString(3, type);
-        rs=st.executeQuery();
-        return rs;
-
     }
 }
