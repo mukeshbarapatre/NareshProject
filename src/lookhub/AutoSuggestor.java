@@ -279,6 +279,7 @@ private final JTextField textField;
                     fullymatches = false;
                     break;
                 }
+                
             }
             if (fullymatches) {
                 addWordToSuggestions(word);
