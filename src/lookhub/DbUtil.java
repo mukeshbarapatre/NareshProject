@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -19,6 +20,10 @@ public class DbUtil {
     private static final String ConnectionString = "jdbc:mysql://localhost:3306/proper";
     private static final String user = "root";
     private static final String pwd = "";
+
+    static void runQueryforEditSupplier(String update_supplier_set_CompanyName__Address_, JTextField EditSupplirttf, JTextArea AddTextArea, JTextField SupplierCN, JTextField SuppEditM, JTextField EditCtf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * create Database object
@@ -96,6 +101,18 @@ public class DbUtil {
         st.setString(5, textField4.getText());
         st.setInt(6, Integer.parseInt(textField5.getText()));
         st.setString(7, textField6.getText());
+        
+        
+        st.executeUpdate();
+    }
+    public static void runQueryforEditSupplier(String query,JTextField textField,JTextArea textArea1,JTextField textField2,JTextField textField3) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setString(2, textArea1.getText());
+        st.setInt(3, Integer.parseInt(textField2.getText()));
+        st.setString(4,textField3.getText());
         
         
         st.executeUpdate();
