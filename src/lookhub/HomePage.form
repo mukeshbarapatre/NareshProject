@@ -774,51 +774,18 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="450" max="-2" attributes="0"/>
-                                  <Component id="modelicon3" min="-2" pref="91" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Look4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Hub2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jSeparator5" pref="541" max="32767" attributes="0"/>
-                                      <Component id="jPanel6" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="400" max="-2" attributes="0"/>
-                                  <Component id="Registration2" min="-2" pref="250" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="219" max="32767" attributes="0"/>
+                          <EmptySpace pref="264" max="32767" attributes="0"/>
+                          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="188" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="Look4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                                  <Component id="Hub2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="modelicon3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="jSeparator5" min="-2" pref="17" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="Registration2" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="85" max="32767" attributes="0"/>
+                          <EmptySpace pref="226" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -842,20 +809,16 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace pref="99" max="32767" attributes="0"/>
                               <Component id="Submit" min="-2" pref="116" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace pref="100" max="32767" attributes="0"/>
                               <Component id="Reset" min="-2" pref="116" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="98" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="passLabel" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="Name" max="32767" attributes="0"/>
                                           <Component id="addrees" alignment="0" max="32767" attributes="0"/>
@@ -864,65 +827,50 @@
                                           <Component id="Surname" alignment="0" max="32767" attributes="0"/>
                                           <Component id="UserId" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                               <Component id="male" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                               <Component id="female" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="SurnameTextfield" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="ContactTextfield" max="32767" attributes="0"/>
-                                                  <Component id="NameTextfield" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jTextArea" alignment="1" min="-2" pref="314" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="UserIdTextfield" max="32767" attributes="0"/>
-                                          </Group>
+                                          <Component id="UserIdTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="NameTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="SurnameTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ContactTextfield" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="jTextArea" alignment="1" pref="305" max="32767" attributes="0"/>
+                                          <Component id="PasswordTextfield" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="passLabel" alignment="0" max="32767" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="ConfirmPassword" pref="147" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="Email" max="32767" attributes="0"/>
-                                                  <Component id="UserType" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="Password" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="Email" max="32767" attributes="0"/>
+                                          <Component id="UserType" max="32767" attributes="0"/>
+                                          <Component id="ConfirmPassword" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="Password" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="emaillabel" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                              <Component id="confirm_pswd" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="emaillabel" min="-2" pref="305" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="MailTextfield" alignment="1" pref="305" max="32767" attributes="0"/>
+                                                  <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="confirm_pswd" alignment="1" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <Component id="MailTextfield" max="32767" attributes="0"/>
-                                          <Component id="ConfirmPasswordTextfield" alignment="1" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="PasswordTextfield" min="-2" pref="312" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="UserTypeCom" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="UserTypeCom" alignment="1" min="-2" pref="305" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Registration2" min="-2" pref="250" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -930,11 +878,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="Registration2" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Name" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="NameTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="SurnameTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="Surname" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
@@ -944,36 +894,30 @@
                                   <Component id="ContactNumebe" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ContactTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Component id="addrees" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace pref="9" max="32767" attributes="0"/>
                                       <Component id="jTextArea" min="-2" pref="41" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="Gender" min="-2" pref="31" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="male" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="female" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="male" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="female" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="Gender" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="UserId" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="UserIdTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="Password" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="PasswordTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -994,7 +938,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="emaillabel" min="-2" pref="13" max="-2" attributes="0"/>
-                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="UserTypeCom" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="UserType" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -1261,53 +1205,18 @@
                         <Property name="text" type="java.lang.String" value="User Type"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JLabel" name="Registration2">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Times New Roman" size="24" style="1"/>
+                        </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
+                        <Property name="text" type="java.lang.String" value="Registration Form"/>
+                        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="Look4">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Narkisim" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="18" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="LOOK"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="Hub2">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Narkisim" size="36" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="18" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="HUB"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="modelicon3">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/lookhub/Images/Unisex.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JSeparator" name="jSeparator5">
-                </Component>
-                <Component class="javax.swing.JLabel" name="Registration2">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Times New Roman" size="24" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Registration Form"/>
-                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
-                  </Properties>
-                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -2260,15 +2169,15 @@
                                   </Group>
                                   <Component id="jSeparator3" min="-2" pref="11" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace pref="47" max="32767" attributes="0"/>
-                                          <Component id="ServiceTableLAble" min="-2" pref="130" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jScrollPane4" pref="0" max="32767" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                                          <Component id="ServiceTableLAble" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <EmptySpace pref="60" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2600,7 +2509,7 @@
                             <Component class="javax.swing.JButton" name="EditSer">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Times New Roman" size="11" style="1"/>
+                                  <Font name="Times New Roman" size="14" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Edit"/>
                               </Properties>
@@ -2611,7 +2520,7 @@
                             <Component class="javax.swing.JButton" name="ResetEdit">
                               <Properties>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Times New Roman" size="11" style="1"/>
+                                  <Font name="Times New Roman" size="14" style="1"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Reset"/>
                               </Properties>
@@ -3657,7 +3566,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="SolonDScroll" alignment="0" pref="588" max="32767" attributes="0"/>
+              <Component id="SolonDScroll" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

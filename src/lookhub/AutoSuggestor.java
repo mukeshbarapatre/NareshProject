@@ -223,11 +223,11 @@ private final JTextField textField;
         int windowX = 0;
         int windowY = 0;
         Point tp = textField.getLocationOnScreen();
-        windowX = container.getX() + (int)tp.getX() ;
+        windowX = container.getX() + (int)tp.getX() +7;
         if (suggestionsPanel.getHeight() > autoSuggestionPopUpWindow.getMinimumSize().height) {
-            windowY = container.getY() + (int)tp.getY() + textField.getHeight() ;
+            windowY = container.getY() + (int)tp.getY() + textField.getHeight() +5;
         } else {
-            windowY = container.getY() + (int)tp.getY() + textField.getHeight() ;
+            windowY = container.getY() + (int)tp.getY() + textField.getHeight() +5;
         }
 
         autoSuggestionPopUpWindow.setLocation(windowX, windowY);
