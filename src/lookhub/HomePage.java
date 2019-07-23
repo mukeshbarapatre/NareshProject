@@ -674,7 +674,9 @@ public class HomePage extends javax.swing.JFrame {
         SearchReortLab = new javax.swing.JLabel();
         SearchReport = new javax.swing.JButton();
         PeriodLable = new javax.swing.JLabel();
-        Period = new javax.swing.JComboBox<>();
+        PeriodLable1 = new javax.swing.JLabel();
+        datefrom = new datechooser.beans.DateChooserCombo();
+        todate = new datechooser.beans.DateChooserCombo();
         jPanel13 = new javax.swing.JPanel();
         SearchNameReport = new javax.swing.JLabel();
         ReportNameTextFielad = new javax.swing.JTextField();
@@ -1216,6 +1218,7 @@ public class HomePage extends javax.swing.JFrame {
         UserId.setText("User ID");
 
         NameTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        NameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameTextfieldActionPerformed(evt);
@@ -1229,6 +1232,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         SurnameTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        SurnameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SurnameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SurnameTextfieldActionPerformed(evt);
@@ -1241,6 +1245,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ContactTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ContactTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactTextfieldActionPerformed(evt);
@@ -1253,6 +1258,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         UserIdTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        UserIdTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         UserIdTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserIdTextfieldActionPerformed(evt);
@@ -1275,6 +1281,7 @@ public class HomePage extends javax.swing.JFrame {
         Email.setText("Email Address");
 
         PasswordTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        PasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordTextfieldActionPerformed(evt);
@@ -1287,6 +1294,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ConfirmPasswordTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        ConfirmPasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ConfirmPasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmPasswordTextfieldActionPerformed(evt);
@@ -1299,6 +1307,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         MailTextfield.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        MailTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MailTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MailTextfieldActionPerformed(evt);
@@ -1352,6 +1361,7 @@ public class HomePage extends javax.swing.JFrame {
         jTextArea.setColumns(20);
         jTextArea.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jTextArea.setRows(5);
+        jTextArea.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextAreaKeyPressed(evt);
@@ -1399,7 +1409,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(male)
-                                .addGap(62, 62, 62)
+                                .addGap(18, 18, 18)
                                 .addComponent(female))
                             .addComponent(UserIdTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(NameTextfield, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -3208,39 +3218,48 @@ public class HomePage extends javax.swing.JFrame {
         PeriodLable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PeriodLable.setText("period");
 
-        Period.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        Period.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "1 Week", "1 Month", "3 Month", "6 Month", "1 Year" }));
+        PeriodLable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PeriodLable1.setText("to");
 
         javax.swing.GroupLayout ReportSearchPanelLayout = new javax.swing.GroupLayout(ReportSearchPanel);
         ReportSearchPanel.setLayout(ReportSearchPanelLayout);
         ReportSearchPanelLayout.setHorizontalGroup(
             ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReportSearchPanelLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(40, 40, 40)
                 .addComponent(SearchReortLab, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ReportCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addComponent(PeriodLable)
+                .addGap(24, 24, 24)
+                .addComponent(datefrom, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PeriodLable1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Period, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(todate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SearchReport, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
+                .addGap(22, 22, 22))
         );
         ReportSearchPanelLayout.setVerticalGroup(
             ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReportSearchPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportSearchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportSearchPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(SearchReortLab, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SearchReortLab, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ReportCombo)
                         .addComponent(PeriodLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Period, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SearchReport, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ReportCombo, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(PeriodLable1))
+                    .addGroup(ReportSearchPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(ReportSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(todate, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(datefrom, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ReportSearchPanelLayout.createSequentialGroup()
+                                .addComponent(SearchReport)
+                                .addGap(2, 2, 2)))))
                 .addContainerGap())
         );
 
@@ -3385,7 +3404,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(ReportNameTextFielad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3428,9 +3447,9 @@ public class HomePage extends javax.swing.JFrame {
         ReportLayout.setHorizontalGroup(
             ReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(Reportpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         ReportLayout.setVerticalGroup(
             ReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5306,73 +5325,26 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SearchReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchReportActionPerformed
         // TODO add your handling code here:
+        
+        
+                    Date dfrom= new Date(datefrom.getText());
+                    java.sql.Date from = new java.sql.Date(dfrom.getTime());
+                    
+                    Date dto= new Date(todate.getText());
+                    java.sql.Date to = new java.sql.Date(dto.getTime());
+                    
+                    
+                    
         if (ReportCombo.getSelectedItem().equals("Billing")) {
             SearchNameReport.setText("Bill No");
-            switch(Period.getItemAt(Period.getSelectedIndex())){
-                case "All":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("select * from billing");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
+            try {
+                    con = DbUtil.loadDriver();
+                    rs = DbUtil.getResultSetForbillinReport("SELECT * FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    con.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
                         }
-                    break;
-                }
-                case "1 Week":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY `Bill Date` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "1 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 1 MONTH ORDER BY `Bill Date` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "3 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 3 MONTH ORDER BY `Bill Date` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "6 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 6 MONTH ORDER BY `Bill Date` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "1 Year":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 1 YEAR ORDER BY `Bill Date` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                default:{JOptionPane.showMessageDialog(null, "other selected");
-                    break;
-                }
-            }
         }
         if (ReportCombo.getSelectedItem().equals("Employee")) {
             SearchNameReport.setText("Employee's Name");
@@ -5389,71 +5361,14 @@ public class HomePage extends javax.swing.JFrame {
         if (ReportCombo.getSelectedItem().equals("Customers")) {
             SearchNameReport.setText("Customer's Name");
             getSuggestionPane(ReportNameTextFielad, "custumerdetails");
-            switch(Period.getItemAt(Period.getSelectedIndex())){
-                case "All":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("select * from custumerdetails");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
+            try {
+                    con = DbUtil.loadDriver();
+                    rs = DbUtil.getResultSetForbillinReport("SELECT * FROM `custumerdetails` WHERE `Last Visit` BETWEEN ? AND ?",from.toString(),to.toString());
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    con.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
                         }
-                        break;
-                }
-                case "1 Week":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY `Last Visit` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "1 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 1 MONTH ORDER BY `Last Visit` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "3 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 3 MONTH ORDER BY `Last Visit` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "6 Month":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 6 MONTH ORDER BY `Last Visit` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                case "1 Year":{
-                    try {
-                        con = DbUtil.loadDriver();
-                        rs = DbUtil.getResultSet("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 1 YEAR ORDER BY `Last Visit` DESC");
-                        ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
-                        con.close();
-                    } catch (Exception e) {
-                        }
-                    break;
-                }
-                default:{JOptionPane.showMessageDialog(null, "other selected");
-                    break;
-                }
-            }
         }
     }//GEN-LAST:event_SearchReportActionPerformed
 
@@ -5463,9 +5378,7 @@ public class HomePage extends javax.swing.JFrame {
             if(ReportNameTextFielad.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter Bill No","Details",JOptionPane.OK_OPTION);
             }else{
-                switch(Period.getItemAt(Period.getSelectedIndex())){
-                case "All":{
-                    try {
+                try {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill No` = ?", ReportNameTextFielad);
                     if(rs.next()){
@@ -5488,146 +5401,13 @@ public class HomePage extends javax.swing.JFrame {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                    break;
-                }
-                case "1 Week":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY `Bill Date` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Bill No");
-                        row1.setText(rs.getString(2));
-                        Column2.setText("Bill Date");
-                        row2.setText(rs.getString(3));
-                        Column3.setText("Customer Name");
-                        row3.setText(rs.getString(1));
-                        Column4.setText("Total Rs");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("");
-                        row5.setText("");
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "bill not found please check bill no");
-                    }
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "1 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 1 MONTH ORDER BY `Bill Date` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Bill No");
-                        row1.setText(rs.getString(2));
-                        Column2.setText("Bill Date");
-                        row2.setText(rs.getString(3));
-                        Column3.setText("Customer Name");
-                        row3.setText(rs.getString(1));
-                        Column4.setText("Total Rs");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("");
-                        row5.setText("");
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "bill not found please check bill no");
-                    }
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "3 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 3 MONTH ORDER BY `Bill Date` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Bill No");
-                        row1.setText(rs.getString(2));
-                        Column2.setText("Bill Date");
-                        row2.setText(rs.getString(3));
-                        Column3.setText("Customer Name");
-                        row3.setText(rs.getString(1));
-                        Column4.setText("Total Rs");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("");
-                        row5.setText("");
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "bill not found please check bill no");
-                    }
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "6 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 6 MONTH ORDER BY `Bill Date` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Bill No");
-                        row1.setText(rs.getString(2));
-                        Column2.setText("Bill Date");
-                        row2.setText(rs.getString(3));
-                        Column3.setText("Customer Name");
-                        row3.setText(rs.getString(1));
-                        Column4.setText("Total Rs");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("");
-                        row5.setText("");
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "bill not found please check bill no");
-                    }
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "1 Year":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Bill Date` >= DATE(NOW()) - INTERVAL 1 YEAR ORDER BY `Bill Date` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Bill No");
-                        row1.setText(rs.getString(2));
-                        Column2.setText("Bill Date");
-                        row2.setText(rs.getString(3));
-                        Column3.setText("Customer Name");
-                        row3.setText(rs.getString(1));
-                        Column4.setText("Total Rs");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("");
-                        row5.setText("");
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "bill not found please check bill no");
-                    }
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                default:{JOptionPane.showMessageDialog(null, "other selected");
-                    break;
-                }
-            }
             }
         }
         if (ReportCombo.getSelectedItem().equals("Customers")) {
             if(ReportNameTextFielad.getText().equals("")){
                 JOptionPane.showMessageDialog(this, "Enter Customer Name","Details",JOptionPane.OK_OPTION);
             }else{
-                switch(Period.getItemAt(Period.getSelectedIndex())){
-                case "All":{
-                    try {
+                try {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.getResultSetForSearch("SELECT * FROM `custumerdetails` WHERE `CustumerName` = ?", ReportNameTextFielad);
                     if(rs.next()){
@@ -5650,142 +5430,6 @@ public class HomePage extends javax.swing.JFrame {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                    break;
-                }
-                case "1 Week":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 7 DAY ORDER BY `Last Visit` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Customer Name");
-                        row1.setText(rs.getString(1));
-                        Column2.setText("Mobile No");
-                        row2.setText(rs.getString(2));
-                        Column3.setText("Email");
-                        row3.setText(rs.getString(3));
-                        Column4.setText("Total Service Charge");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("Last Visited");
-                        row5.setText(rs.getString(5));
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
-                    }
-                    
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "1 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 1 MONTH ORDER BY `Last Visit` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Customer Name");
-                        row1.setText(rs.getString(1));
-                        Column2.setText("Mobile No");
-                        row2.setText(rs.getString(2));
-                        Column3.setText("Email");
-                        row3.setText(rs.getString(3));
-                        Column4.setText("Total Service Charge");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("Last Visited");
-                        row5.setText(rs.getString(5));
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
-                    }
-                    
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "3 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 3 MONTH ORDER BY `Last Visit` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Customer Name");
-                        row1.setText(rs.getString(1));
-                        Column2.setText("Mobile No");
-                        row2.setText(rs.getString(2));
-                        Column3.setText("Email");
-                        row3.setText(rs.getString(3));
-                        Column4.setText("Total Service Charge");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("Last Visited");
-                        row5.setText(rs.getString(5));
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
-                    }
-                    
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "6 Month":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 6 MONTH ORDER BY `Last Visit` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Customer Name");
-                        row1.setText(rs.getString(1));
-                        Column2.setText("Mobile No");
-                        row2.setText(rs.getString(2));
-                        Column3.setText("Email");
-                        row3.setText(rs.getString(3));
-                        Column4.setText("Total Service Charge");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("Last Visited");
-                        row5.setText(rs.getString(5));
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
-                    }
-                    
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                case "1 Year":{
-                    try {
-                    con=DbUtil.loadDriver();
-                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Last Visit` >= DATE(NOW()) - INTERVAL 1 YEAR ORDER BY `Last Visit` DESC", ReportNameTextFielad);
-                    if(rs.next()){
-                        Column1.setText("Customer Name");
-                        row1.setText(rs.getString(1));
-                        Column2.setText("Mobile No");
-                        row2.setText(rs.getString(2));
-                        Column3.setText("Email");
-                        row3.setText(rs.getString(3));
-                        Column4.setText("Total Service Charge");
-                        row4.setText(rs.getString(4));
-                        Column5.setText("Last Visited");
-                        row5.setText(rs.getString(5));
-                        
-                    }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
-                    }
-                    
-                    con.close();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
-                }
-                    break;
-                }
-                default:{JOptionPane.showMessageDialog(null, "other selected");
-                    break;
-                }
-            }
             }
         }
     }//GEN-LAST:event_SearchIteamActionPerformed
@@ -6350,8 +5994,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField Pass_Tf;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordTextfield;
-    private javax.swing.JComboBox<String> Period;
     private javax.swing.JLabel PeriodLable;
+    private javax.swing.JLabel PeriodLable1;
     private javax.swing.JLabel PhoneL;
     private javax.swing.JTextField PhoneTF;
     private javax.swing.JLabel PricceL;
@@ -6457,6 +6101,7 @@ public class HomePage extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo1;
     private datechooser.beans.DateChooserCombo dateChooserCombo2;
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
+    private datechooser.beans.DateChooserCombo datefrom;
     private javax.swing.JButton deltail_bt;
     private javax.swing.JButton editEmployee_btn1;
     private javax.swing.JButton editservice_srh_btn;
@@ -6564,6 +6209,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField search_Tf;
     private javax.swing.JButton service_bt;
     private javax.swing.JButton supplier_bt;
+    private datechooser.beans.DateChooserCombo todate;
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
     private javax.swing.JTextField user_Tf;

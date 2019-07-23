@@ -117,6 +117,16 @@ public class DbUtil {
         
         st.executeUpdate();
     }
+    public static ResultSet getResultSetForbillinReport(String query,String from,String to) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, from);
+        st.setString(2, to);
+        rs=st.executeQuery();
+        return rs;
+        
+    }
     public static void runQueryforEditEmployee(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,String string,JTextField textField4,JTextField textField5,JTextField textField6,String string1,JTextField textField7) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
