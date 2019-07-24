@@ -4025,7 +4025,7 @@
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="ReportSearchPanel" max="32767" attributes="0"/>
-                                  <Component id="jPanel13" max="32767" attributes="0"/>
+                                  <Component id="Reportpanofpan" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace pref="38" max="32767" attributes="0"/>
                           </Group>
@@ -4037,7 +4037,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ReportSearchPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jPanel13" max="32767" attributes="0"/>
+                              <Component id="Reportpanofpan" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -4157,7 +4157,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel13">
+                    <Container class="javax.swing.JPanel" name="Reportpanofpan">
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -4170,7 +4170,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                                          <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ReportScreen" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
@@ -4195,7 +4195,7 @@
                                       <Component id="SearchIteam" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ReportScreen" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" pref="15" max="32767" attributes="0"/>
                                   <Component id="jScrollPane8" min="-2" pref="378" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -4243,7 +4243,7 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel14">
+                        <Container class="javax.swing.JPanel" name="ReportScreen">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="33" green="33" red="33" type="rgb"/>
@@ -4270,9 +4270,9 @@
                                           <Component id="Column3" pref="131" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="row4" min="-2" pref="114" max="-2" attributes="0"/>
-                                          <Component id="Column4" min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="Column4" pref="147" max="32767" attributes="0"/>
+                                          <Component id="row4" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
