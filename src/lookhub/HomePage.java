@@ -4875,9 +4875,9 @@ public class HomePage extends javax.swing.JFrame {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
-            JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
             createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             openpdf(CustumerjTextField.getText(),billNOjTextField1.getText());
+            JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
@@ -5271,7 +5271,7 @@ public class HomePage extends javax.swing.JFrame {
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
         // TODO add your handling code here:
         try {
-            String file = "C:\\Users\\Administrator\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
+            String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
             org.icepdf.core.pobjects.Document doc = new org.icepdf.core.pobjects.Document();
             doc.setFile(file);
             SwingController sc = new SwingController();
@@ -5645,6 +5645,7 @@ public class HomePage extends javax.swing.JFrame {
     
     public void createNewPdf(String name,String billnos){
         File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
+        
         try{
             if (file.createNewFile())
         {
@@ -5802,8 +5803,8 @@ public class HomePage extends javax.swing.JFrame {
             PdfPCell total = new PdfPCell(new Paragraph("Total"));
            // total.setBackgroundColor(BaseColor.GRAY);
             total.setBorderColor(BaseColor.BLACK);
-            total.setPaddingTop(5);
-            total.setPaddingBottom(5);
+            //total.setPaddingTop(5);
+            //total.setPaddingBottom(5);
             total.setHorizontalAlignment(Element.ALIGN_CENTER);
             total.setVerticalAlignment(Element.ALIGN_CENTER);
             total.setColspan(4);
@@ -5829,27 +5830,29 @@ public class HomePage extends javax.swing.JFrame {
             Font fnt2 = new Font(Font.FontFamily.TIMES_ROMAN, 14, WIDTH, BaseColor.BLACK);
             custmer.setFont(fnt2);
             custmer.setIndentationLeft(85); // title left side space
-            custmer.setIndentationRight(300);
-            custmer.add("Customer Name :-");
-            
-            Paragraph custmername = new Paragraph();
-            custmername.setFont(fnt2);
-            custmername.setIndentationLeft(85); // title left side space
-            custmername.setIndentationRight(100);
-            custmername.setLeading(15);
-            custmername.add(name);
+            custmer.setIndentationRight(100);
+            custmer.add("Customer Name :- "+name);
             
             Paragraph billdate = new Paragraph();
+            billdate.setFont(fnt2);
+            billdate.setIndentationLeft(85); // title left side space
+            //billdate.setIndentationRight(100);
+           // billdate.setLeading(15);
+            billdate.add("Bill Date :- "+dateChooserCombo3.getText());
+            
+           /* Paragraph billdate = new Paragraph();
             billdate.setFont(fnt2);
             billdate.setIndentationLeft(300); // title left side space
             billdate.setIndentationRight(80);
             billdate.setLeading(-15);
-            billdate.add("Bill Date :- "+dateChooserCombo3.getText());
+            billdate.add("Bill Date :- "+dateChooserCombo3.getText());*/
             
             Paragraph billno = new Paragraph();
             billno.setFont(fnt2);
             billno.setIndentationLeft(300); // title left side space
             billno.setIndentationRight(80);
+            billno.setLeading(-0);
+            
             billno.add("Bill No :- "+billNOjTextField1.getText());
             
             Paragraph disctAt = new Paragraph();
@@ -5863,8 +5866,8 @@ public class HomePage extends javax.swing.JFrame {
             Signature.setFont(fnt2);
             Signature.setIndentationLeft(85); // title left side space
             Signature.setIndentationRight(100);
-            //disct.setLeading(0);
-            Signature.add("Sign or Stamp =  _________________________________");
+            Signature.setLeading(20);
+            Signature.add("\n\nSign or Stamp =  _________________________________");
             
             doc.add(img);
             doc.add(title);
@@ -5876,7 +5879,7 @@ public class HomePage extends javax.swing.JFrame {
             doc.add(line1);
             doc.add(voidp);
             doc.add(custmer);
-            doc.add(custmername);
+            //doc.add(custmername);
             doc.add(billdate);
             doc.add(billno);
             doc.add(voidp);
