@@ -31,6 +31,7 @@ import com.itextpdf.text.pdf.PdfPHeaderCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.Pfm2afm;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.awt.Point;
 import java.awt.event.MouseListener;
@@ -48,6 +49,7 @@ import javax.print.attribute.standard.PrintQuality;
 import javax.print.event.PrintServiceAttributeListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
@@ -156,6 +158,7 @@ public class HomePage extends javax.swing.JFrame {
                         row4.setText("");
                         Column5.setText("");
                         row5.setText("");
+                        bill.setVisible(false);
         
         //here is code for passLength
         
@@ -699,7 +702,9 @@ public class HomePage extends javax.swing.JFrame {
         row4 = new javax.swing.JLabel();
         row1 = new javax.swing.JLabel();
         row5 = new javax.swing.JLabel();
+        bill = new javax.swing.JLabel();
         SearchIteam = new javax.swing.JButton();
+        printTable = new javax.swing.JButton();
         SupplierDtab = new javax.swing.JPanel();
         SupplierScroll1 = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -1937,6 +1942,11 @@ public class HomePage extends javax.swing.JFrame {
 
         SaveasPDF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SaveasPDF.setText("PDF");
+        SaveasPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveasPDFActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -3234,7 +3244,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(PeriodLable1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(todate, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(SearchReport, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -3324,6 +3334,17 @@ public class HomePage extends javax.swing.JFrame {
         row5.setForeground(new java.awt.Color(255, 255, 255));
         row5.setText("r5");
 
+        bill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bill.setForeground(new java.awt.Color(51, 255, 255));
+        bill.setText("jLabel1");
+        bill.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bill.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bill.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                billMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout ReportScreenLayout = new javax.swing.GroupLayout(ReportScreen);
         ReportScreen.setLayout(ReportScreenLayout);
         ReportScreenLayout.setHorizontalGroup(
@@ -3331,46 +3352,53 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(ReportScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Column1, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                    .addComponent(Column1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                     .addComponent(row1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(48, 48, 48)
-                .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Column2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(row2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(row3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Column3, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-                .addGap(36, 36, 36)
+                    .addComponent(Column2, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(row2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Column3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(row3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Column4, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(row4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Column5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(row5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
+                .addGap(7, 7, 7)
+                .addComponent(bill)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(row5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Column5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         ReportScreenLayout.setVerticalGroup(
             ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReportScreenLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Column5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Column1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Column3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Column4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Column2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Column2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Column5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(row1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(row2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(row3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(row5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(row4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(row4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(row3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(row5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportScreenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bill, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         SearchIteam.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -3381,39 +3409,50 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        printTable.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        printTable.setText("PRINT");
+        printTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ReportpanofpanLayout = new javax.swing.GroupLayout(Reportpanofpan);
         Reportpanofpan.setLayout(ReportpanofpanLayout);
         ReportpanofpanLayout.setHorizontalGroup(
             ReportpanofpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReportpanofpanLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(ReportpanofpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReportpanofpanLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReportpanofpanLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(ReportScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReportpanofpanLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
+                        .addGap(8, 8, 8)
                         .addComponent(SearchNameReport, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ReportNameTextFielad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ReportScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportpanofpanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(printTable)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ReportpanofpanLayout.setVerticalGroup(
             ReportpanofpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReportpanofpanLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(28, 28, 28)
                 .addGroup(ReportpanofpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SearchNameReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ReportNameTextFielad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ReportScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(printTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3435,7 +3474,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(ReportSearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Reportpanofpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout ReportLayout = new javax.swing.GroupLayout(Report);
@@ -3443,9 +3482,9 @@ public class HomePage extends javax.swing.JFrame {
         ReportLayout.setHorizontalGroup(
             ReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportLayout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(Reportpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         ReportLayout.setVerticalGroup(
             ReportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4898,6 +4937,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
+        totaldiscout = 0.0;
+        totalprice = 0.0;
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -4922,6 +4963,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
+        totaldiscout = 0.0;
+        totalprice = 0.0;
     }//GEN-LAST:event_ResetBillActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -5386,33 +5429,23 @@ public class HomePage extends javax.swing.JFrame {
                         row3.setText(rs.getString(1));
                         Column4.setText("Total Rs");
                         row4.setText(rs.getString(4));
-                        
-                        Column5.setForeground(new Color(0, 255, 0));
-                        row5.setForeground(new Color(255, 0, 0));
-                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
                         Column5.setText("View Bill");
                         row5.setText("Close Bill");
+                        Column5.setText("");
+                        row5.setText("");
+                        bill.setVisible(true);
+                        bill.setText("BILL");
                         
                         
                     }else{
                     JOptionPane.showMessageDialog(this, "bill not found please check bill no");
                     }
-                    Column5.addMouseListener(mc5 = new java.awt.event.MouseAdapter() {
-                            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                JOptionPane.showMessageDialog(null, "View Bill");
-                            }
-                        });
-                    row5.addMouseListener(mr5 = new java.awt.event.MouseAdapter() {
-                            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                JOptionPane.showMessageDialog(null, "Bill Closed");
-                            }
-                        });
                     con.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
             }
+            
         }
         if (ReportCombo.getSelectedItem().equals("Customers")) {
             if(ReportNameTextFielad.getText().equals("")){
@@ -5422,8 +5455,8 @@ public class HomePage extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.getResultSetForSearch("SELECT * FROM `custumerdetails` WHERE `CustumerName` = ?", ReportNameTextFielad);
                     if(rs.next()){
-                        Column5.setForeground(new Color(255,255,255));
-                        row5.setForeground(new Color(255,255,255));
+                        Column5.setVisible(true);
+                        row5.setVisible(true);
                         Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                         row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
                         Column1.setText("Customer Name");
@@ -5435,9 +5468,8 @@ public class HomePage extends javax.swing.JFrame {
                         Column4.setText("Total Service Charge");
                         row4.setText(rs.getString(4));
                         Column5.setText("Last Visited");
+                        bill.setVisible(false);
                         row5.setText(rs.getString(5));
-                        Column5.removeMouseListener(mc5);
-                        row5.removeMouseListener(mr5);
                         
                     }else{
                     JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
@@ -5466,12 +5498,10 @@ public class HomePage extends javax.swing.JFrame {
                     row3.setText(model.getValueAt(selectRow, 0).toString());
                     Column4.setText("Total Rs");
                     row4.setText(model.getValueAt(selectRow, 3).toString());
-                    Column5.setForeground(new Color(0, 255, 0));
-                    row5.setForeground(new Color(255, 0, 0));
-                    Column5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                    row5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-                    Column5.setText("View Bill");
-                    row5.setText("Close Bill");
+                    Column5.setText("");
+                    row5.setText("");
+                    bill.setVisible(true);
+                    bill.setText("BILL");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Please Select Bill From Table","information",JOptionPane.OK_OPTION);
                 }
@@ -5495,6 +5525,7 @@ public class HomePage extends javax.swing.JFrame {
                         row4.setText(model.getValueAt(selectRow, 3).toString());
                         Column5.setText("Last Visited");
                         row5.setText(model.getValueAt(selectRow, 4).toString());
+                        bill.setVisible(false);
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Please Select Customer Name From Table","information",JOptionPane.OK_OPTION);
                 }
@@ -5656,6 +5687,27 @@ public class HomePage extends javax.swing.JFrame {
         // TODO add your handling code here:
         IMAGE.setIcon(null);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void billMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_billMouseClicked
+        // TODO add your handling code here:
+        Pdfviewer pf = new Pdfviewer(row3.getText(),row1.getText());
+        pf.setVisible(true);
+    }//GEN-LAST:event_billMouseClicked
+
+    private void printTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printTableActionPerformed
+        // TODO add your handling code here:
+        try {
+            ReportTable.print(JTable.PrintMode.FIT_WIDTH);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_printTableActionPerformed
+
+    private void SaveasPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveasPDFActionPerformed
+        // TODO add your handling code here:
+        Pdfviewer pf = new Pdfviewer(CustumerjTextField.getText(),billNOjTextField1.getText());
+        pf.setVisible(true);
+        
+    }//GEN-LAST:event_SaveasPDFActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -6144,6 +6196,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel addrees;
     private javax.swing.JButton addservice_btn;
     private javax.swing.JLabel adminpic;
+    private javax.swing.JLabel bill;
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
     private javax.swing.JScrollPane billscroll;
@@ -6246,6 +6299,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel passLabel;
     private javax.swing.JLabel pname;
     private javax.swing.JLabel popUPservice;
+    private javax.swing.JButton printTable;
     private javax.swing.JButton product_bt;
     private javax.swing.JTextField productnameTF;
     private javax.swing.JButton report_bt;
