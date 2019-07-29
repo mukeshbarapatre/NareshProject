@@ -77,8 +77,7 @@ public class HomePage extends javax.swing.JFrame {
     Double totaldiscout=0d;
     java.sql.Date sqlDate;
     String ADMINorUSER;
-    MouseListener mc5;
-    MouseListener mr5;
+    String Imagepath;
     
     public HomePage(ResultSet RS)  {
        
@@ -316,6 +315,31 @@ public class HomePage extends javax.swing.JFrame {
             
         });
         
+        
+        //here is code to initialize salon detail
+        salondetail();
+        
+    }
+    public void salondetail(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select * from salondetail");
+            if(rs.next()){
+                Look.setText(rs.getString(2));
+                description.setText(rs.getString(6));
+                byte[] img = rs.getBytes(7);
+                ImageIcon image = new ImageIcon(img);
+                java.awt.Image im = image.getImage();
+                java.awt.Image myImage = im.getScaledInstance(modelicon.getWidth(), modelicon.getHeight()+2,Image.ORIGINAL_PNG);
+                ImageIcon newimg = new ImageIcon(myImage);
+                modelicon.setIcon(newimg);
+                
+                
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
     }
     private static JPanel getTitlePanel(final JTabbedPane tabbedPane, final JPanel panel, String title)
  {
@@ -657,21 +681,20 @@ public class HomePage extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        SalonNametf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         PhoneL = new javax.swing.JLabel();
         EmailTF = new javax.swing.JTextField();
         PhoneTF = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Addresstf = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         DescriptionTF = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         IMAGE = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         ResetDefault = new javax.swing.JButton();
         ReportDTab = new javax.swing.JPanel();
@@ -747,7 +770,7 @@ public class HomePage extends javax.swing.JFrame {
         DelSupp = new javax.swing.JButton();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
-        Look1 = new javax.swing.JLabel();
+        description = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         adminpic = new javax.swing.JLabel();
         logout = new javax.swing.JButton();
@@ -3008,6 +3031,8 @@ public class HomePage extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel4.setText("Salon Name :");
 
+        SalonNametf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel5.setText("Address      :");
 
@@ -3017,12 +3042,14 @@ public class HomePage extends javax.swing.JFrame {
         PhoneL.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         PhoneL.setText("Phone No.   :");
 
+        EmailTF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EmailTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmailTFActionPerformed(evt);
             }
         });
 
+        PhoneTF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         PhoneTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PhoneTFActionPerformed(evt);
@@ -3034,12 +3061,15 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        Addresstf.setColumns(20);
+        Addresstf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Addresstf.setRows(5);
+        jScrollPane2.setViewportView(Addresstf);
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel15.setText("Description  :");
+
+        DescriptionTF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel16.setText("Salon Logo :");
@@ -3064,14 +3094,21 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton4.setText("Edit");
-
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton5.setText("Save");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         ResetDefault.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         ResetDefault.setText("Resest Default");
+        ResetDefault.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetDefaultActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -3089,7 +3126,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
-                    .addComponent(jTextField1)
+                    .addComponent(SalonNametf)
                     .addComponent(EmailTF)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3100,17 +3137,15 @@ public class HomePage extends javax.swing.JFrame {
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton3)
                                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 152, Short.MAX_VALUE))
                     .addComponent(DescriptionTF))
                 .addGap(50, 50, 50))
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
+                .addGap(118, 118, 118)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(71, 71, 71)
                 .addComponent(ResetDefault, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 106, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3118,7 +3153,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SalonNametf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3144,8 +3179,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton5)
-                            .addComponent(ResetDefault)
-                            .addComponent(jButton4)))
+                            .addComponent(ResetDefault)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jButton1)
@@ -3185,7 +3219,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(SalonDTabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         SolonDScroll.setViewportView(SalonDTab);
@@ -3917,9 +3951,9 @@ public class HomePage extends javax.swing.JFrame {
         Look.setForeground(new java.awt.Color(255, 255, 255));
         Look.setText("LOOK  HUB");
 
-        Look1.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
-        Look1.setForeground(new java.awt.Color(102, 204, 255));
-        Look1.setText("The Family Salon");
+        description.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
+        description.setForeground(new java.awt.Color(102, 204, 255));
+        description.setText("The Family Salon");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
@@ -3930,6 +3964,11 @@ public class HomePage extends javax.swing.JFrame {
 
         logout.setText("Log Out");
         logout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
 
         usernameLabel.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         usernameLabel.setText("username");
@@ -3947,8 +3986,8 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
+                        .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -3959,10 +3998,12 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(adminpic, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(usernameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
+        modelicon.setForeground(new java.awt.Color(38, 3, 3));
         modelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Unisex.png"))); // NOI18N
         modelicon.setText("jLabel1");
 
@@ -3975,8 +4016,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(modelicon, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Look1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -3990,7 +4031,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(homepanelLayout.createSequentialGroup()
                                 .addGap(60, 60, 60)
-                                .addComponent(Look1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(4, 4, 4))
                     .addGroup(homepanelLayout.createSequentialGroup()
@@ -3998,7 +4039,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(modelicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)))
+                        .addGap(22, 22, 22)))
                 .addGap(1063, 1063, 1063))
         );
 
@@ -5680,6 +5721,7 @@ public class HomePage extends javax.swing.JFrame {
             java.awt.Image newImage = img.getScaledInstance(IMAGE.getWidth(), IMAGE.getHeight(),Image.ALIGN_MIDDLE);
             ImageIcon imageIcon = new ImageIcon(newImage);
             IMAGE.setIcon(imageIcon);
+            Imagepath =path;
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -5708,6 +5750,50 @@ public class HomePage extends javax.swing.JFrame {
         pf.setVisible(true);
         
     }//GEN-LAST:event_SaveasPDFActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        if (SalonNametf.getText().equals("")||Addresstf.getText().equals("")||EmailTF.getText().equals("")||PhoneTF.getText().equals("")||DescriptionTF.getText().equals("")||IMAGE.getIcon()==null) {
+            JOptionPane.showMessageDialog(this, "Enter Salon Details","Details",JOptionPane.OK_OPTION);
+        }else{
+            int opt = JOptionPane.showConfirmDialog(this, "Do you really want to Save Changes ?","SAVE",JOptionPane.YES_NO_OPTION);
+            if(opt==JOptionPane.YES_OPTION){
+                try {
+                    con=DbUtil.loadDriver();
+                    DbUtil.runQuery("DELETE FROM `salondetail` WHERE `Sr No` = 1");
+                    PreparedStatement ps = con.prepareStatement("INSERT INTO `salondetail`(`Sr No`, `SalonName`, `Address`, `Email`, `PhoneNo`, `Description`, `SalonLogo`) VALUES (?,?,?,?,?,?,?)");
+                    ps.setInt(1, 1);
+                    ps.setString(2, SalonNametf.getText());
+                    ps.setString(3, Addresstf.getText());
+                    ps.setString(4,EmailTF.getText());
+                    ps.setLong(5, Long.parseLong(PhoneTF.getText()));
+                    ps.setString(6, DescriptionTF.getText());
+                    FileInputStream file = new FileInputStream(Imagepath);
+                    ps.setBinaryStream(7, file,file.available());
+                    ps.executeUpdate();
+                    salondetail();
+                    JOptionPane.showMessageDialog(this, "Details Save SuccessFully");
+                    con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void ResetDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetDefaultActionPerformed
+        // TODO add your handling code here:
+        int opt = JOptionPane.showConfirmDialog(this, "Do you really want to RESET Default ?","RESET Default",JOptionPane.YES_NO_OPTION);
+            if(opt==JOptionPane.YES_OPTION){
+                try {
+                    con=DbUtil.loadDriver();
+                    DbUtil.runQuery("DELETE FROM `salondetail` WHERE `Sr No` = 1");
+                    con.close();
+                    JOptionPane.showMessageDialog(this, "Please RESTART The Software To See Changes");
+                }catch (Exception e) {
+                }
+            }
+    }//GEN-LAST:event_ResetDefaultActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -6001,6 +6087,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextArea AddTextArea;
     private javax.swing.JLabel AddressL;
     private javax.swing.JTextArea AddressTA;
+    private javax.swing.JTextArea Addresstf;
     private javax.swing.JTextField AllTotal;
     private javax.swing.JButton BServiceAdd;
     private javax.swing.JButton BServiceDel;
@@ -6087,7 +6174,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel HomeTab;
     private javax.swing.JLabel IMAGE;
     private javax.swing.JLabel Look;
-    private javax.swing.JLabel Look1;
     private javax.swing.JTextField MailTextfield;
     private javax.swing.JLabel Mobile;
     private javax.swing.JTextField MobilejTextField;
@@ -6142,6 +6228,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton Sadd;
     private javax.swing.JPanel SalonDTab;
     private javax.swing.JPanel SalonDTab1;
+    private javax.swing.JTextField SalonNametf;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
     private javax.swing.JButton SearchCust;
@@ -6211,6 +6298,7 @@ public class HomePage extends javax.swing.JFrame {
     private datechooser.beans.DateChooserCombo dateChooserCombo3;
     private datechooser.beans.DateChooserCombo datefrom;
     private javax.swing.JButton deltail_bt;
+    private javax.swing.JLabel description;
     private javax.swing.JButton editEmployee_btn1;
     private javax.swing.JButton editservice_srh_btn;
     private javax.swing.JLabel emailLabel;
@@ -6236,7 +6324,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -6284,8 +6371,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logout;
     private javax.swing.JPanel mainEmployeepan1;
     private javax.swing.JPanel mainproductpan;

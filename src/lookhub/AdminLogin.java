@@ -5,6 +5,7 @@
  */
 package lookhub;
 
+import com.itextpdf.text.Image;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -32,8 +33,29 @@ public class AdminLogin extends javax.swing.JFrame {
         Dimension size = tk.getScreenSize();
         this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
         this.username.requestFocus(); 
+        salondetail();
     }
 
+    public void salondetail(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select * from salondetail");
+            if(rs.next()){
+                Look.setText(rs.getString(2));
+                text1.setText(rs.getString(6));
+                byte[] img = rs.getBytes(7);
+                ImageIcon image = new ImageIcon(img);
+                java.awt.Image im = image.getImage();
+                java.awt.Image myImage = im.getScaledInstance(modelicon.getWidth(), modelicon.getHeight()+2,Image.ORIGINAL_PNG);
+                ImageIcon newimg = new ImageIcon(myImage);
+                modelicon.setIcon(newimg);
+                Hub.setText("");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -281,10 +303,10 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addGap(123, 123, 123)
                 .addGroup(AdminPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
+                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(AdminPannelLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(text1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 123, Short.MAX_VALUE))
         );
         AdminPannelLayout.setVerticalGroup(
