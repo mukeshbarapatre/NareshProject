@@ -35,6 +35,7 @@ import com.itextpdf.text.pdf.Pfm2afm;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.awt.Point;
 import java.awt.event.MouseListener;
+import java.text.MessageFormat;
 import javax.swing.border.Border;
 import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
@@ -141,6 +142,7 @@ public class HomePage extends javax.swing.JFrame {
         getSuggestionPane(CustumerjTextField,"custumerdetails");
         getSuggestionPane(DeleteEmployee1,"userdetails");
         getSuggestionPane(search_Tf,"userdetails");
+        getSuggestionPane(BarberNameField, "userdetails");
       //  getSuggestionPane(productnameTF,"product");
       //  getSuggestionPane(productnameTF,"services");
         
@@ -370,7 +372,7 @@ public class HomePage extends javax.swing.JFrame {
     public void getEmployeeData(){
         try {
             con = DbUtil.loadDriver();
-            rs = DbUtil.getResultSet("select * from userdetails");
+            rs = DbUtil.getResultSet("select FirstName, `User Id`, Type from userdetails");
             Emp_table.setModel(DbUtils.resultSetToTableModel(rs));
             con.close();
         } catch (Exception e) {
@@ -3242,7 +3244,7 @@ public class HomePage extends javax.swing.JFrame {
         Reportpan.setBackground(new java.awt.Color(204, 204, 204));
 
         ReportCombo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ReportCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Employee", "Billing", "Product", "Suppliers", "Customers" }));
+        ReportCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barber", "Billing", "Product", "Suppliers", "Customers" }));
 
         SearchReortLab.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchReortLab.setText("Search Report");
@@ -3396,11 +3398,11 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Column3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(row3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(36, 36, 36)
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Column4, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                    .addComponent(row4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(7, 7, 7)
+                    .addComponent(row4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Column4, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bill)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ReportScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -4938,7 +4940,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
-        if(CustumerjTextField.getText().equals("")||MobilejTextField.getText().equals("")||MobilejTextField.getText().equals("")||AllTotal.getText().equals("")||billNOjTextField1.getText().equals("")){
+        if(CustumerjTextField.getText().equals("")||MobilejTextField.getText().equals("")||MobilejTextField.getText().equals("")||AllTotal.getText().equals("")||billNOjTextField1.getText().equals("")||BarberNameField.getText().equals("")){
       JOptionPane.showMessageDialog(this, "Please Enter Billing Details","Details",JOptionPane.OK_OPTION);
       }else{
       try { 
@@ -4946,7 +4948,7 @@ public class HomePage extends javax.swing.JFrame {
             sqlDate = new java.sql.Date(date.getTime());
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
-            DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"');");
+            DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"','"+BarberNameField.getText()+"');");
             createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             openpdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
@@ -4970,6 +4972,7 @@ public class HomePage extends javax.swing.JFrame {
         AllTotal.setText("");
         TotalDiscount2.setText("");
         BarberNameField.setText("");
+        emailLabel.setText("");
         DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
         try {
             int row = model.getRowCount();
@@ -4996,6 +4999,7 @@ public class HomePage extends javax.swing.JFrame {
         AllTotal.setText("");
         TotalDiscount2.setText("");
         BarberNameField.setText("");
+        emailLabel.setText("");
         DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
         try {
             int row = model.getRowCount();
@@ -5419,16 +5423,24 @@ public class HomePage extends javax.swing.JFrame {
             SearchNameReport.setText("Bill No");
             try {
                     con = DbUtil.loadDriver();
-                    rs = DbUtil.getResultSetForbillinReport("SELECT * FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
+                    rs = DbUtil.getResultSetForbillinReport("SELECT `CustumerName`, `Bill No`, `Bill Date`, `Total Bill Rs` FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
                     ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
                     con.close();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
                         }
         }
-        if (ReportCombo.getSelectedItem().equals("Employee")) {
-            SearchNameReport.setText("Employee's Name");
-            getSuggestionPane(ReportNameTextFielad, "");
+        if (ReportCombo.getSelectedItem().equals("Barber")) {
+            SearchNameReport.setText("Barber's Name");
+            getSuggestionPane(ReportNameTextFielad, "userdetails");
+            try {
+                    con = DbUtil.loadDriver();
+                    rs = DbUtil.getResultSetForbillinReport("SELECT `Barber Name`, `CustumerName`, `Bill No`, `Bill Date`, `Total Bill Rs` FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    con.close();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+                        }
         }
         if (ReportCombo.getSelectedItem().equals("Product")) {
             SearchNameReport.setText("Product Name");
@@ -5522,6 +5534,40 @@ public class HomePage extends javax.swing.JFrame {
                 }
             }
         }
+         if (ReportCombo.getSelectedItem().equals("Barber")) {
+            if(ReportNameTextFielad.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Barber Name","Details",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `billing` WHERE `Barber Name` = ?", ReportNameTextFielad);
+                    if(rs.next()){
+                        Column5.setVisible(true);
+                        row5.setVisible(true);
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Barber Name");
+                        row1.setText(rs.getString(5));
+                        Column2.setText("Custumer Name");
+                        row2.setText(rs.getString(1));
+                        Column3.setText("Bill No");
+                        row3.setText(rs.getString(2));
+                        Column4.setText("Bill Date");
+                        row4.setText(rs.getString(3));
+                        Column5.setText("Total Service Rs");
+                        bill.setVisible(false);
+                        row5.setText(rs.getString(4));
+                        
+                    }else{
+                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
+                    }
+                    
+                    con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+        }
     }//GEN-LAST:event_SearchIteamActionPerformed
 
     private void ReportTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReportTableMouseClicked
@@ -5565,6 +5611,30 @@ public class HomePage extends javax.swing.JFrame {
                         Column4.setText("Total Service Charge");
                         row4.setText(model.getValueAt(selectRow, 3).toString());
                         Column5.setText("Last Visited");
+                        row5.setText(model.getValueAt(selectRow, 4).toString());
+                        bill.setVisible(false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Please Select Customer Name From Table","information",JOptionPane.OK_OPTION);
+                }
+        }
+        if (ReportCombo.getSelectedItem().equals("Barber")) {
+            DefaultTableModel model = (DefaultTableModel)ReportTable.getModel();
+                try {
+                    int selectRow = ReportTable.getSelectedRow();
+                        Column5.setForeground(new Color(255,255,255));
+                        row5.setForeground(new Color(255,255,255));
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Barber Name");
+                        row1.setText(model.getValueAt(selectRow, 0).toString());
+                        ReportNameTextFielad.setText(model.getValueAt(selectRow, 0).toString());
+                        Column2.setText("Customer Name");
+                        row2.setText(model.getValueAt(selectRow, 1).toString());
+                        Column3.setText("Bill No");
+                        row3.setText(model.getValueAt(selectRow, 2).toString());
+                        Column4.setText("Bill Date");
+                        row4.setText(model.getValueAt(selectRow, 3).toString());
+                        Column5.setText("Total Service Rs");
                         row5.setText(model.getValueAt(selectRow, 4).toString());
                         bill.setVisible(false);
                 } catch (Exception e) {
@@ -5739,7 +5809,9 @@ public class HomePage extends javax.swing.JFrame {
     private void printTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printTableActionPerformed
         // TODO add your handling code here:
         try {
-            ReportTable.print(JTable.PrintMode.FIT_WIDTH);
+            MessageFormat header = new MessageFormat("LOOK HUB "+ReportCombo.getSelectedItem()+" Report");
+            MessageFormat footer = new MessageFormat("");
+            ReportTable.print(JTable.PrintMode.FIT_WIDTH, header, footer);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_printTableActionPerformed

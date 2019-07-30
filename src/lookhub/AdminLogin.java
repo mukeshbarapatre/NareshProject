@@ -42,7 +42,7 @@ public class AdminLogin extends javax.swing.JFrame {
             rs = DbUtil.getResultSet("select * from salondetail");
             if(rs.next()){
                 Look.setText(rs.getString(2));
-                text1.setText(rs.getString(6));
+                text1.setText("");
                 byte[] img = rs.getBytes(7);
                 ImageIcon image = new ImageIcon(img);
                 java.awt.Image im = image.getImage();
