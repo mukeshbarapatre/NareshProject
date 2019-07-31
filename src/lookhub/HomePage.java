@@ -4151,10 +4151,11 @@ public class HomePage extends javax.swing.JFrame {
             DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DetailPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CustumerN1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerNameop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchCust1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SearchCust1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(CustumerN1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CustomerNameop, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(8, 8, 8)
                 .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Mobile1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4173,10 +4174,10 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(BillDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ADD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(DetailPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ADD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ReseT)
-                    .addComponent(DELETE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(DELETE))
                 .addContainerGap())
         );
 
@@ -6096,6 +6097,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SupplierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierTableMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_SupplierTableMouseClicked
 
     private void DelSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DelSuppActionPerformed
@@ -6159,7 +6161,7 @@ public class HomePage extends javax.swing.JFrame {
         }else{
          try {
             con=DbUtil.loadDriver();
-            DbUtil.runQueryforEditSupplier("update supplier set CompanyName = ?,Address = ?,Contact=?,Email=? where CompanyName = ?", EditSupplirttf, AddTextArea,SupplierCN,SuppEditM,EditCtf);
+            DbUtil.runQueryforEditSupplie("update supplier set CompanyName = ?,Address = ?,Contact=?,Email=? where CompanyName = ?", EditSupplirttf, AddTextArea,SupplierCN,SuppEditM,EditCtf);
             JOptionPane.showMessageDialog(this, "Product Edited Succesfully","information",JOptionPane.OK_OPTION);
             getSupplierTabelData();
             con.close();

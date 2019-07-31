@@ -105,14 +105,15 @@ public class DbUtil {
         
         st.executeUpdate();
     }
-    public static void runQueryforEditSupplier(String query,JTextField textField,JTextArea textArea1,JTextField textField2,JTextField textField3) throws SQLException {
+    public static void runQueryforEditSupplie(String query,JTextField textField,JTextArea textArea1,JTextField textField1,JTextField textField2,JTextField textField3) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
         PreparedStatement st = con.prepareStatement(query);
         st.setString(1, textField.getText());
         st.setString(2, textArea1.getText());
-        st.setInt(3, Integer.parseInt(textField2.getText()));
-        st.setString(4,textField3.getText());
+        st.setInt(3, Integer.parseInt(textField1.getText()));
+        st.setString(4,textField2.getText());
+        st.setString(5,textField3.getText());
         
         
         st.executeUpdate();

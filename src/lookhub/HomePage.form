@@ -5342,10 +5342,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="CustumerN1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="CustomerNameop" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="SearchCust1" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="CustumerN1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                              <Component id="CustomerNameop" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -5370,10 +5372,10 @@
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ADD" alignment="1" max="32767" attributes="0"/>
                                           <Component id="ReseT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="DELETE" alignment="3" max="32767" attributes="0"/>
+                                          <Component id="DELETE" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
