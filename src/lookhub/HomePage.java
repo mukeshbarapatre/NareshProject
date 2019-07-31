@@ -160,6 +160,7 @@ public class HomePage extends javax.swing.JFrame {
                         Column5.setText("");
                         row5.setText("");
                         bill.setVisible(false);
+                        SearchTable.setVisible(false);
         
         //here is code for passLength
         
@@ -418,8 +419,7 @@ public class HomePage extends javax.swing.JFrame {
             while (rs.next()) {                
                 if(rs.last()){
                     billNOjTextField1.setText(Integer.toString(rs.getInt("Bill No")+1));
-                }
-                    else{
+                }else{
                         billNOjTextField1.setText("1");
                     }
             }
@@ -730,6 +730,7 @@ public class HomePage extends javax.swing.JFrame {
         bill = new javax.swing.JLabel();
         SearchIteam = new javax.swing.JButton();
         printTable = new javax.swing.JButton();
+        SearchTable = new javax.swing.JButton();
         SupplierDtab = new javax.swing.JPanel();
         SupplierScroll1 = new javax.swing.JScrollPane();
         jPanel15 = new javax.swing.JPanel();
@@ -3453,6 +3454,14 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        SearchTable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        SearchTable.setText("Search Table");
+        SearchTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ReportpanofpanLayout = new javax.swing.GroupLayout(Reportpanofpan);
         Reportpanofpan.setLayout(ReportpanofpanLayout);
         ReportpanofpanLayout.setHorizontalGroup(
@@ -3466,10 +3475,12 @@ public class HomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ReportNameTextFielad, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(ReportScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 843, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReportpanofpanLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(printTable)
@@ -3482,7 +3493,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(ReportpanofpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SearchNameReport, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ReportNameTextFielad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SearchIteam, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchTable, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ReportScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -4954,7 +4966,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
             con.close();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill");
+            JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill or "+e);
         }
       }
     }//GEN-LAST:event_SaveActionPerformed
@@ -5426,6 +5438,7 @@ public class HomePage extends javax.swing.JFrame {
                     rs = DbUtil.getResultSetForbillinReport("SELECT `CustumerName`, `Bill No`, `Bill Date`, `Total Bill Rs` FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
                     ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
                     con.close();
+                    SearchTable.setVisible(false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
                         }
@@ -5438,6 +5451,7 @@ public class HomePage extends javax.swing.JFrame {
                     rs = DbUtil.getResultSetForbillinReport("SELECT `Barber Name`, `CustumerName`, `Bill No`, `Bill Date`, `Total Bill Rs` FROM `billing` WHERE `Bill Date` BETWEEN ? AND ?",from.toString(),to.toString());
                     ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
                     con.close();
+                    SearchTable.setVisible(true);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
                         }
@@ -5458,6 +5472,7 @@ public class HomePage extends javax.swing.JFrame {
                     rs = DbUtil.getResultSetForbillinReport("SELECT * FROM `custumerdetails` WHERE `Last Visit` BETWEEN ? AND ?",from.toString(),to.toString());
                     ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
                     con.close();
+                    SearchTable.setVisible(false);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, e);
                         }
@@ -5866,6 +5881,25 @@ public class HomePage extends javax.swing.JFrame {
                 }
             }
     }//GEN-LAST:event_ResetDefaultActionPerformed
+
+    private void SearchTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTableActionPerformed
+        // TODO add your handling code here:
+if (ReportCombo.getSelectedItem().equals("Barber")) {
+            if(ReportNameTextFielad.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Barber Name","Details",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.getResultSetForSearch("SELECT `Barber Name`, `CustumerName`, `Bill No`, `Bill Date`, `Total Bill Rs` FROM `billing` WHERE `Barber Name` = ?", ReportNameTextFielad);
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    
+                    con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+        }
+    }//GEN-LAST:event_SearchTableActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -6308,6 +6342,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel SearchNameReport;
     private javax.swing.JLabel SearchReortLab;
     private javax.swing.JButton SearchReport;
+    private javax.swing.JButton SearchTable;
     private javax.swing.JButton Searchbtn;
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
