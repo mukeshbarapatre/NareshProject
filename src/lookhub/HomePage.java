@@ -3425,11 +3425,11 @@ public class HomePage extends javax.swing.JFrame {
         EmployeeDTab.setLayout(EmployeeDTabLayout);
         EmployeeDTabLayout.setHorizontalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(EmpolyeeScroll)
         );
         EmployeeDTabLayout.setVerticalGroup(
             EmployeeDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(EmpolyeeScroll, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         SalonDTab1.setPreferredSize(new java.awt.Dimension(956, 624));
