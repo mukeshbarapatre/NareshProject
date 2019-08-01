@@ -34,8 +34,11 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.Pfm2afm;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.text.MessageFormat;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import javax.swing.border.Border;
 import org.icepdf.ri.common.ComponentKeyBinding;
@@ -54,6 +57,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.SpinnerDateModel;
+import javax.swing.Timer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
@@ -333,6 +337,44 @@ public class HomePage extends javax.swing.JFrame {
         
         //here is code to initialize salon detail
         salondetail();
+        
+        
+        //here is code for timer or notification
+        new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LocalDateTime ldt =LocalDateTime.now();
+                String hr = Integer.toString(ldt.getHour());
+                String min = Integer.toString(ldt.getMinute());
+                String sec = Integer.toString(ldt.getSecond());
+                if(sec.length()==1){
+                    sec = "0".concat(sec);
+                }
+               if(min.length()==1){
+                    min = "0".concat(min);
+                }
+                if(hr.length()==1){
+                    hr = "0".concat(hr);
+                }
+                
+                try {
+                    
+                    con = DbUtil.loadDriver();
+                    rs= DbUtil.getResultSet("SELECT `Time` FROM `appointment` WHERE `Time` >= Time(NOW())");
+                    if (rs.next()) {
+                        String timerString1 = rs.getString("Time");
+                        String timerString2 = hr+":"+min+":"+sec;
+                        System.out.println(timerString1+" = "+timerString2);
+                        if (timerString1.equals(timerString2)){
+                            JOptionPane.showMessageDialog(null, rs.getString(1)+" appointment time is gone please check notification");
+                        }
+                    }
+                } catch (Exception evt) {
+                }
+            }
+        }).start();
+        
+        
         
     }
     public void salondetail(){
@@ -4496,6 +4538,9 @@ public class HomePage extends javax.swing.JFrame {
         modelicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Unisex.png"))); // NOI18N
         modelicon.setText("jLabel1");
 
+        NandMpan.setBackground(new java.awt.Color(204, 204, 204));
+        NandMpan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+
         javax.swing.GroupLayout NandMpanLayout = new javax.swing.GroupLayout(NandMpan);
         NandMpan.setLayout(NandMpanLayout);
         NandMpanLayout.setHorizontalGroup(
@@ -4507,9 +4552,17 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        Notification.setBackground(new java.awt.Color(255, 255, 255));
         Notification.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/notification.png"))); // NOI18N
+        Notification.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Notification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NotificationActionPerformed(evt);
+            }
+        });
 
         Message.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Messaging.png"))); // NOI18N
+        Message.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout homepanelLayout = new javax.swing.GroupLayout(homepanel);
         homepanel.setLayout(homepanelLayout);
@@ -4522,9 +4575,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(NandMpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Notification, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -6459,7 +6512,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
             con=DbUtil.loadDriver();
             
             String time = jSpinner1.getValue().toString();
-            DbUtil.runQuery("insert into appointment values('"+CustomerNameop.getText()+"','"+MobilejTextField1.getText()+"','"+EmailCustjTextField2.getText()+"','"+sqlDate+"','"+time.substring(12, 20)+"');");
+            DbUtil.runQuery("insert into appointment values('"+CustomerNameop.getText()+"','"+MobilejTextField1.getText()+"','"+EmailCustjTextField2.getText()+"','"+sqlDate+"','"+time.substring(12, 19)+"');");
             JOptionPane.showMessageDialog(this, "Appointment set Sucessfully","information",JOptionPane.OK_OPTION);
             getAppointmentData();
             con.close();
@@ -6521,6 +6574,16 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
         mainEmployeepan1.setVisible(true);
         
     }//GEN-LAST:event_BACKActionPerformed
+
+    private void NotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NotificationActionPerformed
+        // TODO add your handling code here:
+        if (NandMpan.isVisible()) {
+            NandMpan.setVisible(false);
+        } else {
+            NandMpan.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_NotificationActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
