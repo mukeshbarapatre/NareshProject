@@ -358,15 +358,16 @@ public class HomePage extends javax.swing.JFrame {
                 }
                 
                 try {
-                    
+                    String timerString2 = hr+":"+min+":"+sec;
+                    clock.setText(timerString2);
                     con = DbUtil.loadDriver();
-                    rs= DbUtil.getResultSet("SELECT `Time` FROM `appointment` WHERE `Time` >= Time(NOW())");
+                    rs= DbUtil.getResultSet("SELECT * FROM `appointment` WHERE `Time` >= Time(NOW())");
                     if (rs.next()) {
-                        String timerString1 = rs.getString("Time");
-                        String timerString2 = hr+":"+min+":"+sec;
+                        String timerString1 = rs.getString(5);
                         System.out.println(timerString1+" = "+timerString2);
                         if (timerString1.equals(timerString2)){
                             JOptionPane.showMessageDialog(null, rs.getString(1)+" appointment time is gone please check notification");
+                            NandMpan.setVisible(true);
                         }
                     }
                 } catch (Exception evt) {
@@ -884,6 +885,7 @@ public class HomePage extends javax.swing.JFrame {
         NandMpan = new javax.swing.JPanel();
         Notification = new javax.swing.JButton();
         Message = new javax.swing.JButton();
+        clock = new javax.swing.JLabel();
         buttonpanel = new javax.swing.JPanel();
         deltail_bt = new javax.swing.JButton();
         emp_bt = new javax.swing.JButton();
@@ -4564,17 +4566,25 @@ public class HomePage extends javax.swing.JFrame {
         Message.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Messaging.png"))); // NOI18N
         Message.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        clock.setForeground(new java.awt.Color(255, 255, 255));
+        clock.setText(" ");
+
         javax.swing.GroupLayout homepanelLayout = new javax.swing.GroupLayout(homepanel);
         homepanel.setLayout(homepanelLayout);
         homepanelLayout.setHorizontalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(modelicon, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(modelicon, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(homepanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(clock, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(NandMpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -4588,27 +4598,28 @@ public class HomePage extends javax.swing.JFrame {
         homepanelLayout.setVerticalGroup(
             homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homepanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(NandMpan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createSequentialGroup()
-                                .addGap(60, 60, 60)
-                                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(1067, 1067, 1067))
-                    .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modelicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1085, 1085, 1085))))
-            .addGroup(homepanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(Notification, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Message, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homepanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(NandMpan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(homepanelLayout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(homepanelLayout.createSequentialGroup()
+                            .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(modelicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addComponent(clock))))
+                .addGap(1067, 1067, 1067))
         );
 
         buttonpanel.setBackground(new java.awt.Color(204, 204, 204));
@@ -7112,6 +7123,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JLabel c12;
     private javax.swing.JLabel c14;
     private javax.swing.JLabel c15;
+    private javax.swing.JLabel clock;
     private javax.swing.JLabel codeL;
     private javax.swing.JTextField codeTF;
     private javax.swing.JLabel confirm_pswd;
