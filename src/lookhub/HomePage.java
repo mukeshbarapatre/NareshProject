@@ -37,8 +37,11 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.text.DateFormat;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Calendar;
 import javax.swing.border.Border;
 import org.icepdf.ri.common.ComponentKeyBinding;
@@ -362,15 +365,24 @@ public class HomePage extends javax.swing.JFrame {
                     clock.setText(timerString2);
                     con = DbUtil.loadDriver();
                     rs= DbUtil.getResultSet("SELECT * FROM `appointment` WHERE `Time` >= Time(NOW())");
-                    if (rs.next()) {
+                    if(rs.next()) {
                         String timerString1 = rs.getString(5);
+                        LocalTime lt = LocalTime.parse(timerString1);
+                        lt = lt.minusMinutes(60);
+                        timerString1 = lt.toString();
+                        if (timerString1.length() == 5) {
+                            timerString1 = timerString1.concat(":00");
+                        }
                         System.out.println(timerString1+" = "+timerString2);
                         if (timerString1.equals(timerString2)){
                             JOptionPane.showMessageDialog(null, rs.getString(1)+" appointment time is gone please check notification");
                             NandMpan.setVisible(true);
+                            DbUtil.runQuery("delete from appointment where `Customer Name` = "+rs.getString(1));
+                            getAppointmentData();
                         }
                     }
                 } catch (Exception evt) {
+                    System.out.println(e);
                 }
             }
         }).start();
@@ -6523,7 +6535,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
             con=DbUtil.loadDriver();
             
             String time = jSpinner1.getValue().toString();
-            DbUtil.runQuery("insert into appointment values('"+CustomerNameop.getText()+"','"+MobilejTextField1.getText()+"','"+EmailCustjTextField2.getText()+"','"+sqlDate+"','"+time.substring(12, 19)+"');");
+            DbUtil.runQuery("insert into appointment values('"+CustomerNameop.getText()+"','"+MobilejTextField1.getText()+"','"+EmailCustjTextField2.getText()+"','"+sqlDate+"','"+time.substring(11, 19)+"');");
             JOptionPane.showMessageDialog(this, "Appointment set Sucessfully","information",JOptionPane.OK_OPTION);
             getAppointmentData();
             con.close();
