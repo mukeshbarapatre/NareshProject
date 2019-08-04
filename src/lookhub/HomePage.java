@@ -135,6 +135,7 @@ public class HomePage extends javax.swing.JFrame {
         SolonDScroll.getVerticalScrollBar().setUnitIncrement(20);
         ReportScroll.getVerticalScrollBar().setUnitIncrement(20);
         otherscroll.getVerticalScrollBar().setUnitIncrement(20);
+        MessageScroll.getVerticalScrollBar().setUnitIncrement(20);
         
         //here is method to fetch data
         getEmployeeData();
@@ -887,6 +888,11 @@ public class HomePage extends javax.swing.JFrame {
         otherpan = new javax.swing.JPanel();
         Developer = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
+        MessageDTab = new javax.swing.JPanel();
+        MessageScroll = new javax.swing.JScrollPane();
+        MessagePanel = new javax.swing.JPanel();
+        mpl = new javax.swing.JPanel();
+        mainmsgpan = new javax.swing.JPanel();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         description = new javax.swing.JLabel();
@@ -4489,6 +4495,72 @@ public class HomePage extends javax.swing.JFrame {
             .addComponent(otherscroll, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
         );
 
+        MessageDTab.setPreferredSize(new java.awt.Dimension(944, 517));
+
+        MessageScroll.setPreferredSize(new java.awt.Dimension(946, 515));
+
+        MessagePanel.setPreferredSize(new java.awt.Dimension(944, 515));
+
+        mpl.setBackground(new java.awt.Color(38, 3, 3));
+
+        mainmsgpan.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout mainmsgpanLayout = new javax.swing.GroupLayout(mainmsgpan);
+        mainmsgpan.setLayout(mainmsgpanLayout);
+        mainmsgpanLayout.setHorizontalGroup(
+            mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 924, Short.MAX_VALUE)
+        );
+        mainmsgpanLayout.setVerticalGroup(
+            mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout mplLayout = new javax.swing.GroupLayout(mpl);
+        mpl.setLayout(mplLayout);
+        mplLayout.setHorizontalGroup(
+            mplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mplLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainmsgpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        mplLayout.setVerticalGroup(
+            mplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mplLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(mainmsgpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout MessagePanelLayout = new javax.swing.GroupLayout(MessagePanel);
+        MessagePanel.setLayout(MessagePanelLayout);
+        MessagePanelLayout.setHorizontalGroup(
+            MessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessagePanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(mpl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MessagePanelLayout.setVerticalGroup(
+            MessagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mpl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        MessageScroll.setViewportView(MessagePanel);
+
+        javax.swing.GroupLayout MessageDTabLayout = new javax.swing.GroupLayout(MessageDTab);
+        MessageDTab.setLayout(MessageDTabLayout);
+        MessageDTabLayout.setHorizontalGroup(
+            MessageDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessageDTabLayout.createSequentialGroup()
+                .addComponent(MessageScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+        MessageDTabLayout.setVerticalGroup(
+            MessageDTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(MessageScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 3, 3));
         setForeground(new java.awt.Color(30, 3, 3));
@@ -4593,6 +4665,11 @@ public class HomePage extends javax.swing.JFrame {
 
         Message.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/Messaging.png"))); // NOI18N
         Message.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Message.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MessageActionPerformed(evt);
+            }
+        });
 
         clock.setForeground(new java.awt.Color(255, 255, 255));
         clock.setText(" ");
@@ -4611,7 +4688,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(homepanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(43, 43, 43)
                         .addComponent(clock, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(NandMpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6627,6 +6704,13 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
         }
         
     }//GEN-LAST:event_NotificationActionPerformed
+
+    private void MessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MessageActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.add(MessageDTab);
+        jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(MessageDTab), getTitlePanel(jTabbedPane1, MessageDTab, "Message    "));
+        jTabbedPane1.setSelectedComponent(MessageDTab);
+    }//GEN-LAST:event_MessageActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -7028,6 +7112,9 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JLabel Look;
     private javax.swing.JTextField MailTextfield;
     private javax.swing.JButton Message;
+    private javax.swing.JPanel MessageDTab;
+    private javax.swing.JPanel MessagePanel;
+    private javax.swing.JScrollPane MessageScroll;
     private javax.swing.JLabel Mobile;
     private javax.swing.JLabel Mobile1;
     private javax.swing.JLabel MobileNo;
@@ -7248,12 +7335,14 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextArea jTextArea;
     private javax.swing.JButton logout;
     private javax.swing.JPanel mainEmployeepan1;
+    private javax.swing.JPanel mainmsgpan;
     private javax.swing.JPanel mainproductpan;
     private javax.swing.JPanel mainproductpan1;
     private javax.swing.JPanel mainservicepan;
     private javax.swing.JRadioButton male;
     private javax.swing.JRadioButton male_rbt;
     private javax.swing.JLabel modelicon;
+    private javax.swing.JPanel mpl;
     private javax.swing.JLabel name;
     private javax.swing.JLabel nameDel;
     private javax.swing.JPanel otherpan;
