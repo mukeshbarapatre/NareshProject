@@ -365,7 +365,8 @@ public class HomePage extends javax.swing.JFrame {
                     clock.setText(timerString2);
                     con = DbUtil.loadDriver();
                     rs= DbUtil.getResultSet("SELECT * FROM `appointment` WHERE `Time` >= Time(NOW())");
-                    if(rs.next()) {
+                    
+                    while(rs.next()) {
                         String timerString1 = rs.getString(5);
                         LocalTime lt = LocalTime.parse(timerString1);
                         lt = lt.minusMinutes(60);
@@ -375,10 +376,10 @@ public class HomePage extends javax.swing.JFrame {
                         }
                         System.out.println(timerString1+" = "+timerString2);
                         if (timerString1.equals(timerString2)){
-                            JOptionPane.showMessageDialog(null, rs.getString(1)+" appointment time is gone please check notification");
+                            NotificationText.setText(" "+rs.getString(1)+"\n appointment time \n is gone please \n check notification");
                             NandMpan.setVisible(true);
-                            DbUtil.runQuery("delete from appointment where `Customer Name` = "+rs.getString(1));
                             getAppointmentData();
+                            con.close();
                         }
                     }
                 } catch (Exception evt) {
@@ -895,6 +896,8 @@ public class HomePage extends javax.swing.JFrame {
         usernameLabel = new javax.swing.JLabel();
         modelicon = new javax.swing.JLabel();
         NandMpan = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        NotificationText = new javax.swing.JTextArea();
         Notification = new javax.swing.JButton();
         Message = new javax.swing.JButton();
         clock = new javax.swing.JLabel();
@@ -4555,15 +4558,28 @@ public class HomePage extends javax.swing.JFrame {
         NandMpan.setBackground(new java.awt.Color(204, 204, 204));
         NandMpan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
+        NotificationText.setEditable(false);
+        NotificationText.setColumns(20);
+        NotificationText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        NotificationText.setRows(5);
+        NotificationText.setText("No Notification Yet !");
+        jScrollPane13.setViewportView(NotificationText);
+
         javax.swing.GroupLayout NandMpanLayout = new javax.swing.GroupLayout(NandMpan);
         NandMpan.setLayout(NandMpanLayout);
         NandMpanLayout.setHorizontalGroup(
             NandMpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NandMpanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
         NandMpanLayout.setVerticalGroup(
             NandMpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NandMpanLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
 
         Notification.setBackground(new java.awt.Color(255, 255, 255));
@@ -4618,19 +4634,17 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homepanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(NandMpan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(homepanelLayout.createSequentialGroup()
-                            .addGap(60, 60, 60)
-                            .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(homepanelLayout.createSequentialGroup()
-                            .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(modelicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addComponent(clock))))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, homepanelLayout.createSequentialGroup()
+                        .addGroup(homepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(modelicon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Look, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(clock))
+                    .addComponent(NandMpan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(1067, 1067, 1067))
         );
 
@@ -7025,6 +7039,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField NameTextfield;
     private javax.swing.JPanel NandMpan;
     private javax.swing.JButton Notification;
+    private javax.swing.JTextArea NotificationText;
     private javax.swing.JPanel Opoinment;
     private javax.swing.JPanel OtherDTab;
     private javax.swing.JTextField Pass_Tf;
@@ -7213,6 +7228,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
