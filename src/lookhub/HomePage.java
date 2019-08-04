@@ -5535,7 +5535,13 @@ public class HomePage extends javax.swing.JFrame {
             Date date= new Date(dateChooserCombo3.getText());
             sqlDate = new java.sql.Date(date.getTime());
             con=DbUtil.loadDriver();
-            DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
+            rs = DbUtil.runQueryforCheck("SELECT * FROM `custumerdetails` WHERE `CustumerName` =? AND `MobileNo`=? AND `Email`=?", CustumerjTextField, MobilejTextField, EmailCustjTextField1.getText());
+            if (rs.next()) {
+              DbUtil.runQueryforEditCustomer("update `custumerdetails` set `Total Service Rs` = ?,`Last Visit` = ? where `CustumerName` = ?", AllTotal, sqlDate,CustumerjTextField);
+              JOptionPane.showMessageDialog(this, "haha");
+          } else {
+                DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
+          }
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"','"+BarberNameField.getText()+"');");
             createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             openpdf(CustumerjTextField.getText(),billNOjTextField1.getText());

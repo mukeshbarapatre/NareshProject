@@ -90,6 +90,15 @@ public class DbUtil {
         st.setString(3, textField2.getText());
         st.executeUpdate();
     }
+    public static void runQueryforEditCustomer(String query,JTextField textField,Date sqlDate,JTextField textField2) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setDouble(1, Double.parseDouble(textField.getText()));
+        st.setDate(2, sqlDate);
+        st.setString(3, textField2.getText());
+        st.executeUpdate();
+    }
     public static void runQueryforEditProduct(String query,JTextField textField,JTextField textField1,JTextField textField2,JTextField textField3,JTextField textField4,JTextField textField5,JTextField textField6) throws SQLException {
         Connection con = loadDriver();
         ResultSet rs;
@@ -159,6 +168,16 @@ public class DbUtil {
         PreparedStatement st = con.prepareStatement(query);
         st.setString(1, textField.getText());
         st.setString(2, textField1.getText());
+        st.setString(3, type);
+        rs=st.executeQuery();
+        return rs;
+    }
+        public static ResultSet runQueryforCheck(String query,JTextField textField,JTextField textField1,String type) throws SQLException {
+        Connection con = loadDriver();
+        ResultSet rs;
+        PreparedStatement st = con.prepareStatement(query);
+        st.setString(1, textField.getText());
+        st.setLong(2, Long.parseLong(textField1.getText()));
         st.setString(3, type);
         rs=st.executeQuery();
         return rs;
