@@ -66,6 +66,8 @@ import org.icepdf.core.views.DocumentViewController;
 import org.icepdf.ri.common.PrintHelper;
 import org.icepdf.ri.common.PrintJobWatcher;
 import org.icepdf.ri.common.views.DocumentViewControllerImpl;
+import java.net.*;
+import java.io.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -893,6 +895,13 @@ public class HomePage extends javax.swing.JFrame {
         MessagePanel = new javax.swing.JPanel();
         mpl = new javax.swing.JPanel();
         mainmsgpan = new javax.swing.JPanel();
+        to = new javax.swing.JLabel();
+        TO = new javax.swing.JTextField();
+        message = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        Msg = new javax.swing.JTextArea();
+        reset = new javax.swing.JButton();
+        Send1 = new javax.swing.JButton();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         description = new javax.swing.JLabel();
@@ -4505,15 +4514,63 @@ public class HomePage extends javax.swing.JFrame {
 
         mainmsgpan.setBackground(new java.awt.Color(204, 204, 204));
 
+        to.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        to.setText("To");
+
+        message.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        message.setText("Message");
+
+        Msg.setColumns(20);
+        Msg.setRows(5);
+        jScrollPane14.setViewportView(Msg);
+
+        reset.setText("Reset");
+
+        Send1.setText("SEND");
+        Send1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Send1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainmsgpanLayout = new javax.swing.GroupLayout(mainmsgpan);
         mainmsgpan.setLayout(mainmsgpanLayout);
         mainmsgpanLayout.setHorizontalGroup(
             mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 924, Short.MAX_VALUE)
+            .addGroup(mainmsgpanLayout.createSequentialGroup()
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(mainmsgpanLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                            .addComponent(to, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TO, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
         mainmsgpanLayout.setVerticalGroup(
             mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGroup(mainmsgpanLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TO, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mplLayout = new javax.swing.GroupLayout(mpl);
@@ -4528,9 +4585,9 @@ public class HomePage extends javax.swing.JFrame {
         mplLayout.setVerticalGroup(
             mplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mplLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(26, 26, 26)
                 .addComponent(mainmsgpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MessagePanelLayout = new javax.swing.GroupLayout(MessagePanel);
@@ -4836,7 +4893,7 @@ public class HomePage extends javax.swing.JFrame {
         buttonpanelLayout.setVerticalGroup(
             buttonpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonpanelLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(deltail_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 19, Short.MAX_VALUE)
                 .addComponent(emp_bt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -6711,6 +6768,39 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
         jTabbedPane1.setTabComponentAt(jTabbedPane1.indexOfComponent(MessageDTab), getTitlePanel(jTabbedPane1, MessageDTab, "Message    "));
         jTabbedPane1.setSelectedComponent(MessageDTab);
     }//GEN-LAST:event_MessageActionPerformed
+
+    private void Send1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Send1ActionPerformed
+        // TODO add your handling code here:
+        try {
+			// Construct data
+			String apiKey = "apikey=" + "2Vwexo6G5xA-e8wmamg2tRTD2O7qath6t6csS3b6Hm";
+			String message = "&message=" + Msg.getText();
+			String sender = "&sender=" + "TXTLCL";
+			String numbers = "&numbers=" + TO.getText();
+			
+			// Send data
+			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+			String data = apiKey + numbers + message ;
+			conn.setDoOutput(true);
+			conn.setRequestMethod("POST");
+			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+			conn.getOutputStream().write(data.getBytes("UTF-8"));
+			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			final StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = rd.readLine()) != null) {
+				//stringBuffer.append(line);
+                                JOptionPane.showMessageDialog(null, line);
+			}
+			rd.close();
+			
+			//return stringBuffer.toString();
+		} catch (Exception e) {
+			//System.out.println("Error SMS "+e);
+                         JOptionPane.showMessageDialog(null, e);
+			//return "Error "+e;
+		}
+    }//GEN-LAST:event_Send1ActionPerformed
    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -7120,6 +7210,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JLabel MobileNo;
     private javax.swing.JTextField MobilejTextField;
     private javax.swing.JTextField MobilejTextField1;
+    private javax.swing.JTextArea Msg;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel NameL;
     private javax.swing.JTextField NameTF;
@@ -7187,6 +7278,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JButton SearchReport;
     private javax.swing.JButton SearchTable;
     private javax.swing.JButton Searchbtn;
+    private javax.swing.JButton Send1;
     private javax.swing.JLabel ServicT;
     private javax.swing.JLabel ServicT1;
     private javax.swing.JLabel ServicT10;
@@ -7221,6 +7313,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTable SupplierTable;
     private javax.swing.JLabel Surname;
     private javax.swing.JTextField SurnameTextfield;
+    private javax.swing.JTextField TO;
     private javax.swing.JLabel Total;
     private javax.swing.JLabel Total1;
     private javax.swing.JTextField TotalDiscount2;
@@ -7316,6 +7409,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -7341,6 +7435,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JPanel mainservicepan;
     private javax.swing.JRadioButton male;
     private javax.swing.JRadioButton male_rbt;
+    private javax.swing.JLabel message;
     private javax.swing.JLabel modelicon;
     private javax.swing.JPanel mpl;
     private javax.swing.JLabel name;
@@ -7355,6 +7450,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField productnameTF;
     private javax.swing.JButton report_bt;
     private javax.swing.JLabel reportlabel;
+    private javax.swing.JButton reset;
     private javax.swing.JButton reset_bt;
     private javax.swing.JLabel row1;
     private javax.swing.JLabel row2;
@@ -7365,6 +7461,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField search_Tf;
     private javax.swing.JButton service_bt;
     private javax.swing.JButton supplier_bt;
+    private javax.swing.JLabel to;
     private datechooser.beans.DateChooserCombo todate;
     private javax.swing.JLabel unit;
     private javax.swing.JLabel user;
