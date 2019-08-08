@@ -146,6 +146,7 @@ public class HomePage extends javax.swing.JFrame {
         getSupplierTabelData();
         getBillNo();
         getAppointmentData();
+        getCustumerData();
         
         //here is a Method for Autosuggetion panel
         getSuggestionPane(EditService,"services");
@@ -160,6 +161,7 @@ public class HomePage extends javax.swing.JFrame {
         getSuggestionPane(search_Tf,"userdetails");
         getSuggestionPane(BarberNameField, "userdetails");
         getSuggestionPane(CustomerNameop, "custumerdetails");
+        getSuggestionPane(Search, "custumerdetails");
       //  getSuggestionPane(productnameTF,"product");
       //  getSuggestionPane(productnameTF,"services");
         
@@ -451,6 +453,16 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    public void getCustumerData(){
+        try {
+            con = DbUtil.loadDriver();
+            rs = DbUtil.getResultSet("select CustumerName, MobileNo from custumerdetails");
+            MsgTable.setModel(DbUtils.resultSetToTableModel(rs));
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /*here is code for fetchting Service Data into Service Table*/
     public void getServiceTabelData(){
         try {
@@ -507,6 +519,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    
     public void getSuggestionPane(JTextField textField,String tabelName){
     AutoSuggestor autoSuggestor = new AutoSuggestor(textField, this, null, Color.WHITE, Color.BLUE, Color.RED, 1f) {
             @Override
@@ -890,6 +903,9 @@ public class HomePage extends javax.swing.JFrame {
         otherpan = new javax.swing.JPanel();
         Developer = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
+        Developers = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         MessageDTab = new javax.swing.JPanel();
         MessageScroll = new javax.swing.JScrollPane();
         MessagePanel = new javax.swing.JPanel();
@@ -902,6 +918,11 @@ public class HomePage extends javax.swing.JFrame {
         Msg = new javax.swing.JTextArea();
         reset = new javax.swing.JButton();
         Send1 = new javax.swing.JButton();
+        Search = new javax.swing.JTextField();
+        message1 = new javax.swing.JLabel();
+        SearchKey = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        MsgTable = new javax.swing.JTable();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         description = new javax.swing.JLabel();
@@ -4446,15 +4467,41 @@ public class HomePage extends javax.swing.JFrame {
 
         Developer.setBackground(new java.awt.Color(204, 204, 204));
 
+        Developers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Developers.setText("Developers");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("vaibhavupadhyay0077@gmail.com");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Vaibhav Upadhyay");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 942, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap(221, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(Developers)
+                        .addGap(397, 397, 397))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1)
+                        .addGap(331, 331, 331))))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 359, Short.MAX_VALUE)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Developers, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout DeveloperLayout = new javax.swing.GroupLayout(Developer);
@@ -4533,44 +4580,88 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        message1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        message1.setText("Name");
+
+        SearchKey.setText("Search");
+        SearchKey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchKeyActionPerformed(evt);
+            }
+        });
+
+        MsgTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        MsgTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MsgTableMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(MsgTable);
+
         javax.swing.GroupLayout mainmsgpanLayout = new javax.swing.GroupLayout(mainmsgpan);
         mainmsgpan.setLayout(mainmsgpanLayout);
         mainmsgpanLayout.setHorizontalGroup(
             mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainmsgpanLayout.createSequentialGroup()
-                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(mainmsgpanLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(message, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                            .addComponent(to, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(message1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TO, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(mainmsgpanLayout.createSequentialGroup()
+                                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(Search, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                    .addComponent(TO, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(26, 26, 26)
+                                .addComponent(SearchKey, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainmsgpanLayout.createSequentialGroup()
+                        .addGap(178, 178, 178)
                         .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addGap(109, 109, 109)
                         .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
         mainmsgpanLayout.setVerticalGroup(
             mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainmsgpanLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TO, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(message1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SearchKey))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(to, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TO, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout mplLayout = new javax.swing.GroupLayout(mpl);
@@ -4587,7 +4678,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mplLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(mainmsgpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout MessagePanelLayout = new javax.swing.GroupLayout(MessagePanel);
@@ -6189,10 +6280,28 @@ public class HomePage extends javax.swing.JFrame {
         if (ReportCombo.getSelectedItem().equals("Product")) {
             SearchNameReport.setText("Product Name");
             getSuggestionPane(ReportNameTextFielad, "product");
+            try {
+                    con = DbUtil.loadDriver();
+                    rs = DbUtil.getResultSet("SELECT * FROM `product` ");
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    con.close();
+                    SearchTable.setVisible(false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+                        }
         }
         if (ReportCombo.getSelectedItem().equals("Suppliers")) {
             SearchNameReport.setText("Supplier's Name");
-            getSuggestionPane(ReportNameTextFielad, "");
+            getSuggestionPane(ReportNameTextFielad, "supplier");
+            try {
+                    con = DbUtil.loadDriver();
+                    rs = DbUtil.getResultSet("SELECT * FROM `supplier` ");
+                    ReportTable.setModel(DbUtils.resultSetToTableModel(rs));
+                    con.close();
+                    SearchTable.setVisible(false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, e);
+                        }
         }
         if (ReportCombo.getSelectedItem().equals("Customers")) {
             SearchNameReport.setText("Customer's Name");
@@ -6304,7 +6413,75 @@ public class HomePage extends javax.swing.JFrame {
                         row5.setText(rs.getString(4));
                         
                     }else{
-                    JOptionPane.showMessageDialog(this, "Customer not found please check Customer's Name");
+                    JOptionPane.showMessageDialog(this, "Barber not found please check Barber's Name");
+                    }
+                    
+                    con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+        }
+         if (ReportCombo.getSelectedItem().equals("Product")) {
+            if(ReportNameTextFielad.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Product Name","Details",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `product` WHERE `ProductName` = ?", ReportNameTextFielad);
+                    if(rs.next()){
+                        Column5.setVisible(true);
+                        row5.setVisible(true);
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Product Name");
+                        row1.setText(rs.getString(1));
+                        Column2.setText("Price");
+                        row2.setText(rs.getString(2));
+                        Column3.setText("Quantity");
+                        row3.setText(rs.getString(4));
+                        Column4.setText("Supplier Name");
+                        row4.setText(rs.getString(5));
+                        Column5.setText("Cost");
+                        bill.setVisible(false);
+                        row5.setText(rs.getString(6));
+                        
+                    }else{
+                    JOptionPane.showMessageDialog(this, "Product not found please check Product's Name");
+                    }
+                    
+                    con.close();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+        }
+         if (ReportCombo.getSelectedItem().equals("Suppliers")) {
+            if(ReportNameTextFielad.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "Enter Supplier Name","Details",JOptionPane.OK_OPTION);
+            }else{
+                try {
+                    con=DbUtil.loadDriver();
+                    rs=DbUtil.getResultSetForSearch("SELECT * FROM `supplier` WHERE `CompanyName` = ?", ReportNameTextFielad);
+                    if(rs.next()){
+                        Column5.setVisible(true);
+                        row5.setVisible(true);
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Company Name");
+                        row1.setText(rs.getString(1));
+                        Column2.setText("Address");
+                        row2.setText(rs.getString(2));
+                        Column3.setText("Contact");
+                        row3.setText(rs.getString(3));
+                        Column4.setText("Email");
+                        row4.setText(rs.getString(4));
+                        Column5.setText("");
+                        bill.setVisible(false);
+                        row5.setText("");
+                        
+                    }else{
+                    JOptionPane.showMessageDialog(this, "Supplier not found please check Supplier's Name");
                     }
                     
                     con.close();
@@ -6383,10 +6560,57 @@ public class HomePage extends javax.swing.JFrame {
                         row5.setText(model.getValueAt(selectRow, 4).toString());
                         bill.setVisible(false);
                 } catch (Exception e) {
-                    JOptionPane.showMessageDialog(this, "Please Select Customer Name From Table","information",JOptionPane.OK_OPTION);
+                    JOptionPane.showMessageDialog(this, "Please Select Barber Name From Table","information",JOptionPane.OK_OPTION);
                 }
         }
-        
+        if (ReportCombo.getSelectedItem().equals("Product")) {
+            DefaultTableModel model = (DefaultTableModel)ReportTable.getModel();
+                try {
+                    int selectRow = ReportTable.getSelectedRow();
+                        Column5.setForeground(new Color(255,255,255));
+                        row5.setForeground(new Color(255,255,255));
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Product Name");
+                        row1.setText(model.getValueAt(selectRow, 0).toString());
+                        ReportNameTextFielad.setText(model.getValueAt(selectRow, 0).toString());
+                        Column2.setText("Pricr");
+                        row2.setText(model.getValueAt(selectRow, 1).toString());
+                        Column3.setText("Quantity");
+                        row3.setText(model.getValueAt(selectRow, 2).toString());
+                        Column4.setText("Supplier Name");
+                        row4.setText(model.getValueAt(selectRow, 3).toString());
+                        Column5.setText("Cost");
+                        row5.setText(model.getValueAt(selectRow, 4).toString());
+                        bill.setVisible(false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Please Select Product Name From Table","information",JOptionPane.OK_OPTION);
+                }
+        }
+        if (ReportCombo.getSelectedItem().equals("Suppliers")) {
+            DefaultTableModel model = (DefaultTableModel)ReportTable.getModel();
+                try {
+                    int selectRow = ReportTable.getSelectedRow();
+                        Column5.setForeground(new Color(255,255,255));
+                        row5.setForeground(new Color(255,255,255));
+                        Column5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        row5.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+                        Column1.setText("Company Name");
+                        row1.setText(model.getValueAt(selectRow, 0).toString());
+                        ReportNameTextFielad.setText(model.getValueAt(selectRow, 0).toString());
+                        Column2.setText("Address");
+                        row2.setText(model.getValueAt(selectRow, 1).toString());
+                        Column3.setText("Contact");
+                        row3.setText(model.getValueAt(selectRow, 2).toString());
+                        Column4.setText("Email");
+                        row4.setText(model.getValueAt(selectRow, 3).toString());
+                        Column5.setText("");
+                        row5.setText("");
+                        bill.setVisible(false);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "Please Select Supplier Name From Table","information",JOptionPane.OK_OPTION);
+                }
+        }
     }//GEN-LAST:event_ReportTableMouseClicked
 
     private void searchCNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCNActionPerformed
@@ -6801,7 +7025,38 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 			//return "Error "+e;
 		}
     }//GEN-LAST:event_Send1ActionPerformed
-   //here is code for generate pdf
+
+    private void SearchKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchKeyActionPerformed
+        // TODO add your handling code here:
+        if(Search.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter Name","Details",JOptionPane.OK_OPTION);
+        }else{
+        try {
+            con=DbUtil.loadDriver();
+            rs=DbUtil.getResultSetForSearch("select MobileNo from custumerdetails where CustumerName = ?", Search);
+            if(rs.next()){
+                TO.setText(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception e) {
+                 JOptionPane.showMessageDialog(this, e);
+                    }
+        }
+    }//GEN-LAST:event_SearchKeyActionPerformed
+
+    private void MsgTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MsgTableMouseClicked
+        // TODO add your handling code here:
+         DefaultTableModel model = (DefaultTableModel)MsgTable.getModel();
+        try {
+            int selectRow = MsgTable.getSelectedRow();
+            Search.setText(model.getValueAt(selectRow, 0).toString());
+            TO.setText(model.getValueAt(selectRow, 1).toString());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Name From Table","information",JOptionPane.OK_OPTION);
+        }
+    }//GEN-LAST:event_MsgTableMouseClicked
+    //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
         File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
@@ -7156,6 +7411,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JPanel DetailPanel;
     private javax.swing.JPanel DetailPanel1;
     private javax.swing.JPanel Developer;
+    private javax.swing.JLabel Developers;
     private javax.swing.JLabel Discount;
     private javax.swing.JLabel Discount1;
     private javax.swing.JLabel EQuantity;
@@ -7211,6 +7467,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField MobilejTextField;
     private javax.swing.JTextField MobilejTextField1;
     private javax.swing.JTextArea Msg;
+    private javax.swing.JTable MsgTable;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel NameL;
     private javax.swing.JTextField NameTF;
@@ -7270,9 +7527,11 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField SalonNametf;
     private javax.swing.JButton Save;
     private javax.swing.JButton SaveasPDF;
+    private javax.swing.JTextField Search;
     private javax.swing.JButton SearchCust;
     private javax.swing.JButton SearchCust1;
     private javax.swing.JButton SearchIteam;
+    private javax.swing.JButton SearchKey;
     private javax.swing.JLabel SearchNameReport;
     private javax.swing.JLabel SearchReortLab;
     private javax.swing.JButton SearchReport;
@@ -7375,12 +7634,14 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -7410,6 +7671,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -7436,6 +7698,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JRadioButton male;
     private javax.swing.JRadioButton male_rbt;
     private javax.swing.JLabel message;
+    private javax.swing.JLabel message1;
     private javax.swing.JLabel modelicon;
     private javax.swing.JPanel mpl;
     private javax.swing.JLabel name;
