@@ -477,7 +477,7 @@ public class HomePage extends javax.swing.JFrame {
     public void getProductTabelData(){
         try {
             con = DbUtil.loadDriver();
-            rs = DbUtil.getResultSet("select * from product");
+            rs = DbUtil.getResultSet("select `ProductName`, `cost`, `ProductCode`, `SupplierName` from product");
             ProductTable.setModel(DbUtils.resultSetToTableModel(rs));
             con.close();
         } catch (Exception e) {
@@ -919,6 +919,7 @@ public class HomePage extends javax.swing.JFrame {
         SearchKey = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         MsgTable = new javax.swing.JTable();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
         description = new javax.swing.JLabel();
@@ -1381,7 +1382,7 @@ public class HomePage extends javax.swing.JFrame {
         AppointmentDTab.setPreferredSize(new java.awt.Dimension(944, 586));
 
         AppointPanel.setBackground(new java.awt.Color(38, 3, 3));
-        AppointPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AppointPanel.setBorder(new javax.swing.border.SoftBevelBorder(0));
         AppointPanel.setForeground(new java.awt.Color(221, 0, 0));
         AppointPanel.setAutoscrolls(true);
         AppointPanel.setName(""); // NOI18N
@@ -2668,6 +2669,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(female_rbt);
         female_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         female_rbt.setText("Female");
         female_rbt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -2676,6 +2678,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(male_rbt);
         male_rbt.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         male_rbt.setText("Male");
         male_rbt.addActionListener(new java.awt.event.ActionListener() {
@@ -3020,7 +3023,7 @@ public class HomePage extends javax.swing.JFrame {
         UserId.setText("User ID");
 
         NameTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        NameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         NameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameTextfieldActionPerformed(evt);
@@ -3034,7 +3037,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         SurnameTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SurnameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        SurnameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         SurnameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SurnameTextfieldActionPerformed(evt);
@@ -3047,7 +3050,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ContactTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ContactTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ContactTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactTextfieldActionPerformed(evt);
@@ -3060,7 +3063,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         UserIdTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        UserIdTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        UserIdTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         UserIdTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserIdTextfieldActionPerformed(evt);
@@ -3083,7 +3086,7 @@ public class HomePage extends javax.swing.JFrame {
         Email.setText("Email Address");
 
         PasswordTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        PasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         PasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordTextfieldActionPerformed(evt);
@@ -3096,7 +3099,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ConfirmPasswordTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ConfirmPasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ConfirmPasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         ConfirmPasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmPasswordTextfieldActionPerformed(evt);
@@ -3109,7 +3112,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         MailTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        MailTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MailTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         MailTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MailTextfieldActionPerformed(evt);
@@ -3163,7 +3166,7 @@ public class HomePage extends javax.swing.JFrame {
         jTextArea.setColumns(20);
         jTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextArea.setRows(5);
-        jTextArea.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTextArea.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextAreaKeyPressed(evt);
@@ -3417,7 +3420,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel16.setText("Salon Logo :");
 
-        IMAGE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        IMAGE.setBorder(new javax.swing.border.SoftBevelBorder(0));
         IMAGE.setPreferredSize(new java.awt.Dimension(81, 81));
         IMAGE.setRequestFocusEnabled(false);
 
@@ -3714,7 +3717,7 @@ public class HomePage extends javax.swing.JFrame {
         bill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bill.setForeground(new java.awt.Color(51, 255, 255));
         bill.setText("jLabel1");
-        bill.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bill.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         bill.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -4700,6 +4703,8 @@ public class HomePage extends javax.swing.JFrame {
         NandMpan.setBackground(new java.awt.Color(204, 204, 204));
         NandMpan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
+        jScrollPane13.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         NotificationText.setEditable(false);
         NotificationText.setColumns(20);
         NotificationText.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -4713,7 +4718,7 @@ public class HomePage extends javax.swing.JFrame {
             NandMpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NandMpanLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
         );
         NandMpanLayout.setVerticalGroup(
@@ -4933,7 +4938,7 @@ public class HomePage extends javax.swing.JFrame {
         HomeTab.setBackground(new java.awt.Color(38, 3, 3));
 
         Welcome.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        Welcome.setForeground(new java.awt.Color(255, 79, 114));
+        Welcome.setForeground(new java.awt.Color(255, 102, 102));
         Welcome.setText("WELCOME TO LOOKHUB SOFTWARE");
 
         developed.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -4947,9 +4952,9 @@ public class HomePage extends javax.swing.JFrame {
         HomeTabLayout.setHorizontalGroup(
             HomeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
-                .addGap(0, 269, Short.MAX_VALUE)
+                .addGap(0, 266, Short.MAX_VALUE)
                 .addComponent(Welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(developed, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4968,7 +4973,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(Welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(developed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", HomeTab);
@@ -5522,7 +5527,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforEdit("update services set ServiceName = ?,Price = ? where ServiceName = ?", EditServiceNF, EditPriceF,popUPservice);
-            JOptionPane.showMessageDialog(this, "Service Edited Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Service Edited Succesfully","information",JOptionPane.PLAIN_MESSAGE);
             getServiceTabelData();
             con.close();
         } catch (Exception e) {
@@ -5795,12 +5800,8 @@ public class HomePage extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)ProductTable.getModel();
         try {
             int selectRow = ProductTable.getSelectedRow();
-            EditnameTF.setText(model.getValueAt(selectRow, 0).toString());
-            EpriceTF.setText(model.getValueAt(selectRow, 1).toString());
-            EditcodeTF.setText(model.getValueAt(selectRow, 2).toString());
-            EquantityTF.setText(model.getValueAt(selectRow, 3).toString());
-            SnameTF.setText(model.getValueAt(selectRow, 4).toString());
-            EditCost.setText(model.getValueAt(selectRow, 5).toString());
+            productnameTF.setText(model.getValueAt(selectRow, 0).toString());
+            DeleteProductTF.setText(model.getValueAt(selectRow, 0).toString());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Please Select Service From Table","information",JOptionPane.OK_OPTION);
         }
@@ -5875,19 +5876,24 @@ public class HomePage extends javax.swing.JFrame {
 
     private void email_TfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email_TfActionPerformed
         // TODO add your handling code here:
-        String email = email_Tf.getText();
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+        String contact =email_Tf.getText();
+        String contactRegex ="^[a-zA-Z0-9_+&*-]+(?:\\."+
         "[a-zA-Z0-9_+&*-]+)*@" +
         "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
         "A-Z]{2,7}$";
-
-        Pattern p = Pattern.compile(emailRegex);
-        Matcher m = p.matcher(email);
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
         boolean matchFound = m.matches();
         if (matchFound)
-        UserTypeCom1.requestFocus();
+        {
+            UserTypeCom1.requestFocus();
+        }
         else
-        JOptionPane.showMessageDialog(this, "invalid email");
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Valid Email IDs","Contact",JOptionPane.OK_OPTION);
+            email_Tf.requestFocus();
+            email_Tf.setText("");
+        }
     }//GEN-LAST:event_email_TfActionPerformed
 
     private void reset_btActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset_btActionPerformed
@@ -5980,7 +5986,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_emp_textF3KeyPressed
 
     private void emp_textF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emp_textF3ActionPerformed
-        String contact =ContactTextfield.getText();
+        String contact =emp_textF3.getText();
         String contactRegex = "^[789][0-9]{9}$";
         Pattern p = Pattern.compile(contactRegex);
         Matcher m = p.matcher(contact);
@@ -5992,8 +5998,9 @@ public class HomePage extends javax.swing.JFrame {
         else
         {
             JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
-            ContactTextfield.requestFocus();
-            ContactTextfield.setText("");
+            emp_textF3.setText("");
+            emp_textF3.requestFocus();
+            
         }
     }//GEN-LAST:event_emp_textF3ActionPerformed
 
@@ -6821,6 +6828,22 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 
     private void MobilejTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MobilejTextField1ActionPerformed
         // TODO add your handling code here:
+        String contact =MobilejTextField1.getText();
+        String contactRegex = "^[789][0-9]{9}$";
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        {
+            EmailCustjTextField2.requestFocus();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Valid Contact","Contact",JOptionPane.OK_OPTION);
+            MobilejTextField1.setText("");
+            MobilejTextField1.requestFocus();
+            
+        }
     }//GEN-LAST:event_MobilejTextField1ActionPerformed
 
     private void MobilejTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MobilejTextField1KeyPressed
@@ -6829,6 +6852,25 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 
     private void EmailCustjTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailCustjTextField2ActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        String contact =EmailCustjTextField2.getText();
+        String contactRegex ="^[a-zA-Z0-9_+&*-]+(?:\\."+
+        "[a-zA-Z0-9_+&*-]+)*@" +
+        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+        "A-Z]{2,7}$";
+        Pattern p = Pattern.compile(contactRegex);
+        Matcher m = p.matcher(contact);
+        boolean matchFound = m.matches();
+        if (matchFound)
+        {
+            jSpinner1.requestFocus();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Enter  Valid Email IDs","Contact",JOptionPane.OK_OPTION);
+            EmailCustjTextField2.requestFocus();
+            EmailCustjTextField2.setText("");
+        }
     }//GEN-LAST:event_EmailCustjTextField2ActionPerformed
 
     private void EmailCustjTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_EmailCustjTextField2KeyPressed
@@ -7547,6 +7589,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JTextField billNOjTextField1;
     private javax.swing.JButton billing_bt;
     private javax.swing.JScrollPane billscroll;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroupMaleFemale;
     private javax.swing.JPanel buttonpanel;
     private javax.swing.JLabel c11;
