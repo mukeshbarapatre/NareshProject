@@ -6476,6 +6476,18 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SupplierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupplierTableMouseClicked
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)SupplierTable.getModel();
+        try {
+            int selectRow = SupplierTable.getSelectedRow();
+            EditCtf.setText(model.getValueAt(selectRow, 0).toString());
+            EditSupplirttf.setText(model.getValueAt(selectRow, 0).toString());
+            AddTextArea.setText(model.getValueAt(selectRow, 1).toString());
+            SupplierCN.setText(model.getValueAt(selectRow, 2).toString());
+            SuppEditM.setText(model.getValueAt(selectRow, 3).toString());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please Select Supplier From Table","information",JOptionPane.OK_OPTION);
+        }
         
     }//GEN-LAST:event_SupplierTableMouseClicked
 
