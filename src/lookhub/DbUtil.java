@@ -120,7 +120,7 @@ public class DbUtil {
         PreparedStatement st = con.prepareStatement(query);
         st.setString(1, textField.getText());
         st.setString(2, textArea1.getText());
-        st.setInt(3, Integer.parseInt(textField1.getText()));
+        st.setLong(3,Long.parseLong(textField1.getText()));
         st.setString(4,textField2.getText());
         st.setString(5,textField3.getText());
         

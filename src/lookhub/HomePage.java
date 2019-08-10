@@ -6149,7 +6149,7 @@ public class HomePage extends javax.swing.JFrame {
     private void PrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrintActionPerformed
         // TODO add your handling code here:
         try {
-            String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
+            String file = "C:\\pdfcreator\\"+CustumerjTextField.getText()+billNOjTextField1.getText()+".pdf";
             org.icepdf.core.pobjects.Document doc = new org.icepdf.core.pobjects.Document();
             doc.setFile(file);
             SwingController sc = new SwingController();
@@ -7096,7 +7096,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
-        File file = new File("C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf");
+        File file = new File("C:\\pdfcreator\\"+name+billnos+".pdf");
         
         try{
             if (file.createNewFile())
@@ -7355,7 +7355,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 //here is code for view pdf in panel
     public void openpdf(String name,String billnos){
     try {
-        String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf";
+        String file = "C:\\pdfcreator\\"+name+billnos+".pdf";
            SwingController control=new SwingController();
             SwingViewBuilder factry=new SwingViewBuilder(control);
             BillSheet=factry.buildViewerPanel();

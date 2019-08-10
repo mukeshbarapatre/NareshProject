@@ -23,7 +23,7 @@ public class Pdfviewer extends javax.swing.JFrame {
         
         
         try {
-        String file = "C:\\Users\\Admin\\Documents\\pdfcreater\\"+name+billnos+".pdf";
+        String file = "C:\\pdfcreator\\"+name+billnos+".pdf";
            SwingController control=new SwingController();
             SwingViewBuilder factry=new SwingViewBuilder(control);
             billsheet=factry.buildViewerPanel();
