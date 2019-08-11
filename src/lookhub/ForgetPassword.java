@@ -341,11 +341,14 @@ public class ForgetPassword extends javax.swing.JFrame {
             ResultSet rs1 = ps1.executeQuery();
             if (rs1.next()) {
                 password = rs1.getString(3);
+                /*
                 Random random = new Random();
                 OTPs = random.nextInt(999999);
                 
                 JOptionPane.showMessageDialog(this, OTPs+" OTP send Successfully","OTP",JOptionPane.INFORMATION_MESSAGE,iconimg1);
-                /*try {
+                */
+                
+                try {
                     // Construct data
                     //String apiKey = "apikey=" + "2Vwexo6G5xA-e8wmamg2tRTD2O7qath6t6csS3b6Hm";
                     Connection con = DbUtil.loadDriver();
@@ -384,7 +387,7 @@ public class ForgetPassword extends javax.swing.JFrame {
 			//System.out.println("Error SMS "+e);
                          JOptionPane.showMessageDialog(null, e);
 			//return "Error "+e;
-		}*/
+		}
             }else{
                 JOptionPane.showMessageDialog(this, "Account Not Found","Not Found",JOptionPane.OK_OPTION);
             }
