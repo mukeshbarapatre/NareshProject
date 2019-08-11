@@ -40,6 +40,7 @@ public class MessageKey extends javax.swing.JFrame {
             }else{
                 CurrentKey.setText("No Key Found");
             }
+            con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e);
         }

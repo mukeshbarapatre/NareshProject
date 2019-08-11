@@ -7065,6 +7065,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
                             JOptionPane.showMessageDialog(this, "Message Key Not Found");
                     }
                     //return stringBuffer.toString();
+                    con.close();
 		} catch (Exception e) {
 			//System.out.println("Error SMS "+e);
                          JOptionPane.showMessageDialog(null, e);

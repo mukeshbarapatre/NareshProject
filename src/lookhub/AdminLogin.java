@@ -82,7 +82,6 @@ public class AdminLogin extends javax.swing.JFrame {
         exit = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         forgetP = new javax.swing.JLabel();
-        forgetU = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         ADMINLOGIN = new javax.swing.JRadioButton();
         USERLOGIN = new javax.swing.JRadioButton();
@@ -175,23 +174,13 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
 
-        forgetP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        forgetP.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         forgetP.setForeground(new java.awt.Color(0, 0, 204));
-        forgetP.setText("forget password ?");
+        forgetP.setText("forgot password ?");
         forgetP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgetP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 forgetPMouseClicked(evt);
-            }
-        });
-
-        forgetU.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        forgetU.setForeground(new java.awt.Color(0, 0, 204));
-        forgetU.setText("forget username ?");
-        forgetU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        forgetU.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                forgetUMouseClicked(evt);
             }
         });
 
@@ -243,18 +232,15 @@ public class AdminLogin extends javax.swing.JFrame {
                         .addComponent(ADMINLOGIN)
                         .addGap(27, 27, 27)
                         .addComponent(USERLOGIN)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(LoginLayout.createSequentialGroup()
-                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addComponent(forgetP)
-                        .addGap(32, 32, 32)
-                        .addComponent(forgetU)))
+                .addGap(36, 36, 36)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(forgetP)
+                .addGap(131, 131, 131))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,11 +265,9 @@ public class AdminLogin extends javax.swing.JFrame {
                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(forgetP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(forgetU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25)
+                .addGap(10, 10, 10)
+                .addComponent(forgetP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -385,7 +369,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
-                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                        JOptionPane.showMessageDialog(this, "Login Successfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -406,7 +390,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"ADMIN");
                     if (rs.next()) {
-                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                        JOptionPane.showMessageDialog(this, "Login Successfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -422,14 +406,9 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void forgetPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetPMouseClicked
         // TODO add your handling code here:
-        
+        ForgetPassword fp = new ForgetPassword();
+        fp.setVisible(true);
     }//GEN-LAST:event_forgetPMouseClicked
-
-    private void forgetUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetUMouseClicked
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_forgetUMouseClicked
 
     private void ADMINLOGINActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADMINLOGINActionPerformed
         // TODO add your handling code here:
@@ -484,7 +463,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
-                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                        JOptionPane.showMessageDialog(this, "Login Successfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -504,7 +483,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 con=DbUtil.loadDriver();
                 rs=DbUtil.runQueryforLogin("select * from userdetails where FirstName = ? AND Password = ? AND Type = ? ", username,password,"ADMIN");
                 if (rs.next()) {
-                    JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                    JOptionPane.showMessageDialog(this, "Login Successfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                     HomePage hp = new HomePage(rs);
                     hp.setVisible(true);
                     this.dispose();
@@ -535,7 +514,6 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton exit;
     private javax.swing.JLabel forgetP;
-    private javax.swing.JLabel forgetU;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

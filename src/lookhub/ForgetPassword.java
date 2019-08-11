@@ -6,9 +6,20 @@
 
 package lookhub;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +31,15 @@ public class ForgetPassword extends javax.swing.JFrame {
     /**
      * Creates new form ForgotPassword
      */
+    ImageIcon iconimg1 = new ImageIcon("src\\lookhub\\Images\\success.png");
+    int OTPs;
+    String password;
     public ForgetPassword() {
         initComponents();
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        Dimension size = tk.getScreenSize();
+        this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
+        passwd.setVisible(false);
     }
 
     /**
@@ -34,58 +52,63 @@ public class ForgetPassword extends javax.swing.JFrame {
     private void initComponents() {
 
         Main_panel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        RegistorTF = new javax.swing.JTextField();
-        Registor_number = new javax.swing.JLabel();
-        SendOTP = new javax.swing.JButton();
+        fgpan = new javax.swing.JPanel();
+        User = new javax.swing.JTextField();
+        ui = new javax.swing.JLabel();
         Cancle = new javax.swing.JButton();
         OK = new javax.swing.JButton();
-        OTPL = new javax.swing.JLabel();
-        OTPTF = new javax.swing.JTextField();
+        otp = new javax.swing.JLabel();
+        MobileNo = new javax.swing.JTextField();
         emaillabel = new javax.swing.JLabel();
         ForgotP = new javax.swing.JLabel();
+        Phone = new javax.swing.JLabel();
+        OTP = new javax.swing.JTextField();
+        send = new javax.swing.JButton();
+        passwd = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Password = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        close = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Main_panel.setBackground(new java.awt.Color(38, 3, 3));
 
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
+        fgpan.setBackground(new java.awt.Color(204, 204, 204));
+        fgpan.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
-        RegistorTF.setFont(new java.awt.Font("Times New Roman", 2, 24)); // NOI18N
-        RegistorTF.addActionListener(new java.awt.event.ActionListener() {
+        User.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        User.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistorTFActionPerformed(evt);
+                UserActionPerformed(evt);
             }
         });
 
-        Registor_number.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        Registor_number.setForeground(java.awt.Color.white);
-        Registor_number.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Registor_number.setText("Registor Mail ID");
+        ui.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ui.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ui.setText("Username");
 
-        SendOTP.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        SendOTP.setText("Send OTP");
-        SendOTP.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SendOTPActionPerformed(evt);
-            }
-        });
-
-        Cancle.setText("Cancle");
+        Cancle.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Cancle.setText("Exit");
         Cancle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancleActionPerformed(evt);
             }
         });
 
+        OK.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OK.setText("OK");
+        OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKActionPerformed(evt);
+            }
+        });
 
-        OTPL.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        OTPL.setForeground(java.awt.Color.white);
-        OTPL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        OTPL.setText("OTP");
+        otp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        otp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        otp.setText("Verify OPT ");
 
-        OTPTF.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        MobileNo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         emaillabel.setBackground(new java.awt.Color(255, 51, 102));
         emaillabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -96,104 +119,175 @@ public class ForgetPassword extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(282, 282, 282)
-                        .addComponent(emaillabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(101, 101, 101)
-                                        .addComponent(OK, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(OTPL, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(77, 77, 77)
-                                        .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(OTPTF, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(Registor_number)
-                                .addGap(65, 65, 65)
-                                .addComponent(RegistorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(145, 145, 145)
-                                .addComponent(SendOTP)))
-                        .addGap(0, 38, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Registor_number, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegistorTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(SendOTP, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emaillabel, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(OTPTF, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(OTPL, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(91, 91, 91)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(OK, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
-
-        ForgotP.setBackground(java.awt.Color.white);
-        ForgotP.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        ForgotP.setForeground(java.awt.Color.white);
+        ForgotP.setBackground(new java.awt.Color(255, 255, 255));
+        ForgotP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ForgotP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ForgotP.setText("Forgot Password");
+
+        Phone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Phone.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Phone.setText("Mobile no");
+
+        OTP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        send.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        send.setText("Send OTP");
+        send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout fgpanLayout = new javax.swing.GroupLayout(fgpan);
+        fgpan.setLayout(fgpanLayout);
+        fgpanLayout.setHorizontalGroup(
+            fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fgpanLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(Phone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ui, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(otp, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fgpanLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(send, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(emaillabel, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fgpanLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MobileNo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(OTP, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fgpanLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(User)
+                        .addGap(15, 15, 15))))
+            .addGroup(fgpanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(OK, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fgpanLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ForgotP, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        fgpanLayout.setVerticalGroup(
+            fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fgpanLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(ForgotP, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ui, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(User, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Phone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(emaillabel, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(send, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OTP, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otp, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(fgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cancle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OK, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        passwd.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Your Forgotted  Password is ");
+
+        Password.setEditable(false);
+        Password.setBackground(new java.awt.Color(204, 204, 204));
+        Password.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Password.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Please note it !");
+
+        close.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        close.setText("Close");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout passwdLayout = new javax.swing.GroupLayout(passwd);
+        passwd.setLayout(passwdLayout);
+        passwdLayout.setHorizontalGroup(
+            passwdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwdLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(passwdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(passwdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(Password)))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwdLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(close)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        passwdLayout.setVerticalGroup(
+            passwdLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(passwdLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(close)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout Main_panelLayout = new javax.swing.GroupLayout(Main_panel);
         Main_panel.setLayout(Main_panelLayout);
         Main_panelLayout.setHorizontalGroup(
             Main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_panelLayout.createSequentialGroup()
-                .addGroup(Main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Main_panelLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Main_panelLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(ForgotP, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(fgpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(Main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Main_panelLayout.createSequentialGroup()
+                    .addGap(104, 104, 104)
+                    .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(104, Short.MAX_VALUE)))
         );
         Main_panelLayout.setVerticalGroup(
             Main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Main_panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ForgotP, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(fgpan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(Main_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Main_panelLayout.createSequentialGroup()
+                    .addGap(76, 76, 76)
+                    .addComponent(passwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(Main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(Main_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,96 +297,136 @@ public class ForgetPassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SendOTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendOTPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SendOTPActionPerformed
-
     private void CancleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancleActionPerformed
         // TODO add your handling code here:
+        int exitopt = JOptionPane.showConfirmDialog(this, "Do you really want to exit ?","EXIT",JOptionPane.YES_NO_OPTION);
+        
+        if(exitopt==JOptionPane.YES_OPTION){
+            dispose();
+        }
     }//GEN-LAST:event_CancleActionPerformed
 
-    private void RegistorTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistorTFActionPerformed
-String email = RegistorTF.getText();
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-        "[a-zA-Z0-9_+&*-]+)*@" +
-        "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-        "A-Z]{2,7}$";
+    private void UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserActionPerformed
 
-        Pattern p = Pattern.compile(emailRegex);
-        Matcher m = p.matcher(email);
-        boolean matchFound = m.matches();
-        if (matchFound)
-        emaillabel.setText("");
-        else
-        emaillabel.setText("Invalid email ID");
-
-    }                                             
-
-    private void RegistorTFKeyPressed(java.awt.event.KeyEvent evt) {                                         
-        // TODO add your handling code here:
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            if(RegistorTF.getText().equals("")){
-                JOptionPane.showMessageDialog(this, "Please enter email address","Invalid Email",JOptionPane.OK_OPTION);
-            }else{
-
-                SendOTP.requestFocus();
-
-            }
-        }
-           // TODO add your handling code here:
-        
-    }//GEN-LAST:event_RegistorTFActionPerformed
+    }//GEN-LAST:event_UserActionPerformed
 
     private void emaillabelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emaillabelFocusGained
 
     }//GEN-LAST:event_emaillabelFocusGained
 
+    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
+        if (OTP.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Enter The OTP","OTP",JOptionPane.OK_OPTION);
+        }else{
+            if (Integer.parseInt(OTP.getText())==OTPs) {
+                fgpan.setVisible(false);
+                Password.setText(password);
+                passwd.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "OTP is not Match","OTP",JOptionPane.OK_OPTION);
+            }
+        }
+    }//GEN-LAST:event_OKActionPerformed
+
+    private void sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendActionPerformed
+        // TODO add your handling code here:
+        if (User.getText().equals("")||MobileNo.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Enter Username and Mobile No","OTP",JOptionPane.OK_OPTION);
+        }else{
+                    try {
+            Connection con1 = DbUtil.loadDriver();
+            PreparedStatement ps1 = con1.prepareStatement("SELECT `FirstName`, `Contact No`, `Password` FROM `userdetails` WHERE `FirstName`=? AND `Contact No`=?");
+            ps1.setString(1, User.getText());
+            ps1.setLong(2, Long.parseLong(MobileNo.getText()));
+            ResultSet rs1 = ps1.executeQuery();
+            if (rs1.next()) {
+                password = rs1.getString(3);
+                Random random = new Random();
+                OTPs = random.nextInt(999999);
+                
+                JOptionPane.showMessageDialog(this, OTPs+" OTP send Successfully","OTP",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                /*try {
+                    // Construct data
+                    //String apiKey = "apikey=" + "2Vwexo6G5xA-e8wmamg2tRTD2O7qath6t6csS3b6Hm";
+                    Connection con = DbUtil.loadDriver();
+                    ResultSet rs = DbUtil.getResultSet("SELECT * FROM `messagekey`");
+                        if (rs.next()) {
+                            // Construct data
+                            String apiKey = "apikey=" + rs.getString(2);
+                            Random random = new Random();
+                            OTPs = random.nextInt(999999);
+                            String message = "&message=" + "Hello "+User.getText()+" Your OTPs is "+OTPs;
+                            String sender = "&sender=" + "TXTLCL";
+                            String numbers = "&numbers=" + MobileNo.getText();
+			
+                            // Send data
+                            HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+                            String data = apiKey + numbers + message ;
+                            conn.setDoOutput(true);
+                            conn.setRequestMethod("POST");
+                            conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                            conn.getOutputStream().write(data.getBytes("UTF-8"));
+                            final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                            final StringBuffer stringBuffer = new StringBuffer();
+                            String line;
+                            while ((line = rd.readLine()) != null) {
+                                    //stringBuffer.append(line);
+                                    JOptionPane.showMessageDialog(null, line);
+                                    JOptionPane.showMessageDialog(this, "OTP send Successfully","OTP",JOptionPane.INFORMATION_MESSAGE,iconimg1);
+                            }
+                            rd.close();
+                    }else{
+                            JOptionPane.showMessageDialog(this, "Message Key Not Found");
+                    }
+                    //return stringBuffer.toString();
+                    con.close();
+		} catch (Exception e) {
+			//System.out.println("Error SMS "+e);
+                         JOptionPane.showMessageDialog(null, e);
+			//return "Error "+e;
+		}*/
+            }else{
+                JOptionPane.showMessageDialog(this, "Account Not Found","Not Found",JOptionPane.OK_OPTION);
+            }
+            con1.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e);
+        }
+        }
+    }//GEN-LAST:event_sendActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        // TODO add your handling code here:
+        int exitopt = JOptionPane.showConfirmDialog(this, "Do you really want to exit ?","EXIT",JOptionPane.YES_NO_OPTION);
+        
+        if(exitopt==JOptionPane.YES_OPTION){
+            dispose();
+        }
+    }//GEN-LAST:event_closeActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ForgetPassword.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ForgetPassword().setVisible(true);
-            }
-        });
-    }
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancle;
     private javax.swing.JLabel ForgotP;
     private javax.swing.JPanel Main_panel;
+    private javax.swing.JTextField MobileNo;
     private javax.swing.JButton OK;
-    private javax.swing.JLabel OTPL;
-    private javax.swing.JTextField OTPTF;
-    private javax.swing.JTextField RegistorTF;
-    private javax.swing.JLabel Registor_number;
-    private javax.swing.JButton SendOTP;
+    private javax.swing.JTextField OTP;
+    private javax.swing.JTextField Password;
+    private javax.swing.JLabel Phone;
+    private javax.swing.JTextField User;
+    private javax.swing.JButton close;
     private javax.swing.JLabel emaillabel;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel fgpan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel otp;
+    private javax.swing.JPanel passwd;
+    private javax.swing.JButton send;
+    private javax.swing.JLabel ui;
     // End of variables declaration//GEN-END:variables
 }
