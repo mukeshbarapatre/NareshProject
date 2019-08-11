@@ -358,7 +358,7 @@ public class ForgetPassword extends javax.swing.JFrame {
                             String apiKey = "apikey=" + rs.getString(2);
                             Random random = new Random();
                             OTPs = random.nextInt(999999);
-                            String message = "&message=" + "Hello "+User.getText()+" Your OTPs is "+OTPs;
+                            String message = "&message=" + "Hello "+User.getText()+" Your LooK Hub OTP is "+OTPs;
                             String sender = "&sender=" + "TXTLCL";
                             String numbers = "&numbers=" + MobileNo.getText();
 			
