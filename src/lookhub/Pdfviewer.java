@@ -5,6 +5,7 @@
  */
 package lookhub;
 
+import java.awt.Toolkit;
 import org.icepdf.ri.common.ComponentKeyBinding;
 import org.icepdf.ri.common.SwingController;
 import org.icepdf.ri.common.SwingViewBuilder;
@@ -20,7 +21,9 @@ public class Pdfviewer extends javax.swing.JFrame {
      */
     public Pdfviewer(String name,String billnos) {
         initComponents();
-        
+        this.setTitle("Look Hub - Pdf Viewer");
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        this.setIconImage(icon);
         
         try {
         String file = "C:\\pdfcreator\\"+name+billnos+".pdf";

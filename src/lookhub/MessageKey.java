@@ -26,6 +26,9 @@ public class MessageKey extends javax.swing.JFrame {
     ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\success.png");
     public MessageKey() {
         initComponents();
+        this.setTitle("Look Hub - Message Key");
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        this.setIconImage(icon);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension size = tk.getScreenSize();
         this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);

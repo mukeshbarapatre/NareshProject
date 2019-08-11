@@ -40,6 +40,9 @@ public class ForgetPassword extends javax.swing.JFrame {
         Dimension size = tk.getScreenSize();
         this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
         passwd.setVisible(false);
+        this.setTitle("Look Hub - Fogot Password");
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        this.setIconImage(icon);
     }
 
     /**
