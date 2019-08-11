@@ -919,6 +919,7 @@ public class HomePage extends javax.swing.JFrame {
         SearchKey = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         MsgTable = new javax.swing.JTable();
+        messagekey = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         homepanel = new javax.swing.JPanel();
         Look = new javax.swing.JLabel();
@@ -4536,6 +4537,14 @@ public class HomePage extends javax.swing.JFrame {
         });
         jScrollPane15.setViewportView(MsgTable);
 
+        messagekey.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        messagekey.setText("Change Message Key");
+        messagekey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                messagekeyActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainmsgpanLayout = new javax.swing.GroupLayout(mainmsgpan);
         mainmsgpan.setLayout(mainmsgpanLayout);
         mainmsgpanLayout.setHorizontalGroup(
@@ -4563,15 +4572,16 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(109, 109, 109)
                         .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(messagekey, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
         mainmsgpanLayout.setVerticalGroup(
             mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
                 .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainmsgpanLayout.createSequentialGroup()
                         .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4584,11 +4594,14 @@ public class HomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(message, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(mainmsgpanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Send1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(messagekey, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -4952,9 +4965,9 @@ public class HomePage extends javax.swing.JFrame {
         HomeTabLayout.setHorizontalGroup(
             HomeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
-                .addGap(0, 269, Short.MAX_VALUE)
+                .addGap(0, 266, Short.MAX_VALUE)
                 .addComponent(Welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(266, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(developed, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4967,13 +4980,13 @@ public class HomePage extends javax.swing.JFrame {
         HomeTabLayout.setVerticalGroup(
             HomeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(developed, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("tab1", HomeTab);
@@ -7023,28 +7036,35 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
         // TODO add your handling code here:
         try {
 			// Construct data
-			String apiKey = "apikey=" + "2Vwexo6G5xA-e8wmamg2tRTD2O7qath6t6csS3b6Hm";
-			String message = "&message=" + Msg.getText();
-			String sender = "&sender=" + "TXTLCL";
-			String numbers = "&numbers=" + TO.getText();
+			//String apiKey = "apikey=" + "2Vwexo6G5xA-e8wmamg2tRTD2O7qath6t6csS3b6Hm";
+                        con = DbUtil.loadDriver();
+                        rs=DbUtil.getResultSet("SELECT * FROM `messagekey`");
+                        if (rs.next()) {
+                            // Construct data
+                            String apiKey = "apikey=" + rs.getString(2);
+                            String message = "&message=" + Msg.getText();
+                            String sender = "&sender=" + "TXTLCL";
+                            String numbers = "&numbers=" + TO.getText();
 			
-			// Send data
-			HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
-			String data = apiKey + numbers + message ;
-			conn.setDoOutput(true);
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-			conn.getOutputStream().write(data.getBytes("UTF-8"));
-			final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-			final StringBuffer stringBuffer = new StringBuffer();
-			String line;
-			while ((line = rd.readLine()) != null) {
-				//stringBuffer.append(line);
-                                JOptionPane.showMessageDialog(null, line);
-			}
-			rd.close();
-			
-			//return stringBuffer.toString();
+                            // Send data
+                            HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+                            String data = apiKey + numbers + message ;
+                            conn.setDoOutput(true);
+                            conn.setRequestMethod("POST");
+                            conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
+                            conn.getOutputStream().write(data.getBytes("UTF-8"));
+                            final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                            final StringBuffer stringBuffer = new StringBuffer();
+                            String line;
+                            while ((line = rd.readLine()) != null) {
+                                    //stringBuffer.append(line);
+                                    JOptionPane.showMessageDialog(null, line);
+                            }
+                            rd.close();
+                    }else{
+                            JOptionPane.showMessageDialog(this, "Message Key Not Found");
+                    }
+                    //return stringBuffer.toString();
 		} catch (Exception e) {
 			//System.out.println("Error SMS "+e);
                          JOptionPane.showMessageDialog(null, e);
@@ -7093,6 +7113,12 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
             Search.setText("");
         }
     }//GEN-LAST:event_resetActionPerformed
+
+    private void messagekeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messagekeyActionPerformed
+        // TODO add your handling code here:
+        MessageKey mk = new MessageKey();
+        mk.setVisible(true);
+    }//GEN-LAST:event_messagekeyActionPerformed
     //here is code for generate pdf
     
     public void createNewPdf(String name,String billnos){
@@ -7736,6 +7762,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
     private javax.swing.JRadioButton male_rbt;
     private javax.swing.JLabel message;
     private javax.swing.JLabel message1;
+    private javax.swing.JButton messagekey;
     private javax.swing.JLabel modelicon;
     private javax.swing.JPanel mpl;
     private javax.swing.JLabel name;
