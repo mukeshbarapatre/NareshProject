@@ -91,7 +91,7 @@ public class HomePage extends javax.swing.JFrame {
     java.sql.Date sqlDate;
     String ADMINorUSER;
     String Imagepath;
-    
+    ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\success.png");
     public HomePage(ResultSet RS)  {
        
         
@@ -1382,7 +1382,7 @@ public class HomePage extends javax.swing.JFrame {
         AppointmentDTab.setPreferredSize(new java.awt.Dimension(944, 586));
 
         AppointPanel.setBackground(new java.awt.Color(38, 3, 3));
-        AppointPanel.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        AppointPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         AppointPanel.setForeground(new java.awt.Color(221, 0, 0));
         AppointPanel.setAutoscrolls(true);
         AppointPanel.setName(""); // NOI18N
@@ -3023,7 +3023,7 @@ public class HomePage extends javax.swing.JFrame {
         UserId.setText("User ID");
 
         NameTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        NameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        NameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameTextfieldActionPerformed(evt);
@@ -3037,7 +3037,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         SurnameTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        SurnameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        SurnameTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         SurnameTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SurnameTextfieldActionPerformed(evt);
@@ -3050,7 +3050,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ContactTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ContactTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        ContactTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ContactTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ContactTextfieldActionPerformed(evt);
@@ -3063,7 +3063,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         UserIdTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        UserIdTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        UserIdTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         UserIdTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UserIdTextfieldActionPerformed(evt);
@@ -3086,7 +3086,7 @@ public class HomePage extends javax.swing.JFrame {
         Email.setText("Email Address");
 
         PasswordTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        PasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        PasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         PasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PasswordTextfieldActionPerformed(evt);
@@ -3099,7 +3099,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         ConfirmPasswordTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ConfirmPasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        ConfirmPasswordTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ConfirmPasswordTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConfirmPasswordTextfieldActionPerformed(evt);
@@ -3112,7 +3112,7 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         MailTextfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        MailTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        MailTextfield.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MailTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MailTextfieldActionPerformed(evt);
@@ -3166,7 +3166,7 @@ public class HomePage extends javax.swing.JFrame {
         jTextArea.setColumns(20);
         jTextArea.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextArea.setRows(5);
-        jTextArea.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        jTextArea.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextAreaKeyPressed(evt);
@@ -3420,7 +3420,7 @@ public class HomePage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel16.setText("Salon Logo :");
 
-        IMAGE.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        IMAGE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         IMAGE.setPreferredSize(new java.awt.Dimension(81, 81));
         IMAGE.setRequestFocusEnabled(false);
 
@@ -3717,7 +3717,7 @@ public class HomePage extends javax.swing.JFrame {
         bill.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bill.setForeground(new java.awt.Color(51, 255, 255));
         bill.setText("jLabel1");
-        bill.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
+        bill.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bill.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -4488,6 +4488,7 @@ public class HomePage extends javax.swing.JFrame {
         Msg.setRows(5);
         jScrollPane14.setViewportView(Msg);
 
+        reset.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         reset.setText("Reset");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4495,6 +4496,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        Send1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Send1.setText("SEND");
         Send1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4507,6 +4509,7 @@ public class HomePage extends javax.swing.JFrame {
         message1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         message1.setText("Name");
 
+        SearchKey.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         SearchKey.setText("Search");
         SearchKey.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4959,7 +4962,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(developed, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(HomeTabLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeTabLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -5223,7 +5226,7 @@ public class HomePage extends javax.swing.JFrame {
                 try {
                 con=DbUtil.loadDriver();
                 DbUtil.runQuery("insert into  userdetails values('"+NameTextfield.getText()+"','"+SurnameTextfield.getText()+"','"+ContactTextfield.getText()+"','"+jTextArea.getText()+"','"+gender+"','"+UserIdTextfield.getText()+"','"+PasswordTextfield.getText()+"','"+MailTextfield.getText()+"','"+type+"');");
-                JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "User details added Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
                 getEmployeeData();
                 con.close();
                 
@@ -5326,7 +5329,7 @@ public class HomePage extends javax.swing.JFrame {
       try {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into services values('"+AddServiceField.getText()+"','"+AddPriceField.getText()+"');");
-            JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Service added Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getServiceTabelData();
             con.close();
         } catch (Exception e) {
@@ -5411,7 +5414,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforDelete("delete from services where ServiceName = ?", DeleteService);
-            JOptionPane.showMessageDialog(this, "Service Deleted Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Service Deleted Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getServiceTabelData();
             con.close();
         } catch (Exception e) {
@@ -5445,7 +5448,7 @@ public class HomePage extends javax.swing.JFrame {
         try {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into product values('"+NameTF.getText()+"','"+PriceTF.getText()+"','"+codeTF.getText()+"','"+QuantityTF.getText()+"','"+SupplierTF.getText()+"','"+CostTf.getText()+"');");
-            JOptionPane.showMessageDialog(this, "Product added Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Product added Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getProductTabelData();
             con.close();
         } catch (Exception e) {
@@ -5513,10 +5516,14 @@ public class HomePage extends javax.swing.JFrame {
 
     private void ResetEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetEditActionPerformed
         // TODO add your handling code here:
-        EditPriceF.setText("");
-        EditService.setText("");
-        EditServiceNF.setText("");
-        popUPservice.setText("Example = hair cut");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            EditPriceF.setText("");
+            EditService.setText("");
+            EditServiceNF.setText("");
+            popUPservice.setText("Example = hair cut");
+        }
     }//GEN-LAST:event_ResetEditActionPerformed
 
     private void EditSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSerActionPerformed
@@ -5527,7 +5534,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforEdit("update services set ServiceName = ?,Price = ? where ServiceName = ?", EditServiceNF, EditPriceF,popUPservice);
-            JOptionPane.showMessageDialog(this, "Service Edited Succesfully","information",JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Service Edited Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getServiceTabelData();
             con.close();
         } catch (Exception e) {
@@ -5663,7 +5670,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforDelete("delete from product where ProductName = ?", DeleteProductTF);
-            JOptionPane.showMessageDialog(this, "Product Deleted Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Product Deleted Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getProductTabelData();
             con.close();
         } catch (Exception e) {
@@ -5681,7 +5688,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforEditProduct("update product set ProductName = ?,price = ?,ProductCode=?,Quantity=?,SupplierName=?,cost=? where ProductName = ?", EditnameTF, EpriceTF,EditcodeTF,EquantityTF,SnameTF,EditCost,productnameTF);
-            JOptionPane.showMessageDialog(this, "Product Edited Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Product Edited Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getProductTabelData();
             con.close();
         } catch (SQLException e) {
@@ -5692,22 +5699,30 @@ public class HomePage extends javax.swing.JFrame {
    }
     private void ResetProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetProductActionPerformed
         // TODO add your handling code here:
-        EditnameTF.setText("");
-        EpriceTF.setText("");
-        EditcodeTF.setText("");
-        EquantityTF.setText("");
-        SnameTF.setText("");
-        EditCost.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            EditnameTF.setText("");
+            EpriceTF.setText("");
+            EditcodeTF.setText("");
+            EquantityTF.setText("");
+            SnameTF.setText("");
+            EditCost.setText("");
+        }
     }//GEN-LAST:event_ResetProductActionPerformed
 
     private void AddResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddResetActionPerformed
         // TODO add your handling code here:
-        NameTF.setText("");
-        PriceTF.setText("");
-        codeTF.setText("");
-        QuantityTF.setText("");
-        SupplierTF.setText("");
-        CostTf.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            NameTF.setText("");
+            PriceTF.setText("");
+            codeTF.setText("");
+            QuantityTF.setText("");
+            SupplierTF.setText("");
+            CostTf.setText("");
+        }
     }//GEN-LAST:event_AddResetActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
@@ -5722,14 +5737,13 @@ public class HomePage extends javax.swing.JFrame {
             rs = DbUtil.runQueryforCheck("SELECT * FROM `custumerdetails` WHERE `CustumerName` =? AND `MobileNo`=? AND `Email`=?", CustumerjTextField, MobilejTextField, EmailCustjTextField1.getText());
             if (rs.next()) {
               DbUtil.runQueryforEditCustomer("update `custumerdetails` set `Total Service Rs` = ?,`Last Visit` = ? where `CustumerName` = ?", AllTotal, sqlDate,CustumerjTextField);
-              JOptionPane.showMessageDialog(this, "haha");
           } else {
                 DbUtil.runQuery("insert into custumerdetails values('"+CustumerjTextField.getText()+"','"+MobilejTextField.getText()+"','"+EmailCustjTextField1.getText()+"','"+AllTotal.getText()+"','"+sqlDate+"');");
           }
             DbUtil.runQuery("insert into billing values('"+CustumerjTextField.getText()+"','"+billNOjTextField1.getText()+"','"+sqlDate+"','"+AllTotal.getText()+"','"+BarberNameField.getText()+"');");
             createNewPdf(CustumerjTextField.getText(),billNOjTextField1.getText());
             openpdf(CustumerjTextField.getText(),billNOjTextField1.getText());
-            JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Bill Saved Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Bill Are Already Saved or Change Bill No or Create New Bill or "+e);
@@ -5739,55 +5753,62 @@ public class HomePage extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        getBillNo();
-        CustumerjTextField.setText("");
-        MobilejTextField.setText("");
-        EmailCustjTextField1.setText("");
-        ServiceSearch.setText("");
-        UnitPrice.setText("");
-        ServiceDiscount.setText("");
-        Quantity.setText("");
-        AllTotal.setText("");
-        TotalDiscount2.setText("");
-        BarberNameField.setText("");
-        emailLabel.setText("");
-        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
-        try {
-            int row = model.getRowCount();
-            for(int i=row-1;i>=0;i--){
-            model.removeRow(i);
-            }
-        } catch (Exception e) {
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Create New Bill ?","New",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            getBillNo();
+            CustumerjTextField.setText("");
+            MobilejTextField.setText("");
+            EmailCustjTextField1.setText("");
+            ServiceSearch.setText("");
+            UnitPrice.setText("");
+            ServiceDiscount.setText("");
+            Quantity.setText("");
+            AllTotal.setText("");
+            TotalDiscount2.setText("");
+            BarberNameField.setText("");
+            emailLabel.setText("");
+            DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+                try {
+                    int row = model.getRowCount();
+                    for(int i=row-1;i>=0;i--){
+                        model.removeRow(i);
+                    }
+                } catch (Exception e) {
+                    }
+            totaldiscout = 0.0;
+            totalprice = 0.0;
         }
-        totaldiscout = 0.0;
-        totalprice = 0.0;
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void ResetBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetBillActionPerformed
         // TODO add your handling code here:
-        getBillNo();
-        CustumerjTextField.setText("");
-        MobilejTextField.setText("");
-        EmailCustjTextField1.setText("");
-        ServiceSearch.setText("");
-        UnitPrice.setText("");
-        ServiceDiscount.setText("");
-        Quantity.setText("");
-        AllTotal.setText("");
-        TotalDiscount2.setText("");
-        BarberNameField.setText("");
-        emailLabel.setText("");
-        DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
-        try {
-            int row = model.getRowCount();
-            for(int i=row-1;i>=0;i--){
-            model.removeRow(i);
-            }
-        } catch (Exception e) {
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            getBillNo();
+            CustumerjTextField.setText("");
+            MobilejTextField.setText("");
+            EmailCustjTextField1.setText("");
+            ServiceSearch.setText("");
+            UnitPrice.setText("");
+            ServiceDiscount.setText("");
+            Quantity.setText("");
+            AllTotal.setText("");
+            TotalDiscount2.setText("");
+            BarberNameField.setText("");
+            emailLabel.setText("");
+            DefaultTableModel model = (DefaultTableModel)BillingTable.getModel();
+                try {
+                    int row = model.getRowCount();
+                    for(int i=row-1;i>=0;i--){
+                    model.removeRow(i);
+                    }
+                } catch (Exception e) {
+                    }
+            totaldiscout = 0.0;
+            totalprice = 0.0;
         }
-        totaldiscout = 0.0;
-        totalprice = 0.0;
     }//GEN-LAST:event_ResetBillActionPerformed
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
@@ -5854,7 +5875,7 @@ public class HomePage extends javax.swing.JFrame {
             try {
                 con=DbUtil.loadDriver();
                 DbUtil.runQueryforDelete("delete from userdetails where  FirstName= ?", DeleteEmployee1);
-                JOptionPane.showMessageDialog(this, "Userdetails Deleted Succesfully","information",JOptionPane.OK_OPTION);
+                JOptionPane.showMessageDialog(this, "Userdetails Deleted Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
                 getEmployeeData();
                 con.close();
             } catch (Exception e) {
@@ -6053,7 +6074,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforEditEmployee("UPDATE `userdetails` SET `FirstName`=?,`LastName`=?,`Contact No`=?,`Address`=?,`Gender`=?,`User Id`=?,`Password`=?,`Email`=?,`Type`=? WHERE FirstName=?;", emp_textF1, emp_textF2,emp_textF3,emp_textF4,gender,user_Tf,Pass_Tf,email_Tf,UserTypeCom1.getItemAt(UserTypeCom1.getSelectedIndex()),search_Tf);
-            JOptionPane.showMessageDialog(this, "Employee Details Edited Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Employee Details Edited Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getEmployeeData();
             con.close();
         } catch (SQLException e) {
@@ -6608,7 +6629,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforDelete("delete from supplier where CompanyName = ?", Deltf);
-            JOptionPane.showMessageDialog(this, "Supplier Deleted Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Supplier Deleted Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getSupplierTabelData();
             con.close();
         } catch (Exception e) {
@@ -6630,7 +6651,7 @@ public class HomePage extends javax.swing.JFrame {
         try {
             con=DbUtil.loadDriver();
             DbUtil.runQuery("insert into supplier values('"+CNameTF.getText()+"','"+AddressTA.getText()+"','"+ContactTF.getText()+"','"+SEmailTF.getText()+"');");
-            JOptionPane.showMessageDialog(this, "Supplier Details added Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Supplier Details added Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getSupplierTabelData();
             con.close();
         } catch (Exception e) {
@@ -6640,10 +6661,14 @@ public class HomePage extends javax.swing.JFrame {
 
     private void SresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SresetActionPerformed
         // TODO add your handling code here:
-        CNameTF.setText("");
-        AddressTA.setText("");
-        ContactTF.setText("");
-        SEmailTF.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            CNameTF.setText("");
+            AddressTA.setText("");
+            ContactTF.setText("");
+            SEmailTF.setText("");
+        }
     }//GEN-LAST:event_SresetActionPerformed
 
     private void SupplierCNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierCNActionPerformed
@@ -6662,7 +6687,7 @@ public class HomePage extends javax.swing.JFrame {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforEditSupplie("update supplier set CompanyName = ?,Address = ?,Contact=?,Email=? where CompanyName = ?", EditSupplirttf, AddTextArea,SupplierCN,SuppEditM,EditCtf);
-            JOptionPane.showMessageDialog(this, "Product Edited Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Product Edited Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getSupplierTabelData();
             con.close();
         } catch (SQLException e) {
@@ -6674,11 +6699,15 @@ public class HomePage extends javax.swing.JFrame {
 
     private void ResetSuppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetSuppActionPerformed
         // TODO add your handling code here:
-        EditCtf.setText("");
-        EditSupplirttf.setText("");
-        AddTextArea.setText("");
-        SupplierCN.setText("");
-        SuppEditM.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            EditCtf.setText("");
+            EditSupplirttf.setText("");
+            AddTextArea.setText("");
+            SupplierCN.setText("");
+            SuppEditM.setText("");
+        }
         
     }//GEN-LAST:event_ResetSuppActionPerformed
 
@@ -6773,7 +6802,9 @@ public class HomePage extends javax.swing.JFrame {
                     ps.setBinaryStream(7, file,file.available());
                     ps.executeUpdate();
                     salondetail();
-                    JOptionPane.showMessageDialog(this, "Details Save SuccessFully");
+                    
+                    JOptionPane.showMessageDialog(this, "Details Save SuccessFully","SAVED",JOptionPane.INFORMATION_MESSAGE,iconimg);
+                    
                     con.close();
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, e);
@@ -6790,7 +6821,7 @@ public class HomePage extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     DbUtil.runQuery("DELETE FROM `salondetail` WHERE `Sr No` = 1");
                     con.close();
-                    JOptionPane.showMessageDialog(this, "Please RESTART The Software To See Changes");
+                    JOptionPane.showMessageDialog(this, "Please RESTART The Software To See Changes","RESET",JOptionPane.INFORMATION_MESSAGE,iconimg);
                 }catch (Exception e) {
                 }
             }
@@ -6908,7 +6939,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
             
             String time = jSpinner1.getValue().toString();
             DbUtil.runQuery("insert into appointment values('"+CustomerNameop.getText()+"','"+MobilejTextField1.getText()+"','"+EmailCustjTextField2.getText()+"','"+sqlDate+"','"+time.substring(11, 19)+"');");
-            JOptionPane.showMessageDialog(this, "Appointment set Sucessfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Appointment set Sucessfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getAppointmentData();
             con.close();
         } catch (Exception e) {
@@ -6939,7 +6970,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
          try {
             con=DbUtil.loadDriver();
             DbUtil.runQueryforDelete("delete from appointment where `Customer Name` = ?", CustomerNameop);
-            JOptionPane.showMessageDialog(this, "Appointment Deleted Succesfully","information",JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(this, "Appointment Deleted Succesfully","information",JOptionPane.INFORMATION_MESSAGE,iconimg);
             getAppointmentData();
             con.close();
         } catch (Exception e) {
@@ -6951,9 +6982,13 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 
     private void ReseTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReseTActionPerformed
         // TODO add your handling code here:
-        CustomerNameop.setText("");
-        MobilejTextField1.setText("");
-        EmailCustjTextField2.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            CustomerNameop.setText("");
+            MobilejTextField1.setText("");
+            EmailCustjTextField2.setText("");
+        }
     }//GEN-LAST:event_ReseTActionPerformed
 
     private void RegistrationbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrationbtnActionPerformed
@@ -7053,9 +7088,13 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
-        Msg.setText("");
-        TO.setText("");
-        Search.setText("");
+        int Resetopt = JOptionPane.showConfirmDialog(this, "Do you really want to Reset ?","RESET",JOptionPane.YES_NO_OPTION);
+
+        if(Resetopt==JOptionPane.YES_OPTION){
+            Msg.setText("");
+            TO.setText("");
+            Search.setText("");
+        }
     }//GEN-LAST:event_resetActionPerformed
     //here is code for generate pdf
     

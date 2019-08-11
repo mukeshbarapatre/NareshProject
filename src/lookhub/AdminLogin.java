@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author vip
  */
 public class AdminLogin extends javax.swing.JFrame {
-
+    ImageIcon iconimg1 = new ImageIcon("src\\lookhub\\Images\\success.png");
     String LoginChosser = "ADMIN";
     Connection con;
     PreparedStatement pstmt;
@@ -385,6 +385,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -405,6 +406,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"ADMIN");
                     if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -482,6 +484,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     con=DbUtil.loadDriver();
                     rs=DbUtil.runQueryforLogin("SELECT * FROM `userdetails` WHERE FirstName = ? AND Password = ? AND Type = ?", username,password,"USER");
                     if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                         HomePage hp = new HomePage(rs);
                         hp.setVisible(true);
                         this.dispose();
@@ -501,7 +504,7 @@ public class AdminLogin extends javax.swing.JFrame {
                 con=DbUtil.loadDriver();
                 rs=DbUtil.runQueryforLogin("select * from userdetails where FirstName = ? AND Password = ? AND Type = ? ", username,password,"ADMIN");
                 if (rs.next()) {
-                    System.out.println(rs.getString(1)+" "+rs.getString(7)+" "+rs.getString(9));
+                    JOptionPane.showMessageDialog(this, "Login Succesfully","LOGIN",JOptionPane.INFORMATION_MESSAGE,iconimg1);
                     HomePage hp = new HomePage(rs);
                     hp.setVisible(true);
                     this.dispose();
