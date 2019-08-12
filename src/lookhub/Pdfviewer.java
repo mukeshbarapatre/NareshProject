@@ -22,7 +22,7 @@ public class Pdfviewer extends javax.swing.JFrame {
     public Pdfviewer(String name,String billnos) {
         initComponents();
         this.setTitle("Look Hub - Pdf Viewer");
-        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/lookhub/Images/Unisex.png"));  
         this.setIconImage(icon);
         
         try {

@@ -23,11 +23,11 @@ public class MessageKey extends javax.swing.JFrame {
     /**
      * Creates new form MessageKey
      */
-    ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\success.png");
+    ImageIcon iconimg = new ImageIcon(getClass().getResource("/lookhub/Images/success.png"));
     public MessageKey() {
         initComponents();
         this.setTitle("Look Hub - Message Key");
-        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/lookhub/Images/Unisex.png"));  
         this.setIconImage(icon);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension size = tk.getScreenSize();

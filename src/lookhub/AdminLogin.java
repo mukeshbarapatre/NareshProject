@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author vip
  */
 public class AdminLogin extends javax.swing.JFrame {
-    ImageIcon iconimg1 = new ImageIcon("src\\lookhub\\Images\\success.png");
+    ImageIcon iconimg1 = new ImageIcon(getClass().getResource("/lookhub/Images/success.png"));
     String LoginChosser = "ADMIN";
     Connection con;
     PreparedStatement pstmt;
@@ -30,7 +30,7 @@ public class AdminLogin extends javax.swing.JFrame {
     public AdminLogin() {
         initComponents();
         this.setTitle("Look Hub - Login");
-        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/lookhub/Images/Unisex.png"));  
         this.setIconImage(icon);
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension size = tk.getScreenSize();
@@ -418,8 +418,9 @@ public class AdminLogin extends javax.swing.JFrame {
         LoginChosser = "ADMIN";
         password.setText("");
         username.setText("");
-        ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
-        adminpic.setIcon(iconimg);
+        //ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
+        //adminpic.setIcon(iconimg);
+        adminpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/AdminLogin.png")));
         username.requestFocus();
     }//GEN-LAST:event_ADMINLOGINActionPerformed
 
@@ -428,8 +429,9 @@ public class AdminLogin extends javax.swing.JFrame {
         LoginChosser = "USER";
         password.setText("");
         username.setText("");
-        ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
-        adminpic.setIcon(iconimg);
+        //ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
+        //adminpic.setIcon(iconimg);
+        adminpic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lookhub/Images/UserLogin.png")));
         username.requestFocus();
     }//GEN-LAST:event_USERLOGINActionPerformed
 

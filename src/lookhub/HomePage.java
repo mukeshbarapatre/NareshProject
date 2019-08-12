@@ -91,7 +91,7 @@ public class HomePage extends javax.swing.JFrame {
     java.sql.Date sqlDate;
     String ADMINorUSER;
     String Imagepath;
-    ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\success.png");
+    ImageIcon iconimg = new ImageIcon(getClass().getResource("/lookhub/Images/success.png"));
     public HomePage(ResultSet RS)  {
        
         
@@ -103,7 +103,7 @@ public class HomePage extends javax.swing.JFrame {
         
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setTitle("LooK Hub");
-        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/lookhub/Images/Unisex.png"));  
         this.setIconImage(icon);
         
        if(ysize>769||xsize>1367){
@@ -120,11 +120,11 @@ public class HomePage extends javax.swing.JFrame {
             usernameLabel.setText(RS.getString(1)+" "+RS.getString(2));
             ADMINorUSER = RS.getString(9);
             if (RS.getString(9).equals("ADMIN")) {
-                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\AdminLogin.png");
+                ImageIcon iconimg = new ImageIcon(getClass().getResource("/lookhub/Images/AdminLogin.png"));
                 adminpic.setIcon(iconimg);
             }
             if (RS.getString(9).equals("USER")) {
-                ImageIcon iconimg = new ImageIcon("src\\lookhub\\Images\\UserLogin.png");
+                ImageIcon iconimg = new ImageIcon(getClass().getResource("/lookhub/Images/UserLogin.png"));
                 adminpic.setIcon(iconimg);
             } 
         } catch (Exception e) {
@@ -7145,7 +7145,7 @@ if (ReportCombo.getSelectedItem().equals("Barber")) {
             Paragraph discription = new Paragraph();
             
             //for image 
-            Image img = Image.getInstance("src\\lookhub\\Images\\Unisex.png");
+            Image img = Image.getInstance(getClass().getResource("/lookhub/Images/Unisex.png"));
             img.setAbsolutePosition(150f, 725f);// image position
             img.scaleAbsolute(75f, 75f);
             

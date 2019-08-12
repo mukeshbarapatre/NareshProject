@@ -31,7 +31,7 @@ public class ForgetPassword extends javax.swing.JFrame {
     /**
      * Creates new form ForgotPassword
      */
-    ImageIcon iconimg1 = new ImageIcon("src\\lookhub\\Images\\success.png");
+    ImageIcon iconimg1 = new ImageIcon(getClass().getResource("/lookhub/Images/success.png"));
     int OTPs;
     String password;
     public ForgetPassword() {
@@ -41,7 +41,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         this.setLocation(size.width/2 - getWidth()/2,size.height/2 - getHeight()/2);
         passwd.setVisible(false);
         this.setTitle("Look Hub - Fogot Password");
-        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage("src\\lookhub\\Images\\Unisex.png");  
+        java.awt.Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/lookhub/Images/Unisex.png"));  
         this.setIconImage(icon);
     }
 
